@@ -635,15 +635,16 @@ namespace GestionJardin
 
         private void cbSala_Leave(object sender, EventArgs e)
         {
-
             string color = cbSala.SelectedIndex.ToString();
+
             if (string.IsNullOrWhiteSpace(cbSala.Text.Trim()) == true)
             {
                 cbSala.Style = MetroFramework.MetroColorStyle.Red;
                 cbSala.Focus();
                 lblSala.Visible = true;
-                lblSala.Text = "Por favor seleccione una sala";
+                lblSala.Text = "Por favor, seleccione una sala";
             }
+
             if (color == "0")
             {
                 lblSala.Visible = true;
@@ -819,8 +820,16 @@ namespace GestionJardin
             }
         }
 
-        private void dtNacimiento_Leave(object sender, EventArgs e)
+
+
+
+
+       
+      
+private void dtNacimiento_Leave(object sender, EventArgs e)
+
         {
+
             string salas;
             string turno;
             DateTime fecha_nacimineto = dtNacimiento.Value;
@@ -859,14 +868,16 @@ namespace GestionJardin
                     lblSala.Visible = true;
                     lblSala.Text = " 4 a 5 años ";
                     lblSala.ForeColor = Color.Gainsboro;
-
+                    
 
                 }
                 else
                 {
                     lblSala.Visible = false;
                 }
-                               
+
+
+
                 logPersonas objlogpersonas = new logPersonas();
                 string resultado = objlogpersonas.Validar_Salas(fecha_nacimineto, salas, turno);
 
@@ -879,6 +890,8 @@ namespace GestionJardin
 
                 }
             }
-        }
+    }
+        
+
     }
 }

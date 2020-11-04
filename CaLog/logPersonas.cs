@@ -292,6 +292,7 @@ namespace CaLog
 
                 }
 
+
                 else
                 {
                     result = "El alumno no puede ingresar a la Institución puesto que no cumple con la condición de edad ya que tendrá" + EdadAnos + " años y " + EdadMeses + " meses en junio del corriente año";
@@ -300,11 +301,11 @@ namespace CaLog
 
             }
 
-            return result;
-
+                return result;
+            
         }
 
+
+
     }
-
 }
-
