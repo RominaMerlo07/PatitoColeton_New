@@ -695,3 +695,4 @@ C:\Users\Federico\Desktop\NO MOVER\GestionJardin\bin\Debug\CapaAccesoDatos.dll.c
 C:\Users\Federico\Desktop\NO MOVER\GestionJardin\obj\Debug\GestionJardin.exe.manifest
 C:\Users\Federico\Desktop\NO MOVER\GestionJardin\obj\Debug\GestionJardin.application
 C:\Users\Federico\Desktop\NO MOVER\GestionJardin\obj\Debug\GestionJardin.csproj.CopyComplete
+C:\Users\Laura\Desktop\ProyectoSistemasCapas\GestionJardin\obj\Debug\GestionJardin.frmAsistencia_Informe.resources
