@@ -145,7 +145,7 @@ namespace CaAD//GestionJardin
             cmd = new SqlCommand(consulta, con);
 
             dr2 = cmd.ExecuteReader();
-            dt.Load(dr);
+            dt.Load(dr2);
 
             //while (dr2.Read())
             //{

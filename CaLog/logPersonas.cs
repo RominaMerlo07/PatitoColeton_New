@@ -222,5 +222,90 @@ namespace CaLog
             return objMetPersonas.EliminarDocentePersona(eli_Docente);
 
         }
+
+        public string Validar_Salas(DateTime pdatetime, string sala, string turno)
+
+        {
+
+            string result;
+            result = "";
+
+            DateTime FechaReferencia = new DateTime(2020, 06, 30);
+
+            int EdadAnos = (Convert.ToInt32(FechaReferencia.Year - pdatetime.Year));
+            int EdadMeses = (Convert.ToInt32(FechaReferencia.Month - pdatetime.Month));
+
+            if
+                (FechaReferencia.Month < pdatetime.Month)
+            {
+                EdadMeses = (12 - ((Convert.ToInt32(pdatetime.Month) - Convert.ToInt32(FechaReferencia.Month))));
+            }
+
+            if ((FechaReferencia.Year - pdatetime.Year == 1) && EdadMeses < 6)
+
+            {
+                EdadAnos = 1;
+            }
+            if ((FechaReferencia.Year - pdatetime.Year == 1) && EdadMeses >= 6)
+            {
+                EdadAnos = 0;
+            }
+
+
+            int Id_sala = Convert.ToInt32(sala);
+
+            if (turno != null && sala != null)
+            {
+
+                if (((EdadAnos == 1) || (EdadAnos == 2 && EdadMeses <= 6)) && (Id_sala == 1 || Id_sala == 2))
+
+                {
+                    result = "OK";
+                }
+                else if (((EdadAnos == 1) || (EdadAnos == 2 && EdadMeses <= 6)) && (Id_sala != 1 || Id_sala != 2))
+                {
+                    result = "EL ALUMNO PERTENECE A LA SALA ROSA DADO QUE SU EDAD AL 30 DE JUNIO DEL CORRIENTE AÑO ES:  " + EdadAnos + " años  y " + EdadMeses + " meses";
+
+                }
+
+                else if (((EdadAnos == 2 && EdadMeses > 6) || (EdadAnos == 3) || (EdadAnos == 4 && EdadMeses >= 6)) && Id_sala == 3)
+                {
+                    result = "OK";
+
+                }
+                else if (((EdadAnos == 2 && EdadMeses > 6) || (EdadAnos == 3) || (EdadAnos == 4 && EdadMeses >= 6)) && Id_sala != 3)
+                {
+
+                    result = "EL ALUMNO PERTENECE A LA SALA NARANJA DADO QUE TENDRÁ " + EdadAnos + " AÑOS  y " + EdadMeses + " MESES AL 30 DE JUNIO DE ESTE AÑO";
+
+                }
+
+                else if (((EdadAnos == 4 && EdadMeses < 6) || (EdadAnos == 5 && EdadMeses <= 6)) && Id_sala == 5)
+                {
+                    result = "OK";
+
+                }
+
+                else if (((EdadAnos == 4 && EdadMeses < 6) || (EdadAnos == 5 && EdadMeses <= 6)) && Id_sala != 5)
+                {
+                    result = "EL ALUMNO PERTENECE A LA SALA VERDE DADO QUE TENDRÁ " + EdadAnos + " AÑOS  y " + EdadMeses + " MESES AL 30 DE JUNIO DE ESTE AÑO";
+
+                }
+
+
+                else
+                {
+                    result = "El alumno no puede ingresar a la Institución puesto que no cumple con la condición de edad ya que tendrá" + EdadAnos + " años y " + EdadMeses + " meses en junio del corriente año";
+
+                }
+
+            }
+
+                return result;
+            
+        }
+
+
+
     }
 }
