@@ -386,8 +386,10 @@ namespace GestionJardin
         private void cbSala_SelectedValueChanged(object sender, EventArgs e)
         {
             string id_sala;
+            if (cbSala.SelectedValue != null)
+            { 
 
-            id_sala = cbSala.SelectedValue.ToString(); //.ToString();
+                id_sala = cbSala.SelectedValue.ToString(); //.ToString();
             logSalas objlogSalas = new logSalas();
             DataTable gruposSalas = new DataTable();
             gruposSalas = objlogSalas.traerSalasCupo();
@@ -396,25 +398,26 @@ namespace GestionJardin
             int MAXIMO = Convert.ToInt16(rows[0]["MAXIMO"].ToString());
             int VACANTES = MAXIMO - CANTIDAD;
 
-            txtVacantes.Text = VACANTES.ToString();
+                txtVacantes.Text = VACANTES.ToString();
 
-            if (VACANTES > 0)
-            {
-                lbl_panelSala.Visible = false;
-                panelDatos.Visible = true;
-                panelContacto.Visible = true;
-                btnGuardar.Visible = true;
-                btnCancelar.Visible = true;
-                txtDocumento.Focus(); 
+                if (VACANTES > 0)
+                {
+                    lbl_panelSala.Visible = false;
+                    panelDatos.Visible = true;
+                    panelContacto.Visible = true;
+                    btnGuardar.Visible = true;
+                    btnCancelar.Visible = true;
+                    txtDocumento.Focus();
 
-            }
-            else
-            {
-                txtVacantes.Style = MetroFramework.MetroColorStyle.Red;
-                txtVacantes.Focus();
-               
-                MessageBox.Show("No existen vacantes para el turno y sala elegida. Por favor elija otro turno.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-               
+                }
+                else
+                {
+                    txtVacantes.Style = MetroFramework.MetroColorStyle.Red;
+                    txtVacantes.Focus();
+
+                    MessageBox.Show("No existen vacantes para el turno y sala elegida. Por favor elija otro turno.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                }
             }
         }
 
@@ -645,15 +648,28 @@ namespace GestionJardin
                 lblSala.Text = "Por favor, seleccione una sala";
             }
 
-            if (color == "0")
+            if (color == "-1")
+            {
+                cbSala.Focus();
+                lblSala.Visible = true;
+                lblSala.Text = "Por favor, seleccione una sala";
+            
+            }
+
+            else if (color == "0")
             {
                 lblSala.Visible = true;
+                lblSala.Font = new Font(lblSala.Font.Name, 12);
+                lblSala.ForeColor = Color.Gainsboro;
                 lblSala.Text = " 1 a 2 años ";
+
 
             }
             else if (color == "1")
             {
                 lblSala.Visible = true;
+                lblSala.Font = new Font(lblSala.Font.Name, 12);
+                lblSala.ForeColor = Color.Gainsboro;
                 lblSala.Text = "3 a 4 años";
             }
 
@@ -661,6 +677,8 @@ namespace GestionJardin
 
             {
                 lblSala.Visible = true;
+                lblSala.Font = new Font(lblSala.Font.Name, 12);
+                lblSala.ForeColor = Color.Gainsboro;
                 lblSala.Text = " 4 a 5 años ";
 
             }
@@ -853,13 +871,17 @@ private void dtNacimiento_Leave(object sender, EventArgs e)
                 if (color == "0")
                 {
                     lblSala.Visible = true;
+                    lblSala.Font = new Font(lblSala.Font.Name, 12);
+                    lblSala.ForeColor = Color.Gainsboro;
                     lblSala.Text = " 1 a 2 años ";
 
                 }
                 else if (color == "1")
                 {
                     lblSala.Visible = true;
-                    lblSala.Text = "3 a 4 años";
+                    lblSala.Font = new Font(lblSala.Font.Name, 12);
+                    lblSala.ForeColor = Color.Gainsboro;
+                    lblSala.Text = " 3 a 4 años ";
                 }
 
                 else if (color == "2")
@@ -867,6 +889,8 @@ private void dtNacimiento_Leave(object sender, EventArgs e)
                 {
                     lblSala.Visible = true;
                     lblSala.Text = " 4 a 5 años ";
+                    lblSala.Font = new Font(lblSala.Font.Name, 12);
+                    lblSala.ForeColor = Color.Gainsboro;
                     lblSala.ForeColor = Color.Gainsboro;
                     
 
@@ -886,6 +910,7 @@ private void dtNacimiento_Leave(object sender, EventArgs e)
 
                 {
                     MessageBox.Show(resultado);
+                    cbSala.SelectedIndex = -1;
                     cbSala.Focus();
 
                 }

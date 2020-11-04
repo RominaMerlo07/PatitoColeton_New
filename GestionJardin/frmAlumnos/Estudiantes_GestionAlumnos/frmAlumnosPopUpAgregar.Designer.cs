@@ -1137,7 +1137,7 @@
             this.txtDocumento.Lines = new string[0];
             this.txtDocumento.Location = new System.Drawing.Point(37, 82);
             this.txtDocumento.Margin = new System.Windows.Forms.Padding(2);
-            this.txtDocumento.MaxLength = 32767;
+            this.txtDocumento.MaxLength = 8;
             this.txtDocumento.Name = "txtDocumento";
             this.txtDocumento.PasswordChar = '\0';
             this.txtDocumento.PromptText = "Documento Ej: 30123456";

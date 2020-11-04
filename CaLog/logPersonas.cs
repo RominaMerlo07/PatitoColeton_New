@@ -264,7 +264,7 @@ namespace CaLog
                 }
                 else if (((EdadAnos == 1) || (EdadAnos == 2 && EdadMeses <= 6)) && (Id_sala != 1 || Id_sala != 2))
                 {
-                    result = "EL ALUMNO PERTENECE A LA SALA ROSA DADO QUE SU EDAD AL 30 DE JUNIO DEL CORRIENTE AÑO ES:  " + EdadAnos + " años  y " + EdadMeses + " meses";
+                    result = "La edad del alumno al mes de junio es de " + EdadAnos + " años  y " + EdadMeses + " meses.Corresponde inscribirlo en la SALA ROSA.";
 
                 }
 
@@ -276,7 +276,7 @@ namespace CaLog
                 else if (((EdadAnos == 2 && EdadMeses > 6) || (EdadAnos == 3) || (EdadAnos == 4 && EdadMeses >= 6)) && Id_sala != 3)
                 {
 
-                    result = "EL ALUMNO PERTENECE A LA SALA NARANJA DADO QUE TENDRÁ " + EdadAnos + " AÑOS  y " + EdadMeses + " MESES AL 30 DE JUNIO DE ESTE AÑO";
+                    result = "La edad del alumno al mes de junio es de " + EdadAnos + " años  y " + EdadMeses + " meses. Corresponde inscribirlo en la SALA NARANJA."; 
 
                 }
 
@@ -288,14 +288,14 @@ namespace CaLog
 
                 else if (((EdadAnos == 4 && EdadMeses < 6) || (EdadAnos == 5 && EdadMeses <= 6)) && Id_sala != 5)
                 {
-                    result = "EL ALUMNO PERTENECE A LA SALA VERDE DADO QUE TENDRÁ " + EdadAnos + " AÑOS  y " + EdadMeses + " MESES AL 30 DE JUNIO DE ESTE AÑO";
+                    result = "La edad del alumno al mes de junio es de " + EdadAnos + " años  y " + EdadMeses + " meses. Corresponde inscribirlo en la SALA VERDE.";
 
                 }
 
 
                 else
                 {
-                    result = "El alumno no puede ingresar a la Institución puesto que no cumple con la condición de edad ya que tendrá" + EdadAnos + " años y " + EdadMeses + " meses en junio del corriente año";
+                    result = "La edad del alumno al mes de junio es de " + EdadAnos + " años y " + EdadMeses + " meses. NO puede inscribirse ya que no cumple con la condición de edad.";
 
                 }
 
@@ -304,6 +304,8 @@ namespace CaLog
                 return result;
             
         }
+
+        
 
 
 
