@@ -306,9 +306,10 @@ namespace CaAD//GestionJardin
 
 
 
-        public InformeAsistencia InformeAsistencia(string turno, string sala, string fecha)
+        public DataSet InformeAsistencia(string turno, string sala, string fecha)
         {
             InformeAsistencia infA = new InformeAsistencia();
+            DataSet dset = new DataSet();
 
             con = generarConexion();
             con.Open();
@@ -317,16 +318,16 @@ namespace CaAD//GestionJardin
             {
                 string consulta = "SELECT PER_ID, " +
                                          "'' AS_ID, " +
-                                        "(PER_NOMBRE + ' ' + PER_APELLIDO) ALUMNO, " +
-                                        "PER_DOCUMENTO DOCUMENTO, " +
-                                        "SAL_NOMBRE SALA, " +
+                                        "(PER_NOMBRE + ' ' + PER_APELLIDO) nombre, " +
+                                        "PER_DOCUMENTO documento, " +
+                                        "SAL_NOMBRE sala, " +
                                         "CASE SAL_TURNO " +
                                             "WHEN 'MANANA' THEN 'MAÑANA' " +
                                             "ELSE 'TARDE' " +
-                                        "END TURNO, " +
+                                        "END turno, " +
                                         "CONVERT(VARCHAR(10), '" + fecha + "', 103) FECHA, " +
-                                        "'' ASISTENCIA, " +
-                                        "'' JUSTIFICADO " +
+                                        "'' asistencia, " +
+                                        "'' justificado " +
                                   "FROM T_PERSONAS , T_SALA , T_GRUPO_SALA " +
                                   "WHERE PER_ID = GRS_PER_ID " +
                                     "AND SAL_ID = GRS_SAL_ID " +
@@ -369,36 +370,38 @@ namespace CaAD//GestionJardin
 
                 cmd = new SqlCommand(consulta, con);
                 dta = new SqlDataAdapter(cmd);
-                dt = new DataTable();
-                dta.Fill(dt);
+                
+                dta.Fill(dset);
 
                 con.Close();
 
-                if (dt != null)
-                {
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        //result = Convert.ToString(dr["PER_ID"]);
+                //if (dt != null)
+                //{
+                //    foreach (DataRow dr in dt.Rows)
+                //    {
+                //        //result = Convert.ToString(dr["PER_ID"]);
 
                                                 
-                        if (dr["ALUMNO"] != DBNull.Value)
-                            infA.nombre = Convert.ToString(dr["ALUMNO"]);
-                        if (dr["DOCUMENTO"] != DBNull.Value)
-                            infA.documento = Convert.ToString(dr["DOCUMENTO"]);
-                        if (dr["SALA"] != DBNull.Value)
-                            infA.sala = Convert.ToString(dr["SALA"]);
-                        if (dr["TURNO"] != DBNull.Value)
-                            infA.turno = Convert.ToString(dr["TURNO"]);
-                        if (dr["AS_FECHA"] != DBNull.Value)
-                            infA.fecha = Convert.ToDateTime(dr["AS_FECHA"]);
-                        if (dr["ASISTENCIA"] != DBNull.Value)
-                            infA.asistencia = Convert.ToString(dr["ASISTENCIA"]);
-                        if (dr["JUSTIFICADO"] != DBNull.Value)
-                            infA.justificado = Convert.ToString(dr["JUSTIFICADO"]);
+                //        if (dr["ALUMNO"] != DBNull.Value)
+                //            infA.nombre = Convert.ToString(dr["ALUMNO"]);
+                //        if (dr["DOCUMENTO"] != DBNull.Value)
+                //            infA.documento = Convert.ToString(dr["DOCUMENTO"]);
+                //        if (dr["SALA"] != DBNull.Value)
+                //            infA.sala = Convert.ToString(dr["SALA"]);
+                //        if (dr["TURNO"] != DBNull.Value)
+                //            infA.turno = Convert.ToString(dr["TURNO"]);
+                //        if (dr["AS_FECHA"] != DBNull.Value)
+                //            infA.fecha = Convert.ToDateTime(dr["AS_FECHA"]);
+                //        if (dr["ASISTENCIA"] != DBNull.Value)
+                //            infA.asistencia = Convert.ToString(dr["ASISTENCIA"]);
+                //        if (dr["JUSTIFICADO"] != DBNull.Value)
+                //            infA.justificado = Convert.ToString(dr["JUSTIFICADO"]);
                         
 
-                    }
-                }
+                //    }
+                //}
+
+                return dset;
             }
             catch
             {
@@ -407,7 +410,7 @@ namespace CaAD//GestionJardin
 
 
             }
-            return infA;
+            return dset;
 
         }
 

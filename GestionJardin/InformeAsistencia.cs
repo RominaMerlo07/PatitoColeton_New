@@ -24,7 +24,16 @@ namespace GestionJardin
         public InformeAsistencia(string idSala, string turno, DateTime fecha)
         {
             InitializeComponent();
-            InformeAsistenciaBindingSource.DataSource = logAsistencia.InformeAsistencia(turno, idSala, fecha.ToShortDateString());
+            //InformeAsistenciaBindingSource.DataSource = logAsistencia.InformeAsistencia(turno, idSala, fecha.ToShortDateString());
+            DataSet informe = logAsistencia.InformeAsistencia(turno, idSala, fecha.ToShortDateString());
+            var reportPath = "GestionJardin.InformeAsistencia.rdlc";
+
+            ReportDataSource sReportDataSource = new ReportDataSource();
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = reportPath;
+            sReportDataSource.Name = "Informe_asistencia";
+            sReportDataSource.Value = informe.Tables[0];
+            reportViewer1.LocalReport.DataSources.Add(sReportDataSource);
+
             this.reportViewer1.RefreshReport();          
 
         }

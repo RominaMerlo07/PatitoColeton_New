@@ -6,10 +6,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>3.85467cm</Width>
+              <Width>7.3895cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.7065cm</Width>
+              <Width>5.46333cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>3.41017cm</Width>
@@ -26,7 +26,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>1.00217cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -479,11 +479,11 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>DataSet1</DataSetName>
+        <DataSetName>Informe_asistencia</DataSetName>
         <Top>2.00237cm</Top>
         <Left>1.04987cm</Left>
-        <Height>1.2cm</Height>
-        <Width>21.223cm</Width>
+        <Height>1.60217cm</Height>
+        <Width>26.51468cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -494,7 +494,7 @@
     <Height>2in</Height>
     <Style />
   </Body>
-  <Width>10.275in</Width>
+  <Width>10.85218in</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
@@ -516,7 +516,7 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DataSet1">
+    <DataSet Name="Informe_asistencia">
       <Query>
         <DataSourceName>CaEnt</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
