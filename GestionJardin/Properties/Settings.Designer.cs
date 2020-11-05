@@ -33,16 +33,5 @@ namespace GestionJardin.Properties {
                 return ((string)(this["conexion"]));
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-O8465LJG\\SQLEXPRESS;Initial Catalog=GESTION_JARDIN;Integrated " +
-            "Security=True")]
-        public string GESTION_JARDINConnectionString {
-            get {
-                return ((string)(this["GESTION_JARDINConnectionString"]));
-            }
-        }
     }
 }
