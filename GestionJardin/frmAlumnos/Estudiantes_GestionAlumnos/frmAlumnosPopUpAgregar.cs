@@ -386,8 +386,10 @@ namespace GestionJardin
         private void cbSala_SelectedValueChanged(object sender, EventArgs e)
         {
             string id_sala;
+            if (cbSala.SelectedValue != null)
+            { 
 
-            id_sala = cbSala.SelectedValue.ToString(); //.ToString();
+                id_sala = cbSala.SelectedValue.ToString(); //.ToString();
             logSalas objlogSalas = new logSalas();
             DataTable gruposSalas = new DataTable();
             gruposSalas = objlogSalas.traerSalasCupo();
@@ -396,25 +398,26 @@ namespace GestionJardin
             int MAXIMO = Convert.ToInt16(rows[0]["MAXIMO"].ToString());
             int VACANTES = MAXIMO - CANTIDAD;
 
-            txtVacantes.Text = VACANTES.ToString();
+                txtVacantes.Text = VACANTES.ToString();
 
-            if (VACANTES > 0)
-            {
-                lbl_panelSala.Visible = false;
-                panelDatos.Visible = true;
-                panelContacto.Visible = true;
-                btnGuardar.Visible = true;
-                btnCancelar.Visible = true;
-                txtDocumento.Focus(); 
+                if (VACANTES > 0)
+                {
+                    lbl_panelSala.Visible = false;
+                    panelDatos.Visible = true;
+                    panelContacto.Visible = true;
+                    btnGuardar.Visible = true;
+                    btnCancelar.Visible = true;
+                    txtDocumento.Focus();
 
-            }
-            else
-            {
-                txtVacantes.Style = MetroFramework.MetroColorStyle.Red;
-                txtVacantes.Focus();
-               
-                MessageBox.Show("No existen vacantes para el turno y sala elegida. Por favor elija otro turno.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-               
+                }
+                else
+                {
+                    txtVacantes.Style = MetroFramework.MetroColorStyle.Red;
+                    txtVacantes.Focus();
+
+                    MessageBox.Show("No existen vacantes para el turno y sala elegida. Por favor elija otro turno.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                }
             }
         }
 
@@ -635,7 +638,6 @@ namespace GestionJardin
 
         private void cbSala_Leave(object sender, EventArgs e)
         {
-
             string color = cbSala.SelectedIndex.ToString();
 
             if (string.IsNullOrWhiteSpace(cbSala.Text.Trim()) == true)
@@ -651,7 +653,7 @@ namespace GestionJardin
                 cbSala.Focus();
                 lblSala.Visible = true;
                 lblSala.Text = "Por favor, seleccione una sala";
-
+            
             }
 
             else if (color == "0")
@@ -836,8 +838,16 @@ namespace GestionJardin
             }
         }
 
-        private void dtNacimiento_Leave(object sender, EventArgs e)
+
+
+
+
+       
+      
+private void dtNacimiento_Leave(object sender, EventArgs e)
+
         {
+
             string salas;
             string turno;
             DateTime fecha_nacimineto = dtNacimiento.Value;
@@ -882,13 +892,15 @@ namespace GestionJardin
                     lblSala.Font = new Font(lblSala.Font.Name, 12);
                     lblSala.ForeColor = Color.Gainsboro;
                     lblSala.ForeColor = Color.Gainsboro;
-
+                    
 
                 }
                 else
                 {
                     lblSala.Visible = false;
                 }
+
+
 
                 logPersonas objlogpersonas = new logPersonas();
                 string resultado = objlogpersonas.Validar_Salas(fecha_nacimineto, salas, turno);
@@ -903,6 +915,8 @@ namespace GestionJardin
 
                 }
             }
-        }
+    }
+        
+
     }
 }
