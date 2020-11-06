@@ -46,5 +46,14 @@ namespace CaLog
             return objMetAsistencia.GrillaAsistenciaConsultar(sala, fechaDesde, fechaHasta);
 
         }
+
+
+        public DataSet InformeAsistencia(string turno, string sala, string fecha)
+        {
+
+            return objMetAsistencia.InformeAsistencia(turno, sala, fecha);
+
+        }
+
     }
 }

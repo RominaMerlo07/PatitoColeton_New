@@ -11,6 +11,7 @@ using System.Runtime.InteropServices.ComTypes;
 using System.Security.Cryptography.X509Certificates;
 using CaEnt;
 
+
 namespace CaAD//GestionJardin
 {
     public class metAsistencia : Conexion 
@@ -300,6 +301,116 @@ namespace CaAD//GestionJardin
             con.Close();
 
             return dt;
+
+        }
+
+
+
+        public DataSet InformeAsistencia(string turno, string sala, string fecha)
+        {
+            InformeAsistencia infA = new InformeAsistencia();
+            DataSet dset = new DataSet();
+
+            con = generarConexion();
+            con.Open();
+
+            try
+            {
+                string consulta = "SELECT PER_ID, " +
+                                         "'' AS_ID, " +
+                                        "(PER_NOMBRE + ' ' + PER_APELLIDO) nombre, " +
+                                        "PER_DOCUMENTO documento, " +
+                                        "SAL_NOMBRE sala, " +
+                                        "CASE SAL_TURNO " +
+                                            "WHEN 'MANANA' THEN 'MAÑANA' " +
+                                            "ELSE 'TARDE' " +
+                                        "END turno, " +
+                                        "CONVERT(VARCHAR(10), '" + fecha + "', 103) FECHA, " +
+                                        "'' asistencia, " +
+                                        "'' justificado " +
+                                  "FROM T_PERSONAS , T_SALA , T_GRUPO_SALA " +
+                                  "WHERE PER_ID = GRS_PER_ID " +
+                                    "AND SAL_ID = GRS_SAL_ID " +
+                                    "AND PER_TPE_ID = 2 " +
+                                    "AND PER_ESTADO = 'S' " +
+                                    "AND SAL_ID = '" + sala + "' " +
+                                    "AND SAL_TURNO = '" + turno + "' " +
+                                    "AND PER_ID NOT IN (SELECT AS_ID_PERSONA " +
+                                                         "FROM T_ASISTENCIA " +
+                                                        "WHERE AS_ID_PERSONA = PER_ID " +
+                                                          "AND AS_FECHA = CONVERT(VARCHAR(10), '" + fecha + "', 103)) " +
+                                "UNION " +
+                                "SELECT PER_ID, " +
+                                       "AS_ID AS_ID, " +
+                                      "(PER_NOMBRE + ' ' + PER_APELLIDO) ALUMNO, " +
+                                      "PER_DOCUMENTO DOCUMENTO, " +
+                                      "SAL_NOMBRE SALA, " +
+                                      "CASE SAL_TURNO " +
+                                        "WHEN 'MANANA' THEN 'MAÑANA' " +
+                                        "ELSE 'TARDE' " +
+                                      "END TURNO, " +
+                                      "AS_FECHA, " +
+                                      "CASE AS_ASISTENCIA " +
+                                        "WHEN '0' THEN 'P' " +
+                                        "WHEN '1' THEN 'A' " +
+                                      "END ASISTENCIA, " +
+                                      "CASE  AS_JUSTIFICADO " +
+                                        "WHEN '0' THEN 'SI' " +
+                                        "WHEN '1' THEN 'NO' " +
+                                        "ELSE '' " +
+                                      "END JUSTIFICADO " +
+                                "FROM T_PERSONAS, T_SALA, T_ASISTENCIA " +
+                               "WHERE AS_ID_PERSONA = PER_ID " +
+                                 "AND AS_SAL_ID = SAL_ID " +
+                                 "AND PER_TPE_ID = 2 " +
+                                 "AND PER_ESTADO = 'S' " +
+                                 "AND SAL_ID = '" + sala + "' " +
+                                 "AND SAL_TURNO = '" + turno + "' " +
+                                 "AND AS_FECHA = CONVERT(VARCHAR(10), '" + fecha + "', 103)";
+
+                cmd = new SqlCommand(consulta, con);
+                dta = new SqlDataAdapter(cmd);
+                
+                dta.Fill(dset);
+
+                con.Close();
+
+                //if (dt != null)
+                //{
+                //    foreach (DataRow dr in dt.Rows)
+                //    {
+                //        //result = Convert.ToString(dr["PER_ID"]);
+
+                                                
+                //        if (dr["ALUMNO"] != DBNull.Value)
+                //            infA.nombre = Convert.ToString(dr["ALUMNO"]);
+                //        if (dr["DOCUMENTO"] != DBNull.Value)
+                //            infA.documento = Convert.ToString(dr["DOCUMENTO"]);
+                //        if (dr["SALA"] != DBNull.Value)
+                //            infA.sala = Convert.ToString(dr["SALA"]);
+                //        if (dr["TURNO"] != DBNull.Value)
+                //            infA.turno = Convert.ToString(dr["TURNO"]);
+                //        if (dr["AS_FECHA"] != DBNull.Value)
+                //            infA.fecha = Convert.ToDateTime(dr["AS_FECHA"]);
+                //        if (dr["ASISTENCIA"] != DBNull.Value)
+                //            infA.asistencia = Convert.ToString(dr["ASISTENCIA"]);
+                //        if (dr["JUSTIFICADO"] != DBNull.Value)
+                //            infA.justificado = Convert.ToString(dr["JUSTIFICADO"]);
+                        
+
+                //    }
+                //}
+
+                return dset;
+            }
+            catch
+            {
+                //result = "ERROR";
+                //MessageBox.Show("Hubo un problema. Contáctese con su administrador.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
+            }
+            return dset;
 
         }
 

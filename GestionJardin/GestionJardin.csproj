@@ -177,12 +177,6 @@
     <Compile Include="frmAlumnos\Asistencias\frmAsistenciaConsulta.Designer.cs">
       <DependentUpon>frmAsistenciaConsulta.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAlumnos\Asistencias\frmAsistencia_Informe.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAlumnos\Asistencias\frmAsistencia_Informe.Designer.cs">
-      <DependentUpon>frmAsistencia_Informe.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmCobro\frmCobros\frmCobros_Consultar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -381,11 +375,14 @@
     <Compile Include="frmUsuarios\frmUsuariosPopUpEliminar.Designer.cs">
       <DependentUpon>frmUsuariosPopUpEliminar.cs</DependentUpon>
     </Compile>
+    <Compile Include="InformeAsistencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InformeAsistencia.Designer.cs">
+      <DependentUpon>InformeAsistencia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmAlumnos\Asistencias\frmAsistencia_Informe.resx">
-      <DependentUpon>frmAsistencia_Informe.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmAlumnos\Estudiantes_GrupoFlia\frmAlumnosGrupoFlia.resx">
       <DependentUpon>frmAlumnosGrupoFlia.cs</DependentUpon>
     </EmbeddedResource>
@@ -518,6 +515,10 @@
     <EmbeddedResource Include="frmUsuarios\frmUsuariosPopUpEliminar.resx">
       <DependentUpon>frmUsuariosPopUpEliminar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InformeAsistencia.rdlc" />
+    <EmbeddedResource Include="InformeAsistencia.resx">
+      <DependentUpon>InformeAsistencia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -542,7 +543,13 @@
       <DependentUpon>DtasDocente.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\CaEnt.entAsistencia.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entPersona.datasource" />
+    <None Include="Properties\DataSources\CaEnt.InformeAsistencia.datasource" />
+    <None Include="Properties\DataSources\CaLog.logAsistencia.datasource" />
     <None Include="Properties\DataSources\CapaAccesoDatos.metAsistencia.datasource" />
+    <None Include="Properties\DataSources\CapaEntidades.InformeAsistencia+InformeAsistenciaColeccion.datasource" />
+    <None Include="Properties\DataSources\CapaEntidades.InformeAsistencia.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -601,6 +608,8 @@
       <Name>CaEnt</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Reportes\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

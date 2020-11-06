@@ -276,7 +276,7 @@ namespace CaLog
                 else if (((EdadAnos == 2 && EdadMeses > 6) || (EdadAnos == 3) || (EdadAnos == 4 && EdadMeses >= 6)) && Id_sala != 3)
                 {
 
-                    result = "La edad del alumno al mes de junio es de " + EdadAnos + " años  y " + EdadMeses + " meses. Corresponde inscribirlo en la SALA NARANJA."; 
+                    result = "La edad del alumno al mes de junio es de " + EdadAnos + " años  y " + EdadMeses + " meses. Corresponde inscribirlo en la SALA NARANJA.";
 
                 }
 
@@ -301,13 +301,11 @@ namespace CaLog
 
             }
 
-                return result;
-            
+            return result;
+
         }
 
-        
-
-
-
     }
+
 }
+

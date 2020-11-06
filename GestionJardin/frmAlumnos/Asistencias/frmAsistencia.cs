@@ -479,5 +479,12 @@ namespace GestionJardin
                 dgv_Alumnos.ClearSelection();
             }
         }
+
+        private void btn_Informe_Click(object sender, EventArgs e)
+        {
+            InformeAsistencia frmInformeAsistencia = new InformeAsistencia(id_sala,turno,fechaCalendar); 
+            frmInformeAsistencia.Show();
+
+        }
     }
 }
