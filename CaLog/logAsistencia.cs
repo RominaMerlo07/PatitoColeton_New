@@ -48,7 +48,7 @@ namespace CaLog
         }
 
 
-        public InformeAsistencia InformeAsistencia(string turno, string sala, string fecha)
+        public DataSet InformeAsistencia(string turno, string sala, string fecha)
         {
 
             return objMetAsistencia.InformeAsistencia(turno, sala, fecha);
