@@ -370,6 +370,7 @@
     <Compile Include="InformeAsistencia.Designer.cs">
       <DependentUpon>InformeAsistencia.cs</DependentUpon>
     </Compile>
+    <Compile Include="LocalReportExtension.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmAlumnos\Estudiantes_GrupoFlia\frmAlumnosGrupoFlia.resx">

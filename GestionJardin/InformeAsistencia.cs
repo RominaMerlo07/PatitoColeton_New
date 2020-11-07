@@ -33,7 +33,7 @@ namespace GestionJardin
             sReportDataSource.Name = "Informe_asistencia";
             sReportDataSource.Value = informe.Tables[0];
             reportViewer1.LocalReport.DataSources.Add(sReportDataSource);
-
+            this.reportViewer1.LocalReport.Print();          
             this.reportViewer1.RefreshReport();
 
         }

@@ -110,6 +110,7 @@
             this.txtCon_Buscar.WaterMark = "BUSCAR CONCEPTO";
             this.txtCon_Buscar.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtCon_Buscar.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             // 
             // label1
             // 
