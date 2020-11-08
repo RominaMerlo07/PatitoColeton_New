@@ -17,7 +17,7 @@ namespace GestionJardin
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmLogin());
-          //  Application.Run(new InformeAsistencia()); // Solo para testing
+           // Application.Run(new frmGestionCuotas()); // Solo para testing
         }
     }
 }

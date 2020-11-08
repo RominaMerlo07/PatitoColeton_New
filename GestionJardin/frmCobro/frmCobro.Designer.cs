@@ -185,7 +185,7 @@
             this.btnCuo_Consultar.Rotation = 0D;
             this.btnCuo_Consultar.Size = new System.Drawing.Size(370, 112);
             this.btnCuo_Consultar.TabIndex = 86;
-            this.btnCuo_Consultar.Text = "CONSULTAR        ";
+            this.btnCuo_Consultar.Text = "CONSULTAR- MODIFICAR CUOTA     ";
             this.btnCuo_Consultar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCuo_Consultar.UseVisualStyleBackColor = false;
             this.btnCuo_Consultar.Click += new System.EventHandler(this.btnCuo_Consultar_Click);
@@ -208,9 +208,10 @@
             this.btnCuo_Gestionar.Rotation = 0D;
             this.btnCuo_Gestionar.Size = new System.Drawing.Size(370, 112);
             this.btnCuo_Gestionar.TabIndex = 85;
-            this.btnCuo_Gestionar.Text = "GESTIONAR        ";
+            this.btnCuo_Gestionar.Text = "GENERAR CUOTAS                           ";
             this.btnCuo_Gestionar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCuo_Gestionar.UseVisualStyleBackColor = false;
+            this.btnCuo_Gestionar.Click += new System.EventHandler(this.btnCuo_Gestionar_Click);
             this.btnCuo_Gestionar.MouseLeave += new System.EventHandler(this.btnCuo_Gestionar_MouseLeave);
             this.btnCuo_Gestionar.MouseHover += new System.EventHandler(this.btnCuo_Gestionar_MouseHover);
             // 

@@ -113,11 +113,11 @@ namespace GestionJardin
             {
                 if (cbSalas.SelectedValue.ToString() == "GestionJardin.entSala")
                 {
-
+                    
                 }
                 else
                 {
-                    idSala = Convert.ToInt32(cbSalas.SelectedValue);
+                    idSala = Convert.ToInt32(cbSalas.SelectedValue.ToString());
 
                     logSalas objMetSala = new logSalas();
 

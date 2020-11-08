@@ -343,5 +343,18 @@ namespace GestionJardin
             lbl_Ruta.BringToFront();
             lbl_Ruta.Visible = true;
         }
+
+        private void btnCuo_Gestionar_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new GestionJardin.frmCuotasGestionar());
+            panel1.BringToFront();
+            btnCuotas.Enabled = true;
+            btnCobros.Enabled = false;
+            btnConceptos.Enabled = false;
+            btn_VolverGA.BringToFront();
+            btn_VolverGA.Visible = true;
+            lbl_Ruta.BringToFront();
+            lbl_Ruta.Visible = true;
+        }
     }
 }
