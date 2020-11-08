@@ -326,7 +326,7 @@ namespace CaAD//GestionJardin
                                             "ELSE 'TARDE' " +
                                         "END turno, " +
                                         "CONVERT(VARCHAR(10), '" + fecha + "', 103) FECHA, " +
-                                        "'' asistencia, " +
+                                         "'' asistencia, " +
                                         "'' justificado " +
                                   "FROM T_PERSONAS , T_SALA , T_GRUPO_SALA " +
                                   "WHERE PER_ID = GRS_PER_ID " +
@@ -370,7 +370,6 @@ namespace CaAD//GestionJardin
 
                 cmd = new SqlCommand(consulta, con);
                 dta = new SqlDataAdapter(cmd);
-                
                 dta.Fill(dset);
 
                 con.Close();
@@ -381,7 +380,7 @@ namespace CaAD//GestionJardin
                 //    {
                 //        //result = Convert.ToString(dr["PER_ID"]);
 
-                                                
+
                 //        if (dr["ALUMNO"] != DBNull.Value)
                 //            infA.nombre = Convert.ToString(dr["ALUMNO"]);
                 //        if (dr["DOCUMENTO"] != DBNull.Value)
@@ -396,11 +395,10 @@ namespace CaAD//GestionJardin
                 //            infA.asistencia = Convert.ToString(dr["ASISTENCIA"]);
                 //        if (dr["JUSTIFICADO"] != DBNull.Value)
                 //            infA.justificado = Convert.ToString(dr["JUSTIFICADO"]);
-                        
+
 
                 //    }
                 //}
-
                 return dset;
             }
             catch

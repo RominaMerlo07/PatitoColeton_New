@@ -33,16 +33,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtGA_Buscar = new MetroFramework.Controls.MetroTextBox();
-            this.btnGA_Filtrar = new FontAwesome.Sharp.IconPictureBox();
-            this.btnGA_Excel = new FontAwesome.Sharp.IconPictureBox();
-            this.btnGA_Pdf = new FontAwesome.Sharp.IconPictureBox();
             this.btnGA_Eliminar = new FontAwesome.Sharp.IconButton();
             this.btnGA_Editar = new FontAwesome.Sharp.IconButton();
             this.btnGA_Agregar = new FontAwesome.Sharp.IconButton();
             this.dgvAlumnos = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.btnGA_Filtrar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnGA_Excel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnGA_Pdf)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,55 +95,6 @@
             this.txtGA_Buscar.TextChanged += new System.EventHandler(this.txtGA_Buscar_TextChanged);
             this.txtGA_Buscar.Click += new System.EventHandler(this.txtGA_Buscar_Click);
             // 
-            // btnGA_Filtrar
-            // 
-            this.btnGA_Filtrar.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnGA_Filtrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.btnGA_Filtrar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.btnGA_Filtrar.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnGA_Filtrar.IconChar = FontAwesome.Sharp.IconChar.Filter;
-            this.btnGA_Filtrar.IconColor = System.Drawing.Color.WhiteSmoke;
-            this.btnGA_Filtrar.IconSize = 83;
-            this.btnGA_Filtrar.Location = new System.Drawing.Point(667, 236);
-            this.btnGA_Filtrar.Name = "btnGA_Filtrar";
-            this.btnGA_Filtrar.Padding = new System.Windows.Forms.Padding(5);
-            this.btnGA_Filtrar.Size = new System.Drawing.Size(95, 83);
-            this.btnGA_Filtrar.TabIndex = 14;
-            this.btnGA_Filtrar.TabStop = false;
-            // 
-            // btnGA_Excel
-            // 
-            this.btnGA_Excel.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnGA_Excel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.btnGA_Excel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.btnGA_Excel.ForeColor = System.Drawing.Color.Chartreuse;
-            this.btnGA_Excel.IconChar = FontAwesome.Sharp.IconChar.FileExcel;
-            this.btnGA_Excel.IconColor = System.Drawing.Color.Chartreuse;
-            this.btnGA_Excel.IconSize = 83;
-            this.btnGA_Excel.Location = new System.Drawing.Point(788, 236);
-            this.btnGA_Excel.Name = "btnGA_Excel";
-            this.btnGA_Excel.Padding = new System.Windows.Forms.Padding(5);
-            this.btnGA_Excel.Size = new System.Drawing.Size(95, 83);
-            this.btnGA_Excel.TabIndex = 12;
-            this.btnGA_Excel.TabStop = false;
-            // 
-            // btnGA_Pdf
-            // 
-            this.btnGA_Pdf.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnGA_Pdf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.btnGA_Pdf.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.btnGA_Pdf.ForeColor = System.Drawing.Color.Salmon;
-            this.btnGA_Pdf.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
-            this.btnGA_Pdf.IconColor = System.Drawing.Color.Salmon;
-            this.btnGA_Pdf.IconSize = 83;
-            this.btnGA_Pdf.Location = new System.Drawing.Point(908, 236);
-            this.btnGA_Pdf.Name = "btnGA_Pdf";
-            this.btnGA_Pdf.Padding = new System.Windows.Forms.Padding(5);
-            this.btnGA_Pdf.Size = new System.Drawing.Size(95, 83);
-            this.btnGA_Pdf.TabIndex = 11;
-            this.btnGA_Pdf.TabStop = false;
-            this.btnGA_Pdf.Click += new System.EventHandler(this.btnGA_Pdf_Click);
-            // 
             // btnGA_Eliminar
             // 
             this.btnGA_Eliminar.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -159,6 +104,7 @@
             this.btnGA_Eliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnGA_Eliminar.IconChar = FontAwesome.Sharp.IconChar.UserMinus;
             this.btnGA_Eliminar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnGA_Eliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnGA_Eliminar.IconSize = 100;
             this.btnGA_Eliminar.Location = new System.Drawing.Point(1313, 681);
             this.btnGA_Eliminar.Name = "btnGA_Eliminar";
@@ -179,6 +125,7 @@
             this.btnGA_Editar.ForeColor = System.Drawing.Color.Cyan;
             this.btnGA_Editar.IconChar = FontAwesome.Sharp.IconChar.UserEdit;
             this.btnGA_Editar.IconColor = System.Drawing.Color.Cyan;
+            this.btnGA_Editar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnGA_Editar.IconSize = 100;
             this.btnGA_Editar.Location = new System.Drawing.Point(1313, 525);
             this.btnGA_Editar.Name = "btnGA_Editar";
@@ -199,6 +146,7 @@
             this.btnGA_Agregar.ForeColor = System.Drawing.Color.Lime;
             this.btnGA_Agregar.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
             this.btnGA_Agregar.IconColor = System.Drawing.Color.Lime;
+            this.btnGA_Agregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnGA_Agregar.IconSize = 100;
             this.btnGA_Agregar.Location = new System.Drawing.Point(1313, 367);
             this.btnGA_Agregar.Name = "btnGA_Agregar";
@@ -255,9 +203,6 @@
             this.ClientSize = new System.Drawing.Size(1660, 947);
             this.Controls.Add(this.dgvAlumnos);
             this.Controls.Add(this.txtGA_Buscar);
-            this.Controls.Add(this.btnGA_Filtrar);
-            this.Controls.Add(this.btnGA_Excel);
-            this.Controls.Add(this.btnGA_Pdf);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnGA_Eliminar);
             this.Controls.Add(this.btnGA_Editar);
@@ -265,9 +210,6 @@
             this.Name = "frmAlumnosGestionar";
             this.Text = "ESTUDIANTES / GESTIONAR ALUMNOS";
             this.Load += new System.EventHandler(this.frmAlumnosGestionar_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.btnGA_Filtrar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnGA_Excel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnGA_Pdf)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -279,9 +221,6 @@
         private FontAwesome.Sharp.IconButton btnGA_Editar;
         private FontAwesome.Sharp.IconButton btnGA_Eliminar;
         private System.Windows.Forms.Label label1;
-        private FontAwesome.Sharp.IconPictureBox btnGA_Excel;
-        private FontAwesome.Sharp.IconPictureBox btnGA_Filtrar;
-        private FontAwesome.Sharp.IconPictureBox btnGA_Pdf;
         private MetroFramework.Controls.MetroTextBox txtGA_Buscar;
         public System.Windows.Forms.DataGridView dgvAlumnos;
     }

@@ -52,7 +52,6 @@ namespace CaLog
         {
 
             return objMetAsistencia.InformeAsistencia(turno, sala, fecha);
-
         }
 
     }

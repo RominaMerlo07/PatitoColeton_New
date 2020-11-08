@@ -96,6 +96,7 @@
             this.btn_VolverGA.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_VolverGA.IconChar = FontAwesome.Sharp.IconChar.ChevronCircleLeft;
             this.btn_VolverGA.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btn_VolverGA.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_VolverGA.IconSize = 50;
             this.btn_VolverGA.Location = new System.Drawing.Point(1037, 124);
             this.btn_VolverGA.Name = "btn_VolverGA";
@@ -140,6 +141,7 @@
             this.btnCon_Gestionar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnCon_Gestionar.IconChar = FontAwesome.Sharp.IconChar.Tasks;
             this.btnCon_Gestionar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnCon_Gestionar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCon_Gestionar.IconSize = 65;
             this.btnCon_Gestionar.Location = new System.Drawing.Point(22, 4);
             this.btnCon_Gestionar.Name = "btnCon_Gestionar";
@@ -176,15 +178,17 @@
             this.btnCuo_Consultar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnCuo_Consultar.IconChar = FontAwesome.Sharp.IconChar.FileInvoice;
             this.btnCuo_Consultar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnCuo_Consultar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCuo_Consultar.IconSize = 65;
             this.btnCuo_Consultar.Location = new System.Drawing.Point(19, 112);
             this.btnCuo_Consultar.Name = "btnCuo_Consultar";
             this.btnCuo_Consultar.Rotation = 0D;
             this.btnCuo_Consultar.Size = new System.Drawing.Size(370, 112);
             this.btnCuo_Consultar.TabIndex = 86;
-            this.btnCuo_Consultar.Text = "CONSULTAR        ";
+            this.btnCuo_Consultar.Text = "CONSULTAR";
             this.btnCuo_Consultar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCuo_Consultar.UseVisualStyleBackColor = false;
+            this.btnCuo_Consultar.Click += new System.EventHandler(this.btnCuo_Consultar_Click);
             this.btnCuo_Consultar.MouseLeave += new System.EventHandler(this.btnCuo_Consultar_MouseLeave);
             this.btnCuo_Consultar.MouseHover += new System.EventHandler(this.btnCuo_Consultar_MouseHover);
             // 
@@ -197,15 +201,17 @@
             this.btnCuo_Gestionar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnCuo_Gestionar.IconChar = FontAwesome.Sharp.IconChar.Calculator;
             this.btnCuo_Gestionar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnCuo_Gestionar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCuo_Gestionar.IconSize = 65;
             this.btnCuo_Gestionar.Location = new System.Drawing.Point(19, 3);
             this.btnCuo_Gestionar.Name = "btnCuo_Gestionar";
             this.btnCuo_Gestionar.Rotation = 0D;
             this.btnCuo_Gestionar.Size = new System.Drawing.Size(370, 112);
             this.btnCuo_Gestionar.TabIndex = 85;
-            this.btnCuo_Gestionar.Text = "GESTIONAR        ";
+            this.btnCuo_Gestionar.Text = "GESTIONAR              ";
             this.btnCuo_Gestionar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCuo_Gestionar.UseVisualStyleBackColor = false;
+            this.btnCuo_Gestionar.Click += new System.EventHandler(this.btnCuo_Gestionar_Click);
             this.btnCuo_Gestionar.MouseLeave += new System.EventHandler(this.btnCuo_Gestionar_MouseLeave);
             this.btnCuo_Gestionar.MouseHover += new System.EventHandler(this.btnCuo_Gestionar_MouseHover);
             // 
@@ -241,6 +247,7 @@
             this.btnCob_Gestionar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnCob_Gestionar.IconChar = FontAwesome.Sharp.IconChar.MoneyCheckAlt;
             this.btnCob_Gestionar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnCob_Gestionar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCob_Gestionar.IconSize = 80;
             this.btnCob_Gestionar.Location = new System.Drawing.Point(18, 2);
             this.btnCob_Gestionar.Name = "btnCob_Gestionar";
@@ -263,6 +270,7 @@
             this.btnCob_Consultar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnCob_Consultar.IconChar = FontAwesome.Sharp.IconChar.Receipt;
             this.btnCob_Consultar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnCob_Consultar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCob_Consultar.IconSize = 70;
             this.btnCob_Consultar.Location = new System.Drawing.Point(18, 113);
             this.btnCob_Consultar.Name = "btnCob_Consultar";
@@ -272,6 +280,7 @@
             this.btnCob_Consultar.Text = "   CONSULTAR   ";
             this.btnCob_Consultar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCob_Consultar.UseVisualStyleBackColor = false;
+            this.btnCob_Consultar.Click += new System.EventHandler(this.btnCob_Consultar_Click);
             this.btnCob_Consultar.MouseLeave += new System.EventHandler(this.btnCob_Consultar_MouseLeave);
             this.btnCob_Consultar.MouseHover += new System.EventHandler(this.btnCob_Consultar_MouseHover);
             // 
@@ -297,12 +306,14 @@
             // 
             // btnCobros
             // 
+            this.btnCobros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.btnCobros.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCobros.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnCobros.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCobros.ForeColor = System.Drawing.Color.Yellow;
             this.btnCobros.IconChar = FontAwesome.Sharp.IconChar.Donate;
             this.btnCobros.IconColor = System.Drawing.Color.Yellow;
+            this.btnCobros.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCobros.IconSize = 80;
             this.btnCobros.Location = new System.Drawing.Point(21, 12);
             this.btnCobros.Name = "btnCobros";
@@ -311,18 +322,20 @@
             this.btnCobros.TabIndex = 77;
             this.btnCobros.Text = "COBROS";
             this.btnCobros.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnCobros.UseVisualStyleBackColor = true;
+            this.btnCobros.UseVisualStyleBackColor = false;
             this.btnCobros.Click += new System.EventHandler(this.btnCobros_Click);
             this.btnCobros.MouseHover += new System.EventHandler(this.btnCobros_MouseHover);
             // 
             // btnConceptos
             // 
+            this.btnConceptos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.btnConceptos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnConceptos.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnConceptos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConceptos.ForeColor = System.Drawing.Color.Magenta;
             this.btnConceptos.IconChar = FontAwesome.Sharp.IconChar.ClipboardList;
             this.btnConceptos.IconColor = System.Drawing.Color.Magenta;
+            this.btnConceptos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnConceptos.IconSize = 80;
             this.btnConceptos.Location = new System.Drawing.Point(821, 12);
             this.btnConceptos.Name = "btnConceptos";
@@ -331,7 +344,7 @@
             this.btnConceptos.TabIndex = 76;
             this.btnConceptos.Text = "CONCEPTOS";
             this.btnConceptos.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnConceptos.UseVisualStyleBackColor = true;
+            this.btnConceptos.UseVisualStyleBackColor = false;
             this.btnConceptos.Click += new System.EventHandler(this.btnConceptos_Click);
             this.btnConceptos.MouseHover += new System.EventHandler(this.btnConceptos_MouseHover);
             // 
@@ -347,12 +360,14 @@
             // 
             // btnCuotas
             // 
+            this.btnCuotas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.btnCuotas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCuotas.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnCuotas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCuotas.ForeColor = System.Drawing.Color.Aqua;
             this.btnCuotas.IconChar = FontAwesome.Sharp.IconChar.FileInvoiceDollar;
             this.btnCuotas.IconColor = System.Drawing.Color.Aqua;
+            this.btnCuotas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCuotas.IconSize = 80;
             this.btnCuotas.Location = new System.Drawing.Point(421, 12);
             this.btnCuotas.Name = "btnCuotas";
@@ -361,7 +376,7 @@
             this.btnCuotas.TabIndex = 70;
             this.btnCuotas.Text = "CUOTAS";
             this.btnCuotas.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnCuotas.UseVisualStyleBackColor = true;
+            this.btnCuotas.UseVisualStyleBackColor = false;
             this.btnCuotas.Click += new System.EventHandler(this.btnCuotas_Click);
             this.btnCuotas.MouseHover += new System.EventHandler(this.btnCuotas_MouseHover);
             // 

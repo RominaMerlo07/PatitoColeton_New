@@ -101,6 +101,7 @@
             this.btnMinimizar.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnMinimizar.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
             this.btnMinimizar.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnMinimizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMinimizar.IconSize = 27;
             this.btnMinimizar.Location = new System.Drawing.Point(1280, 2);
             this.btnMinimizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -117,6 +118,7 @@
             this.btnMaximizar.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnMaximizar.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
             this.btnMaximizar.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnMaximizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMaximizar.IconSize = 27;
             this.btnMaximizar.Location = new System.Drawing.Point(1316, 2);
             this.btnMaximizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -133,6 +135,7 @@
             this.btn_Cerrar.ForeColor = System.Drawing.Color.Gainsboro;
             this.btn_Cerrar.IconChar = FontAwesome.Sharp.IconChar.WindowClose;
             this.btn_Cerrar.IconColor = System.Drawing.Color.Gainsboro;
+            this.btn_Cerrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_Cerrar.IconSize = 27;
             this.btn_Cerrar.Location = new System.Drawing.Point(1352, 2);
             this.btn_Cerrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -180,6 +183,7 @@
             this.btnInformes.ForeColor = System.Drawing.Color.Aqua;
             this.btnInformes.IconChar = FontAwesome.Sharp.IconChar.ClipboardCheck;
             this.btnInformes.IconColor = System.Drawing.Color.Aqua;
+            this.btnInformes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnInformes.IconSize = 160;
             this.btnInformes.Location = new System.Drawing.Point(985, 354);
             this.btnInformes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -203,6 +207,7 @@
             this.btnCobros.ForeColor = System.Drawing.Color.Red;
             this.btnCobros.IconChar = FontAwesome.Sharp.IconChar.FileInvoiceDollar;
             this.btnCobros.IconColor = System.Drawing.Color.Red;
+            this.btnCobros.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCobros.IconSize = 160;
             this.btnCobros.Location = new System.Drawing.Point(532, -78);
             this.btnCobros.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -227,6 +232,7 @@
             this.btnSalas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnSalas.IconChar = FontAwesome.Sharp.IconChar.School;
             this.btnSalas.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnSalas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSalas.IconSize = 180;
             this.btnSalas.Location = new System.Drawing.Point(985, -78);
             this.btnSalas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -251,6 +257,7 @@
             this.btnDocentes.ForeColor = System.Drawing.Color.Yellow;
             this.btnDocentes.IconChar = FontAwesome.Sharp.IconChar.ChalkboardTeacher;
             this.btnDocentes.IconColor = System.Drawing.Color.Yellow;
+            this.btnDocentes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnDocentes.IconSize = 180;
             this.btnDocentes.Location = new System.Drawing.Point(63, 354);
             this.btnDocentes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -275,6 +282,7 @@
             this.btnAlumnos.ForeColor = System.Drawing.Color.Magenta;
             this.btnAlumnos.IconChar = FontAwesome.Sharp.IconChar.Child;
             this.btnAlumnos.IconColor = System.Drawing.Color.Magenta;
+            this.btnAlumnos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAlumnos.IconSize = 160;
             this.btnAlumnos.Location = new System.Drawing.Point(63, -78);
             this.btnAlumnos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -299,6 +307,7 @@
             this.btnUsuarios.ForeColor = System.Drawing.Color.Lime;
             this.btnUsuarios.IconChar = FontAwesome.Sharp.IconChar.UserCircle;
             this.btnUsuarios.IconColor = System.Drawing.Color.Lime;
+            this.btnUsuarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnUsuarios.IconSize = 180;
             this.btnUsuarios.Location = new System.Drawing.Point(532, 354);
             this.btnUsuarios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -309,6 +318,7 @@
             this.btnUsuarios.Text = "GESTIÓN USUARIOS";
             this.btnUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnUsuarios.UseVisualStyleBackColor = false;
+
             this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
             this.btnUsuarios.MouseLeave += new System.EventHandler(this.btnUsuarios_MouseLeave);
             this.btnUsuarios.MouseHover += new System.EventHandler(this.btnUsuarios_MouseHover);

@@ -294,7 +294,9 @@ namespace GestionJardin
             btnConceptos.Enabled = true;
             btn_VolverGA.Visible = false;
             lbl_Ruta.Visible = false;
-
+            panelCuotas.Visible = false;
+            panelCobros.Visible = false;
+            panelConceptos.Visible = false;
         }
 
         private void btn_VolverGA_Click(object sender, EventArgs e)
@@ -310,6 +312,45 @@ namespace GestionJardin
             btnCobros.Enabled = true;
             btnConceptos.Enabled = false;
             btnCuotas.Enabled = false;
+            btn_VolverGA.BringToFront();
+            btn_VolverGA.Visible = true;
+            lbl_Ruta.BringToFront();
+            lbl_Ruta.Visible = true;
+        }
+
+        private void btnCuo_Consultar_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new GestionJardin.frmCuotasConsultar());
+            panel1.BringToFront();
+            btnCuotas.Enabled = true;
+            btnCobros.Enabled = false;
+            btnConceptos.Enabled = false;
+            btn_VolverGA.BringToFront();
+            btn_VolverGA.Visible = true;
+            lbl_Ruta.BringToFront();
+            lbl_Ruta.Visible = true;
+        }
+
+        private void btnCob_Consultar_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new GestionJardin.frmCobros_Consultar());
+            panel1.BringToFront();
+            btnCobros.Enabled = true;
+            btnCuotas.Enabled = false;
+            btnConceptos.Enabled = false;
+            btn_VolverGA.BringToFront();
+            btn_VolverGA.Visible = true;
+            lbl_Ruta.BringToFront();
+            lbl_Ruta.Visible = true;
+        }
+
+        private void btnCuo_Gestionar_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new GestionJardin.frmCuotasGestionar());
+            panel1.BringToFront();
+            btnCuotas.Enabled = true;
+            btnCobros.Enabled = false;
+            btnConceptos.Enabled = false;
             btn_VolverGA.BringToFront();
             btn_VolverGA.Visible = true;
             lbl_Ruta.BringToFront();

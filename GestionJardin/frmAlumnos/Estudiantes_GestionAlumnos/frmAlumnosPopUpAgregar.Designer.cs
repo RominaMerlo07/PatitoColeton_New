@@ -107,7 +107,7 @@
             this.metroPanel3.HorizontalScrollbarBarColor = true;
             this.metroPanel3.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel3.HorizontalScrollbarSize = 10;
-            this.metroPanel3.Location = new System.Drawing.Point(207, 44);
+            this.metroPanel3.Location = new System.Drawing.Point(50, 39);
             this.metroPanel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.metroPanel3.Name = "metroPanel3";
             this.metroPanel3.Size = new System.Drawing.Size(1549, 126);
@@ -294,10 +294,10 @@
             this.panelContacto.HorizontalScrollbarBarColor = true;
             this.panelContacto.HorizontalScrollbarHighlightOnWheel = false;
             this.panelContacto.HorizontalScrollbarSize = 10;
-            this.panelContacto.Location = new System.Drawing.Point(869, 217);
+            this.panelContacto.Location = new System.Drawing.Point(681, 215);
             this.panelContacto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelContacto.Name = "panelContacto";
-            this.panelContacto.Size = new System.Drawing.Size(824, 478);
+            this.panelContacto.Size = new System.Drawing.Size(863, 491);
             this.panelContacto.TabIndex = 32;
             this.panelContacto.UseCustomBackColor = true;
             this.panelContacto.VerticalScrollbarBarColor = true;
@@ -396,10 +396,10 @@
             // 
             this.txtBuscaHmno.CustomButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.txtBuscaHmno.CustomButton.Image = global::GestionJardin.Properties.Resources.iconfinder_search_172546;
-            this.txtBuscaHmno.CustomButton.Location = new System.Drawing.Point(363, 2);
+            this.txtBuscaHmno.CustomButton.Location = new System.Drawing.Point(272, 2);
             this.txtBuscaHmno.CustomButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBuscaHmno.CustomButton.Name = "";
-            this.txtBuscaHmno.CustomButton.Size = new System.Drawing.Size(55, 50);
+            this.txtBuscaHmno.CustomButton.Size = new System.Drawing.Size(41, 41);
             this.txtBuscaHmno.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtBuscaHmno.CustomButton.TabIndex = 1;
             this.txtBuscaHmno.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -755,7 +755,7 @@
             this.lblDatosContacto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblDatosContacto.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.lblDatosContacto.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.lblDatosContacto.Location = new System.Drawing.Point(47, 25);
+            this.lblDatosContacto.Location = new System.Drawing.Point(25, 22);
             this.lblDatosContacto.Name = "lblDatosContacto";
             this.lblDatosContacto.Size = new System.Drawing.Size(459, 44);
             this.lblDatosContacto.TabIndex = 21;
@@ -898,10 +898,10 @@
             this.panelDatos.HorizontalScrollbarBarColor = true;
             this.panelDatos.HorizontalScrollbarHighlightOnWheel = false;
             this.panelDatos.HorizontalScrollbarSize = 10;
-            this.panelDatos.Location = new System.Drawing.Point(240, 217);
+            this.panelDatos.Location = new System.Drawing.Point(108, 215);
             this.panelDatos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelDatos.Name = "panelDatos";
-            this.panelDatos.Size = new System.Drawing.Size(493, 478);
+            this.panelDatos.Size = new System.Drawing.Size(493, 491);
             this.panelDatos.TabIndex = 2;
             this.panelDatos.UseCustomBackColor = true;
             this.panelDatos.VerticalScrollbarBarColor = true;
@@ -1214,8 +1214,9 @@
             this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnCancelar.IconChar = FontAwesome.Sharp.IconChar.Eraser;
             this.btnCancelar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnCancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCancelar.IconSize = 60;
-            this.btnCancelar.Location = new System.Drawing.Point(1229, 746);
+            this.btnCancelar.Location = new System.Drawing.Point(1305, 745);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Rotation = 0D;
@@ -1235,8 +1236,9 @@
             this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnGuardar.IconChar = FontAwesome.Sharp.IconChar.Save;
             this.btnGuardar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnGuardar.IconSize = 60;
-            this.btnGuardar.Location = new System.Drawing.Point(861, 746);
+            this.btnGuardar.Location = new System.Drawing.Point(944, 747);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Rotation = 0D;
@@ -1253,7 +1255,7 @@
             this.lbl_panelSala.AutoSize = true;
             this.lbl_panelSala.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_panelSala.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_panelSala.Location = new System.Drawing.Point(212, 182);
+            this.lbl_panelSala.Location = new System.Drawing.Point(52, 180);
             this.lbl_panelSala.Name = "lbl_panelSala";
             this.lbl_panelSala.Size = new System.Drawing.Size(761, 20);
             this.lbl_panelSala.TabIndex = 42;
@@ -1265,7 +1267,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.ClientSize = new System.Drawing.Size(1681, 750);
+            this.ClientSize = new System.Drawing.Size(1701, 863);
             this.Controls.Add(this.lbl_panelSala);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);

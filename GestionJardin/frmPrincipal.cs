@@ -342,5 +342,7 @@ namespace GestionJardin
         {
             OpenChildForm(new GestionJardin.frmCobro());
         }
+
+      
     }
 }

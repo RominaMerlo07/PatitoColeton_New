@@ -29,7 +29,7 @@ namespace GestionJardin
             dgv_Salas.DataSource = metSala.GrillaSalas();
             dgv_Salas.Columns["SAL_ID"].Visible = false;
 
-            //--
+            
             DataTable dt = metSala.BuscarSala();
             
             foreach (DataRow row in dt.Rows)

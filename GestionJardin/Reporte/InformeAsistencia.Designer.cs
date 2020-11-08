@@ -30,27 +30,27 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.InformeAsistenciaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.InformeAsistenciaBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // reportViewer1
-            // 
-            reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.InformeAsistenciaBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "GestionJardin.InformeAsistencia.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(12, 27);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(1057, 385);
-            this.reportViewer1.TabIndex = 0;
             // 
             // InformeAsistenciaBindingSource
             // 
             this.InformeAsistenciaBindingSource.DataSource = typeof(CaEnt.InformeAsistencia);
-
+            // 
+            // reportViewer1
+            // 
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Value = this.InformeAsistenciaBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "GestionJardin.InformeAsistencia.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(1092, 439);
+            this.reportViewer1.TabIndex = 0;
             // 
             // InformeAsistencia
             // 
@@ -60,7 +60,6 @@
             this.Controls.Add(this.reportViewer1);
             this.Name = "InformeAsistencia";
             this.Text = "InformeAsistencia";
-            
             ((System.ComponentModel.ISupportInitialize)(this.InformeAsistenciaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
