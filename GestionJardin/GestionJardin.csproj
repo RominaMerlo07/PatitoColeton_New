@@ -375,10 +375,10 @@
     <Compile Include="frmUsuarios\frmUsuariosPopUpEliminar.Designer.cs">
       <DependentUpon>frmUsuariosPopUpEliminar.cs</DependentUpon>
     </Compile>
-    <Compile Include="InformeAsistencia.cs">
+    <Compile Include="Reporte\InformeAsistencia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InformeAsistencia.Designer.cs">
+    <Compile Include="Reporte\InformeAsistencia.Designer.cs">
       <DependentUpon>InformeAsistencia.cs</DependentUpon>
     </Compile>
     <Compile Include="LocalReportExtension.cs" />
@@ -517,7 +517,7 @@
       <DependentUpon>frmUsuariosPopUpEliminar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InformeAsistencia.rdlc" />
-    <EmbeddedResource Include="InformeAsistencia.resx">
+    <EmbeddedResource Include="Reporte\InformeAsistencia.resx">
       <DependentUpon>InformeAsistencia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -609,8 +609,6 @@
       <Name>CaEnt</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Reportes\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
