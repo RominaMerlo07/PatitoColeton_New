@@ -434,7 +434,7 @@
             this.Controls.Add(this.btnMasivo);
             this.Controls.Add(this.lblAyuda);
             this.Name = "frmCuotasGestionar";
-            this.Text = "CUOTAS / GENERAR CUOTA";
+            this.Text = "CUOTAS / GESTIONAR";
             this.panelCbos.ResumeLayout(false);
             this.panelGrilla.ResumeLayout(false);
             this.panelConceptos.ResumeLayout(false);
