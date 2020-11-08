@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
+            this.lblEdad = new System.Windows.Forms.Label();
+            this.cbEdad = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.lblEtapa = new System.Windows.Forms.Label();
             this.lblTurno = new System.Windows.Forms.Label();
             this.lblSala = new System.Windows.Forms.Label();
@@ -43,9 +46,6 @@
             this.lbl_panelInforme = new System.Windows.Forms.Label();
             this.lblInformeEdit = new System.Windows.Forms.Label();
             this.btnGInf_Editar = new FontAwesome.Sharp.IconButton();
-            this.cbEdad = new MetroFramework.Controls.MetroComboBox();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.lblEdad = new System.Windows.Forms.Label();
             this.metroPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Informe)).BeginInit();
             this.SuspendLayout();
@@ -79,6 +79,51 @@
             this.metroPanel3.VerticalScrollbarBarColor = true;
             this.metroPanel3.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel3.VerticalScrollbarSize = 10;
+            // 
+            // lblEdad
+            // 
+            this.lblEdad.AutoSize = true;
+            this.lblEdad.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEdad.ForeColor = System.Drawing.Color.Red;
+            this.lblEdad.Location = new System.Drawing.Point(895, 62);
+            this.lblEdad.Name = "lblEdad";
+            this.lblEdad.Size = new System.Drawing.Size(46, 17);
+            this.lblEdad.TabIndex = 50;
+            this.lblEdad.Text = "label4";
+            // 
+            // cbEdad
+            // 
+            this.cbEdad.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.cbEdad.FormattingEnabled = true;
+            this.cbEdad.ItemHeight = 24;
+            this.cbEdad.Items.AddRange(new object[] {
+            "1 y 2 AÑOS",
+            "3 AÑOS",
+            "4 AÑOS",
+            "5 AÑOS"});
+            this.cbEdad.Location = new System.Drawing.Point(1016, 18);
+            this.cbEdad.Name = "cbEdad";
+            this.cbEdad.Size = new System.Drawing.Size(185, 30);
+            this.cbEdad.Style = MetroFramework.MetroColorStyle.Magenta;
+            this.cbEdad.TabIndex = 3;
+            this.cbEdad.UseCustomBackColor = true;
+            this.cbEdad.UseSelectable = true;
+            this.cbEdad.UseStyleColors = true;
+            this.cbEdad.Leave += new System.EventHandler(this.cbEdad_Leave);
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel1.ForeColor = System.Drawing.Color.Fuchsia;
+            this.metroLabel1.Location = new System.Drawing.Point(888, 18);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(162, 44);
+            this.metroLabel1.TabIndex = 49;
+            this.metroLabel1.Text = "EDAD:";
+            this.metroLabel1.UseCustomBackColor = true;
+            this.metroLabel1.UseCustomForeColor = true;
             // 
             // lblEtapa
             // 
@@ -212,12 +257,16 @@
             // 
             // dgv_Informe
             // 
+            this.dgv_Informe.AllowUserToAddRows = false;
+            this.dgv_Informe.AllowUserToDeleteRows = false;
             this.dgv_Informe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Informe.Location = new System.Drawing.Point(38, 475);
             this.dgv_Informe.Name = "dgv_Informe";
+            this.dgv_Informe.ReadOnly = true;
             this.dgv_Informe.RowTemplate.Height = 24;
             this.dgv_Informe.Size = new System.Drawing.Size(1300, 416);
             this.dgv_Informe.TabIndex = 3;
+            this.dgv_Informe.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Informe_CellClick);
             // 
             // txtGInf_Buscar
             // 
@@ -257,6 +306,7 @@
             this.txtGInf_Buscar.WaterMark = "BUSCAR ALUMNO";
             this.txtGInf_Buscar.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtGInf_Buscar.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGInf_Buscar.TextChanged += new System.EventHandler(this.txtGInf_Buscar_TextChanged);
             // 
             // lbl_panelInforme
             // 
@@ -303,51 +353,6 @@
             this.btnGInf_Editar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGInf_Editar.UseVisualStyleBackColor = true;
             this.btnGInf_Editar.Click += new System.EventHandler(this.btnGInf_Editar_Click);
-            // 
-            // cbEdad
-            // 
-            this.cbEdad.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.cbEdad.FormattingEnabled = true;
-            this.cbEdad.ItemHeight = 24;
-            this.cbEdad.Items.AddRange(new object[] {
-            "1 y 2 AÑOS",
-            "3 AÑOS",
-            "4 AÑOS",
-            "5 AÑOS"});
-            this.cbEdad.Location = new System.Drawing.Point(1016, 18);
-            this.cbEdad.Name = "cbEdad";
-            this.cbEdad.Size = new System.Drawing.Size(185, 30);
-            this.cbEdad.Style = MetroFramework.MetroColorStyle.Magenta;
-            this.cbEdad.TabIndex = 3;
-            this.cbEdad.UseCustomBackColor = true;
-            this.cbEdad.UseSelectable = true;
-            this.cbEdad.UseStyleColors = true;
-            this.cbEdad.Leave += new System.EventHandler(this.cbEdad_Leave);
-            // 
-            // metroLabel1
-            // 
-            this.metroLabel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel1.ForeColor = System.Drawing.Color.Fuchsia;
-            this.metroLabel1.Location = new System.Drawing.Point(888, 18);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(162, 44);
-            this.metroLabel1.TabIndex = 49;
-            this.metroLabel1.Text = "EDAD:";
-            this.metroLabel1.UseCustomBackColor = true;
-            this.metroLabel1.UseCustomForeColor = true;
-            // 
-            // lblEdad
-            // 
-            this.lblEdad.AutoSize = true;
-            this.lblEdad.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEdad.ForeColor = System.Drawing.Color.Red;
-            this.lblEdad.Location = new System.Drawing.Point(895, 62);
-            this.lblEdad.Name = "lblEdad";
-            this.lblEdad.Size = new System.Drawing.Size(46, 17);
-            this.lblEdad.TabIndex = 50;
-            this.lblEdad.Text = "label4";
             // 
             // frmInformeSemestral_Generar
             // 

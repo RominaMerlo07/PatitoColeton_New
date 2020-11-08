@@ -23,9 +23,16 @@ namespace GestionJardin
 
         logAsistencia logAsistencia = new logAsistencia(); // ver si es necesario generar uno nuevo por informe??
 
+        string sala;
+        string edad;
+        string etapa;
+
         private void frmInformeSemestral_Generar_Load(object sender, EventArgs e)
         {
             Inicializar();
+            btnGInf_Editar.IconColor = Color.Gray; //SpringGreen
+            btnGInf_Editar.ForeColor = Color.Gray; //SpringGreen
+            btnGInf_Editar.Enabled = false;
         }
 
         private void cargar_cbSala()
@@ -146,15 +153,96 @@ namespace GestionJardin
                 dgv_Informe.Visible = true;
                 lblInformeEdit.Visible = true;
                 btnGInf_Editar.Visible = true;
+
+                //traer todos los datos
+
+                sala = cbSala.SelectedValue.ToString();
+                string turno = cbTurno.SelectedItem.ToString();
+                edad = cbEdad.SelectedItem.ToString();
+                etapa = cbEtapa.SelectedItem.ToString();
+
+
+                //--
+                logMaterias logMaterias = new logMaterias();
+                DataTable dt = logMaterias.buscaAlumnosXMateria(sala); // turno no hace falta (se saca de la sala) //etapa no hace falta, se usa para determinar qué informe se carga o edita
+
+                dgv_Informe.DataSource = dt;
+                dgv_Informe.Columns["PER_ID"].Visible = false;
+                dgv_Informe.Columns["SAL_ID"].Visible = false;
+                dgv_Informe.Columns["GRS_ID"].Visible = false;
+
+                //--
+            } else
+            {
+                lbl_panelInforme.Visible = true;
+                txtGInf_Buscar.Visible = false;
+                dgv_Informe.Visible = false;
+                lblInformeEdit.Visible = false;
+                btnGInf_Editar.Visible = false;
             }
         }
 
         private void btnGInf_Editar_Click(object sender, EventArgs e)
         {
-            frmInformeProgreso_Nuevo frmInformeProgreso_Nuevo = new frmInformeProgreso_Nuevo();
+            string per_id = dgv_Informe.SelectedRows[0].Cells[0].Value.ToString();
+            string sala_id = dgv_Informe.SelectedRows[0].Cells[1].Value.ToString();
+            string nombre = dgv_Informe.SelectedRows[0].Cells[3].Value.ToString(); ;
+            string apellido = dgv_Informe.SelectedRows[0].Cells[4].Value.ToString();
+            string documento = dgv_Informe.SelectedRows[0].Cells[5].Value.ToString();
+            string nomape = nombre + " " + apellido;
+
+            frmInformeProgreso_Nuevo frmInformeProgreso_Nuevo = new frmInformeProgreso_Nuevo(sala_id, edad, etapa, per_id, nomape, documento);
             frmInformeProgreso_Nuevo.Text = "GESTIÓN ALUMNOS / INFORME DE PROGRESO / REDACTAR INFORME ";
             frmInformeProgreso_Nuevo.ShowDialog();
         }
 
+        private void carga_grilla_filtrada()
+        {
+
+            logMaterias logMaterias = new logMaterias();
+            logPersonas logPersonas = new logPersonas();
+            DataTable dt = logMaterias.buscaAlumnosXMateria(sala);
+            dgv_Informe.DataSource = dt;
+            string apellido_nombre = logPersonas.extraerapellido_nombre_alumno(txtGInf_Buscar.Text);
+            dt.DefaultView.RowFilter = String.Format($"NOMBRE LIKE '{apellido_nombre}%'");
+        }
+
+
+        private void txtGInf_Buscar_TextChanged(object sender, EventArgs e)
+        {
+            if (txtGInf_Buscar.Text.Length > 0)
+            {
+                carga_grilla_filtrada();
+            }
+            else
+            {
+
+                txtGInf_Buscar.Clear();
+                logMaterias logMaterias = new logMaterias();
+                DataTable dt = logMaterias.buscaAlumnosXMateria(sala);
+                dgv_Informe.DataSource = dt;
+
+            }
+        }
+
+        private void dgv_Informe_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgv_Informe.SelectedRows.Count > 0)
+            {
+
+                btnGInf_Editar.IconColor = Color.SpringGreen;
+                btnGInf_Editar.ForeColor = Color.SpringGreen;
+                btnGInf_Editar.Enabled = true;
+
+            }
+            else
+            {
+                dgv_Informe.ClearSelection();
+                btnGInf_Editar.IconColor = Color.Gray;
+                btnGInf_Editar.ForeColor = Color.Gray;
+                btnGInf_Editar.Enabled = false;
+
+            }
+        }
     }
 }

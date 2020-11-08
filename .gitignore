@@ -12,8 +12,10 @@
 /.vs/
 *.exe
 *.pdb
-/GestionJardin/bin/Debug/
-/GestionJardin/obj/Debug/
+bin/Debug/
+obj/Debug/
+bin/
+obj/
 
 # Build results
 [Dd]ebug/

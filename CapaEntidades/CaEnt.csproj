@@ -69,10 +69,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="entAsistencia.cs" />
+    <Compile Include="entCalificaciones.cs" />
     <Compile Include="entConcepto.cs" />
     <Compile Include="entDomicilio.cs" />
     <Compile Include="entGrupoFlia.cs" />
     <Compile Include="entGrupoSala.cs" />
+    <Compile Include="entMateria.cs" />
+    <Compile Include="entMateriaTipo.cs" />
     <Compile Include="entPersona.cs" />
     <Compile Include="entRol.cs" />
     <Compile Include="entSala.cs" />

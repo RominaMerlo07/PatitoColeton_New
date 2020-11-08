@@ -105,7 +105,7 @@
             this.lblDescripcion.ForeColor = System.Drawing.Color.Beige;
             this.lblDescripcion.Location = new System.Drawing.Point(26, 12);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(1189, 44);
+            this.lblDescripcion.Size = new System.Drawing.Size(1189, 116);
             this.lblDescripcion.TabIndex = 30;
             this.lblDescripcion.Text = "DESCRIPCIÓN DE APRENDIZAJE";
             this.lblDescripcion.UseCustomBackColor = true;
@@ -119,7 +119,7 @@
             this.metroLabel4.ForeColor = System.Drawing.Color.SpringGreen;
             this.metroLabel4.Location = new System.Drawing.Point(44, 28);
             this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(1236, 44);
+            this.metroLabel4.Size = new System.Drawing.Size(1236, 63);
             this.metroLabel4.TabIndex = 31;
             this.metroLabel4.Text = "Informe de progreso del ALUMNO: \"\"  - DNI: \"\" - EDAD: \"\"";
             this.metroLabel4.UseCustomBackColor = true;
@@ -189,6 +189,7 @@
             this.btncancelar.Text = "CANCELAR";
             this.btncancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btncancelar.UseVisualStyleBackColor = true;
+            this.btncancelar.Click += new System.EventHandler(this.btncancelar_Click);
             // 
             // btnguardar
             // 
@@ -208,6 +209,7 @@
             this.btnguardar.Text = "GUARDAR";
             this.btnguardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnguardar.UseVisualStyleBackColor = true;
+            this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
             // 
             // metroLabel2
             // 
