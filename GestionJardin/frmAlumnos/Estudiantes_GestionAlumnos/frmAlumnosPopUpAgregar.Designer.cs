@@ -294,10 +294,10 @@
             this.panelContacto.HorizontalScrollbarBarColor = true;
             this.panelContacto.HorizontalScrollbarHighlightOnWheel = false;
             this.panelContacto.HorizontalScrollbarSize = 10;
-            this.panelContacto.Location = new System.Drawing.Point(687, 215);
+            this.panelContacto.Location = new System.Drawing.Point(681, 215);
             this.panelContacto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelContacto.Name = "panelContacto";
-            this.panelContacto.Size = new System.Drawing.Size(824, 478);
+            this.panelContacto.Size = new System.Drawing.Size(863, 491);
             this.panelContacto.TabIndex = 32;
             this.panelContacto.UseCustomBackColor = true;
             this.panelContacto.VerticalScrollbarBarColor = true;
@@ -755,7 +755,7 @@
             this.lblDatosContacto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblDatosContacto.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.lblDatosContacto.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.lblDatosContacto.Location = new System.Drawing.Point(47, 25);
+            this.lblDatosContacto.Location = new System.Drawing.Point(25, 22);
             this.lblDatosContacto.Name = "lblDatosContacto";
             this.lblDatosContacto.Size = new System.Drawing.Size(459, 44);
             this.lblDatosContacto.TabIndex = 21;
@@ -898,10 +898,10 @@
             this.panelDatos.HorizontalScrollbarBarColor = true;
             this.panelDatos.HorizontalScrollbarHighlightOnWheel = false;
             this.panelDatos.HorizontalScrollbarSize = 10;
-            this.panelDatos.Location = new System.Drawing.Point(123, 215);
+            this.panelDatos.Location = new System.Drawing.Point(108, 215);
             this.panelDatos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelDatos.Name = "panelDatos";
-            this.panelDatos.Size = new System.Drawing.Size(493, 478);
+            this.panelDatos.Size = new System.Drawing.Size(493, 491);
             this.panelDatos.TabIndex = 2;
             this.panelDatos.UseCustomBackColor = true;
             this.panelDatos.VerticalScrollbarBarColor = true;
@@ -1216,7 +1216,7 @@
             this.btnCancelar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnCancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCancelar.IconSize = 60;
-            this.btnCancelar.Location = new System.Drawing.Point(1267, 742);
+            this.btnCancelar.Location = new System.Drawing.Point(1305, 745);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Rotation = 0D;
@@ -1238,7 +1238,7 @@
             this.btnGuardar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnGuardar.IconSize = 60;
-            this.btnGuardar.Location = new System.Drawing.Point(906, 742);
+            this.btnGuardar.Location = new System.Drawing.Point(944, 747);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Rotation = 0D;
