@@ -1,6 +1,6 @@
 ﻿namespace GestionJardin
 {
-    partial class frmCobros_Gestionar
+    partial class frmCuotasConsultar
     {
         /// <summary>
         /// Required designer variable.
@@ -28,16 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCobros_Gestionar));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCuotasConsultar));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txt_Buscar = new MetroFramework.Controls.MetroTextBox();
-            this.dgvCobros = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnCob_Eliminar = new FontAwesome.Sharp.IconButton();
-            this.btnCob_Agregar = new FontAwesome.Sharp.IconButton();
+            this.dgvCuotas = new System.Windows.Forms.DataGridView();
+            this.lblInfo = new System.Windows.Forms.Label();
             this.lblBuscar = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCobros)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCuotas)).BeginInit();
             this.SuspendLayout();
             // 
             // txt_Buscar
@@ -78,22 +76,22 @@
             this.txt_Buscar.ShowButton = true;
             this.txt_Buscar.Size = new System.Drawing.Size(424, 50);
             this.txt_Buscar.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txt_Buscar.TabIndex = 51;
+            this.txt_Buscar.TabIndex = 53;
             this.txt_Buscar.UseSelectable = true;
             this.txt_Buscar.WaterMark = "BUSCAR ALUMNO";
             this.txt_Buscar.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txt_Buscar.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Buscar.ButtonClick += new MetroFramework.Controls.MetroTextBox.ButClick(this.txtCob_Buscar_ButtonClick);
-            this.txt_Buscar.TextChanged += new System.EventHandler(this.txt_Buscar_TextChanged);
+            this.txt_Buscar.TextChanged += new System.EventHandler(this.txtCob_Buscar_TextChanged);
             // 
-            // dgvCobros
+            // dgvCuotas
             // 
-            this.dgvCobros.AllowUserToAddRows = false;
-            this.dgvCobros.AllowUserToDeleteRows = false;
-            this.dgvCobros.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.dgvCobros.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvCobros.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvCobros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCuotas.AllowUserToAddRows = false;
+            this.dgvCuotas.AllowUserToDeleteRows = false;
+            this.dgvCuotas.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.dgvCuotas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvCuotas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvCuotas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -101,12 +99,12 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCobros.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvCobros.Location = new System.Drawing.Point(45, 393);
-            this.dgvCobros.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgvCobros.MultiSelect = false;
-            this.dgvCobros.Name = "dgvCobros";
-            this.dgvCobros.ReadOnly = true;
+            this.dgvCuotas.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvCuotas.Location = new System.Drawing.Point(45, 393);
+            this.dgvCuotas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvCuotas.MultiSelect = false;
+            this.dgvCuotas.Name = "dgvCuotas";
+            this.dgvCuotas.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -114,66 +112,24 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCobros.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvCobros.RowTemplate.Height = 24;
-            this.dgvCobros.Size = new System.Drawing.Size(1236, 495);
-            this.dgvCobros.TabIndex = 50;
+            this.dgvCuotas.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvCuotas.RowTemplate.Height = 24;
+            this.dgvCuotas.Size = new System.Drawing.Size(1603, 495);
+            this.dgvCuotas.TabIndex = 52;
             // 
-            // label1
+            // lblInfo
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label1.AutoSize = true;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(41, 909);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(695, 20);
-            this.label1.TabIndex = 49;
-            this.label1.Text = "* Para realizar un cobro, debe seleccionar la cuota con mayor vencimiento al día " +
-    "de la fecha";
-            // 
-            // btnCob_Eliminar
-            // 
-            this.btnCob_Eliminar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCob_Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCob_Eliminar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnCob_Eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCob_Eliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnCob_Eliminar.IconChar = FontAwesome.Sharp.IconChar.Times;
-            this.btnCob_Eliminar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnCob_Eliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCob_Eliminar.IconSize = 90;
-            this.btnCob_Eliminar.Location = new System.Drawing.Point(1330, 668);
-            this.btnCob_Eliminar.Name = "btnCob_Eliminar";
-            this.btnCob_Eliminar.Rotation = 0D;
-            this.btnCob_Eliminar.Size = new System.Drawing.Size(293, 131);
-            this.btnCob_Eliminar.TabIndex = 48;
-            this.btnCob_Eliminar.Text = "ANULAR";
-            this.btnCob_Eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCob_Eliminar.UseVisualStyleBackColor = true;
-            this.btnCob_Eliminar.Click += new System.EventHandler(this.btnCob_Eliminar_Click);
-            // 
-            // btnCob_Agregar
-            // 
-            this.btnCob_Agregar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCob_Agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCob_Agregar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnCob_Agregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCob_Agregar.ForeColor = System.Drawing.Color.Lime;
-            this.btnCob_Agregar.IconChar = FontAwesome.Sharp.IconChar.CashRegister;
-            this.btnCob_Agregar.IconColor = System.Drawing.Color.Lime;
-            this.btnCob_Agregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCob_Agregar.IconSize = 90;
-            this.btnCob_Agregar.Location = new System.Drawing.Point(1330, 463);
-            this.btnCob_Agregar.Name = "btnCob_Agregar";
-            this.btnCob_Agregar.Rotation = 0D;
-            this.btnCob_Agregar.Size = new System.Drawing.Size(293, 134);
-            this.btnCob_Agregar.TabIndex = 46;
-            this.btnCob_Agregar.Text = "COBRAR";
-            this.btnCob_Agregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCob_Agregar.UseVisualStyleBackColor = true;
-            this.btnCob_Agregar.Click += new System.EventHandler(this.btnCob_Agregar_Click);
+            this.lblInfo.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblInfo.Location = new System.Drawing.Point(41, 908);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(412, 20);
+            this.lblInfo.TabIndex = 54;
+            this.lblInfo.Text = "* Seleccione un registro para ver el detalle de la cuota";
+            this.lblInfo.Visible = false;
             // 
             // lblBuscar
             // 
@@ -181,30 +137,27 @@
             this.lblBuscar.AutoSize = true;
             this.lblBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBuscar.ForeColor = System.Drawing.Color.Yellow;
-            this.lblBuscar.Location = new System.Drawing.Point(510, 310);
+            this.lblBuscar.ForeColor = System.Drawing.Color.Aqua;
+            this.lblBuscar.Location = new System.Drawing.Point(510, 308);
             this.lblBuscar.Name = "lblBuscar";
-            this.lblBuscar.Size = new System.Drawing.Size(575, 20);
-            this.lblBuscar.TabIndex = 56;
-            this.lblBuscar.Text = "Busque un alumno para visualizar las cuotas del mismo y procesar el cobro";
+            this.lblBuscar.Size = new System.Drawing.Size(426, 20);
+            this.lblBuscar.TabIndex = 55;
+            this.lblBuscar.Text = "Busque un alumno para visualizar las cuotas del mismo";
             // 
-            // frmCobros_Gestionar
+            // frmCuotasConsultar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(1660, 947);
             this.Controls.Add(this.lblBuscar);
+            this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.txt_Buscar);
-            this.Controls.Add(this.dgvCobros);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnCob_Eliminar);
-            this.Controls.Add(this.btnCob_Agregar);
-            this.Location = new System.Drawing.Point(45, 293);
-            this.Name = "frmCobros_Gestionar";
-            this.Text = "COBROS / GESTIONAR";
-            this.Load += new System.EventHandler(this.frmCobros_Gestionar_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCobros)).EndInit();
+            this.Controls.Add(this.dgvCuotas);
+            this.Name = "frmCuotasConsultar";
+            this.Text = "CUOTAS / CONSULTAR";
+            this.Load += new System.EventHandler(this.frmCuotasConsultar_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCuotas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -213,10 +166,8 @@
         #endregion
 
         private MetroFramework.Controls.MetroTextBox txt_Buscar;
-        public System.Windows.Forms.DataGridView dgvCobros;
-        private System.Windows.Forms.Label label1;
-        private FontAwesome.Sharp.IconButton btnCob_Eliminar;
-        private FontAwesome.Sharp.IconButton btnCob_Agregar;
+        public System.Windows.Forms.DataGridView dgvCuotas;
+        private System.Windows.Forms.Label lblInfo;
         private System.Windows.Forms.Label lblBuscar;
     }
 }

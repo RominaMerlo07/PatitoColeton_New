@@ -31,60 +31,57 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCobros_Gestionar));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.txt_Buscar = new MetroFramework.Controls.MetroTextBox();
+            this.txtCob_Buscar = new MetroFramework.Controls.MetroTextBox();
             this.dgvCobros = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCob_Eliminar = new FontAwesome.Sharp.IconButton();
             this.btnCob_Agregar = new FontAwesome.Sharp.IconButton();
-            this.lblBuscar = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCobros)).BeginInit();
             this.SuspendLayout();
             // 
-            // txt_Buscar
+            // txtCob_Buscar
             // 
-            this.txt_Buscar.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_Buscar.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.txt_Buscar.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txt_Buscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCob_Buscar.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtCob_Buscar.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtCob_Buscar.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtCob_Buscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             // 
             // 
             // 
-            this.txt_Buscar.CustomButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Buscar.CustomButton.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            this.txt_Buscar.CustomButton.Location = new System.Drawing.Point(376, 2);
-            this.txt_Buscar.CustomButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_Buscar.CustomButton.Name = "";
-            this.txt_Buscar.CustomButton.Size = new System.Drawing.Size(45, 45);
-            this.txt_Buscar.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txt_Buscar.CustomButton.TabIndex = 1;
-            this.txt_Buscar.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txt_Buscar.CustomButton.UseSelectable = true;
-            this.txt_Buscar.CustomButton.UseStyleColors = true;
-            this.txt_Buscar.CustomButton.UseVisualStyleBackColor = true;
-            this.txt_Buscar.FontSize = MetroFramework.MetroTextBoxSize.Tall;
-            this.txt_Buscar.FontWeight = MetroFramework.MetroTextBoxWeight.Bold;
-            this.txt_Buscar.Lines = new string[0];
-            this.txt_Buscar.Location = new System.Drawing.Point(45, 293);
-            this.txt_Buscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_Buscar.MaxLength = 32767;
-            this.txt_Buscar.Name = "txt_Buscar";
-            this.txt_Buscar.PasswordChar = '\0';
-            this.txt_Buscar.PromptText = "BUSCAR ALUMNO";
-            this.txt_Buscar.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txt_Buscar.SelectedText = "";
-            this.txt_Buscar.SelectionLength = 0;
-            this.txt_Buscar.SelectionStart = 0;
-            this.txt_Buscar.ShortcutsEnabled = true;
-            this.txt_Buscar.ShowButton = true;
-            this.txt_Buscar.Size = new System.Drawing.Size(424, 50);
-            this.txt_Buscar.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txt_Buscar.TabIndex = 51;
-            this.txt_Buscar.UseSelectable = true;
-            this.txt_Buscar.WaterMark = "BUSCAR ALUMNO";
-            this.txt_Buscar.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txt_Buscar.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Buscar.ButtonClick += new MetroFramework.Controls.MetroTextBox.ButClick(this.txtCob_Buscar_ButtonClick);
-            this.txt_Buscar.TextChanged += new System.EventHandler(this.txt_Buscar_TextChanged);
+            this.txtCob_Buscar.CustomButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCob_Buscar.CustomButton.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.txtCob_Buscar.CustomButton.Location = new System.Drawing.Point(376, 2);
+            this.txtCob_Buscar.CustomButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCob_Buscar.CustomButton.Name = "";
+            this.txtCob_Buscar.CustomButton.Size = new System.Drawing.Size(45, 45);
+            this.txtCob_Buscar.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtCob_Buscar.CustomButton.TabIndex = 1;
+            this.txtCob_Buscar.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtCob_Buscar.CustomButton.UseSelectable = true;
+            this.txtCob_Buscar.CustomButton.UseStyleColors = true;
+            this.txtCob_Buscar.CustomButton.UseVisualStyleBackColor = true;
+            this.txtCob_Buscar.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.txtCob_Buscar.FontWeight = MetroFramework.MetroTextBoxWeight.Bold;
+            this.txtCob_Buscar.Lines = new string[0];
+            this.txtCob_Buscar.Location = new System.Drawing.Point(45, 293);
+            this.txtCob_Buscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCob_Buscar.MaxLength = 32767;
+            this.txtCob_Buscar.Name = "txtCob_Buscar";
+            this.txtCob_Buscar.PasswordChar = '\0';
+            this.txtCob_Buscar.PromptText = "BUSCAR ALUMNO";
+            this.txtCob_Buscar.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtCob_Buscar.SelectedText = "";
+            this.txtCob_Buscar.SelectionLength = 0;
+            this.txtCob_Buscar.SelectionStart = 0;
+            this.txtCob_Buscar.ShortcutsEnabled = true;
+            this.txtCob_Buscar.ShowButton = true;
+            this.txtCob_Buscar.Size = new System.Drawing.Size(424, 50);
+            this.txtCob_Buscar.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtCob_Buscar.TabIndex = 51;
+            this.txtCob_Buscar.UseSelectable = true;
+            this.txtCob_Buscar.WaterMark = "BUSCAR ALUMNO";
+            this.txtCob_Buscar.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtCob_Buscar.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // dgvCobros
             // 
@@ -128,10 +125,10 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(41, 909);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(695, 20);
+            this.label1.Size = new System.Drawing.Size(691, 20);
             this.label1.TabIndex = 49;
-            this.label1.Text = "* Para realizar un cobro, debe seleccionar la cuota con mayor vencimiento al día " +
-    "de la fecha";
+            this.label1.Text = "* Para realizar un cobro debe seleccionar la cuota con mayor vencimiento al día d" +
+    "e la fecha";
             // 
             // btnCob_Eliminar
             // 
@@ -142,7 +139,6 @@
             this.btnCob_Eliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnCob_Eliminar.IconChar = FontAwesome.Sharp.IconChar.Times;
             this.btnCob_Eliminar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnCob_Eliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCob_Eliminar.IconSize = 90;
             this.btnCob_Eliminar.Location = new System.Drawing.Point(1330, 668);
             this.btnCob_Eliminar.Name = "btnCob_Eliminar";
@@ -163,7 +159,6 @@
             this.btnCob_Agregar.ForeColor = System.Drawing.Color.Lime;
             this.btnCob_Agregar.IconChar = FontAwesome.Sharp.IconChar.CashRegister;
             this.btnCob_Agregar.IconColor = System.Drawing.Color.Lime;
-            this.btnCob_Agregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCob_Agregar.IconSize = 90;
             this.btnCob_Agregar.Location = new System.Drawing.Point(1330, 463);
             this.btnCob_Agregar.Name = "btnCob_Agregar";
@@ -175,27 +170,13 @@
             this.btnCob_Agregar.UseVisualStyleBackColor = true;
             this.btnCob_Agregar.Click += new System.EventHandler(this.btnCob_Agregar_Click);
             // 
-            // lblBuscar
-            // 
-            this.lblBuscar.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblBuscar.AutoSize = true;
-            this.lblBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBuscar.ForeColor = System.Drawing.Color.Yellow;
-            this.lblBuscar.Location = new System.Drawing.Point(510, 310);
-            this.lblBuscar.Name = "lblBuscar";
-            this.lblBuscar.Size = new System.Drawing.Size(575, 20);
-            this.lblBuscar.TabIndex = 56;
-            this.lblBuscar.Text = "Busque un alumno para visualizar las cuotas del mismo y procesar el cobro";
-            // 
             // frmCobros_Gestionar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(1660, 947);
-            this.Controls.Add(this.lblBuscar);
-            this.Controls.Add(this.txt_Buscar);
+            this.Controls.Add(this.txtCob_Buscar);
             this.Controls.Add(this.dgvCobros);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCob_Eliminar);
@@ -203,7 +184,6 @@
             this.Location = new System.Drawing.Point(45, 293);
             this.Name = "frmCobros_Gestionar";
             this.Text = "COBROS / GESTIONAR";
-            this.Load += new System.EventHandler(this.frmCobros_Gestionar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCobros)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -212,11 +192,10 @@
 
         #endregion
 
-        private MetroFramework.Controls.MetroTextBox txt_Buscar;
+        private MetroFramework.Controls.MetroTextBox txtCob_Buscar;
         public System.Windows.Forms.DataGridView dgvCobros;
         private System.Windows.Forms.Label label1;
         private FontAwesome.Sharp.IconButton btnCob_Eliminar;
         private FontAwesome.Sharp.IconButton btnCob_Agregar;
-        private System.Windows.Forms.Label lblBuscar;
     }
 }

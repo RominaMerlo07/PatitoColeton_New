@@ -243,6 +243,12 @@
     <Compile Include="frmCobro\frmConceptos\frmConcepto_Eliminar.Designer.cs">
       <DependentUpon>frmConcepto_Eliminar.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCobro\frmCuotas\frmCuotasConsultar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCobro\frmCuotas\frmCuotasConsultar.Designer.cs">
+      <DependentUpon>frmCuotasConsultar.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDocentes\frmDocentes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -449,6 +455,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCobro\frmConceptos\frmConcepto.resx">
       <DependentUpon>frmConcepto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCobro\frmCuotas\frmCuotasConsultar.resx">
+      <DependentUpon>frmCuotasConsultar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConceptos2.resx">
       <DependentUpon>frmConceptos2.cs</DependentUpon>

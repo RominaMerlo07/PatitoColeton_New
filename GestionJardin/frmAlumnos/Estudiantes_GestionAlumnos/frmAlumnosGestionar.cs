@@ -33,9 +33,7 @@ namespace GestionJardin
             btnGA_Editar.IconColor = Color.Gray;
             btnGA_Editar.ForeColor = Color.Gray;                        
                         
-            btnGA_Filtrar.Visible = false;
-            btnGA_Excel.Visible = false;
-            btnGA_Pdf.Visible = false;
+            
         }
 
         private void carga_grilla_filtrada()

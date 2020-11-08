@@ -23,8 +23,10 @@ namespace GestionJardin
         private void frmAlumnosGrupoFlia_Load(object sender, EventArgs e)
         {
             dgvGrupoFlia.ClearSelection();
-            cargar_BuscaAlumnos();           
-            
+            cargar_BuscaAlumnos();
+
+            lblBuscar.Visible = true; 
+
             btnGF_Eliminar.IconColor = Color.Gray;
             btnGF_Eliminar.ForeColor = Color.Gray;
             btnGF_Editar.IconColor = Color.Gray;
@@ -182,6 +184,9 @@ namespace GestionJardin
 
         private void txtGF_Buscar_ButtonClick(object sender, EventArgs e)
         {
+            lblBuscar.Visible = false;
+            lblInfo.Visible = true;
+
             string nombreB = "";
             string apellidoB = "";
             string documentoB = "";
@@ -276,6 +281,17 @@ namespace GestionJardin
                 btnGF_Eliminar.IconColor = Color.Gray;
                 btnGF_Eliminar.ForeColor = Color.Gray;
 
+            }
+        }
+
+        private void txtGF_Buscar_TextChanged(object sender, EventArgs e)
+        {
+            if( txtGF_Buscar.Text.Length == 0 )
+            {
+                lblBuscar.Visible = true;
+                lblInfo.Visible = false;
+                dgvGrupoFlia.DataSource = null;
+                dgvGrupoFlia.Refresh();
             }
         }
     }
