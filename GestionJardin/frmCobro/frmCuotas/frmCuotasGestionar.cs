@@ -20,21 +20,14 @@ namespace GestionJardin
         private void btnMasivo_Click(object sender, EventArgs e)
         {
             BtnActivo();
-            btnMasivo.ForeColor = Color.Aqua;
-            btnMasivo.IconColor = Color.Aqua;
-            btnParticular.ForeColor = Color.LightBlue;
-            btnParticular.IconColor = Color.LightBlue;
+          
             txtMatriculados.Visible = false;
             cboOpcionMasivo.Visible = true;            
         }
 
         private void btnParticular_Click(object sender, EventArgs e)
         {
-            BtnActivo();
-            btnParticular.ForeColor = Color.Aqua;
-            btnParticular.IconColor = Color.Aqua;
-            btnMasivo.ForeColor = Color.LightBlue;
-            btnMasivo.IconColor = Color.LightBlue;
+           
             cboOpcionMasivo.Visible = false;
             txtMatriculados.Visible = true;
          
@@ -42,8 +35,7 @@ namespace GestionJardin
 
         private void Inicializar()
         {
-            lblAyuda.Visible = true;                  
-            panelCbos.Visible = false;
+           
             panelGrilla.Visible = false;
             panelConceptos.Visible = false;
             cboOpcionMasivo.Visible = false;
@@ -52,16 +44,12 @@ namespace GestionJardin
             btnAplicarIntereses.Visible = false;
             btnGenerar.Visible = false;           
             cbSalas.SelectedIndex = -1;
-            btnParticular.ForeColor = Color.Aqua;
-            btnParticular.IconColor = Color.Aqua;
-            btnMasivo.ForeColor = Color.Aqua;
-            btnMasivo.IconColor = Color.Aqua;
+        
         }
 
         private void BtnActivo()
         {
-            lblAyuda.Visible = false;
-            panelCbos.Visible = true;        
+           
 
         }
 
