@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCuotasGestionar));
-            this.lblAyuda = new MetroFramework.Controls.MetroLabel();
             this.cbPeriodo = new MetroFramework.Controls.MetroComboBox();
             this.cbAnoEjercicio = new MetroFramework.Controls.MetroComboBox();
             this.cbSalas = new MetroFramework.Controls.MetroComboBox();
@@ -40,8 +39,6 @@
             this.txtMatriculados = new MetroFramework.Controls.MetroTextBox();
             this.cboOpcionMasivo = new MetroFramework.Controls.MetroComboBox();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.btnParticular = new FontAwesome.Sharp.IconButton();
-            this.btnMasivo = new FontAwesome.Sharp.IconButton();
             this.btnGenerar = new FontAwesome.Sharp.IconButton();
             this.panelConceptos = new MetroFramework.Controls.MetroPanel();
             this.lblConceptos = new MetroFramework.Controls.MetroLabel();
@@ -52,19 +49,6 @@
             this.panelGrilla.SuspendLayout();
             this.panelConceptos.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lblAyuda
-            // 
-            this.lblAyuda.AutoSize = true;
-            this.lblAyuda.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.lblAyuda.ForeColor = System.Drawing.Color.White;
-            this.lblAyuda.Location = new System.Drawing.Point(24, 241);
-            this.lblAyuda.Name = "lblAyuda";
-            this.lblAyuda.Size = new System.Drawing.Size(560, 20);
-            this.lblAyuda.TabIndex = 15;
-            this.lblAyuda.Text = "Por favor, elija una modalidad para la generación de cuotas (Masivo/Particular)";
-            this.lblAyuda.UseCustomBackColor = true;
-            this.lblAyuda.UseCustomForeColor = true;
             // 
             // cbPeriodo
             // 
@@ -261,50 +245,6 @@
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             // 
-            // btnParticular
-            // 
-            this.btnParticular.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnParticular.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnParticular.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnParticular.ForeColor = System.Drawing.Color.Aqua;
-            this.btnParticular.IconChar = FontAwesome.Sharp.IconChar.User;
-            this.btnParticular.IconColor = System.Drawing.Color.Aqua;
-            this.btnParticular.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnParticular.IconSize = 55;
-            this.btnParticular.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnParticular.Location = new System.Drawing.Point(227, 298);
-            this.btnParticular.Name = "btnParticular";
-            this.btnParticular.Padding = new System.Windows.Forms.Padding(3, 5, 3, 3);
-            this.btnParticular.Rotation = 0D;
-            this.btnParticular.Size = new System.Drawing.Size(172, 117);
-            this.btnParticular.TabIndex = 17;
-            this.btnParticular.Text = "PARTICULAR";
-            this.btnParticular.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnParticular.UseVisualStyleBackColor = true;
-            this.btnParticular.Click += new System.EventHandler(this.btnParticular_Click);
-            // 
-            // btnMasivo
-            // 
-            this.btnMasivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMasivo.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnMasivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMasivo.ForeColor = System.Drawing.Color.Aqua;
-            this.btnMasivo.IconChar = FontAwesome.Sharp.IconChar.Users;
-            this.btnMasivo.IconColor = System.Drawing.Color.Aqua;
-            this.btnMasivo.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnMasivo.IconSize = 70;
-            this.btnMasivo.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnMasivo.Location = new System.Drawing.Point(24, 298);
-            this.btnMasivo.Name = "btnMasivo";
-            this.btnMasivo.Padding = new System.Windows.Forms.Padding(3);
-            this.btnMasivo.Rotation = 0D;
-            this.btnMasivo.Size = new System.Drawing.Size(172, 117);
-            this.btnMasivo.TabIndex = 16;
-            this.btnMasivo.Text = "MASIVO";
-            this.btnMasivo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnMasivo.UseVisualStyleBackColor = true;
-            this.btnMasivo.Click += new System.EventHandler(this.btnMasivo_Click);
-            // 
             // btnGenerar
             // 
             this.btnGenerar.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -430,24 +370,16 @@
             this.Controls.Add(this.btnGenerar);
             this.Controls.Add(this.panelGrilla);
             this.Controls.Add(this.panelCbos);
-            this.Controls.Add(this.btnParticular);
-            this.Controls.Add(this.btnMasivo);
-            this.Controls.Add(this.lblAyuda);
             this.Name = "frmCuotasGestionar";
             this.Text = "CUOTAS / GESTIONAR";
             this.panelCbos.ResumeLayout(false);
             this.panelGrilla.ResumeLayout(false);
             this.panelConceptos.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private MetroFramework.Controls.MetroLabel lblAyuda;
-        private FontAwesome.Sharp.IconButton btnMasivo;
-        private FontAwesome.Sharp.IconButton btnParticular;
         private MetroFramework.Controls.MetroComboBox cbPeriodo;
         private MetroFramework.Controls.MetroComboBox cbAnoEjercicio;
         private MetroFramework.Controls.MetroComboBox cbSalas;
