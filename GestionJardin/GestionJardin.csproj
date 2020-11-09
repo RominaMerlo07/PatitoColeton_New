@@ -255,11 +255,17 @@
     <Compile Include="frmCobro\frmCuotas\frmCuotasGestionar.Designer.cs">
       <DependentUpon>frmCuotasGestionar.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCuotasGestionar_Agregar.cs">
+    <Compile Include="frmCobro\frmCuotas\frmCuotasGestionar_Agregar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCuotasGestionar_Agregar.Designer.cs">
+    <Compile Include="frmCobro\frmCuotas\frmCuotasGestionar_Agregar.Designer.cs">
       <DependentUpon>frmCuotasGestionar_Agregar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCobro\frmCuotas\frmCuotasGestionar_Anular.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCobro\frmCuotas\frmCuotasGestionar_Anular.Designer.cs">
+      <DependentUpon>frmCuotasGestionar_Anular.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDocentes\frmDocentes.cs">
       <SubType>Form</SubType>
@@ -486,8 +492,11 @@
     <EmbeddedResource Include="frmCobro\frmConceptos\frmConcepto_Eliminar.resx">
       <DependentUpon>frmConcepto_Eliminar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCuotasGestionar_Agregar.resx">
+    <EmbeddedResource Include="frmCobro\frmCuotas\frmCuotasGestionar_Agregar.resx">
       <DependentUpon>frmCuotasGestionar_Agregar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCobro\frmCuotas\frmCuotasGestionar_Anular.resx">
+      <DependentUpon>frmCuotasGestionar_Anular.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDocentes\frmDocentes.resx">
       <DependentUpon>frmDocentes.cs</DependentUpon>

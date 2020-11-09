@@ -1018,3 +1018,4 @@ C:\Users\Laura\Desktop\TPI_prueba\GestionJardin\bin\Debug\zh-CHT\Microsoft.Repor
 C:\Users\Laura\Desktop\TPI_prueba\GestionJardin\obj\Debug\GestionJardin.exe.manifest
 C:\Users\Laura\Desktop\TPI_prueba\GestionJardin\obj\Debug\GestionJardin.application
 C:\Users\Laura\Desktop\TPI_prueba\GestionJardin\obj\Debug\GestionJardin.csproj.CopyComplete
+C:\Users\Laura\Desktop\TPI_prueba\GestionJardin\obj\Debug\GestionJardin.frmCuotasGestionar_Anular.resources
