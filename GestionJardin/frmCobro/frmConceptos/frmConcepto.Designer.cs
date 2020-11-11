@@ -55,8 +55,8 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvConceptos.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvConceptos.Location = new System.Drawing.Point(38, 353);
-            this.dgvConceptos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvConceptos.Location = new System.Drawing.Point(28, 287);
+            this.dgvConceptos.Margin = new System.Windows.Forms.Padding(2);
             this.dgvConceptos.MultiSelect = false;
             this.dgvConceptos.Name = "dgvConceptos";
             this.dgvConceptos.ReadOnly = true;
@@ -69,8 +69,9 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvConceptos.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvConceptos.RowTemplate.Height = 24;
-            this.dgvConceptos.Size = new System.Drawing.Size(1252, 495);
+            this.dgvConceptos.Size = new System.Drawing.Size(939, 402);
             this.dgvConceptos.TabIndex = 52;
+            this.dgvConceptos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConceptos_CellClick);
             // 
             // txtCon_Buscar
             // 
@@ -83,9 +84,10 @@
             // 
             this.txtCon_Buscar.CustomButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCon_Buscar.CustomButton.Image = null;
-            this.txtCon_Buscar.CustomButton.Location = new System.Drawing.Point(376, 2);
+            this.txtCon_Buscar.CustomButton.Location = new System.Drawing.Point(278, 1);
+            this.txtCon_Buscar.CustomButton.Margin = new System.Windows.Forms.Padding(2);
             this.txtCon_Buscar.CustomButton.Name = "";
-            this.txtCon_Buscar.CustomButton.Size = new System.Drawing.Size(45, 45);
+            this.txtCon_Buscar.CustomButton.Size = new System.Drawing.Size(39, 39);
             this.txtCon_Buscar.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtCon_Buscar.CustomButton.TabIndex = 1;
             this.txtCon_Buscar.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -94,7 +96,8 @@
             this.txtCon_Buscar.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.txtCon_Buscar.FontWeight = MetroFramework.MetroTextBoxWeight.Bold;
             this.txtCon_Buscar.Lines = new string[0];
-            this.txtCon_Buscar.Location = new System.Drawing.Point(38, 257);
+            this.txtCon_Buscar.Location = new System.Drawing.Point(28, 209);
+            this.txtCon_Buscar.Margin = new System.Windows.Forms.Padding(2);
             this.txtCon_Buscar.MaxLength = 32767;
             this.txtCon_Buscar.Name = "txtCon_Buscar";
             this.txtCon_Buscar.PasswordChar = '\0';
@@ -104,13 +107,14 @@
             this.txtCon_Buscar.SelectionLength = 0;
             this.txtCon_Buscar.SelectionStart = 0;
             this.txtCon_Buscar.ShortcutsEnabled = true;
-            this.txtCon_Buscar.Size = new System.Drawing.Size(424, 50);
+            this.txtCon_Buscar.Size = new System.Drawing.Size(318, 41);
             this.txtCon_Buscar.TabIndex = 51;
             this.txtCon_Buscar.UseSelectable = true;
             this.txtCon_Buscar.WaterMark = "BUSCAR CONCEPTO";
             this.txtCon_Buscar.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtCon_Buscar.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
+            this.txtCon_Buscar.TextChanged += new System.EventHandler(this.txtCon_Buscar_TextChanged);
+            this.txtCon_Buscar.Click += new System.EventHandler(this.txtCon_Buscar_Click);
             // 
             // label1
             // 
@@ -119,9 +123,10 @@
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(34, 868);
+            this.label1.Location = new System.Drawing.Point(26, 705);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(828, 20);
+            this.label1.Size = new System.Drawing.Size(703, 17);
             this.label1.TabIndex = 47;
             this.label1.Text = "* Para poder editar los datos de un concepto o dar de baja al mismo, debe selecci" +
     "onar el registro previamente";
@@ -130,17 +135,17 @@
             // 
             this.btnCon_Eliminar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCon_Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCon_Eliminar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnCon_Eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCon_Eliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnCon_Eliminar.IconChar = FontAwesome.Sharp.IconChar.Times;
             this.btnCon_Eliminar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnCon_Eliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCon_Eliminar.IconSize = 85;
             this.btnCon_Eliminar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCon_Eliminar.Location = new System.Drawing.Point(1313, 687);
+            this.btnCon_Eliminar.Location = new System.Drawing.Point(1099, 558);
+            this.btnCon_Eliminar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCon_Eliminar.Name = "btnCon_Eliminar";
-            this.btnCon_Eliminar.Rotation = 0D;
-            this.btnCon_Eliminar.Size = new System.Drawing.Size(293, 134);
+            this.btnCon_Eliminar.Size = new System.Drawing.Size(220, 109);
             this.btnCon_Eliminar.TabIndex = 46;
             this.btnCon_Eliminar.Text = "ELIMINAR";
             this.btnCon_Eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -151,17 +156,17 @@
             // 
             this.btnCon_Editar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCon_Editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCon_Editar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnCon_Editar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCon_Editar.ForeColor = System.Drawing.Color.Cyan;
             this.btnCon_Editar.IconChar = FontAwesome.Sharp.IconChar.Pen;
             this.btnCon_Editar.IconColor = System.Drawing.Color.Cyan;
+            this.btnCon_Editar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCon_Editar.IconSize = 85;
             this.btnCon_Editar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCon_Editar.Location = new System.Drawing.Point(1313, 531);
+            this.btnCon_Editar.Location = new System.Drawing.Point(1099, 431);
+            this.btnCon_Editar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCon_Editar.Name = "btnCon_Editar";
-            this.btnCon_Editar.Rotation = 0D;
-            this.btnCon_Editar.Size = new System.Drawing.Size(293, 134);
+            this.btnCon_Editar.Size = new System.Drawing.Size(220, 109);
             this.btnCon_Editar.TabIndex = 45;
             this.btnCon_Editar.Text = "EDITAR";
             this.btnCon_Editar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -172,17 +177,17 @@
             // 
             this.btnCon_Agregar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCon_Agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCon_Agregar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnCon_Agregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCon_Agregar.ForeColor = System.Drawing.Color.Lime;
             this.btnCon_Agregar.IconChar = FontAwesome.Sharp.IconChar.Plus;
             this.btnCon_Agregar.IconColor = System.Drawing.Color.Lime;
+            this.btnCon_Agregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCon_Agregar.IconSize = 85;
             this.btnCon_Agregar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCon_Agregar.Location = new System.Drawing.Point(1313, 373);
+            this.btnCon_Agregar.Location = new System.Drawing.Point(1099, 303);
+            this.btnCon_Agregar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCon_Agregar.Name = "btnCon_Agregar";
-            this.btnCon_Agregar.Rotation = 0D;
-            this.btnCon_Agregar.Size = new System.Drawing.Size(293, 134);
+            this.btnCon_Agregar.Size = new System.Drawing.Size(220, 109);
             this.btnCon_Agregar.TabIndex = 44;
             this.btnCon_Agregar.Text = "AGREGAR";
             this.btnCon_Agregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -191,18 +196,20 @@
             // 
             // frmConcepto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.ClientSize = new System.Drawing.Size(1660, 947);
+            this.ClientSize = new System.Drawing.Size(1257, 609);
             this.Controls.Add(this.dgvConceptos);
             this.Controls.Add(this.txtCon_Buscar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCon_Eliminar);
             this.Controls.Add(this.btnCon_Editar);
             this.Controls.Add(this.btnCon_Agregar);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmConcepto";
             this.Text = "CONCEPTOS / GESTIONAR";
+            this.Load += new System.EventHandler(this.frmConcepto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvConceptos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

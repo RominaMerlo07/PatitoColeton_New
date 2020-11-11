@@ -213,10 +213,15 @@ namespace GestionJardin
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-
+            string sala = cbSala.SelectedValue.ToString();
+            string turno = cbTurno.SelectedItem.ToString();
+            DateTime dt_nac = dtNacimiento.Value;
             string validacion = validaCampos();
+            logPersonas logPersonas = new logPersonas();
+            
+           string  resultado_val_salas =logPersonas.Validar_Salas(dt_nac, sala, turno);
 
-            if (validacion == "OK")
+            if (validacion == "OK" && resultado_val_salas == "OK")
             {
 
                 // Preparo la info de todos los campos
@@ -288,7 +293,18 @@ namespace GestionJardin
                     Int32 id_persona = personaInsert.PER_ID;
 
                     // INSERTA GRUPO FAMILIAR
-                    string valor = cbHrmDomicilio.SelectedItem.ToString();
+                    //string valor = cbHrmDomicilio.SelectedItem.ToString();
+                    string valor;
+
+                    if (cbHrmDomicilio.SelectedItem == null)
+                    {
+                        valor = "";
+                    }
+                    else
+                    {
+                        valor = cbHrmDomicilio.SelectedItem.ToString();
+                    }
+
                     if (valor.StartsWith("SI"))
                     {
                         logGrupoFlia objGrpFlia = new logGrupoFlia();
@@ -325,7 +341,7 @@ namespace GestionJardin
                     // -----
 
                     //INSERTA GRUPO SALA 
-                    
+
                     entGrupoSala grupoSalaInsertar = new entGrupoSala();
 
                     grupoSalaInsertar.GRS_PER_ID = Convert.ToInt32(id_persona);
@@ -343,6 +359,17 @@ namespace GestionJardin
 
                     }
                 }
+            }
+
+            else if (resultado_val_salas != "OK")
+            {
+                MessageBox.Show(resultado_val_salas);
+                
+                cbSala.SelectedIndex = -1;
+                cbSala.Focus();
+                cbSala.Style = MetroFramework.MetroColorStyle.Red;
+                lblSala.Text = "Por facor, seleccione una sala";
+                lblSala.ForeColor = Color.Red;
             }
             else
             {

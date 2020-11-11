@@ -134,12 +134,12 @@ namespace CaAD//GestionJardin
 
 
                 
-            string consulta = "SELECT CONCAT(CON_CONCEPTO, '_', " +
+            string consulta = "SELECT CONCAT(CON_CONCEPTO, '-', " +
                                             "CON_PERIODO, ' (', " +
                                             "CASE CON_ACTIVO " +
                                                     "WHEN 'S' THEN 'ACTIVO' " +
                                                     "WHEN 'N' THEN 'INACTIVO' " +
-                                            "END, ')') " +
+                                            "END, ')') AS CONCEPTO " +
                                 "FROM T_CONCEPTOS; ";
 
             cmd = new SqlCommand(consulta, con);
@@ -240,12 +240,13 @@ namespace CaAD//GestionJardin
             con.Open();
 
 
-            string consulta = "SELECT CON_CONCEPTO as 'CONCEPTO', " +
+            string consulta = "SELECT CON_ID 'CON_ID' ," +
+                                     "CON_CONCEPTO as 'CONCEPTO', " +
                                      "CON_PERIODO 'PERIODO',  " +
                                      "CON_VALOR_ACTUAL as 'VALOR ACTUAL', " +
+                                     "CONVERT(VARCHAR(10), T_CONCEPTOS.CON_FECHA_ACT, 103) as 'MODIFICADO', " +
                                      "CON_VALOR_ANTERIOR 'VALOR ANTERIOR',  " +
                                      "CONVERT(VARCHAR(10), T_CONCEPTOS.CON_FECHA_INI, 103) as 'ALTA', " +
-                                     "CONVERT(VARCHAR(10), T_CONCEPTOS.CON_FECHA_ACT, 103) as 'MODIFICADO', " +
                                      "CONVERT(VARCHAR(10), T_CONCEPTOS.CON_FECHA_FIN, 103) as 'FIN', " +
                                      "(CASE CON_ACTIVO " +
                                         "WHEN 'S' THEN 'ACTIVO' " +
