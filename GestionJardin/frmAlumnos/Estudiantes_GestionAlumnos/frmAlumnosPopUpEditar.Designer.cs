@@ -77,14 +77,12 @@
             this.txtDocumento = new MetroFramework.Controls.MetroTextBox();
             this.txtApellidos = new MetroFramework.Controls.MetroTextBox();
             this.txtNombre = new MetroFramework.Controls.MetroTextBox();
-            this.btnGA_Excel = new FontAwesome.Sharp.IconPictureBox();
-            this.btnGA_Pdf = new FontAwesome.Sharp.IconPictureBox();
+            this.btn_Informe = new FontAwesome.Sharp.IconPictureBox();
             this.metroPanel3.SuspendLayout();
             this.panelContacto.SuspendLayout();
             this.panelDatos.SuspendLayout();
             this.metroPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnGA_Excel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnGA_Pdf)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Informe)).BeginInit();
             this.SuspendLayout();
             // 
             // iconButton2
@@ -943,7 +941,7 @@
             this.dtNacimiento.Location = new System.Drawing.Point(169, 10);
             this.dtNacimiento.MaxDate = new System.DateTime(2019, 12, 31, 0, 0, 0, 0);
             this.dtNacimiento.MinDate = new System.DateTime(1940, 1, 1, 0, 0, 0, 0);
-            this.dtNacimiento.MinimumSize = new System.Drawing.Size(4, 27);
+            this.dtNacimiento.MinimumSize = new System.Drawing.Size(0, 27);
             this.dtNacimiento.Name = "dtNacimiento";
             this.dtNacimiento.Size = new System.Drawing.Size(184, 27);
             this.dtNacimiento.Style = MetroFramework.MetroColorStyle.Blue;
@@ -1089,41 +1087,24 @@
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             this.txtNombre.Leave += new System.EventHandler(this.txtNombre_Leave);
             // 
-            // btnGA_Excel
+            // btn_Informe
             // 
-            this.btnGA_Excel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnGA_Excel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.btnGA_Excel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.btnGA_Excel.ForeColor = System.Drawing.Color.Chartreuse;
-            this.btnGA_Excel.IconChar = FontAwesome.Sharp.IconChar.FileExcel;
-            this.btnGA_Excel.IconColor = System.Drawing.Color.Chartreuse;
-            this.btnGA_Excel.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnGA_Excel.IconSize = 69;
-            this.btnGA_Excel.Location = new System.Drawing.Point(1599, 215);
-            this.btnGA_Excel.Name = "btnGA_Excel";
-            this.btnGA_Excel.Padding = new System.Windows.Forms.Padding(5);
-            this.btnGA_Excel.Size = new System.Drawing.Size(77, 69);
-            this.btnGA_Excel.TabIndex = 47;
-            this.btnGA_Excel.TabStop = false;
-            this.btnGA_Excel.Visible = false;
-            // 
-            // btnGA_Pdf
-            // 
-            this.btnGA_Pdf.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnGA_Pdf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.btnGA_Pdf.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.btnGA_Pdf.ForeColor = System.Drawing.Color.Salmon;
-            this.btnGA_Pdf.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
-            this.btnGA_Pdf.IconColor = System.Drawing.Color.Salmon;
-            this.btnGA_Pdf.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnGA_Pdf.IconSize = 69;
-            this.btnGA_Pdf.Location = new System.Drawing.Point(1599, 299);
-            this.btnGA_Pdf.Name = "btnGA_Pdf";
-            this.btnGA_Pdf.Padding = new System.Windows.Forms.Padding(5);
-            this.btnGA_Pdf.Size = new System.Drawing.Size(77, 69);
-            this.btnGA_Pdf.TabIndex = 48;
-            this.btnGA_Pdf.TabStop = false;
-            this.btnGA_Pdf.Visible = false;
+            this.btn_Informe.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Informe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.btn_Informe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.btn_Informe.ForeColor = System.Drawing.Color.Yellow;
+            this.btn_Informe.IconChar = FontAwesome.Sharp.IconChar.Print;
+            this.btn_Informe.IconColor = System.Drawing.Color.Yellow;
+            this.btn_Informe.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_Informe.IconSize = 81;
+            this.btn_Informe.Location = new System.Drawing.Point(1594, 270);
+            this.btn_Informe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Informe.Name = "btn_Informe";
+            this.btn_Informe.Padding = new System.Windows.Forms.Padding(5);
+            this.btn_Informe.Size = new System.Drawing.Size(91, 81);
+            this.btn_Informe.TabIndex = 55;
+            this.btn_Informe.TabStop = false;
+            this.btn_Informe.Click += new System.EventHandler(this.btn_Informe_Click);
             // 
             // frmAlumnosPopUpEditar
             // 
@@ -1131,8 +1112,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(1765, 863);
-            this.Controls.Add(this.btnGA_Pdf);
-            this.Controls.Add(this.btnGA_Excel);
+            this.Controls.Add(this.btn_Informe);
             this.Controls.Add(this.btnBloqueo);
             this.Controls.Add(this.iconButton2);
             this.Controls.Add(this.btnEditar);
@@ -1151,8 +1131,7 @@
             this.panelDatos.ResumeLayout(false);
             this.panelDatos.PerformLayout();
             this.metroPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnGA_Excel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnGA_Pdf)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Informe)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1198,8 +1177,6 @@
         private MetroFramework.Controls.MetroTextBox txtDocumento;
         private MetroFramework.Controls.MetroTextBox txtApellidos;
         private MetroFramework.Controls.MetroTextBox txtNombre;
-        private FontAwesome.Sharp.IconPictureBox btnGA_Excel;
-        private FontAwesome.Sharp.IconPictureBox btnGA_Pdf;
         private FontAwesome.Sharp.IconButton btnBloqueo;
         private System.Windows.Forms.Label lblDni;
         private System.Windows.Forms.Label lblNombre;
@@ -1210,5 +1187,6 @@
         private System.Windows.Forms.Label lblBarrio;
         private System.Windows.Forms.Label lblCelular;
         private System.Windows.Forms.Label lblSala;
+        private FontAwesome.Sharp.IconPictureBox btn_Informe;
     }
 }

@@ -111,6 +111,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DtasDocente.xsd</DependentUpon>
     </Compile>
+    <Compile Include="fichaAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fichaAlumno.Designer.cs">
+      <DependentUpon>fichaAlumno.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAlumnos\Estudiantes_GrupoFlia\frmAlumnosGrupoFlia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -408,6 +414,10 @@
     <Compile Include="LocalReportExtension.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FichaAlumno.rdlc" />
+    <EmbeddedResource Include="fichaAlumno.resx">
+      <DependentUpon>fichaAlumno.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAlumnos\Estudiantes_GrupoFlia\frmAlumnosGrupoFlia.resx">
       <DependentUpon>frmAlumnosGrupoFlia.cs</DependentUpon>
     </EmbeddedResource>
@@ -582,6 +592,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\CaEnt.entAsistencia.datasource" />
     <None Include="Properties\DataSources\CaEnt.entPersona.datasource" />
+    <None Include="Properties\DataSources\CaEnt.fichaAlumno.datasource" />
     <None Include="Properties\DataSources\CaEnt.InformeAsistencia.datasource" />
     <None Include="Properties\DataSources\CaLog.logAsistencia.datasource" />
     <None Include="Properties\DataSources\CapaAccesoDatos.metAsistencia.datasource" />

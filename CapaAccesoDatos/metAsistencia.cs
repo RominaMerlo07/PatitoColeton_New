@@ -401,11 +401,8 @@ namespace CaAD//GestionJardin
                 //}
                 return dset;
             }
-            catch
-            {
-                //result = "ERROR";
-                //MessageBox.Show("Hubo un problema. Contáctese con su administrador.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+            catch(Exception ex)
+            {                                
 
             }
             return dset;
