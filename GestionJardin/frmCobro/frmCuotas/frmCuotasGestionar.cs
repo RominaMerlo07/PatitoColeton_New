@@ -15,93 +15,34 @@ namespace GestionJardin
         public frmCuotasGestionar()
         {
             InitializeComponent();
-        }
+        }              
 
-        private void btnMasivo_Click(object sender, EventArgs e)
+        private void cbSala_SelectedValueChanged(object sender, EventArgs e)
         {
-            BtnActivo();
-            btnMasivo.ForeColor = Color.Aqua;
-            btnMasivo.IconColor = Color.Aqua;
-            btnParticular.ForeColor = Color.LightBlue;
-            btnParticular.IconColor = Color.LightBlue;
-            txtMatriculados.Visible = false;
-            cboOpcionMasivo.Visible = true;            
-        }
-
-        private void btnParticular_Click(object sender, EventArgs e)
-        {
-            BtnActivo();
-            btnParticular.ForeColor = Color.Aqua;
-            btnParticular.IconColor = Color.Aqua;
-            btnMasivo.ForeColor = Color.LightBlue;
-            btnMasivo.IconColor = Color.LightBlue;
-            cboOpcionMasivo.Visible = false;
-            txtMatriculados.Visible = true;
-         
-        }  
-
-        private void Inicializar()
-        {
-            lblAyuda.Visible = true;                  
-            panelCbos.Visible = false;
-            panelGrilla.Visible = false;
-            panelConceptos.Visible = false;
-            cboOpcionMasivo.Visible = false;
-            txtMatriculados.Visible = false;
-            btnEliminar.Visible = false;
-            btnAplicarIntereses.Visible = false;
-            btnGenerar.Visible = false;           
-            cbSalas.SelectedIndex = -1;
-            btnParticular.ForeColor = Color.Aqua;
-            btnParticular.IconColor = Color.Aqua;
-            btnMasivo.ForeColor = Color.Aqua;
-            btnMasivo.IconColor = Color.Aqua;
-        }
-
-        private void BtnActivo()
-        {
-            lblAyuda.Visible = false;
-            panelCbos.Visible = true;        
-
-        }
-
-        private void cbSalas_SelectedValueChanged(object sender, EventArgs e)
-        {
-            if (cbSalas.SelectedItem != null)
+            if (string.IsNullOrWhiteSpace(cbSala.Text.Trim()) == false && string.IsNullOrWhiteSpace(cbTurno.Text.Trim()) == false)
             {
-                panelGrilla.Visible = true;
-                panelConceptos.Visible = true;
-                panelConceptos.Enabled = false;
-                lblConceptos.ForeColor = Color.Gray;
+                lbl_Continuar.Visible = false;
+                lblInfo.Visible = true;
+                dgvAlumnos.Visible = true;
+                txtBuscar.Visible = true;
+                btnGenerar.Visible = true;
+                btnCargos.Visible = true; // se deben iniciar en gray
+                btnCon_Eliminar.Visible = true; // se deben iniciar en gray
             }
         }
 
-        private void cboOpcionMasivo_SelectedValueChanged(object sender, EventArgs e)
+        private void btnCargos_Click(object sender, EventArgs e)
         {
-            if (cboOpcionMasivo.SelectedItem != null)
-            {
-                if (cboOpcionMasivo.SelectedIndex == 0)
-                {
-                    panelConceptos.Enabled = true;
-                    lblConceptos.ForeColor = Color.Aqua;
-                    btnEliminar.Visible = true;
-                    btnAplicarIntereses.Visible = true;
-                    btnGenerar.Visible = true;                 
-
-
-                }
-                else
-                {
-                    panelConceptos.Enabled = false;
-                    lblConceptos.ForeColor = Color.Gray;
-                    btnEliminar.Visible = true;
-                    btnAplicarIntereses.Visible = true;
-                    btnGenerar.Visible = true;                   
-
-                }
-
-            }
+            frmCuotasGestionar_Agregar frmCuotasGestionar_Agregar = new frmCuotasGestionar_Agregar();
+            frmCuotasGestionar_Agregar.Text = "GESTIÓN COBROS / CUOTAS / GESTIONAR / APLICAR CARGOS";
+            frmCuotasGestionar_Agregar.ShowDialog();
         }
-        
+
+        private void btnCon_Eliminar_Click(object sender, EventArgs e)
+        {
+            frmCuotasGestionar_Anular frmCuotasGestionar_Anular = new frmCuotasGestionar_Anular();
+            frmCuotasGestionar_Anular.Text = "GESTIÓN COBROS / CUOTAS / GESTIONAR / ANULAR";
+            frmCuotasGestionar_Anular.ShowDialog();
+        }
     }
 }

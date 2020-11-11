@@ -89,5 +89,16 @@ namespace CaLog
             return objMetConcepto.ActualizarMonto(conceptoM);
         }
 
+        public string nombre_concepto(string concepto)
+
+        {
+            {
+
+                char delimitador = ('-');
+                string[] nombre_concepto = concepto.Split(delimitador);
+                return nombre_concepto[0];
+            }                 
+        }
+
     }
 }

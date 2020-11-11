@@ -31,6 +31,7 @@
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.btnEditar = new FontAwesome.Sharp.IconButton();
             this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
+            this.lblSala = new System.Windows.Forms.Label();
             this.txtLegajo = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.cbSala = new MetroFramework.Controls.MetroComboBox();
@@ -76,29 +77,26 @@
             this.txtDocumento = new MetroFramework.Controls.MetroTextBox();
             this.txtApellidos = new MetroFramework.Controls.MetroTextBox();
             this.txtNombre = new MetroFramework.Controls.MetroTextBox();
-            this.btnGA_Excel = new FontAwesome.Sharp.IconPictureBox();
-            this.btnGA_Pdf = new FontAwesome.Sharp.IconPictureBox();
+            this.btn_Informe = new FontAwesome.Sharp.IconPictureBox();
             this.metroPanel3.SuspendLayout();
             this.panelContacto.SuspendLayout();
             this.panelDatos.SuspendLayout();
             this.metroPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnGA_Excel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnGA_Pdf)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Informe)).BeginInit();
             this.SuspendLayout();
             // 
             // iconButton2
             // 
             this.iconButton2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.iconButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Eraser;
             this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton2.IconSize = 60;
             this.iconButton2.Location = new System.Drawing.Point(1035, 742);
             this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Rotation = 0D;
             this.iconButton2.Size = new System.Drawing.Size(239, 76);
             this.iconButton2.TabIndex = 18;
             this.iconButton2.Text = "CANCELAR";
@@ -110,15 +108,14 @@
             // 
             this.btnEditar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnEditar.IconChar = FontAwesome.Sharp.IconChar.Save;
             this.btnEditar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEditar.IconSize = 60;
             this.btnEditar.Location = new System.Drawing.Point(674, 742);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Rotation = 0D;
             this.btnEditar.Size = new System.Drawing.Size(239, 76);
             this.btnEditar.TabIndex = 17;
             this.btnEditar.Text = "GUARDAR";
@@ -131,6 +128,7 @@
             this.metroPanel3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.metroPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.metroPanel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.metroPanel3.Controls.Add(this.lblSala);
             this.metroPanel3.Controls.Add(this.txtLegajo);
             this.metroPanel3.Controls.Add(this.metroLabel4);
             this.metroPanel3.Controls.Add(this.cbSala);
@@ -149,6 +147,18 @@
             this.metroPanel3.VerticalScrollbarBarColor = true;
             this.metroPanel3.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel3.VerticalScrollbarSize = 10;
+            // 
+            // lblSala
+            // 
+            this.lblSala.AutoSize = true;
+            this.lblSala.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSala.ForeColor = System.Drawing.Color.Red;
+            this.lblSala.Location = new System.Drawing.Point(812, 93);
+            this.lblSala.Name = "lblSala";
+            this.lblSala.Size = new System.Drawing.Size(46, 17);
+            this.lblSala.TabIndex = 30;
+            this.lblSala.Text = "label1";
+            this.lblSala.Visible = false;
             // 
             // txtLegajo
             // 
@@ -206,24 +216,25 @@
             this.cbSala.Enabled = false;
             this.cbSala.FormattingEnabled = true;
             this.cbSala.ItemHeight = 24;
-            this.cbSala.Location = new System.Drawing.Point(858, 46);
+            this.cbSala.Location = new System.Drawing.Point(815, 46);
             this.cbSala.Name = "cbSala";
             this.cbSala.Size = new System.Drawing.Size(185, 30);
-            this.cbSala.Style = MetroFramework.MetroColorStyle.Orange;
+            this.cbSala.Style = MetroFramework.MetroColorStyle.Blue;
             this.cbSala.TabIndex = 1;
             this.cbSala.UseCustomBackColor = true;
             this.cbSala.UseSelectable = true;
             this.cbSala.UseStyleColors = true;
             this.cbSala.SelectedValueChanged += new System.EventHandler(this.cbSala_SelectedValueChanged);
+            this.cbSala.Leave += new System.EventHandler(this.cbSala_Leave);
             // 
             // metroLabel2
             // 
             this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.metroLabel2.ForeColor = System.Drawing.Color.Aqua;
-            this.metroLabel2.Location = new System.Drawing.Point(509, 46);
+            this.metroLabel2.Location = new System.Drawing.Point(626, 46);
             this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(402, 44);
+            this.metroLabel2.Size = new System.Drawing.Size(165, 44);
             this.metroLabel2.TabIndex = 24;
             this.metroLabel2.Text = "SALAS:";
             this.metroLabel2.UseCustomBackColor = true;
@@ -240,7 +251,7 @@
             this.cbTurno.Name = "cbTurno";
             this.cbTurno.PromptText = "Turno";
             this.cbTurno.Size = new System.Drawing.Size(185, 30);
-            this.cbTurno.Style = MetroFramework.MetroColorStyle.Green;
+            this.cbTurno.Style = MetroFramework.MetroColorStyle.Blue;
             this.cbTurno.TabIndex = 0;
             this.cbTurno.UseCustomBackColor = true;
             this.cbTurno.UseSelectable = true;
@@ -755,15 +766,14 @@
             this.btnBloqueo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.btnBloqueo.FlatAppearance.BorderSize = 0;
             this.btnBloqueo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBloqueo.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnBloqueo.ForeColor = System.Drawing.Color.Transparent;
             this.btnBloqueo.IconChar = FontAwesome.Sharp.IconChar.Lock;
             this.btnBloqueo.IconColor = System.Drawing.Color.Aqua;
+            this.btnBloqueo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBloqueo.IconSize = 45;
             this.btnBloqueo.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBloqueo.Location = new System.Drawing.Point(1599, 428);
             this.btnBloqueo.Name = "btnBloqueo";
-            this.btnBloqueo.Rotation = 0D;
             this.btnBloqueo.Size = new System.Drawing.Size(77, 67);
             this.btnBloqueo.TabIndex = 54;
             this.btnBloqueo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -937,6 +947,7 @@
             this.dtNacimiento.Style = MetroFramework.MetroColorStyle.Blue;
             this.dtNacimiento.TabIndex = 5;
             this.dtNacimiento.Value = new System.DateTime(2019, 12, 31, 0, 0, 0, 0);
+            this.dtNacimiento.Leave += new System.EventHandler(this.dtNacimiento_Leave);
             // 
             // lblDatosPersonales
             // 
@@ -964,7 +975,6 @@
             this.cbGenero.Style = MetroFramework.MetroColorStyle.Blue;
             this.cbGenero.TabIndex = 7;
             this.cbGenero.UseSelectable = true;
-
             // 
             // txtDocumento
             // 
@@ -1077,39 +1087,24 @@
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             this.txtNombre.Leave += new System.EventHandler(this.txtNombre_Leave);
             // 
-            // btnGA_Excel
+            // btn_Informe
             // 
-            this.btnGA_Excel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnGA_Excel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.btnGA_Excel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.btnGA_Excel.ForeColor = System.Drawing.Color.Chartreuse;
-            this.btnGA_Excel.IconChar = FontAwesome.Sharp.IconChar.FileExcel;
-            this.btnGA_Excel.IconColor = System.Drawing.Color.Chartreuse;
-            this.btnGA_Excel.IconSize = 69;
-            this.btnGA_Excel.Location = new System.Drawing.Point(1599, 215);
-            this.btnGA_Excel.Name = "btnGA_Excel";
-            this.btnGA_Excel.Padding = new System.Windows.Forms.Padding(5);
-            this.btnGA_Excel.Size = new System.Drawing.Size(77, 69);
-            this.btnGA_Excel.TabIndex = 47;
-            this.btnGA_Excel.TabStop = false;
-            this.btnGA_Excel.Visible = false;
-            // 
-            // btnGA_Pdf
-            // 
-            this.btnGA_Pdf.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnGA_Pdf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.btnGA_Pdf.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.btnGA_Pdf.ForeColor = System.Drawing.Color.Salmon;
-            this.btnGA_Pdf.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
-            this.btnGA_Pdf.IconColor = System.Drawing.Color.Salmon;
-            this.btnGA_Pdf.IconSize = 69;
-            this.btnGA_Pdf.Location = new System.Drawing.Point(1599, 299);
-            this.btnGA_Pdf.Name = "btnGA_Pdf";
-            this.btnGA_Pdf.Padding = new System.Windows.Forms.Padding(5);
-            this.btnGA_Pdf.Size = new System.Drawing.Size(77, 69);
-            this.btnGA_Pdf.TabIndex = 48;
-            this.btnGA_Pdf.TabStop = false;
-            this.btnGA_Pdf.Visible = false;
+            this.btn_Informe.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Informe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.btn_Informe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.btn_Informe.ForeColor = System.Drawing.Color.Yellow;
+            this.btn_Informe.IconChar = FontAwesome.Sharp.IconChar.Print;
+            this.btn_Informe.IconColor = System.Drawing.Color.Yellow;
+            this.btn_Informe.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_Informe.IconSize = 81;
+            this.btn_Informe.Location = new System.Drawing.Point(1594, 270);
+            this.btn_Informe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Informe.Name = "btn_Informe";
+            this.btn_Informe.Padding = new System.Windows.Forms.Padding(5);
+            this.btn_Informe.Size = new System.Drawing.Size(91, 81);
+            this.btn_Informe.TabIndex = 55;
+            this.btn_Informe.TabStop = false;
+            this.btn_Informe.Click += new System.EventHandler(this.btn_Informe_Click);
             // 
             // frmAlumnosPopUpEditar
             // 
@@ -1117,8 +1112,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(1765, 863);
-            this.Controls.Add(this.btnGA_Pdf);
-            this.Controls.Add(this.btnGA_Excel);
+            this.Controls.Add(this.btn_Informe);
             this.Controls.Add(this.btnBloqueo);
             this.Controls.Add(this.iconButton2);
             this.Controls.Add(this.btnEditar);
@@ -1131,13 +1125,13 @@
             this.Name = "frmAlumnosPopUpEditar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.metroPanel3.ResumeLayout(false);
+            this.metroPanel3.PerformLayout();
             this.panelContacto.ResumeLayout(false);
             this.panelContacto.PerformLayout();
             this.panelDatos.ResumeLayout(false);
             this.panelDatos.PerformLayout();
             this.metroPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnGA_Excel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnGA_Pdf)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Informe)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1183,8 +1177,6 @@
         private MetroFramework.Controls.MetroTextBox txtDocumento;
         private MetroFramework.Controls.MetroTextBox txtApellidos;
         private MetroFramework.Controls.MetroTextBox txtNombre;
-        private FontAwesome.Sharp.IconPictureBox btnGA_Excel;
-        private FontAwesome.Sharp.IconPictureBox btnGA_Pdf;
         private FontAwesome.Sharp.IconButton btnBloqueo;
         private System.Windows.Forms.Label lblDni;
         private System.Windows.Forms.Label lblNombre;
@@ -1194,5 +1186,7 @@
         private System.Windows.Forms.Label lblCp;
         private System.Windows.Forms.Label lblBarrio;
         private System.Windows.Forms.Label lblCelular;
+        private System.Windows.Forms.Label lblSala;
+        private FontAwesome.Sharp.IconPictureBox btn_Informe;
     }
 }

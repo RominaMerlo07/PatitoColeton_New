@@ -65,8 +65,8 @@
     <Reference Include="Bunifu_UI_v1.52">
       <HintPath>..\..\..\..\..\source\repos\fluentDesign\fluentDesign\bin\Debug\Bunifu_UI_v1.52.dll</HintPath>
     </Reference>
-    <Reference Include="FontAwesome.Sharp, Version=5.15.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FontAwesome.Sharp.5.15.1\lib\net45\FontAwesome.Sharp.dll</HintPath>
+    <Reference Include="FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.5.15.3\lib\net45\FontAwesome.Sharp.dll</HintPath>
     </Reference>
     <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
@@ -110,6 +110,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DtasDocente.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="fichaAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fichaAlumno.Designer.cs">
+      <DependentUpon>fichaAlumno.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAlumnos\Estudiantes_GrupoFlia\frmAlumnosGrupoFlia.cs">
       <SubType>Form</SubType>
@@ -255,11 +261,17 @@
     <Compile Include="frmCobro\frmCuotas\frmCuotasGestionar.Designer.cs">
       <DependentUpon>frmCuotasGestionar.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCuotasGestionar_Agregar.cs">
+    <Compile Include="frmCobro\frmCuotas\frmCuotasGestionar_Agregar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCuotasGestionar_Agregar.Designer.cs">
+    <Compile Include="frmCobro\frmCuotas\frmCuotasGestionar_Agregar.Designer.cs">
       <DependentUpon>frmCuotasGestionar_Agregar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCobro\frmCuotas\frmCuotasGestionar_Anular.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCobro\frmCuotas\frmCuotasGestionar_Anular.Designer.cs">
+      <DependentUpon>frmCuotasGestionar_Anular.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDocentes\frmDocentes.cs">
       <SubType>Form</SubType>
@@ -402,6 +414,10 @@
     <Compile Include="LocalReportExtension.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FichaAlumno.rdlc" />
+    <EmbeddedResource Include="fichaAlumno.resx">
+      <DependentUpon>fichaAlumno.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAlumnos\Estudiantes_GrupoFlia\frmAlumnosGrupoFlia.resx">
       <DependentUpon>frmAlumnosGrupoFlia.cs</DependentUpon>
     </EmbeddedResource>
@@ -486,8 +502,11 @@
     <EmbeddedResource Include="frmCobro\frmConceptos\frmConcepto_Eliminar.resx">
       <DependentUpon>frmConcepto_Eliminar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCuotasGestionar_Agregar.resx">
+    <EmbeddedResource Include="frmCobro\frmCuotas\frmCuotasGestionar_Agregar.resx">
       <DependentUpon>frmCuotasGestionar_Agregar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCobro\frmCuotas\frmCuotasGestionar_Anular.resx">
+      <DependentUpon>frmCuotasGestionar_Anular.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDocentes\frmDocentes.resx">
       <DependentUpon>frmDocentes.cs</DependentUpon>
@@ -573,6 +592,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\CaEnt.entAsistencia.datasource" />
     <None Include="Properties\DataSources\CaEnt.entPersona.datasource" />
+    <None Include="Properties\DataSources\CaEnt.fichaAlumno.datasource" />
     <None Include="Properties\DataSources\CaEnt.InformeAsistencia.datasource" />
     <None Include="Properties\DataSources\CaLog.logAsistencia.datasource" />
     <None Include="Properties\DataSources\CapaAccesoDatos.metAsistencia.datasource" />
@@ -592,6 +612,21 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\brands.css" />
+    <Content Include="Content\brands.min.css" />
+    <Content Include="Content\fontawesome-all.css" />
+    <Content Include="Content\fontawesome-all.min.css" />
+    <Content Include="Content\fontawesome.css" />
+    <Content Include="Content\fontawesome.min.css" />
+    <Content Include="Content\LICENSE.txt" />
+    <Content Include="Content\regular.css" />
+    <Content Include="Content\regular.min.css" />
+    <Content Include="Content\solid.css" />
+    <Content Include="Content\solid.min.css" />
+    <Content Include="Content\svg-with-js.css" />
+    <Content Include="Content\svg-with-js.min.css" />
+    <Content Include="Content\v4-shims.css" />
+    <Content Include="Content\v4-shims.min.css" />
     <Content Include="LEEME.txt" />
     <None Include="Resources\Group_333-removebg-preview.png" />
     <None Include="Resources\patochusma-removebg-preview.png" />
