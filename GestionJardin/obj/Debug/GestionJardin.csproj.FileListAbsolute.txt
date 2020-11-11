@@ -756,3 +756,7 @@ C:\Users\gaston\Dropbox\Cervantes\SistemaJardin_v20\GestionJardin\obj\Debug\Gest
 C:\Users\gaston\Dropbox\Cervantes\SistemaJardin_v20\GestionJardin\obj\Debug\GestionJardin.InformeAsistencia.resources
 C:\Users\gaston\Dropbox\Cervantes\SistemaJardin_v20\GestionJardin\obj\Debug\RdlCompile.cache
 C:\Users\gaston\Dropbox\Cervantes\SistemaJardin_v20\GestionJardin\obj\Debug\RdlCompile.compiled
+C:\Users\gaston\Dropbox\Cervantes\SistemaJardin_v20\GestionJardin\obj\Debug\GestionJardin.frmCuotasConsultar.resources
+C:\Users\gaston\Dropbox\Cervantes\SistemaJardin_v20\GestionJardin\obj\Debug\GestionJardin.frmCuotasGestionar.resources
+C:\Users\gaston\Dropbox\Cervantes\SistemaJardin_v20\GestionJardin\obj\Debug\GestionJardin.frmCuotasGestionar_Agregar.resources
+C:\Users\gaston\Dropbox\Cervantes\SistemaJardin_v20\GestionJardin\obj\Debug\GestionJardin.frmreporte.resources
