@@ -146,8 +146,8 @@ namespace CaAD//GestionJardin
                 con.Open();
 
                 string consulta = "UPDATE T_GRUPO_SALA " +
-                                     "SET GRS_SAL_ID = '" + grupoSalaEditar.GRS_SAL_ID + "' " +
-                                   "WHERE GRS_PER_ID = '" + grupoSalaEditar.GRS_PER_ID + "';";
+                                    "SET GRS_SAL_ID = '" + grupoSalaEditar.GRS_SAL_ID + "' " +
+                                  "WHERE GRS_PER_ID = '" + grupoSalaEditar.GRS_PER_ID + "';";
 
 
                 cmd = new SqlCommand(consulta, con);

@@ -148,10 +148,10 @@
             // 
             // 
             this.txtVacantes.CustomButton.Image = null;
-            this.txtVacantes.CustomButton.Location = new System.Drawing.Point(124, 2);
+            this.txtVacantes.CustomButton.Location = new System.Drawing.Point(93, 2);
             this.txtVacantes.CustomButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtVacantes.CustomButton.Name = "";
-            this.txtVacantes.CustomButton.Size = new System.Drawing.Size(39, 36);
+            this.txtVacantes.CustomButton.Size = new System.Drawing.Size(29, 29);
             this.txtVacantes.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtVacantes.CustomButton.TabIndex = 1;
             this.txtVacantes.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -527,10 +527,10 @@
             // 
             // 
             this.txtEmail.CustomButton.Image = null;
-            this.txtEmail.CustomButton.Location = new System.Drawing.Point(447, 1);
+            this.txtEmail.CustomButton.Location = new System.Drawing.Point(335, 1);
             this.txtEmail.CustomButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtEmail.CustomButton.Name = "";
-            this.txtEmail.CustomButton.Size = new System.Drawing.Size(49, 46);
+            this.txtEmail.CustomButton.Size = new System.Drawing.Size(37, 37);
             this.txtEmail.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtEmail.CustomButton.TabIndex = 1;
             this.txtEmail.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -565,10 +565,10 @@
             // 
             // 
             this.txtCelular.CustomButton.Image = null;
-            this.txtCelular.CustomButton.Location = new System.Drawing.Point(444, 1);
+            this.txtCelular.CustomButton.Location = new System.Drawing.Point(333, 1);
             this.txtCelular.CustomButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCelular.CustomButton.Name = "";
-            this.txtCelular.CustomButton.Size = new System.Drawing.Size(49, 46);
+            this.txtCelular.CustomButton.Size = new System.Drawing.Size(37, 37);
             this.txtCelular.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtCelular.CustomButton.TabIndex = 1;
             this.txtCelular.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -604,10 +604,10 @@
             // 
             // 
             this.txtTelefono.CustomButton.Image = null;
-            this.txtTelefono.CustomButton.Location = new System.Drawing.Point(369, 1);
+            this.txtTelefono.CustomButton.Location = new System.Drawing.Point(277, 1);
             this.txtTelefono.CustomButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTelefono.CustomButton.Name = "";
-            this.txtTelefono.CustomButton.Size = new System.Drawing.Size(49, 46);
+            this.txtTelefono.CustomButton.Size = new System.Drawing.Size(37, 37);
             this.txtTelefono.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtTelefono.CustomButton.TabIndex = 1;
             this.txtTelefono.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -642,10 +642,10 @@
             // 
             // 
             this.txtCPostal.CustomButton.Image = null;
-            this.txtCPostal.CustomButton.Location = new System.Drawing.Point(156, 2);
+            this.txtCPostal.CustomButton.Location = new System.Drawing.Point(117, 2);
             this.txtCPostal.CustomButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCPostal.CustomButton.Name = "";
-            this.txtCPostal.CustomButton.Size = new System.Drawing.Size(39, 36);
+            this.txtCPostal.CustomButton.Size = new System.Drawing.Size(29, 29);
             this.txtCPostal.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtCPostal.CustomButton.TabIndex = 1;
             this.txtCPostal.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -681,10 +681,10 @@
             // 
             // 
             this.txtDepto.CustomButton.Image = null;
-            this.txtDepto.CustomButton.Location = new System.Drawing.Point(89, 1);
+            this.txtDepto.CustomButton.Location = new System.Drawing.Point(67, 1);
             this.txtDepto.CustomButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDepto.CustomButton.Name = "";
-            this.txtDepto.CustomButton.Size = new System.Drawing.Size(49, 46);
+            this.txtDepto.CustomButton.Size = new System.Drawing.Size(37, 37);
             this.txtDepto.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtDepto.CustomButton.TabIndex = 1;
             this.txtDepto.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -718,10 +718,10 @@
             // 
             // 
             this.txtNumero.CustomButton.Image = null;
-            this.txtNumero.CustomButton.Location = new System.Drawing.Point(128, 2);
+            this.txtNumero.CustomButton.Location = new System.Drawing.Point(96, 2);
             this.txtNumero.CustomButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNumero.CustomButton.Name = "";
-            this.txtNumero.CustomButton.Size = new System.Drawing.Size(39, 36);
+            this.txtNumero.CustomButton.Size = new System.Drawing.Size(29, 29);
             this.txtNumero.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtNumero.CustomButton.TabIndex = 1;
             this.txtNumero.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -769,10 +769,10 @@
             // 
             // 
             this.txtBarrio.CustomButton.Image = null;
-            this.txtBarrio.CustomButton.Location = new System.Drawing.Point(369, 1);
+            this.txtBarrio.CustomButton.Location = new System.Drawing.Point(277, 1);
             this.txtBarrio.CustomButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBarrio.CustomButton.Name = "";
-            this.txtBarrio.CustomButton.Size = new System.Drawing.Size(49, 46);
+            this.txtBarrio.CustomButton.Size = new System.Drawing.Size(37, 37);
             this.txtBarrio.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtBarrio.CustomButton.TabIndex = 1;
             this.txtBarrio.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -807,10 +807,10 @@
             // 
             // 
             this.txtPiso.CustomButton.Image = null;
-            this.txtPiso.CustomButton.Location = new System.Drawing.Point(89, 1);
+            this.txtPiso.CustomButton.Location = new System.Drawing.Point(67, 1);
             this.txtPiso.CustomButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPiso.CustomButton.Name = "";
-            this.txtPiso.CustomButton.Size = new System.Drawing.Size(49, 46);
+            this.txtPiso.CustomButton.Size = new System.Drawing.Size(37, 37);
             this.txtPiso.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtPiso.CustomButton.TabIndex = 1;
             this.txtPiso.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -844,10 +844,10 @@
             // 
             // 
             this.txtCalle.CustomButton.Image = null;
-            this.txtCalle.CustomButton.Location = new System.Drawing.Point(455, 2);
+            this.txtCalle.CustomButton.Location = new System.Drawing.Point(341, 2);
             this.txtCalle.CustomButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCalle.CustomButton.Name = "";
-            this.txtCalle.CustomButton.Size = new System.Drawing.Size(39, 36);
+            this.txtCalle.CustomButton.Size = new System.Drawing.Size(29, 29);
             this.txtCalle.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtCalle.CustomButton.TabIndex = 1;
             this.txtCalle.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -1095,10 +1095,10 @@
             // 
             // 
             this.txtDocumento.CustomButton.Image = null;
-            this.txtDocumento.CustomButton.Location = new System.Drawing.Point(400, 2);
+            this.txtDocumento.CustomButton.Location = new System.Drawing.Point(300, 2);
             this.txtDocumento.CustomButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDocumento.CustomButton.Name = "";
-            this.txtDocumento.CustomButton.Size = new System.Drawing.Size(39, 36);
+            this.txtDocumento.CustomButton.Size = new System.Drawing.Size(29, 29);
             this.txtDocumento.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtDocumento.CustomButton.TabIndex = 1;
             this.txtDocumento.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -1134,10 +1134,10 @@
             // 
             // 
             this.txtApellidos.CustomButton.Image = null;
-            this.txtApellidos.CustomButton.Location = new System.Drawing.Point(399, 2);
+            this.txtApellidos.CustomButton.Location = new System.Drawing.Point(299, 2);
             this.txtApellidos.CustomButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtApellidos.CustomButton.Name = "";
-            this.txtApellidos.CustomButton.Size = new System.Drawing.Size(39, 36);
+            this.txtApellidos.CustomButton.Size = new System.Drawing.Size(29, 29);
             this.txtApellidos.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtApellidos.CustomButton.TabIndex = 1;
             this.txtApellidos.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -1173,10 +1173,10 @@
             // 
             // 
             this.txtNombre.CustomButton.Image = null;
-            this.txtNombre.CustomButton.Location = new System.Drawing.Point(399, 2);
+            this.txtNombre.CustomButton.Location = new System.Drawing.Point(299, 2);
             this.txtNombre.CustomButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNombre.CustomButton.Name = "";
-            this.txtNombre.CustomButton.Size = new System.Drawing.Size(39, 36);
+            this.txtNombre.CustomButton.Size = new System.Drawing.Size(29, 29);
             this.txtNombre.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtNombre.CustomButton.TabIndex = 1;
             this.txtNombre.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -1209,7 +1209,6 @@
             // 
             this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnCancelar.IconChar = FontAwesome.Sharp.IconChar.Eraser;
@@ -1219,7 +1218,6 @@
             this.btnCancelar.Location = new System.Drawing.Point(1305, 745);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Rotation = 0D;
             this.btnCancelar.Size = new System.Drawing.Size(239, 76);
             this.btnCancelar.TabIndex = 34;
             this.btnCancelar.Text = "CANCELAR";
@@ -1231,7 +1229,6 @@
             // 
             this.btnGuardar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnGuardar.IconChar = FontAwesome.Sharp.IconChar.Save;
@@ -1241,7 +1238,6 @@
             this.btnGuardar.Location = new System.Drawing.Point(944, 747);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Rotation = 0D;
             this.btnGuardar.Size = new System.Drawing.Size(239, 76);
             this.btnGuardar.TabIndex = 33;
             this.btnGuardar.Text = "GUARDAR";

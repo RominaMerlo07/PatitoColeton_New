@@ -21,8 +21,8 @@ namespace GestionJardin
         logPersonas metPers = new logPersonas();
         logDomicilio metDomic = new logDomicilio();
         logSalas metSala = new logSalas();
-      
-        
+
+
 
         public frmAlumnosPopUpEditar(string idPersonaSelect2)
         {
@@ -51,11 +51,11 @@ namespace GestionJardin
 
             if (persona.PER_GENERO.StartsWith("MASCULINO"))
             {
-                cbGenero.SelectedIndex = cbGenero.FindStringExact("MASCULINO");               
+                cbGenero.SelectedIndex = cbGenero.FindStringExact("MASCULINO");
             }
             else
             {
-                cbGenero.SelectedIndex = cbGenero.FindStringExact("FEMENINO");                
+                cbGenero.SelectedIndex = cbGenero.FindStringExact("FEMENINO");
             }
 
 
@@ -233,9 +233,15 @@ namespace GestionJardin
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            string validacionE = validaCampos();
+            string id_salaE = cbSala.SelectedValue.ToString();
+            string turno = cbTurno.SelectedItem.ToString();
+            DateTime dt_nac = dtNacimiento.Value;
+            string validacion = validaCampos();
+            logPersonas logPersonas = new logPersonas();
 
-            if (validacionE == "OK")
+            string resultado_val_salas = logPersonas.Validar_Salas(dt_nac, id_salaE, turno);
+
+            if (validacion == "OK" && resultado_val_salas == "OK")
             {
 
                 //-------- EDITA PERSONA
@@ -244,7 +250,7 @@ namespace GestionJardin
                 string apellidosE = txtApellidos.Text.Trim();
                 string documentoE = txtDocumento.Text.Trim();
                 DateTime nacimientoE = dtNacimiento.Value.Date;
-               
+
 
                 string calleE = txtCalle.Text.Trim();
                 string numeroE = txtNumero.Text.Trim();
@@ -255,18 +261,8 @@ namespace GestionJardin
                 string telefonoE = txtTelefono.Text.Trim();
                 string celularE = txtCelular.Text.Trim();
                 string emailE = txtEmail.Text.Trim();
-  
-                string id_salaE;
-
-                if (cbSala.SelectedItem == null)
-                {
-                    id_salaE = "";
-                }
-                else
-                {
-                    id_salaE = cbSala.SelectedValue.ToString();
-                }
-
+                
+                
                 entPersona personaEditar = new entPersona();
 
                 string genero;
@@ -291,48 +287,71 @@ namespace GestionJardin
                 personaEditar.PER_TELEFONO_2 = celularE;
                 personaEditar.PER_EMAIL = emailE;
 
-                string resultadoE = metPers.editarPersona(personaEditar);
 
-                //-------- EDITA DOMICILIO
-                entDomicilio domicilioEditar = new entDomicilio();
-
-                domicilioEditar.DOM_PER_ID = Convert.ToInt32(idPersonaSelect);
-                domicilioEditar.DOM_CALLE = calleE;
-                domicilioEditar.DOM_NUMERO = Convert.ToInt32(numeroE);
-                if (string.IsNullOrWhiteSpace(pisoE.Trim()) == true)
+                int vacante = Convert.ToInt32(txtLegajo.Text);
+                if (vacante == 0)
                 {
+                    txtLegajo.Style = MetroFramework.MetroColorStyle.Red;
+                    txtLegajo.Focus();
+
+                    MessageBox.Show("No existen vacantes para el turno y sala elegida. Por favor elija otro turno.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                 }
                 else
-                {
-                    domicilioEditar.DOM_PISO = Convert.ToInt32(pisoE);
+                {                
+                    
+                    string resultadoE = metPers.editarPersona(personaEditar);
+
+                    //-------- EDITA DOMICILIO
+                    entDomicilio domicilioEditar = new entDomicilio();
+
+                    domicilioEditar.DOM_PER_ID = Convert.ToInt32(idPersonaSelect);
+                    domicilioEditar.DOM_CALLE = calleE;
+                    domicilioEditar.DOM_NUMERO = Convert.ToInt32(numeroE);
+                    if (string.IsNullOrWhiteSpace(pisoE.Trim()) == true)
+                    {
+
+                    }
+                    else
+                    {
+                        domicilioEditar.DOM_PISO = Convert.ToInt32(pisoE);
+                    }
+
+
+                    domicilioEditar.DOM_DPTO = dptoE;
+                    domicilioEditar.DOM_BARRIO = barrioE;
+                    domicilioEditar.DOM_CP = Convert.ToInt32(cpostalE);
+
+                    resultadoE = metDomic.editarDomicilio(domicilioEditar);
+
+                    //-------- EDITA SALA
+
+                    entGrupoSala grupoSalaEditar = new entGrupoSala();
+
+                    grupoSalaEditar.GRS_PER_ID = Convert.ToInt32(idPersonaSelect);
+                    grupoSalaEditar.GRS_SAL_ID = Convert.ToInt32(id_salaE);
+
+                    resultadoE = metSala.editarGrupoSala(grupoSalaEditar);
+
+                    if (resultadoE == "OK")
+                    {
+                        MessageBox.Show("Se han editado los datos con éxito.", "Ingresado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
                 }
-
-
-                domicilioEditar.DOM_DPTO = dptoE;
-                domicilioEditar.DOM_BARRIO = barrioE;
-                domicilioEditar.DOM_CP = Convert.ToInt32(cpostalE);
-
-                resultadoE = metDomic.editarDomicilio(domicilioEditar);
-
-                //-------- EDITA SALA
-                
-                entGrupoSala grupoSalaEditar = new entGrupoSala();
-
-                grupoSalaEditar.GRS_PER_ID = Convert.ToInt32(idPersonaSelect);
-                grupoSalaEditar.GRS_SAL_ID = Convert.ToInt32(id_salaE);
-
-                resultadoE = metSala.editarGrupoSala(grupoSalaEditar);
-
-                if (resultadoE == "OK")
-                {
-                    MessageBox.Show("Se han editado los datos con éxito.", "Ingresado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
+            }
+            else if (resultado_val_salas != "OK")
+            {
+                MessageBox.Show(resultado_val_salas);
+                cbSala.SelectedIndex = -1;
+                cbSala.Style = MetroFramework.MetroColorStyle.Red;
+                cbSala.Focus();
+                lblSala.Text = "Por favor, seleccione una sala";
+                lblSala.ForeColor = Color.Red;
             }
             else
             {
-                MessageBox.Show("No olvide ingresar " + validacionE + ".", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No olvide ingresar " + validacion + ".", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -363,17 +382,64 @@ namespace GestionJardin
         {
             string id_sala;
 
-            id_sala = cbSala.SelectedValue.ToString(); //.ToString();
-            logSalas objlogSalas = new logSalas();
-            DataTable gruposSalas = new DataTable();
-            gruposSalas = objlogSalas.traerSalasCupo();
-            DataRow[] rows = gruposSalas.Select("SAL_ID = " + id_sala);
-            int CANTIDAD = Convert.ToInt16(rows[0]["CANTIDAD"].ToString());
-            int MAXIMO = Convert.ToInt16(rows[0]["MAXIMO"].ToString());
-            int VACANTES = MAXIMO - CANTIDAD;
+            if (cbSala.SelectedValue != null)
+            {
+                id_sala = cbSala.SelectedValue.ToString(); //.ToString();
+                logSalas objlogSalas = new logSalas();
+                DataTable gruposSalas = new DataTable();
+                gruposSalas = objlogSalas.traerSalasCupo();
+                DataRow[] rows = gruposSalas.Select("SAL_ID = " + id_sala);
+                int CANTIDAD = Convert.ToInt16(rows[0]["CANTIDAD"].ToString());
+                int MAXIMO = Convert.ToInt16(rows[0]["MAXIMO"].ToString());
+                int VACANTES = MAXIMO - CANTIDAD;
+                txtLegajo.Text = VACANTES.ToString();
 
-            txtLegajo.Text = VACANTES.ToString();
+                string color = cbSala.SelectedIndex.ToString();                                             
+
+                if (color == "0")
+                {
+                    lblSala.Visible = true;
+                    lblSala.Font = new Font(lblSala.Font.Name, 12);
+                    lblSala.ForeColor = Color.Gainsboro;
+                    lblSala.Text = " 1 a 2 años ";
+
+
+                }
+                else if (color == "1")
+                {
+                    lblSala.Visible = true;
+                    lblSala.Font = new Font(lblSala.Font.Name, 12);
+                    lblSala.ForeColor = Color.Gainsboro;
+                    lblSala.Text = "3 a 4 años";
+                }
+
+                else if (color == "2")
+
+                {
+                    lblSala.Visible = true;
+                    lblSala.Font = new Font(lblSala.Font.Name, 12);
+                    lblSala.ForeColor = Color.Gainsboro;
+                    lblSala.Text = " 4 a 5 años ";
+
+                }
+                else
+                {
+                    lblSala.Visible = false;
+                }
+
+
+            }
+            else
+            {
+                cbSala.Style = MetroFramework.MetroColorStyle.Red;
+                cbSala.Focus();
+                lblSala.Text = "Por favor, seleccione una sala";
+                lblSala.ForeColor = Color.Red;
+            }
+
+
         }
+
 
         private void soloNumeros(object sender, KeyPressEventArgs e)
         {
@@ -593,6 +659,130 @@ namespace GestionJardin
             }
         }
 
-      
+
+        private void cbSala_Leave(object sender, EventArgs e)
+        {
+            string color = cbSala.SelectedIndex.ToString();
+
+            if (string.IsNullOrWhiteSpace(cbSala.Text.Trim()) == true)
+            {
+                cbSala.Style = MetroFramework.MetroColorStyle.Red;
+                cbSala.Focus();
+                lblSala.Visible = true;
+                lblSala.Text = "Por favor, seleccione una sala";
+            }
+
+            if (color == "-1")
+            {
+                cbSala.Focus();
+                lblSala.Visible = true;
+                lblSala.Text = "Por favor, seleccione una sala";
+
+            }
+
+            else if (color == "0")
+            {
+                lblSala.Visible = true;
+                lblSala.Font = new Font(lblSala.Font.Name, 12);
+                lblSala.ForeColor = Color.Gainsboro;
+                lblSala.Text = " 1 a 2 años ";
+
+
+            }
+            else if (color == "1")
+            {
+                lblSala.Visible = true;
+                lblSala.Font = new Font(lblSala.Font.Name, 12);
+                lblSala.ForeColor = Color.Gainsboro;
+                lblSala.Text = "3 a 4 años";
+            }
+
+            else if (color == "2")
+
+            {
+                lblSala.Visible = true;
+                lblSala.Font = new Font(lblSala.Font.Name, 12);
+                lblSala.ForeColor = Color.Gainsboro;
+                lblSala.Text = " 4 a 5 años ";
+
+            }
+            else
+            {
+                lblSala.Visible = false;
+            }
+        }
+
+        private void dtNacimiento_Leave(object sender, EventArgs e)
+        {
+            string salas;
+            string turno;
+            DateTime fecha_nacimineto = dtNacimiento.Value;
+            string color;
+
+
+            if (cbSala.SelectedValue == null)
+            {
+                lblSala.Visible = true;
+                lblSala.Text = "Por favor, seleccione una sala";
+
+            }
+            else
+            {
+
+                salas = cbSala.SelectedValue.ToString();
+                turno = cbTurno.SelectedItem.ToString();
+
+                color = cbSala.SelectedIndex.ToString();
+
+                if (color == "0")
+                {
+                    lblSala.Visible = true;
+                    lblSala.Font = new Font(lblSala.Font.Name, 12);
+                    lblSala.ForeColor = Color.Gainsboro;
+                    lblSala.Text = " 1 a 2 años ";
+
+                }
+                else if (color == "1")
+                {
+                    lblSala.Visible = true;
+                    lblSala.Font = new Font(lblSala.Font.Name, 12);
+                    lblSala.ForeColor = Color.Gainsboro;
+                    lblSala.Text = " 3 a 4 años ";
+                }
+
+                else if (color == "2")
+
+                {
+                    lblSala.Visible = true;
+                    lblSala.Text = " 4 a 5 años ";
+                    lblSala.Font = new Font(lblSala.Font.Name, 12);
+                    lblSala.ForeColor = Color.Gainsboro;
+                    lblSala.ForeColor = Color.Gainsboro;
+
+                }
+                else
+                {
+                    lblSala.Visible = false;
+                }                
+
+                logPersonas objlogpersonas = new logPersonas();
+                string resultado = objlogpersonas.Validar_Salas(fecha_nacimineto, salas, turno);
+
+
+                if (resultado != "OK")
+
+                {
+                    MessageBox.Show(resultado);
+                    cbSala.SelectedIndex = -1;
+                    cbSala.Style = MetroFramework.MetroColorStyle.Red;
+                    cbSala.Focus();
+                    lblSala.Text = "Por favor, seleccione una sala";
+                    lblSala.ForeColor = Color.Red;
+
+                }
+            }
+    }
+
+       
     }
 }
