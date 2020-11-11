@@ -305,6 +305,12 @@ namespace CaLog
 
         }
 
+        public DataSet fichaAlumno(string idAlumno)
+        {
+
+            return objMetPersonas.fichaAlumno(idAlumno);
+        }
+
     }
 
 }

@@ -862,5 +862,68 @@ namespace CaAD//GestionJardin
 
         }
 
+
+        public DataSet fichaAlumno(string idAlumno)
+        {
+            fichaAlumno fichaAlumno = new fichaAlumno();
+
+            DataSet dset = new DataSet();
+
+            con = generarConexion();
+            con.Open();
+
+            try
+            {
+                string consulta = "SELECT PER_NOMBRE, " +
+                                         "PER_APELLIDO, " +
+                                         "PER_DOCUMENTO, " +
+                                         "(Select DATEDIFF(YEAR, PER_FECHA_NAC, GETDATE()) - " +
+                                                 "(CASE " +
+                                                    "WHEN DATEADD(YY, DATEDIFF(YEAR, T_PERSONAS.PER_FECHA_NAC, GETDATE()),T_PERSONAS.PER_FECHA_NAC)> GETDATE() THEN 1 " +
+                                                    "ELSE 0 " +
+                                                    "END)) as EDAD, " +
+                                         "PER_FECHA_NAC, " +
+                                         "PER_GENERO, " +
+                                         "PER_LEGAJO, " +
+                                         "PER_FECHA_ALTA, " +
+                                         "PER_EMAIL, " +
+                                         "DOM_CALLE, " +
+                                         "DOM_NUMERO, " +
+                                         "DOM_DPTO, " +
+                                         "DOM_PISO, " +
+                                         "DOM_BARRIO, " +
+                                         "DOM_CP, " +
+                                         "SAL_NOMBRE, " +
+                                         "SAL_TURNO, " +
+                                         "GETDATE() fecha " +
+                                         "FROM T_PERSONAS, " +
+                                         "T_SALA, " +
+                                         "T_GRUPO_SALA, " +
+                                         "T_DOMICILIOS " +
+                                   "WHERE PER_ID = DOM_PER_ID " +
+                                     "AND PER_ID = GRS_PER_ID " +
+                                     "AND GRS_SAL_ID = SAL_ID " +
+                                     "AND PER_TPE_ID = 2 " +
+                                     "AND PER_ESTADO = 'S' " +
+                                     "AND PER_ID = '"+ idAlumno +"'; ";
+
+                cmd = new SqlCommand(consulta, con);
+                dta = new SqlDataAdapter(cmd);
+                dta.Fill(dset);
+
+                con.Close();
+
+                
+                return dset;
+            }
+            catch(Exception ex)
+            {                                
+
+            }
+            return dset;
+
+        }
+
+
     }
 }

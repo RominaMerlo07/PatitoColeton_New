@@ -30,8 +30,8 @@ namespace GestionJardin
         {
 
             cbHrmDomicilio.Enabled = false;
-            txtBuscaHmno.Enabled = false;         
-            
+            txtBuscaHmno.Enabled = false;
+
             AutoCompleteStringCollection alumnos = new AutoCompleteStringCollection();
             logPersonas logPersonas = new logPersonas();
 
@@ -62,7 +62,7 @@ namespace GestionJardin
             btnCancelar.Visible = false;
 
         }
-               
+
         private string validaCampos()
         {
             string resultadoValidacion = "";
@@ -138,7 +138,7 @@ namespace GestionJardin
                 resultadoValidacion = "el E-mail";
 
             }
-            else if ((string.IsNullOrWhiteSpace(txtVacantes.Text.Trim()) == true) || (Convert.ToInt32(txtVacantes.Text) <= 0 ))
+            else if ((string.IsNullOrWhiteSpace(txtVacantes.Text.Trim()) == true) || (Convert.ToInt32(txtVacantes.Text) <= 0))
             {
 
                 txtVacantes.Style = MetroFramework.MetroColorStyle.Red;
@@ -218,8 +218,8 @@ namespace GestionJardin
             DateTime dt_nac = dtNacimiento.Value;
             string validacion = validaCampos();
             logPersonas logPersonas = new logPersonas();
-            
-           string  resultado_val_salas =logPersonas.Validar_Salas(dt_nac, sala, turno);
+
+            string resultado_val_salas = logPersonas.Validar_Salas(dt_nac, sala, turno);
 
             if (validacion == "OK" && resultado_val_salas == "OK")
             {
@@ -364,17 +364,17 @@ namespace GestionJardin
             else if (resultado_val_salas != "OK")
             {
                 MessageBox.Show(resultado_val_salas);
-                
                 cbSala.SelectedIndex = -1;
-                cbSala.Focus();
                 cbSala.Style = MetroFramework.MetroColorStyle.Red;
-                lblSala.Text = "Por facor, seleccione una sala";
+                cbSala.Focus();
+                lblSala.Text = "Por favor, seleccione una sala";
                 lblSala.ForeColor = Color.Red;
             }
             else
             {
                 MessageBox.Show("No olvide ingresar " + validacion + ".", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            }            
+        
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -414,16 +414,16 @@ namespace GestionJardin
         {
             string id_sala;
             if (cbSala.SelectedValue != null)
-            { 
+            {
 
                 id_sala = cbSala.SelectedValue.ToString(); //.ToString();
-            logSalas objlogSalas = new logSalas();
-            DataTable gruposSalas = new DataTable();
-            gruposSalas = objlogSalas.traerSalasCupo();
-            DataRow[] rows = gruposSalas.Select("SAL_ID = " + id_sala);
-            int CANTIDAD = Convert.ToInt16(rows[0]["CANTIDAD"].ToString());
-            int MAXIMO = Convert.ToInt16(rows[0]["MAXIMO"].ToString());
-            int VACANTES = MAXIMO - CANTIDAD;
+                logSalas objlogSalas = new logSalas();
+                DataTable gruposSalas = new DataTable();
+                gruposSalas = objlogSalas.traerSalasCupo();
+                DataRow[] rows = gruposSalas.Select("SAL_ID = " + id_sala);
+                int CANTIDAD = Convert.ToInt16(rows[0]["CANTIDAD"].ToString());
+                int MAXIMO = Convert.ToInt16(rows[0]["MAXIMO"].ToString());
+                int VACANTES = MAXIMO - CANTIDAD;
 
                 txtVacantes.Text = VACANTES.ToString();
 
@@ -755,7 +755,7 @@ namespace GestionJardin
                 lblGenero.Text = "Por favor seleccione el género";
             }
             else
-            {
+            {               
                 lblGenero.Visible = false;
             }
         }
@@ -864,14 +864,9 @@ namespace GestionJardin
                 lblCelular.Visible = false;
             }
         }
-
-
-
-
-
-       
+                                     
       
-private void dtNacimiento_Leave(object sender, EventArgs e)
+        private void dtNacimiento_Leave(object sender, EventArgs e)
 
         {
 
@@ -938,12 +933,14 @@ private void dtNacimiento_Leave(object sender, EventArgs e)
                 {
                     MessageBox.Show(resultado);
                     cbSala.SelectedIndex = -1;
+                    cbSala.Style = MetroFramework.MetroColorStyle.Red;
                     cbSala.Focus();
+                    lblSala.Text = "Por favor, seleccione una sala";
+                    lblSala.ForeColor = Color.Red;
 
                 }
             }
-    }
-        
+        }        
 
     }
 }

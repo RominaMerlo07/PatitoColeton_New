@@ -16,29 +16,27 @@ using CaLog;
 
 namespace GestionJardin
 {
-    public partial class InformeAsistencia : Form
+    public partial class fichaAlumno : Form
     {
+     
+        logPersonas logPersonas = new logPersonas();
 
-        logAsistencia logAsistencia = new logAsistencia();
-
-        public InformeAsistencia(string idSala, string turno, DateTime fecha) 
+        public fichaAlumno(string idAlumno)
         {
             InitializeComponent();
-           // InformeAsistenciaBindingSource.DataSource = logAsistencia.InformeAsistencia(turno, idSala, fecha.ToShortDateString());
-            DataSet informe = logAsistencia.InformeAsistencia(turno, idSala, fecha.ToShortDateString());
-            var reportPath = "GestionJardin.InformeAsistencia.rdlc";
-
+          //  fichaAlumnoBindingSource.DataSource = logPersonas.fichaAlumno(idAlumno);
+            DataSet informe = logPersonas.fichaAlumno(idAlumno);
+            var reportPath = "GestionJardin.FichaAlumno.rdlc";
+            
             ReportDataSource sReportDataSource = new ReportDataSource();
             this.reportViewer1.LocalReport.ReportEmbeddedResource = reportPath;
-            sReportDataSource.Name = "Informe_asistencia";
+            sReportDataSource.Name = "fichaAlumno";
             sReportDataSource.Value = informe.Tables[0];
             reportViewer1.LocalReport.DataSources.Add(sReportDataSource);
-            this.reportViewer1.LocalReport.Print();          
+            this.reportViewer1.LocalReport.Print();
             this.reportViewer1.RefreshReport();
 
         }
-
-    }     
             
-    
+    }
 }
