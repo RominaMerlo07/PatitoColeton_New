@@ -1,0 +1,26 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace GestionJardin
+{
+    public partial class frmInformes : Form
+    {
+        public frmInformes()
+        {
+            InitializeComponent();
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            informeTotalAusencias informeTotalAusencias = new informeTotalAusencias("1", "01/10/2020", "15/11/2020");
+            informeTotalAusencias.Show();
+        }
+    }
+}

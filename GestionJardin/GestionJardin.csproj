@@ -333,6 +333,12 @@
     <Compile Include="frmAlumnos\Informe_Progreso\Informe_Progreso_GestionarAsignatura\frmInformeProgreso_GestAsig_Eliminar.Designer.cs">
       <DependentUpon>frmInformeProgreso_GestAsig_Eliminar.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmInformes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInformes.Designer.cs">
+      <DependentUpon>frmInformes.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -399,10 +405,16 @@
     <Compile Include="frmUsuarios\frmUsuariosPopUpEliminar.Designer.cs">
       <DependentUpon>frmUsuariosPopUpEliminar.cs</DependentUpon>
     </Compile>
-    <Compile Include="InformeTotalAsistencias.cs">
+    <Compile Include="informeTotalAusencias.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InformeTotalAsistencias.Designer.cs">
+    <Compile Include="informeTotalAusencias.Designer.cs">
+      <DependentUpon>informeTotalAusencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\InformeTotalAsistencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\InformeTotalAsistencias.Designer.cs">
       <DependentUpon>InformeTotalAsistencias.cs</DependentUpon>
     </Compile>
     <Compile Include="Reporte\InformeFichaAlumno.cs">
@@ -532,6 +544,9 @@
     <EmbeddedResource Include="frmAlumnos\Informe_Progreso\Informe_Progreso_GestionarAsignatura\frmInformeProgreso_GestionarAsignaturas.resx">
       <DependentUpon>frmInformeProgreso_GestionarAsignaturas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmInformes.resx">
+      <DependentUpon>frmInformes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -565,9 +580,13 @@
     <EmbeddedResource Include="frmUsuarios\frmUsuariosPopUpEliminar.resx">
       <DependentUpon>frmUsuariosPopUpEliminar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="graficoTotalAusencias.rdlc" />
     <EmbeddedResource Include="InformeAsistencia.rdlc" />
     <EmbeddedResource Include="InformeTotalAsistencias.rdlc" />
-    <EmbeddedResource Include="InformeTotalAsistencias.resx">
+    <EmbeddedResource Include="informeTotalAusencias.resx">
+      <DependentUpon>informeTotalAusencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\InformeTotalAsistencias.resx">
       <DependentUpon>InformeTotalAsistencias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reporte\InformeFichaAlumno.resx">
@@ -625,6 +644,7 @@
     <None Include="Properties\DataSources\CaEnt.fichaAlumno.datasource" />
     <None Include="Properties\DataSources\CaEnt.InformeAsistencia+InformeAsistenciaColeccion.datasource" />
     <None Include="Properties\DataSources\CaEnt.InformeAsistencia.datasource" />
+    <None Include="Properties\DataSources\CaEnt.InformeTotalAsistencia.datasource" />
     <None Include="Properties\DataSources\CaLog.logAsistencia.datasource" />
     <None Include="Properties\DataSources\CapaAccesoDatos.metAsistencia.datasource" />
     <None Include="Properties\DataSources\CapaEntidades.InformeAsistencia+InformeAsistenciaColeccion.datasource" />

@@ -343,6 +343,9 @@ namespace GestionJardin
             OpenChildForm(new GestionJardin.frmCobro());
         }
 
-      
+        private void btnInformes_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new GestionJardin.frmInformes());
+        }
     }
 }
