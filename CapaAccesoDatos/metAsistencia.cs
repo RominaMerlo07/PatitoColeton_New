@@ -385,5 +385,95 @@ namespace CaAD//GestionJardin
         }
 
 
+        public DataSet InformeTotalAsistencia(string sala, string fechaDesde, string fechaHasta)
+        {
+
+            DataSet dset = new DataSet();
+
+            con = generarConexion();
+            con.Open();
+
+            try
+            {
+                string consulta = "WITH T1 AS " +
+                                          "(SELECT COUNT(AS_ASISTENCIA) PRESENTES, " +
+                                                  "0 AUSENTES_JUSTIFICADOS, " +
+                                                  "0 AUSENTES_INJUSTIFICADOS, " +
+                                                  "PER_NOMBRE + ' ' + PER_APELLIDO ALUMNO, " +
+                                                  "PER_DOCUMENTO DOCUMENTO, " +
+                                                  "PER_ID " +
+                                            "FROM T_ASISTENCIA, T_PERSONAS " +
+                                           "WHERE AS_ID_PERSONA = PER_ID " +
+                                             "AND AS_FECHA >= CONVERT(VARCHAR(10), '" + fechaDesde + "', 103) " +
+                                             "AND AS_FECHA <= CONVERT(VARCHAR(10), '" + fechaHasta + "', 103) " +
+                                             "AND AS_ASISTENCIA = 0 " +
+                                             "AND AS_SAL_ID = '" + sala + "'" +
+                                           "GROUP BY PER_NOMBRE + ' ' + PER_APELLIDO, PER_DOCUMENTO, PER_ID " +
+                                          "UNION " +
+                                          "SELECT 0, " +
+                                                 "COUNT(AS_ASISTENCIA), " +
+                                                 "0, " +
+                                                 "PER_NOMBRE + ' ' + PER_APELLIDO ALUMNO, " +
+                                                 "PER_DOCUMENTO DOCUMENTO, " +
+                                                 "PER_ID " +
+                                           "FROM T_ASISTENCIA, T_PERSONAS " +
+                                          "WHERE AS_ID_PERSONA = PER_ID " +
+                                            "AND AS_FECHA >= CONVERT(VARCHAR(10), '" + fechaDesde + "', 103) " +
+                                            "AND AS_FECHA <= CONVERT(VARCHAR(10), '" + fechaHasta + "', 103) " +
+                                            "AND AS_ASISTENCIA = 1 " +
+                                            "AND AS_JUSTIFICADO = 0 " +
+                                            "AND AS_SAL_ID = '" + sala + "' " +
+                                       "GROUP BY PER_NOMBRE + ' ' + PER_APELLIDO, PER_DOCUMENTO, PER_ID " +
+                                        "UNION " +
+                                        "SELECT  0, " +
+                                                "0, " +
+                                                "COUNT(AS_ASISTENCIA), " +
+                                                "PER_NOMBRE + ' ' + PER_APELLIDO ALUMNO, " +
+                                                "PER_DOCUMENTO DOCUMENTO, " +
+                                                "PER_ID " +
+                                          "FROM T_ASISTENCIA, T_PERSONAS " +
+                                         "WHERE AS_ID_PERSONA = PER_ID " +
+                                           "AND AS_FECHA >= CONVERT(VARCHAR(10), '" + fechaDesde + "', 103) " +//ver si con el cast no tira error 
+                                           "AND AS_FECHA <= CONVERT(VARCHAR(10), '" + fechaHasta + "', 103) " +
+                                           "AND AS_ASISTENCIA = 1 " +
+                                           "AND AS_JUSTIFICADO = 1 " +
+                                           "AND AS_SAL_ID = '" + sala + "' " +
+                                         "GROUP BY PER_NOMBRE + ' ' + PER_APELLIDO, PER_DOCUMENTO, PER_ID) " +
+                                 "SELECT PER_ID, " +
+                                        "ALUMNO, " +
+                                        "DOCUMENTO, " +
+                                        "SUM(PRESENTES) TOTAL_ASISTENCIAS, " +
+                                        "SUM(AUSENTES_JUSTIFICADOS + AUSENTES_INJUSTIFICADOS) TOTAL_INASISTENCIAS, " +
+                                        "SUM(AUSENTES_JUSTIFICADOS) JUSTIFICADAS, " +
+                                        "SUM(AUSENTES_INJUSTIFICADOS) INJUSTIFICADAS, " +
+                                        "SAL_NOMBRE SALA, " +
+                                        "CONVERT(VARCHAR(10), '" + fechaDesde + "', 103) FECHA_DESDE, " +
+                                        "CONVERT(VARCHAR(10), '" + fechaHasta + "', 103) FECHA_HASTA, " +
+                                        "CONVERT(VARCHAR(10), GETDATE(), 103) FECHA " +
+                                  "FROM T1, T_GRUPO_SALA, T_SALA " +
+                                 "WHERE GRS_PER_ID = t1.PER_ID " +
+                                   "AND GRS_SAL_ID = SAL_ID " +
+                                   "AND SAL_ID = '" + sala + "' " +
+                              "GROUP BY ALUMNO, DOCUMENTO, PER_ID, SAL_NOMBRE;";
+
+                cmd = new SqlCommand(consulta, con);
+                dta = new SqlDataAdapter(cmd);
+                dta.Fill(dset);
+
+                con.Close();
+
+                return dset;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return dset;
+
+        }
+
+
+
+
     }
 }

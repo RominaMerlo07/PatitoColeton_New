@@ -224,5 +224,10 @@ namespace GestionJardin
                 dgv_Alumnos.Columns["DOCUMENTO"].Frozen = true;
             }
         }
+
+        private void btn_Informe_Click(object sender, EventArgs e)
+        {
+            InformeTotalAsistencias InformeTotalAsistencias = new InformeTotalAsistencias(id_sala, fechaDesde.ToShortDateString(),fechaHasta.ToShortDateString());
+        }
     }
 }

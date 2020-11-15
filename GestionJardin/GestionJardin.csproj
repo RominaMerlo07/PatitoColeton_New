@@ -399,6 +399,12 @@
     <Compile Include="frmUsuarios\frmUsuariosPopUpEliminar.Designer.cs">
       <DependentUpon>frmUsuariosPopUpEliminar.cs</DependentUpon>
     </Compile>
+    <Compile Include="InformeTotalAsistencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InformeTotalAsistencias.Designer.cs">
+      <DependentUpon>InformeTotalAsistencias.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reporte\InformeFichaAlumno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -560,6 +566,10 @@
       <DependentUpon>frmUsuariosPopUpEliminar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InformeAsistencia.rdlc" />
+    <EmbeddedResource Include="InformeTotalAsistencias.rdlc" />
+    <EmbeddedResource Include="InformeTotalAsistencias.resx">
+      <DependentUpon>InformeTotalAsistencias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reporte\InformeFichaAlumno.resx">
       <DependentUpon>InformeFichaAlumno.cs</DependentUpon>
     </EmbeddedResource>
