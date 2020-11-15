@@ -864,8 +864,7 @@ namespace CaAD//GestionJardin
 
 
         public DataSet fichaAlumno(string idAlumno)
-        {
-         //   fichaAlumno fichaAlumno = new fichaAlumno();
+        {        
 
             DataSet dset = new DataSet();
 

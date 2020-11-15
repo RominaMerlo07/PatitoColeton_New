@@ -308,7 +308,7 @@ namespace CaAD//GestionJardin
 
         public DataSet InformeAsistencia(string turno, string sala, string fecha)
         {
-            InformeAsistencia infA = new InformeAsistencia();
+           
             DataSet dset = new DataSet();
 
             con = generarConexion();
@@ -373,32 +373,7 @@ namespace CaAD//GestionJardin
                 dta.Fill(dset);
 
                 con.Close();
-
-                //if (dt != null)
-                //{
-                //    foreach (DataRow dr in dt.Rows)
-                //    {
-                //        //result = Convert.ToString(dr["PER_ID"]);
-
-
-                //        if (dr["ALUMNO"] != DBNull.Value)
-                //            infA.nombre = Convert.ToString(dr["ALUMNO"]);
-                //        if (dr["DOCUMENTO"] != DBNull.Value)
-                //            infA.documento = Convert.ToString(dr["DOCUMENTO"]);
-                //        if (dr["SALA"] != DBNull.Value)
-                //            infA.sala = Convert.ToString(dr["SALA"]);
-                //        if (dr["TURNO"] != DBNull.Value)
-                //            infA.turno = Convert.ToString(dr["TURNO"]);
-                //        if (dr["AS_FECHA"] != DBNull.Value)
-                //            infA.fecha = Convert.ToDateTime(dr["AS_FECHA"]);
-                //        if (dr["ASISTENCIA"] != DBNull.Value)
-                //            infA.asistencia = Convert.ToString(dr["ASISTENCIA"]);
-                //        if (dr["JUSTIFICADO"] != DBNull.Value)
-                //            infA.justificado = Convert.ToString(dr["JUSTIFICADO"]);
-
-
-                //    }
-                //}
+          
                 return dset;
             }
             catch(Exception ex)
