@@ -429,9 +429,7 @@ namespace GestionJardin
             lblErrorJustificado.Visible = false;
             lblInfo.Visible = false;
             btn_Informe.Visible = false;
-
-            
-
+                       
             btnguardar.Visible = false;
             btncancelar.Visible = false;
             dgv_Alumnos.ClearSelection();

@@ -2,7 +2,7 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
-      <Textbox Name="Textbox6">
+      <Textbox Name="Textbox10">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
@@ -11,21 +11,20 @@
               <TextRun>
                 <Value>DATOS PERSONALES</Value>
                 <Style>
+                  <FontWeight>Bold</FontWeight>
                   <TextDecoration>Underline</TextDecoration>
-                  <Color>CornflowerBlue</Color>
+                  <Color>Orange</Color>
                 </Style>
               </TextRun>
             </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
+            <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox5</rd:DefaultName>
-        <Top>0.589cm</Top>
-        <Left>0.47837cm</Left>
-        <Height>0.6cm</Height>
-        <Width>4.36267cm</Width>
+        <rd:DefaultName>Textbox10</rd:DefaultName>
+        <Top>0.71191cm</Top>
+        <Left>0.4572cm</Left>
+        <Height>0.70583cm</Height>
+        <Width>4.81656cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -44,17 +43,19 @@
             <TextRuns>
               <TextRun>
                 <Value>NOMBRE:</Value>
-                <Style />
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox7</rd:DefaultName>
-        <Top>1.7907cm</Top>
-        <Left>0.47837cm</Left>
+        <rd:DefaultName>Textbox6</rd:DefaultName>
+        <Top>1.71648cm</Top>
+        <Left>0.7747cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.5cm</Width>
+        <Width>1.50517cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -66,27 +67,27 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="Textbox8">
+      <Textbox Name="NOMBRE">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>APELLIDO:</Value>
-                <Style />
+                <Value>=First(Fields!NOMBRE.Value, "DataSet1")</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
+            <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox7</rd:DefaultName>
-        <Top>2.83267cm</Top>
-        <Left>0.47837cm</Left>
+        <rd:DefaultName>NOMBRE</rd:DefaultName>
+        <Top>1.71648cm</Top>
+        <Left>2.42098cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.5cm</Width>
+        <Width>6.2465cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -105,20 +106,20 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>DNI:</Value>
-                <Style />
+                <Value>APELLIDO:</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
+            <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox7</rd:DefaultName>
-        <Top>1.7907cm</Top>
-        <Left>11.89898cm</Left>
+        <rd:DefaultName>Textbox6</rd:DefaultName>
+        <Top>2.58925cm</Top>
+        <Left>0.7747cm</Left>
         <Height>0.6cm</Height>
-        <Width>1.12417cm</Width>
+        <Width>1.78739cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -130,194 +131,28 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="nombre">
+      <Textbox Name="APELLIDO">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!nombre.Value, "fichaAlumno")</Value>
-                <Style />
+                <Value>=First(Fields!APELLIDO.Value, "DataSet1")</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
+            <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>nombre</rd:DefaultName>
-        <Top>1.7907cm</Top>
-        <Left>3.15476cm</Left>
+        <rd:DefaultName>APELLIDO</rd:DefaultName>
+        <Top>2.58925cm</Top>
+        <Left>2.42098cm</Left>
         <Height>0.6cm</Height>
-        <Width>6.20417cm</Width>
+        <Width>6.2465cm</Width>
         <ZIndex>4</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="apellido">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!apellido.Value, "fichaAlumno")</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>apellido</rd:DefaultName>
-        <Top>2.83267cm</Top>
-        <Left>3.15476cm</Left>
-        <Height>0.6cm</Height>
-        <Width>6.20417cm</Width>
-        <ZIndex>5</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="documento">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!documento.Value, "fichaAlumno")</Value>
-                <Style>
-                  <Format>0;(0)</Format>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>documento</rd:DefaultName>
-        <Top>1.7907cm</Top>
-        <Left>13.19953cm</Left>
-        <Height>0.6cm</Height>
-        <Width>3.05033cm</Width>
-        <ZIndex>6</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="edad">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=Sum(Fields!edad.Value, "fichaAlumno")</Value>
-                <Style>
-                  <Format>0;(0)</Format>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Right</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>edad</rd:DefaultName>
-        <Top>2.83267cm</Top>
-        <Left>13.41826cm</Left>
-        <Height>0.6cm</Height>
-        <Width>1.39933cm</Width>
-        <ZIndex>7</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox10">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>EDAD:</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox7</rd:DefaultName>
-        <Top>2.83267cm</Top>
-        <Left>11.89897cm</Left>
-        <Height>0.6cm</Height>
-        <Width>1.37817cm</Width>
-        <ZIndex>8</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="PER_FECHA_NAC">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!PER_FECHA_NAC.Value, "fichaAlumno")</Value>
-                <Style>
-                  <Format>d</Format>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>PER_FECHA_NAC</rd:DefaultName>
-        <Top>4.05553cm</Top>
-        <Left>5.36125cm</Left>
-        <Height>0.6cm</Height>
-        <Width>3.99767cm</Width>
-        <ZIndex>9</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -335,21 +170,21 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>FECHA DE NACIMIENTO:</Value>
-                <Style />
+                <Value>DNI:</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
+            <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox7</rd:DefaultName>
-        <Top>4.05553cm</Top>
-        <Left>0.47837cm</Left>
+        <rd:DefaultName>Textbox6</rd:DefaultName>
+        <Top>1.71648cm</Top>
+        <Left>11.49209cm</Left>
         <Height>0.6cm</Height>
-        <Width>4.36267cm</Width>
-        <ZIndex>10</ZIndex>
+        <Width>0.70084cm</Width>
+        <ZIndex>5</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -360,15 +195,18 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="PER_GENERO">
+      <Textbox Name="DOCUMENTO">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!PER_GENERO.Value, "fichaAlumno")</Value>
-                <Style />
+                <Value>=Sum(Fields!DOCUMENTO.Value, "DataSet1")</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                  <Format>0;(0)</Format>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style>
@@ -376,12 +214,12 @@
             </Style>
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>PER_GENERO</rd:DefaultName>
-        <Top>5.05037cm</Top>
-        <Left>3.15476cm</Left>
+        <rd:DefaultName>DOCUMENTO</rd:DefaultName>
+        <Top>1.71648cm</Top>
+        <Left>12.26348cm</Left>
         <Height>0.6cm</Height>
-        <Width>3.3255cm</Width>
-        <ZIndex>11</ZIndex>
+        <Width>3.24083cm</Width>
+        <ZIndex>6</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -399,8 +237,43 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>GÉNERO:</Value>
-                <Style />
+                <Value>FECHA NACIMIENTO:</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox6</rd:DefaultName>
+        <Top>3.49941cm</Top>
+        <Left>0.7747cm</Left>
+        <Height>0.6cm</Height>
+        <Width>5.36456cm</Width>
+        <ZIndex>7</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="FECHA_NACIMIENTO">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!FECHA_NACIMIENTO.Value, "DataSet1")</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                  <Format>d</Format>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style>
@@ -408,12 +281,12 @@
             </Style>
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox7</rd:DefaultName>
-        <Top>5.05037cm</Top>
-        <Left>0.47837cm</Left>
+        <rd:DefaultName>FECHA_NACIMIENTO</rd:DefaultName>
+        <Top>3.49941cm</Top>
+        <Left>3.81093cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.5cm</Width>
-        <ZIndex>12</ZIndex>
+        <Width>3.55834cm</Width>
+        <ZIndex>8</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -431,10 +304,41 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>DATOS DE CONTACTO</Value>
+                <Value>EDAD:</Value>
                 <Style>
-                  <TextDecoration>Underline</TextDecoration>
-                  <Color>CornflowerBlue</Color>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox6</rd:DefaultName>
+        <Top>3.49941cm</Top>
+        <Left>11.49209cm</Left>
+        <Height>0.6cm</Height>
+        <Width>1.25117cm</Width>
+        <ZIndex>9</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="EDAD">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!EDAD.Value, "DataSet1")</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -443,11 +347,109 @@
             </Style>
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox5</rd:DefaultName>
-        <Top>7.066cm</Top>
-        <Left>0.47837cm</Left>
+        <rd:DefaultName>EDAD</rd:DefaultName>
+        <Top>3.49941cm</Top>
+        <Left>12.52454cm</Left>
         <Height>0.6cm</Height>
-        <Width>4.36267cm</Width>
+        <Width>1.09361cm</Width>
+        <ZIndex>10</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox21">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>GÉNERO:</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox21</rd:DefaultName>
+        <Top>4.2758cm</Top>
+        <Left>0.77471cm</Left>
+        <Height>0.6cm</Height>
+        <Width>1.50516cm</Width>
+        <ZIndex>11</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="GENERO">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!GENERO.Value, "DataSet1")</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>GENERO</rd:DefaultName>
+        <Top>4.2758cm</Top>
+        <Left>2.14581cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.76578cm</Width>
+        <ZIndex>12</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox14">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>DATOS DE CONTACTO</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                  <TextDecoration>Underline</TextDecoration>
+                  <Color>Orange</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox10</rd:DefaultName>
+        <Top>6.28283cm</Top>
+        <Left>0.43603cm</Left>
+        <Height>0.727cm</Height>
+        <Width>4.9765cm</Width>
         <ZIndex>13</ZIndex>
         <Style>
           <Border>
@@ -459,19 +461,7 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Line Name="Line2">
-        <Top>6.2865cm</Top>
-        <Left>0.47837cm</Left>
-        <Height>0cm</Height>
-        <Width>15.7715cm</Width>
-        <ZIndex>14</ZIndex>
-        <Style>
-          <Border>
-            <Style>Solid</Style>
-          </Border>
-        </Style>
-      </Line>
-      <Textbox Name="Textbox14">
+      <Textbox Name="Textbox15">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
@@ -479,20 +469,20 @@
             <TextRuns>
               <TextRun>
                 <Value>CALLE:</Value>
-                <Style />
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
+            <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox7</rd:DefaultName>
-        <Top>8.209cm</Top>
-        <Left>0.47837cm</Left>
+        <rd:DefaultName>Textbox6</rd:DefaultName>
+        <Top>7.49991cm</Top>
+        <Left>0.75353cm</Left>
         <Height>0.6cm</Height>
-        <Width>1.5475cm</Width>
-        <ZIndex>15</ZIndex>
+        <Width>1.23cm</Width>
+        <ZIndex>14</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -503,28 +493,28 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="DOM_CALLE">
+      <Textbox Name="CALLE">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!DOM_CALLE.Value, "fichaAlumno")</Value>
-                <Style />
+                <Value>=First(Fields!CALLE.Value, "DataSet1")</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
+            <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>DOM_CALLE</rd:DefaultName>
-        <Top>8.209cm</Top>
-        <Left>2.26059cm</Left>
+        <rd:DefaultName>CALLE</rd:DefaultName>
+        <Top>7.49991cm</Top>
+        <Left>1.98353cm</Left>
         <Height>0.6cm</Height>
-        <Width>8.64772cm</Width>
-        <ZIndex>16</ZIndex>
+        <Width>9.22866cm</Width>
+        <ZIndex>15</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -543,7 +533,9 @@
             <TextRuns>
               <TextRun>
                 <Value>NRO:</Value>
-                <Style />
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style>
@@ -551,12 +543,12 @@
             </Style>
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox7</rd:DefaultName>
-        <Top>8.209cm</Top>
-        <Left>13.11959cm</Left>
+        <rd:DefaultName>Textbox6</rd:DefaultName>
+        <Top>7.47059cm</Top>
+        <Left>12.39754cm</Left>
         <Height>0.6cm</Height>
-        <Width>1.14533cm</Width>
-        <ZIndex>17</ZIndex>
+        <Width>0.99011cm</Width>
+        <ZIndex>16</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -567,16 +559,16 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="edad2">
+      <Textbox Name="NUMERO">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Sum(Fields!edad.Value, "fichaAlumno")</Value>
+                <Value>=Sum(Fields!NUMERO.Value, "DataSet1")</Value>
                 <Style>
-                  <Format>0;(0)</Format>
+                  <FontSize>8pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -585,12 +577,12 @@
             </Style>
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>edad</rd:DefaultName>
-        <Top>8.209cm</Top>
-        <Left>14.4907cm</Left>
+        <rd:DefaultName>NUMERO</rd:DefaultName>
+        <Top>7.47059cm</Top>
+        <Left>13.30064cm</Left>
         <Height>0.6cm</Height>
-        <Width>1.39933cm</Width>
-        <ZIndex>18</ZIndex>
+        <Width>2.08844cm</Width>
+        <ZIndex>17</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -609,20 +601,20 @@
             <TextRuns>
               <TextRun>
                 <Value>PISO:</Value>
-                <Style />
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
+            <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox7</rd:DefaultName>
-        <Top>9.4155cm</Top>
-        <Left>0.80103cm</Left>
+        <rd:DefaultName>Textbox6</rd:DefaultName>
+        <Top>8.38919cm</Top>
+        <Left>0.75353cm</Left>
         <Height>0.6cm</Height>
-        <Width>1.22483cm</Width>
-        <ZIndex>19</ZIndex>
+        <Width>0.95483cm</Width>
+        <ZIndex>18</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -633,28 +625,28 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="DOM_PISO">
+      <Textbox Name="DPTO">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Sum(Fields!DOM_PISO.Value, "fichaAlumno")</Value>
-                <Style />
+                <Value>=First(Fields!DPTO.Value, "DataSet1")</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
+            <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>DOM_PISO</rd:DefaultName>
-        <Top>9.4155cm</Top>
-        <Left>2.26059cm</Left>
+        <rd:DefaultName>DPTO</rd:DefaultName>
+        <Top>8.38919cm</Top>
+        <Left>5.32315cm</Left>
         <Height>0.6cm</Height>
-        <Width>1.63217cm</Width>
-        <ZIndex>20</ZIndex>
+        <Width>1.53811cm</Width>
+        <ZIndex>19</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -673,20 +665,20 @@
             <TextRuns>
               <TextRun>
                 <Value>DPTO:</Value>
-                <Style />
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
+            <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox7</rd:DefaultName>
-        <Top>9.4155cm</Top>
-        <Left>4.65502cm</Left>
+        <rd:DefaultName>Textbox6</rd:DefaultName>
+        <Top>8.38919cm</Top>
+        <Left>4.18253cm</Left>
         <Height>0.6cm</Height>
-        <Width>1.25374cm</Width>
-        <ZIndex>21</ZIndex>
+        <Width>1.07006cm</Width>
+        <ZIndex>20</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -697,26 +689,30 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="DOM_DPTO">
+      <Textbox Name="PISO">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!DOM_DPTO.Value, "fichaAlumno")</Value>
-                <Style />
+                <Value>=Sum(Fields!PISO.Value, "DataSet1")</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>DOM_DPTO</rd:DefaultName>
-        <Top>9.4155cm</Top>
-        <Left>6.08514cm</Left>
+        <rd:DefaultName>PISO</rd:DefaultName>
+        <Top>8.38919cm</Top>
+        <Left>1.70836cm</Left>
         <Height>0.6cm</Height>
-        <Width>1.63217cm</Width>
-        <ZIndex>22</ZIndex>
+        <Width>1.39933cm</Width>
+        <ZIndex>21</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -735,20 +731,20 @@
             <TextRuns>
               <TextRun>
                 <Value>BARRIO:</Value>
-                <Style />
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
+            <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox7</rd:DefaultName>
-        <Top>10.64317cm</Top>
-        <Left>0.47837cm</Left>
+        <rd:DefaultName>Textbox6</rd:DefaultName>
+        <Top>9.31374cm</Top>
+        <Left>0.75354cm</Left>
         <Height>0.6cm</Height>
-        <Width>1.5475cm</Width>
-        <ZIndex>23</ZIndex>
+        <Width>1.50516cm</Width>
+        <ZIndex>22</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -759,26 +755,28 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="DOM_BARRIO">
+      <Textbox Name="BARRIO">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!DOM_BARRIO.Value, "fichaAlumno")</Value>
-                <Style />
+                <Value>=First(Fields!BARRIO.Value, "DataSet1")</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>DOM_BARRIO</rd:DefaultName>
-        <Top>10.64317cm</Top>
-        <Left>2.26059cm</Left>
+        <rd:DefaultName>BARRIO</rd:DefaultName>
+        <Top>9.31374cm</Top>
+        <Left>2.12464cm</Left>
         <Height>0.6cm</Height>
-        <Width>6.68439cm</Width>
-        <ZIndex>24</ZIndex>
+        <Width>2.5cm</Width>
+        <ZIndex>23</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -797,7 +795,9 @@
             <TextRuns>
               <TextRun>
                 <Value>CP:</Value>
-                <Style />
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style>
@@ -805,104 +805,44 @@
             </Style>
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox7</rd:DefaultName>
-        <Top>9.4155cm</Top>
-        <Left>13.11959cm</Left>
+        <rd:DefaultName>Textbox6</rd:DefaultName>
+        <Top>9.31374cm</Top>
+        <Left>12.39754cm</Left>
         <Height>0.6cm</Height>
-        <Width>1.14533cm</Width>
+        <Width>0.87017cm</Width>
+        <ZIndex>24</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="CP">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Sum(Fields!CP.Value, "DataSet1")</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>CP</rd:DefaultName>
+        <Top>9.31374cm</Top>
+        <Left>12.26348cm</Left>
+        <Height>0.6cm</Height>
+        <Width>1.68395cm</Width>
         <ZIndex>25</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="DOM_CP">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=Sum(Fields!DOM_CP.Value, "fichaAlumno")</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>DOM_CP</rd:DefaultName>
-        <Top>9.4155cm</Top>
-        <Left>14.4907cm</Left>
-        <Height>0.6cm</Height>
-        <Width>1.39933cm</Width>
-        <ZIndex>26</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox21">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>TELÉFONO:</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox7</rd:DefaultName>
-        <Top>11.93433cm</Top>
-        <Left>0.47837cm</Left>
-        <Height>0.6cm</Height>
-        <Width>2.22483cm</Width>
-        <ZIndex>27</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="PER_TELEFONO">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!PER_TELEFONO.Value, "fichaAlumno")</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>PER_TELEFONO</rd:DefaultName>
-        <Top>11.9507cm</Top>
-        <Left>3.15476cm</Left>
-        <Height>0.6cm</Height>
-        <Width>5.79022cm</Width>
-        <ZIndex>28</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -920,20 +860,116 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>E-MAIL:</Value>
-                <Style />
+                <Value>CELULAR:</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
+            <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox7</rd:DefaultName>
-        <Top>13.14083cm</Top>
-        <Left>0.47837cm</Left>
+        <rd:DefaultName>Textbox6</rd:DefaultName>
+        <Top>10.17397cm</Top>
+        <Left>0.70415cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.22483cm</Width>
+        <Width>1.50517cm</Width>
+        <ZIndex>26</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="CELULAR">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!CELULAR.Value, "DataSet1")</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>CELULAR</rd:DefaultName>
+        <Top>10.17397cm</Top>
+        <Left>2.12464cm</Left>
+        <Height>0.6cm</Height>
+        <Width>4.03106cm</Width>
+        <ZIndex>27</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox23">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>TELÉFONO:</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox6</rd:DefaultName>
+        <Top>10.95036cm</Top>
+        <Left>0.70415cm</Left>
+        <Height>0.6cm</Height>
+        <Width>1.78739cm</Width>
+        <ZIndex>28</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="TELEFONO">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!TELEFONO.Value, "DataSet1")</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>TELEFONO</rd:DefaultName>
+        <Top>10.98564cm</Top>
+        <Left>2.42098cm</Left>
+        <Height>0.6cm</Height>
+        <Width>3.71828cm</Width>
         <ZIndex>29</ZIndex>
         <Style>
           <Border>
@@ -945,25 +981,27 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="PER_EMAIL">
+      <Textbox Name="Textbox24">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!PER_EMAIL.Value, "fichaAlumno")</Value>
-                <Style />
+                <Value>E-MAIL:</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>PER_EMAIL</rd:DefaultName>
-        <Top>13.14083cm</Top>
-        <Left>3.15476cm</Left>
+        <rd:DefaultName>Textbox6</rd:DefaultName>
+        <Top>11.76203cm</Top>
+        <Left>0.70415cm</Left>
         <Height>0.6cm</Height>
-        <Width>7.75356cm</Width>
+        <Width>1.23cm</Width>
         <ZIndex>30</ZIndex>
         <Style>
           <Border>
@@ -975,38 +1013,188 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="EMAIL">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!EMAIL.Value, "DataSet1")</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>EMAIL</rd:DefaultName>
+        <Top>11.76203cm</Top>
+        <Left>1.93415cm</Left>
+        <Height>0.6cm</Height>
+        <Width>13.3491cm</Width>
+        <ZIndex>31</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Line Name="Line2">
+        <Top>5.52463cm</Top>
+        <Left>3.49343cm</Left>
+        <Height>0cm</Height>
+        <Width>9.03111cm</Width>
+        <ZIndex>32</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+          <TopBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </TopBorder>
+          <BottomBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </BottomBorder>
+          <LeftBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </LeftBorder>
+          <RightBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </RightBorder>
+        </Style>
+      </Line>
+      <Line Name="Line4">
+        <Top>0.17639cm</Top>
+        <Left>0.29726cm</Left>
+        <Height>0cm</Height>
+        <Width>15.49634cm</Width>
+        <ZIndex>33</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Line>
     </ReportItems>
-    <Height>5.9in</Height>
+    <Height>5.66667in</Height>
     <Style />
   </Body>
-  <Width>7.10961in</Width>
+  <Width>6.41425in</Width>
   <Page>
     <PageHeader>
-      <Height>3.429cm</Height>
+      <Height>4.0527cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
-        <Textbox Name="fecha">
+        <Textbox Name="FECHA">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
           <Paragraphs>
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!fecha.Value, "fichaAlumno")</Value>
+                  <Value>=First(Fields!FECHA.Value, "DataSet1")</Value>
                   <Style>
-                    <Format>d</Format>
+                    <FontSize>8pt</FontSize>
+                    <Format>D</Format>
                   </Style>
                 </TextRun>
               </TextRuns>
-              <Style />
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
             </Paragraph>
           </Paragraphs>
-          <rd:DefaultName>fecha</rd:DefaultName>
-          <Top>0.28787cm</Top>
-          <Left>14.4907cm</Left>
+          <rd:DefaultName>FECHA</rd:DefaultName>
+          <Top>0.3302cm</Top>
+          <Left>8.89093cm</Left>
+          <Height>0.6cm</Height>
+          <Width>6.90267cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox4">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>FICHA ALUMNO</Value>
+                  <Style>
+                    <FontSize>11pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <TextDecoration>Underline</TextDecoration>
+                    <Color>Tomato</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox4</rd:DefaultName>
+          <Top>0.6477cm</Top>
+          <Left>0.29726cm</Left>
+          <Height>0.6cm</Height>
+          <Width>3.11571cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="LEGAJO">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!LEGAJO.Value, "DataSet1")</Value>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>LEGAJO</rd:DefaultName>
+          <Top>2.14036cm</Top>
+          <Left>5.29259cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
+          <ZIndex>2</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1021,100 +1209,38 @@
           <Source>Embedded</Source>
           <Value>Group_333removebgpreview</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>1.07103cm</Top>
-          <Left>0.47837cm</Left>
-          <Height>1.45767cm</Height>
-          <Width>1.5475cm</Width>
-          <ZIndex>1</ZIndex>
+          <Top>1.59342cm</Top>
+          <Left>0.7747cm</Left>
+          <Height>2.24083cm</Height>
+          <Width>2.4901cm</Width>
+          <ZIndex>3</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
             </Border>
           </Style>
         </Image>
-        <Textbox Name="Textbox5">
+        <Textbox Name="Textbox6">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
           <Paragraphs>
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>FICHA ALUMNO - LEGAJO: </Value>
-                  <Style />
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Left</TextAlign>
-              </Style>
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox5</rd:DefaultName>
-          <Top>1.07103cm</Top>
-          <Left>2.51459cm</Left>
-          <Height>0.6cm</Height>
-          <Width>4.89183cm</Width>
-          <ZIndex>2</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="Textbox15">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=First(Fields!PER_LEGAJO.Value, "fichaAlumno")</Value>
-                  <Style />
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Right</TextAlign>
-              </Style>
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox15</rd:DefaultName>
-          <Top>1.07103cm</Top>
-          <Left>7.54753cm</Left>
-          <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
-          <ZIndex>3</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="turno">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=First(Fields!turno.Value, "fichaAlumno")</Value>
-                  <Style />
+                  <Value>SALA:</Value>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
             </Paragraph>
           </Paragraphs>
-          <rd:DefaultName>turno</rd:DefaultName>
-          <Top>2.08125cm</Top>
-          <Left>13.45353cm</Left>
+          <rd:DefaultName>Textbox6</rd:DefaultName>
+          <Top>2.91675cm</Top>
+          <Left>11.29454cm</Left>
           <Height>0.6cm</Height>
-          <Width>3.53717cm</Width>
+          <Width>1.23cm</Width>
           <ZIndex>4</ZIndex>
           <Style>
             <Border>
@@ -1126,27 +1252,27 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Textbox Name="Textbox23">
+        <Textbox Name="SALA">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
           <Paragraphs>
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>SALA:</Value>
-                  <Style />
+                  <Value>=First(Fields!SALA.Value, "DataSet1")</Value>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                  </Style>
                 </TextRun>
               </TextRuns>
-              <Style>
-                <TextAlign>Left</TextAlign>
-              </Style>
+              <Style />
             </Paragraph>
           </Paragraphs>
-          <rd:DefaultName>Textbox7</rd:DefaultName>
-          <Top>2.08125cm</Top>
-          <Left>2.54092cm</Left>
+          <rd:DefaultName>SALA</rd:DefaultName>
+          <Top>2.91675cm</Top>
+          <Left>12.3411cm</Left>
           <Height>0.6cm</Height>
-          <Width>1.22483cm</Width>
+          <Width>2.46945cm</Width>
           <ZIndex>5</ZIndex>
           <Style>
             <Border>
@@ -1158,25 +1284,27 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Textbox Name="sala">
+        <Textbox Name="Textbox8">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
           <Paragraphs>
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!sala.Value, "fichaAlumno")</Value>
-                  <Style />
+                  <Value>TURNO:</Value>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
             </Paragraph>
           </Paragraphs>
-          <rd:DefaultName>sala</rd:DefaultName>
-          <Top>2.08125cm</Top>
-          <Left>4.12842cm</Left>
+          <rd:DefaultName>Textbox8</rd:DefaultName>
+          <Top>2.91675cm</Top>
+          <Left>3.91914cm</Left>
           <Height>0.6cm</Height>
-          <Width>3.84289cm</Width>
+          <Width>1.44167cm</Width>
           <ZIndex>6</ZIndex>
           <Style>
             <Border>
@@ -1188,28 +1316,60 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Textbox Name="Textbox24">
+        <Textbox Name="TURNO">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
           <Paragraphs>
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>TURNO:</Value>
-                  <Style />
+                  <Value>=First(Fields!TURNO.Value, "DataSet1")</Value>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                  </Style>
                 </TextRun>
               </TextRuns>
-              <Style>
-                <TextAlign>Left</TextAlign>
-              </Style>
+              <Style />
             </Paragraph>
           </Paragraphs>
-          <rd:DefaultName>Textbox7</rd:DefaultName>
-          <Top>2.08125cm</Top>
-          <Left>11.19551cm</Left>
+          <rd:DefaultName>TURNO</rd:DefaultName>
+          <Top>2.91675cm</Top>
+          <Left>5.29259cm</Left>
           <Height>0.6cm</Height>
-          <Width>1.71166cm</Width>
+          <Width>2.5cm</Width>
           <ZIndex>7</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox1">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>LEGAJO:</Value>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox1</rd:DefaultName>
+          <Top>2.14036cm</Top>
+          <Left>3.91914cm</Left>
+          <Height>0.6cm</Height>
+          <Width>1.44167cm</Width>
+          <ZIndex>8</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1228,7 +1388,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>2.11667cm</Height>
+      <Height>2.54cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1239,20 +1399,20 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>FECHA ALTA:</Value>
-                  <Style />
+                  <Value>FECHA DE INGRESO:</Value>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                  </Style>
                 </TextRun>
               </TextRuns>
-              <Style>
-                <TextAlign>Left</TextAlign>
-              </Style>
+              <Style />
             </Paragraph>
           </Paragraphs>
-          <rd:DefaultName>Textbox7</rd:DefaultName>
-          <Top>0.63133cm</Top>
-          <Left>0.47837cm</Left>
+          <rd:DefaultName>Textbox6</rd:DefaultName>
+          <Top>0.50433cm</Top>
+          <Left>0.4572cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.881cm</Width>
+          <Width>3.24083cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1263,25 +1423,28 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Textbox Name="PER_FECHA_ALTA">
+        <Textbox Name="FECHA_ALTA">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
           <Paragraphs>
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!PER_FECHA_ALTA.Value, "fichaAlumno")</Value>
-                  <Style />
+                  <Value>=First(Fields!FECHA_ALTA.Value, "DataSet1")</Value>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                    <Format>d</Format>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
             </Paragraph>
           </Paragraphs>
-          <rd:DefaultName>PER_FECHA_ALTA</rd:DefaultName>
-          <Top>0.63133cm</Top>
-          <Left>3.53575cm</Left>
+          <rd:DefaultName>FECHA_ALTA</rd:DefaultName>
+          <Top>0.50433cm</Top>
+          <Left>3.49343cm</Left>
           <Height>0.6cm</Height>
-          <Width>4.31795cm</Width>
+          <Width>3.8335cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -1293,6 +1456,115 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
+        <Textbox Name="Textbox26">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>FECHA ULT. MODIFICACIÓN:</Value>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox6</rd:DefaultName>
+          <Top>1.478cm</Top>
+          <Left>0.4572cm</Left>
+          <Height>0.6cm</Height>
+          <Width>3.87111cm</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="FECHA_MODIFICACION">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!FECHA_MODIFICACION.Value, "DataSet1")</Value>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                    <Format>dd/MM/yyyy</Format>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>FECHA_MODIFICACION</rd:DefaultName>
+          <Top>1.478cm</Top>
+          <Left>4.32831cm</Left>
+          <Height>0.6cm</Height>
+          <Width>2.99862cm</Width>
+          <ZIndex>3</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox29">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Globals!PageNumber</Value>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox29</rd:DefaultName>
+          <Top>1.478cm</Top>
+          <Left>13.00431cm</Left>
+          <Height>0.6cm</Height>
+          <Width>2.5cm</Width>
+          <ZIndex>4</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Line Name="Line3">
+          <Top>0.14111cm</Top>
+          <Left>0.29726cm</Left>
+          <Height>0cm</Height>
+          <Width>15.49634cm</Width>
+          <ZIndex>5</ZIndex>
+          <Style>
+            <Border>
+              <Style>Solid</Style>
+            </Border>
+          </Style>
+        </Line>
       </ReportItems>
       <Style>
         <Border>
@@ -1316,90 +1588,98 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>90d3dfe8-c95b-4ab6-9200-4e652d15c7cb</rd:DataSourceID>
+      <rd:DataSourceID>45171ca9-a431-4493-957c-f213c818b00f</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="fichaAlumno">
+    <DataSet Name="DataSet1">
       <Query>
         <DataSourceName>CaEnt</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="apellido">
-          <DataField>apellido</DataField>
+        <Field Name="APELLIDO">
+          <DataField>APELLIDO</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="documento">
-          <DataField>documento</DataField>
+        <Field Name="BARRIO">
+          <DataField>BARRIO</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="DOM_BARRIO">
-          <DataField>DOM_BARRIO</DataField>
+        <Field Name="CALLE">
+          <DataField>CALLE</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="DOM_CALLE">
-          <DataField>DOM_CALLE</DataField>
+        <Field Name="CELULAR">
+          <DataField>CELULAR</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="DOM_CP">
-          <DataField>DOM_CP</DataField>
+        <Field Name="CP">
+          <DataField>CP</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="DOM_DPTO">
-          <DataField>DOM_DPTO</DataField>
+        <Field Name="DOCUMENTO">
+          <DataField>DOCUMENTO</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="DPTO">
+          <DataField>DPTO</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="DOM_NUMERO">
-          <DataField>DOM_NUMERO</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+        <Field Name="EDAD">
+          <DataField>EDAD</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="DOM_PISO">
-          <DataField>DOM_PISO</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+        <Field Name="EMAIL">
+          <DataField>EMAIL</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="edad">
-          <DataField>edad</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="fecha">
-          <DataField>fecha</DataField>
+        <Field Name="FECHA">
+          <DataField>FECHA</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="nombre">
-          <DataField>nombre</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="PER_EMAIL">
-          <DataField>PER_EMAIL</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="PER_FECHA_ALTA">
-          <DataField>PER_FECHA_ALTA</DataField>
+        <Field Name="FECHA_ALTA">
+          <DataField>FECHA_ALTA</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="PER_FECHA_NAC">
-          <DataField>PER_FECHA_NAC</DataField>
+        <Field Name="FECHA_MODIFICACION">
+          <DataField>FECHA_MODIFICACION</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="PER_GENERO">
-          <DataField>PER_GENERO</DataField>
+        <Field Name="FECHA_NACIMIENTO">
+          <DataField>FECHA_NACIMIENTO</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="GENERO">
+          <DataField>GENERO</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="PER_LEGAJO">
-          <DataField>PER_LEGAJO</DataField>
+        <Field Name="LEGAJO">
+          <DataField>LEGAJO</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="PER_TELEFONO">
-          <DataField>PER_TELEFONO</DataField>
+        <Field Name="NOMBRE">
+          <DataField>NOMBRE</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="sala">
-          <DataField>sala</DataField>
+        <Field Name="NUMERO">
+          <DataField>NUMERO</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="PISO">
+          <DataField>PISO</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="SALA">
+          <DataField>SALA</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="turno">
-          <DataField>turno</DataField>
+        <Field Name="TELEFONO">
+          <DataField>TELEFONO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TURNO">
+          <DataField>TURNO</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
@@ -1660,5 +1940,5 @@ r24dA5NQKbtqoV8iFyNr31v2wXoVN7dGfpcbs7aP1uF3kf8u5WyoPmZZQncg9h0DncZVne9hzL7TcV4G
     </EmbeddedImage>
   </EmbeddedImages>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>5b352d8f-362c-4940-b64f-be5191cfa00c</rd:ReportID>
+  <rd:ReportID>200c395e-734d-49e9-9d10-6178bb9e825f</rd:ReportID>
 </Report>

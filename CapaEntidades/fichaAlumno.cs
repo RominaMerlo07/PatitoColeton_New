@@ -8,144 +8,153 @@ namespace CaEnt
 {
     public class fichaAlumno
     {
-
         private string p_nombre;
-        public string nombre
+        public string NOMBRE
         {
             get { return p_nombre; }
             set { p_nombre = value; }
         }
 
-
         private string p_apellido;
-        public string apellido
+        public string APELLIDO
         {
             get { return p_apellido; }
             set { p_apellido = value; }
         }
 
-        private string p_documento;
-        public string documento
+        private Int32 p_documento;
+        public Int32 DOCUMENTO
         {
             get { return p_documento; }
             set { p_documento = value; }
         }
 
-        private DateTime p_perFechaNac;
-        public DateTime PER_FECHA_NAC
+        private string p_edad;
+        public string EDAD
         {
-            get { return p_perFechaNac; }
-            set { p_perFechaNac = value; }
+            get { return p_edad; }
+            set { p_edad = value; }
         }
 
-        private String p_perGenero;
-        public String PER_GENERO
+        private DateTime p_fechaNac;
+        public DateTime FECHA_NACIMIENTO
         {
-            get { return p_perGenero; }
-            set { p_perGenero = value; }
+            get { return p_fechaNac; }
+            set { p_fechaNac = value; }
         }
 
-        private String p_perTelefono;
-        public String PER_TELEFONO
+        private string p_genero;
+        public string GENERO
         {
-            get { return p_perTelefono; }
-            set { p_perTelefono = value; }
+            get { return p_genero; }
+            set { p_genero = value; }
         }
 
-
-        private String p_perEmail;
-        public String PER_EMAIL
+        private string p_legajo;
+        public string LEGAJO
         {
-            get { return p_perEmail; }
-            set { p_perEmail = value; }
+            get { return p_legajo; }
+            set { p_legajo = value; }
         }
 
-        private DateTime p_perFechaAlta;
-        public DateTime PER_FECHA_ALTA
+        private DateTime p_fechaAlta;
+        public DateTime FECHA_ALTA
         {
-            get { return p_perFechaAlta; }
-            set { p_perFechaAlta = value; }
+            get { return p_fechaAlta; }
+            set { p_fechaAlta = value; }
+        }
+
+        private DateTime p_fechaMod;
+        public DateTime FECHA_MODIFICACION
+        {
+            get { return p_fechaMod; }
+            set { p_fechaMod = value; }
+        }
+
+        private string p_email;
+        public string EMAIL
+        {
+            get { return p_email; }
+            set { p_email = value; }
+        }
+
+        private string p_calle;
+        public string CALLE
+        {
+            get { return p_calle; }
+            set { p_calle = value; }
+        }
+
+        private Int32 p_num;
+        public Int32 NUMERO
+        {
+            get { return p_num; }
+            set { p_num = value; }
         }
         
-        private string p_perLegajo;
-        public string PER_LEGAJO
+        private string p_dpto;
+        public string DPTO
         {
-            get { return p_perLegajo; }
-            set { p_perLegajo = value; }
+            get { return p_dpto; }
+            set { p_dpto = value; }
+        }
+
+        private Int32 p_piso;
+        public Int32 PISO
+        {
+            get { return p_piso; }
+            set { p_piso = value; }
+        }
+
+        private string p_barrio;
+        public string BARRIO
+        {
+            get { return p_barrio; }
+            set { p_barrio = value; }
+        }
+
+        private Int32 p_cp;
+        public Int32 CP
+        {
+            get { return p_cp; }
+            set { p_cp = value; }
         }
 
         private string p_sala;
-        public string sala
+        public string SALA
         {
             get { return p_sala; }
             set { p_sala = value; }
         }
 
         private string p_turno;
-        public string turno
+        public string TURNO
         {
             get { return p_turno; }
             set { p_turno = value; }
         }
 
-
-        private string p_domCalle;
-        public string DOM_CALLE
+        private DateTime p_fechaActual;
+        public DateTime FECHA
         {
-            get { return p_domCalle; }
-            set { p_domCalle = value; }
+            get { return p_fechaActual; }
+            set { p_fechaActual = value; }
         }
 
-        private Int32 p_domNumero;
-        public Int32 DOM_NUMERO
+        private string p_telefono;
+        public string TELEFONO
         {
-            get { return p_domNumero; }
-            set { p_domNumero = value; }
+            get { return p_telefono; }
+            set { p_telefono = value; }
         }
 
-        private Int32 p_domPiso;
-        public Int32 DOM_PISO
+        private string p_celular;
+        public string CELULAR
         {
-            get { return p_domPiso; }
-            set { p_domPiso = value; }
+            get { return p_celular; }
+            set { p_celular = value; }
         }
-
-        private string p_domDpto;
-        public string DOM_DPTO
-        {
-            get { return p_domDpto; }
-            set { p_domDpto = value; }
-        }
-
-        private string p_domBarrio;
-        public string DOM_BARRIO
-        {
-            get { return p_domBarrio; }
-            set { p_domBarrio = value; }
-        }
-
-        private Int32 p_domCP;
-        public Int32 DOM_CP
-        {
-            get { return p_domCP; }
-            set { p_domCP = value; }
-        }
-
-        private Int32 p_edad;
-        public Int32 edad
-        {
-            get { return p_edad; }
-            set { p_edad = value; }
-        }
-
-        private DateTime p_fecha;
-        public DateTime fecha
-        {
-            get { return p_fecha; }
-            set { p_fecha = value; }
-        }
-
-
+                
         public fichaAlumno()
         {
 

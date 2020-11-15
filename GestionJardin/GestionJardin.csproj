@@ -111,12 +111,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DtasDocente.xsd</DependentUpon>
     </Compile>
-    <Compile Include="fichaAlumno.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="fichaAlumno.Designer.cs">
-      <DependentUpon>fichaAlumno.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmAlumnos\Estudiantes_GrupoFlia\frmAlumnosGrupoFlia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -405,6 +399,12 @@
     <Compile Include="frmUsuarios\frmUsuariosPopUpEliminar.Designer.cs">
       <DependentUpon>frmUsuariosPopUpEliminar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reporte\InformeFichaAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\InformeFichaAlumno.Designer.cs">
+      <DependentUpon>InformeFichaAlumno.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reporte\InformeAsistencia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -414,10 +414,7 @@
     <Compile Include="LocalReportExtension.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FichaAlumno.rdlc" />
-    <EmbeddedResource Include="fichaAlumno.resx">
-      <DependentUpon>fichaAlumno.cs</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="fichaAlumno.rdlc" />
     <EmbeddedResource Include="frmAlumnos\Estudiantes_GrupoFlia\frmAlumnosGrupoFlia.resx">
       <DependentUpon>frmAlumnosGrupoFlia.cs</DependentUpon>
     </EmbeddedResource>
@@ -563,6 +560,9 @@
       <DependentUpon>frmUsuariosPopUpEliminar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InformeAsistencia.rdlc" />
+    <EmbeddedResource Include="Reporte\InformeFichaAlumno.resx">
+      <DependentUpon>InformeFichaAlumno.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reporte\InformeAsistencia.resx">
       <DependentUpon>InformeAsistencia.cs</DependentUpon>
     </EmbeddedResource>
@@ -590,9 +590,30 @@
       <DependentUpon>DtasDocente.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\CaEnt.entAsistencia+entAsistenciaColeccion.datasource" />
     <None Include="Properties\DataSources\CaEnt.entAsistencia.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entCalificaciones+entCalificacionesColeccion.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entCalificaciones.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entConcepto+entConceptoColeccion.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entConcepto.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entDomicilio.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entGrupoFlia.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entGrupoSala.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entMateria+entMateriaColeccion.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entMateria.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entMateriaTipo+entMateriaTipoColeccion.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entMateriaTipo.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entPersona+entPersonaColeccion.datasource" />
     <None Include="Properties\DataSources\CaEnt.entPersona.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entRol.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entSala+entSalaColeccion.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entSala.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entTipoPersona+enTipoPersonaColeccion.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entTipoPersona.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entUsuario.datasource" />
+    <None Include="Properties\DataSources\CaEnt.fichaAlumno+fichaAlumnoColeccion.datasource" />
     <None Include="Properties\DataSources\CaEnt.fichaAlumno.datasource" />
+    <None Include="Properties\DataSources\CaEnt.InformeAsistencia+InformeAsistenciaColeccion.datasource" />
     <None Include="Properties\DataSources\CaEnt.InformeAsistencia.datasource" />
     <None Include="Properties\DataSources\CaLog.logAsistencia.datasource" />
     <None Include="Properties\DataSources\CapaAccesoDatos.metAsistencia.datasource" />

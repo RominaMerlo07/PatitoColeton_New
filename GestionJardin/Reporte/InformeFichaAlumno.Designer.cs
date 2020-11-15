@@ -1,6 +1,6 @@
 ﻿namespace GestionJardin
 {
-    partial class fichaAlumno
+    partial class InformeFichaAlumno
     {
         /// <summary>
         /// Required designer variable.
@@ -41,7 +41,7 @@
             reportDataSource1.Name = "fichaAlumno";
             reportDataSource1.Value = this.fichaAlumnoBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "GestionJardin.FichaAlumno.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "GestionJardin.fichaAlumno.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
@@ -52,15 +52,14 @@
             // 
             this.fichaAlumnoBindingSource.DataSource = typeof(CaEnt.fichaAlumno);
             // 
-            // fichaAlumno
+            // InformeFichaAlumno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1092, 439);
             this.Controls.Add(this.reportViewer1);
-            this.Name = "fichaAlumno";
-            this.Text = "fichaAlumno";
-            //this.Load += new System.EventHandler(this.fichaAlumno_Load);
+            this.Name = "InformeFichaAlumno";
+            this.Text = "InformeFichaAlumno";         
             ((System.ComponentModel.ISupportInitialize)(this.fichaAlumnoBindingSource)).EndInit();
             this.ResumeLayout(false);
 

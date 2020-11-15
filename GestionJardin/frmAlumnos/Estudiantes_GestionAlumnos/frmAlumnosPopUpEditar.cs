@@ -785,7 +785,8 @@ namespace GestionJardin
 
         private void btn_Informe_Click(object sender, EventArgs e)
         {
-            fichaAlumno fichaAlumno = new fichaAlumno(idPersonaSelect);
+            InformeFichaAlumno InformeFichaAlumno = new InformeFichaAlumno(idPersonaSelect);
+            InformeFichaAlumno.Show();
         }
     }
 }

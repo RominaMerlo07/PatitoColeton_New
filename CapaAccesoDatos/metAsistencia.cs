@@ -151,7 +151,7 @@ namespace CaAD//GestionJardin
                 cmd = new SqlCommand("UPDATE T_ASISTENCIA SET " +
                                                             "AS_ASISTENCIA = " + "'" + asistencia.AS_ASISTENCIA + "', " +
                                                             " AS_JUSTIFICADO = " + "'" + justificado + "' " +
-                                                "WHERE AS_ID = "+ asistencia.AS_ID + ";", con);
+                                      "WHERE AS_ID = "+ asistencia.AS_ID + ";", con);
 
                 cmd.ExecuteNonQuery();
                 con.Close();
