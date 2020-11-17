@@ -447,6 +447,10 @@ namespace CaAD//GestionJardin
                                         "SUM(AUSENTES_JUSTIFICADOS) JUSTIFICADAS, " +
                                         "SUM(AUSENTES_INJUSTIFICADOS) INJUSTIFICADAS, " +
                                         "SAL_NOMBRE SALA, " +
+                                        "CASE SAL_TURNO " +
+                                            "WHEN 'MANANA' THEN 'MAÑANA' " +
+                                            "ELSE 'TARDE' " +
+                                        "END TURNO, " +
                                         "CONVERT(VARCHAR(10), '" + fechaDesde + "', 103) FECHA_DESDE, " +
                                         "CONVERT(VARCHAR(10), '" + fechaHasta + "', 103) FECHA_HASTA, " +
                                         "CONVERT(VARCHAR(10), GETDATE(), 103) FECHA " +
@@ -454,7 +458,7 @@ namespace CaAD//GestionJardin
                                  "WHERE GRS_PER_ID = t1.PER_ID " +
                                    "AND GRS_SAL_ID = SAL_ID " +
                                    "AND SAL_ID = '" + sala + "' " +
-                              "GROUP BY ALUMNO, DOCUMENTO, PER_ID, SAL_NOMBRE;";
+                              "GROUP BY ALUMNO, DOCUMENTO, PER_ID, SAL_NOMBRE, SAL_TURNO;";
 
                 cmd = new SqlCommand(consulta, con);
                 dta = new SqlDataAdapter(cmd);

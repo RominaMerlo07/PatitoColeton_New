@@ -182,6 +182,7 @@ namespace GestionJardin
                 txtGAs_Buscar.Visible = true;
                 dgv_Alumnos.Visible = true;
                 btn_Informe.Visible = true;
+                btnGraficoAusencias.Visible = true;
                 dgv_Alumnos.ClearSelection();
 
                 dgv_Alumnos.DataSource = logAsistencia.GrillaAsistenciaConsultar(id_sala, fechaDesde.ToShortDateString(), fechaHasta.ToShortDateString());
@@ -228,6 +229,12 @@ namespace GestionJardin
         private void btn_Informe_Click(object sender, EventArgs e)
         {
             InformeTotalAsistencias InformeTotalAsistencias = new InformeTotalAsistencias(id_sala, fechaDesde.ToShortDateString(),fechaHasta.ToShortDateString());
+        }
+
+        private void iconPictureBox1_Click(object sender, EventArgs e)
+        {
+            informeTotalAusencias informeTotalAusencias = new informeTotalAusencias(id_sala, fechaDesde.ToShortDateString(), fechaHasta.ToShortDateString());
+            informeTotalAusencias.Show();
         }
     }
 }

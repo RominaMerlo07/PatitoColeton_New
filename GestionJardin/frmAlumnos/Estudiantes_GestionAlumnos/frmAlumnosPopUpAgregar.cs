@@ -542,11 +542,12 @@ namespace GestionJardin
             logPersonas ObjlogPersonas = new logPersonas();      
             string resultado = ObjlogPersonas.ValidarDni(dni);
             if (resultado == "SI")
-            {
+            {                
                 txtDocumento.Style = MetroFramework.MetroColorStyle.Red;
                 txtDocumento.Focus();
                 MessageBox.Show("El alumno ya se encuentra registrado. ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
 
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
@@ -612,11 +613,12 @@ namespace GestionJardin
                 logPersonas ObjlogPersonas = new logPersonas();
                 string resultado = ObjlogPersonas.ValidarDni(dni);
                 if (resultado == "SI")
-                {
+                {                 
                     txtDocumento.Style = MetroFramework.MetroColorStyle.Red;
                     txtDocumento.Focus();
                     MessageBox.Show("El alumno ya se encuentra registrado. ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                
             }
         }
 
@@ -940,7 +942,8 @@ namespace GestionJardin
 
                 }
             }
-        }        
+        }
 
+        
     }
 }

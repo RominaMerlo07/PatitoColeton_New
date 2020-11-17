@@ -57,6 +57,13 @@ namespace CaEnt
             set { p_sala = value; }
         }
 
+        private string p_turno;
+        public string TURNO
+        {
+            get { return p_turno; }
+            set { p_turno = value; }
+        }
+
         private DateTime p_fechaDesde;
         public DateTime FECHA_DESDE
         {

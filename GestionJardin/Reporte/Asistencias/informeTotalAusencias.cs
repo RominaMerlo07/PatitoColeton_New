@@ -24,7 +24,7 @@ namespace GestionJardin
             {
                 InitializeComponent();
                 DataSet informe = logAsistencia.InformeTotalAsistencias(idSala, fechaDesde, fechaHasta);
-                var reportPath = "GestionJardin.graficoTotalAusencias.rdlc";
+                var reportPath = "GestionJardin.Reporte.Asistencias.graficoTotalAusencias.rdlc";
 
                 ReportDataSource sReportDataSource = new ReportDataSource();
                 this.reportViewer1.LocalReport.ReportEmbeddedResource = reportPath;

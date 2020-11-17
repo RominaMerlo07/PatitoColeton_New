@@ -333,12 +333,6 @@
     <Compile Include="frmAlumnos\Informe_Progreso\Informe_Progreso_GestionarAsignatura\frmInformeProgreso_GestAsig_Eliminar.Designer.cs">
       <DependentUpon>frmInformeProgreso_GestAsig_Eliminar.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmInformes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmInformes.Designer.cs">
-      <DependentUpon>frmInformes.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -405,34 +399,34 @@
     <Compile Include="frmUsuarios\frmUsuariosPopUpEliminar.Designer.cs">
       <DependentUpon>frmUsuariosPopUpEliminar.cs</DependentUpon>
     </Compile>
-    <Compile Include="informeTotalAusencias.cs">
+    <Compile Include="Reporte\Asistencias\informeTotalAusencias.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="informeTotalAusencias.Designer.cs">
+    <Compile Include="Reporte\Asistencias\informeTotalAusencias.Designer.cs">
       <DependentUpon>informeTotalAusencias.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporte\InformeTotalAsistencias.cs">
+    <Compile Include="Reporte\Asistencias\InformeTotalAsistencias.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reporte\InformeTotalAsistencias.Designer.cs">
+    <Compile Include="Reporte\Asistencias\InformeTotalAsistencias.Designer.cs">
       <DependentUpon>InformeTotalAsistencias.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporte\InformeFichaAlumno.cs">
+    <Compile Include="Reporte\Alumnos\InformeFichaAlumno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reporte\InformeFichaAlumno.Designer.cs">
+    <Compile Include="Reporte\Alumnos\InformeFichaAlumno.Designer.cs">
       <DependentUpon>InformeFichaAlumno.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporte\InformeAsistencia.cs">
+    <Compile Include="Reporte\Asistencias\InformeAsistencia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reporte\InformeAsistencia.Designer.cs">
+    <Compile Include="Reporte\Asistencias\InformeAsistencia.Designer.cs">
       <DependentUpon>InformeAsistencia.cs</DependentUpon>
     </Compile>
     <Compile Include="LocalReportExtension.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="fichaAlumno.rdlc" />
+    <EmbeddedResource Include="Reporte\Alumnos\fichaAlumno.rdlc" />
     <EmbeddedResource Include="frmAlumnos\Estudiantes_GrupoFlia\frmAlumnosGrupoFlia.resx">
       <DependentUpon>frmAlumnosGrupoFlia.cs</DependentUpon>
     </EmbeddedResource>
@@ -544,9 +538,6 @@
     <EmbeddedResource Include="frmAlumnos\Informe_Progreso\Informe_Progreso_GestionarAsignatura\frmInformeProgreso_GestionarAsignaturas.resx">
       <DependentUpon>frmInformeProgreso_GestionarAsignaturas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmInformes.resx">
-      <DependentUpon>frmInformes.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -580,19 +571,19 @@
     <EmbeddedResource Include="frmUsuarios\frmUsuariosPopUpEliminar.resx">
       <DependentUpon>frmUsuariosPopUpEliminar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="graficoTotalAusencias.rdlc" />
-    <EmbeddedResource Include="InformeAsistencia.rdlc" />
-    <EmbeddedResource Include="InformeTotalAsistencias.rdlc" />
-    <EmbeddedResource Include="informeTotalAusencias.resx">
+    <EmbeddedResource Include="Reporte\Asistencias\graficoTotalAusencias.rdlc" />
+    <EmbeddedResource Include="Reporte\Asistencias\InformeAsistencia.rdlc" />
+    <EmbeddedResource Include="Reporte\Asistencias\InformeTotalAsistencias.rdlc" />
+    <EmbeddedResource Include="Reporte\Asistencias\informeTotalAusencias.resx">
       <DependentUpon>informeTotalAusencias.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reporte\InformeTotalAsistencias.resx">
+    <EmbeddedResource Include="Reporte\Asistencias\InformeTotalAsistencias.resx">
       <DependentUpon>InformeTotalAsistencias.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reporte\InformeFichaAlumno.resx">
+    <EmbeddedResource Include="Reporte\Alumnos\InformeFichaAlumno.resx">
       <DependentUpon>InformeFichaAlumno.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reporte\InformeAsistencia.resx">
+    <EmbeddedResource Include="Reporte\Asistencias\InformeAsistencia.resx">
       <DependentUpon>InformeAsistencia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -1021,5 +1021,4 @@ C:\Users\Laura\Desktop\TPI_prueba\GestionJardin\obj\Debug\GestionJardin.exe
 C:\Users\Laura\Desktop\TPI_prueba\GestionJardin\obj\Debug\GestionJardin.pdb
 C:\Users\Laura\Desktop\TPI_prueba\GestionJardin\obj\Debug\GestionJardin.InformeFichaAlumno.resources
 C:\Users\Laura\Desktop\TPI_prueba\GestionJardin\obj\Debug\GestionJardin.InformeTotalAsistencias.resources
-C:\Users\Laura\Desktop\TPI_prueba\GestionJardin\obj\Debug\GestionJardin.frmInformes.resources
 C:\Users\Laura\Desktop\TPI_prueba\GestionJardin\obj\Debug\GestionJardin.informeTotalAusencias.resources
