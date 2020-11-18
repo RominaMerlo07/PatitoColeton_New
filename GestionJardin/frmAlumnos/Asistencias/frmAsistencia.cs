@@ -45,6 +45,14 @@ namespace GestionJardin
         private void frmAsistencia_Load(object sender, EventArgs e)
         {           
             Inicializar();
+            Settooltip();
+        }
+
+
+        private void Settooltip()
+        {
+            ToolTip Tip = new ToolTip();
+            Tip.SetToolTip(this.btn_Informe, "Aquí puede imprimir la lista de asistencias por día");            
         }
 
         private void cargar_cbSala()

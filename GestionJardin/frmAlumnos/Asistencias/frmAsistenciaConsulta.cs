@@ -29,6 +29,14 @@ namespace GestionJardin
         private void frmAsistenciaConsulta_Load(object sender, EventArgs e)
         {
             Inicializar();
+            Settooltip();
+        }
+
+        private void Settooltip()
+        {
+            ToolTip Tip = new ToolTip();
+            Tip.SetToolTip(this.btn_Informe, "Aquí puede imprimir la lista de asistencias e inasistencias acumuladas");
+            Tip.SetToolTip(this.btnGraficoAusencias, "Aquí puede visualizar graficamente el total de asistencias e inasistencias acumuladas");
         }
 
         private void cargar_cbSala()

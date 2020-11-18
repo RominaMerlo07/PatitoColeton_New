@@ -479,7 +479,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox6</rd:DefaultName>
         <Top>7.49991cm</Top>
-        <Left>0.75353cm</Left>
+        <Left>0.68297cm</Left>
         <Height>0.6cm</Height>
         <Width>1.23cm</Width>
         <ZIndex>14</ZIndex>
@@ -544,7 +544,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox6</rd:DefaultName>
-        <Top>7.47059cm</Top>
+        <Top>7.49991cm</Top>
         <Left>12.39754cm</Left>
         <Height>0.6cm</Height>
         <Width>0.99011cm</Width>
@@ -578,7 +578,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>NUMERO</rd:DefaultName>
-        <Top>7.47059cm</Top>
+        <Top>7.49991cm</Top>
         <Left>13.30064cm</Left>
         <Height>0.6cm</Height>
         <Width>2.08844cm</Width>
@@ -611,7 +611,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox6</rd:DefaultName>
         <Top>8.38919cm</Top>
-        <Left>0.75353cm</Left>
+        <Left>0.70416cm</Left>
         <Height>0.6cm</Height>
         <Width>0.95483cm</Width>
         <ZIndex>18</ZIndex>
@@ -741,7 +741,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox6</rd:DefaultName>
         <Top>9.31374cm</Top>
-        <Left>0.75354cm</Left>
+        <Left>0.70416cm</Left>
         <Height>0.6cm</Height>
         <Width>1.50516cm</Width>
         <ZIndex>22</ZIndex>
@@ -772,8 +772,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>BARRIO</rd:DefaultName>
-        <Top>9.31374cm</Top>
-        <Left>2.12464cm</Left>
+        <Top>9.39758cm</Top>
+        <Left>1.98353cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>23</ZIndex>
@@ -839,7 +839,7 @@
         </Paragraphs>
         <rd:DefaultName>CP</rd:DefaultName>
         <Top>9.31374cm</Top>
-        <Left>12.26348cm</Left>
+        <Left>12.39754cm</Left>
         <Height>0.6cm</Height>
         <Width>1.68395cm</Width>
         <ZIndex>25</ZIndex>
@@ -1090,7 +1090,7 @@
         </Style>
       </Line>
     </ReportItems>
-    <Height>5.66667in</Height>
+    <Height>5.85833in</Height>
     <Style />
   </Body>
   <Width>6.41425in</Width>

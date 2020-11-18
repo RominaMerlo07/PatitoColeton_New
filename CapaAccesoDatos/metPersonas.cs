@@ -991,6 +991,48 @@ namespace CaAD//GestionJardin
 
         }
 
+        public DataSet fichaAlumnoFamiliar(string idAlumno)
+        {
+
+            DataSet dset = new DataSet();
+
+            con = generarConexion();
+            con.Open();
+
+            try
+            {
+                string consulta = "SELECT(PER_NOMBRE + ' ' + PER_APELLIDO) FAMILIAR, " +
+                                         "GRF_OBSERVACION VINCULO, " +
+                                         "PER_DOCUMENTO DOCUMENTO_FAMILIAR, " +
+                                         "PER_EMAIL EMAIL_FAMILIAR, " +
+                                         "PER_TELEFONO TELEFONO_FAMILIAR, " +
+                                         "PER_TELEFONO_2 CELULAR_FAMILIAR, C" +
+                                         "CASE GRF_AUTORIZADO " +
+                                               "WHEN 'N' THEN 'NO' " +
+                                               "WHEN 'S' THEN 'SI' " +
+                                         "END AUTORIZADO " +
+                                    "FROM T_PERSONAS, T_GRUPO_FLIA " +
+                                   "WHERE PER_ID = GRF_PER_ID " +
+                                     "AND GRF_OBSERVACION is not null " +
+                                     "AND GRF_GRUPO_LEGAJO = '" + idAlumno + "';";
+
+                cmd = new SqlCommand(consulta, con);
+                dta = new SqlDataAdapter(cmd);
+                dta.Fill(dset);
+
+                con.Close();
+
+
+                return dset;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return dset;
+
+        }
+
 
     }
 }

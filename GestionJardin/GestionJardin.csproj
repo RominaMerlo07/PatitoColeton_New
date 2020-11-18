@@ -633,6 +633,7 @@
     <None Include="Properties\DataSources\CaEnt.entUsuario.datasource" />
     <None Include="Properties\DataSources\CaEnt.fichaAlumno+fichaAlumnoColeccion.datasource" />
     <None Include="Properties\DataSources\CaEnt.fichaAlumno.datasource" />
+    <None Include="Properties\DataSources\CaEnt.fichaAlumnoFamiliar.datasource" />
     <None Include="Properties\DataSources\CaEnt.InformeAsistencia+InformeAsistenciaColeccion.datasource" />
     <None Include="Properties\DataSources\CaEnt.InformeAsistencia.datasource" />
     <None Include="Properties\DataSources\CaEnt.InformeTotalAsistencia.datasource" />

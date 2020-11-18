@@ -25,6 +25,7 @@ namespace GestionJardin
         {
             InitializeComponent();
             DataSet reporte = logPersonas.fichaAlumno(idAlumno);
+         
             var reportPath = "GestionJardin.Reporte.Alumnos.fichaAlumno.rdlc";
             ReportDataSource sReportDataSource = new ReportDataSource();
             this.reportViewer1.LocalReport.ReportEmbeddedResource = reportPath;
@@ -32,9 +33,10 @@ namespace GestionJardin
             sReportDataSource.Value = reporte.Tables[0];
             reportViewer1.LocalReport.DataSources.Add(sReportDataSource);
             this.reportViewer1.LocalReport.Print();
-            this.reportViewer1.RefreshReport();
+            this.reportViewer1.RefreshReport();        
+
 
         }
-       
+
     }
 }

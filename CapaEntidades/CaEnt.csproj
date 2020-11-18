@@ -82,6 +82,7 @@
     <Compile Include="entTipoPersona.cs" />
     <Compile Include="entUsuario.cs" />
     <Compile Include="fichaAlumno.cs" />
+    <Compile Include="fichaAlumnoFamiliar.cs" />
     <Compile Include="InformeAsistencia.cs" />
     <Compile Include="InformeTotalAsistencia.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

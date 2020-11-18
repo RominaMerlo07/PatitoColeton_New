@@ -31,9 +31,20 @@ namespace GestionJardin
             btnGA_Eliminar.IconColor = Color.Gray;
             btnGA_Eliminar.ForeColor = Color.Gray;
             btnGA_Editar.IconColor = Color.Gray;
-            btnGA_Editar.ForeColor = Color.Gray;                        
-                        
-            
+            btnGA_Editar.ForeColor = Color.Gray;
+
+            Settooltip();
+
+
+
+        }
+
+        private void Settooltip()
+        {
+            ToolTip Tip = new ToolTip();
+            Tip.SetToolTip(this.btnGA_Agregar,"Ingresar o dar de alta un alumno");
+            Tip.SetToolTip(this.btnGA_Editar, "Visualizar y/o modificar los datos de un alumno");
+            Tip.SetToolTip(this.btnGA_Eliminar, "Dar de baja un alumno");
         }
 
         private void carga_grilla_filtrada()
@@ -84,7 +95,7 @@ namespace GestionJardin
             {
                 btnGA_Editar.IconColor = Color.Gray;
                 btnGA_Editar.ForeColor = Color.Gray;
-                MessageBox.Show("Debe seleccionar un registro para poder visualizar y/o editar los datos de un alumno");
+                MessageBox.Show("Debe seleccionar un registro para poder visualizar y/o editar los datos de un alumno", "Información",MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
 
         }
@@ -113,7 +124,8 @@ namespace GestionJardin
             {
                 btnGA_Eliminar.IconColor = Color.Gray;
                 btnGA_Eliminar.ForeColor = Color.Gray;
-                MessageBox.Show("Debe seleccionar un registro para poder dar de baja a un alumno");
+                MessageBox.Show("Debe seleccionar un registro para poder dar de baja a un alumno", "Información", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+          
             }
 
         }         
