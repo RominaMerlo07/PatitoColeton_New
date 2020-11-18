@@ -66,10 +66,12 @@ namespace CaAD//GestionJardin
 
                 string consulta = "INSERT INTO T_GRUPO_SALA " +
                                                 "(GRS_SAL_ID" +
-                                                ", GRS_PER_ID)" +
-                                        "VALUES " +
-                                                "('" + grupoSala.GRS_SAL_ID + "'" +
-                                                ", '" + grupoSala.GRS_PER_ID + "')";
+                                                ", GRS_PER_ID" +
+                                                ", GRS_CARGO )" +
+                "VALUES " +
+                           "(" + grupoSala.GRS_SAL_ID + " " +
+                            "," + grupoSala.GRS_PER_ID + "" +
+                             ", '" + grupoSala.GRS_CARGO + "')";
 
 
                 cmd = new SqlCommand(consulta, con);
@@ -145,9 +147,15 @@ namespace CaAD//GestionJardin
                 con = generarConexion();
                 con.Open();
 
-                string consulta = "UPDATE T_GRUPO_SALA " +
-                                    "SET GRS_SAL_ID = '" + grupoSalaEditar.GRS_SAL_ID + "' " +
-                                  "WHERE GRS_PER_ID = '" + grupoSalaEditar.GRS_PER_ID + "';";
+                //string consulta = "UPDATE T_GRUPO_SALA SET" +
+                //                     " GRS_CARGO = '" + grupoSalaEditar.GRS_CARGO + "' " +
+                //                     ", GRS_PER_ID = '" + grupoSalaEditar.GRS_PER_ID + "' " +
+                //                   "WHERE GRS_SAL_ID = '" + grupoSalaEditar.GRS_SAL_ID + "';";
+                string consulta = "UPDATE T_GRUPO_SALA SET " +
+                                    "GRS_CARGO = '" + grupoSalaEditar.GRS_CARGO + "' " +
+                                    ", GRS_SAL_ID = '" + grupoSalaEditar.GRS_SAL_ID + "' " +
+                                    "WHERE GRS_PER_ID = '" + grupoSalaEditar.GRS_PER_ID + "';";
+
 
 
                 cmd = new SqlCommand(consulta, con);
@@ -160,11 +168,12 @@ namespace CaAD//GestionJardin
             catch
             {
                 result = "ERROR";
-                //MessageBox.Show("Hubo un problema. Contáctese con su administrador.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
 
 
             return result;
+
         }
 
         public DataTable traerPersonasXSala(Int32 idSala)
@@ -268,7 +277,7 @@ namespace CaAD//GestionJardin
             con = generarConexion();
             con.Open();
 
-            int result = 1;
+            int result = 2;
             try
             {
 
@@ -305,7 +314,7 @@ namespace CaAD//GestionJardin
             }
             catch (Exception ex)
             {
-                result = 1;
+                result = 2;
                 //MessageBox.Show("Hubo un problema. Contáctese con su administrador. Error " + ex.ToString());
 
             }

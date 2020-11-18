@@ -21,7 +21,7 @@ namespace GestionJardin
         logSalas objlogSalas = new logSalas();
         AutoCompleteStringCollection traerdocente = new AutoCompleteStringCollection();
         logPersonas logPersonas = new logPersonas();
-              
+        entSala sala = new entSala();
 
         public frmDocentes()
         {
@@ -37,7 +37,7 @@ namespace GestionJardin
             btnGD_Eliminar.ForeColor = Color.Gray;            
             dgv_Docentes.DataSource = objlogPersonas.Mostrardocente();
             dgv_Docentes.Columns["DOCENTE"].Frozen = true;
-            dgv_Docentes.Columns["DOCUMENTO"].Frozen = true;                
+            dgv_Docentes.Columns["DNI"].Frozen = true;                
         }
 
         /*  FUNCIONALIDAS BUSCAR, filtra la grilla */
@@ -54,7 +54,7 @@ namespace GestionJardin
                 txtGD_Buscar.Clear();
                 dgv_Docentes.DataSource = objlogPersonas.Mostrardocente();
                 dgv_Docentes.Columns["DOCENTE"].Frozen = true;
-                dgv_Docentes.Columns["DOCUMENTO"].Frozen = true;
+                dgv_Docentes.Columns["DNI"].Frozen = true;
                 btnGD_Editar.IconColor = Color.Gray;
                 btnGD_Editar.ForeColor = Color.Gray;
                 btnGD_Eliminar.IconColor = Color.Gray;
@@ -94,7 +94,7 @@ namespace GestionJardin
                 txtGD_Buscar.Clear();
                 dgv_Docentes.DataSource = objlogPersonas.Mostrardocente();
                 dgv_Docentes.Columns["DOCENTE"].Frozen = true;
-                dgv_Docentes.Columns["DOCUMENTO"].Frozen = true;
+                dgv_Docentes.Columns["DNI"].Frozen = true;
                 btnGD_Editar.IconColor = Color.Gray;
                 btnGD_Editar.ForeColor = Color.Gray;
                 btnGD_Eliminar.IconColor = Color.Gray;
@@ -151,12 +151,10 @@ namespace GestionJardin
 
         private void btnGD_Editar_Click(object sender, EventArgs e)
         {
-
             entPersona personaBuscar = new entPersona();
-            frmDocentesPopUpEditar frmDocentesPopUpEditar = new frmDocentesPopUpEditar();
             entDomicilio domicilioBuscar = new entDomicilio();
-            entSala salaBuscar = new entSala();            
-            
+            entSala salaBuscar = new entSala();
+
             if (dgv_Docentes.SelectedRows.Count > 0)
             {
                 btnGD_Editar.IconColor = Color.Cyan;
@@ -164,72 +162,19 @@ namespace GestionJardin
 
 
                 string documento = dgv_Docentes.CurrentRow.Cells[1].Value.ToString();
+                string cargo = dgv_Docentes.CurrentRow.Cells[4].Value.ToString();
 
                 personaBuscar = objlogPersonas.BuscaDocente(documento);
 
                 if (personaBuscar.PER_NOMBRE != null)
                 {
-                    frmDocentesPopUpEditar.txt_id_Docente.Text = Convert.ToString(personaBuscar.PER_ID); // se usara en el editar
-
-
-                    frmDocentesPopUpEditar.txtNombre.Text = personaBuscar.PER_NOMBRE;
-                    frmDocentesPopUpEditar.txtApellidos.Text = personaBuscar.PER_APELLIDO;
-                    frmDocentesPopUpEditar.txtDocumento.Text = documento;
-                    frmDocentesPopUpEditar.dtNacimiento.Value = personaBuscar.PER_FECHA_NAC;
-
-                    if (personaBuscar.PER_GENERO.StartsWith("M"))
-                    {
-                        frmDocentesPopUpEditar.cbGenero.SelectedIndex = frmDocentesPopUpEditar.cbGenero.FindStringExact("MASCULINO");
-                    }
-                    else
-                    {
-                        frmDocentesPopUpEditar.cbGenero.SelectedIndex = frmDocentesPopUpEditar.cbGenero.FindStringExact("FEMENINO");
-                    }
-
-                    domicilioBuscar = objlogDomicilio.buscarDomicilioXPersona(personaBuscar.PER_ID);
-
-                    frmDocentesPopUpEditar.txtCalle.Text = domicilioBuscar.DOM_CALLE;
-                    frmDocentesPopUpEditar.txtNumero.Text = Convert.ToString(domicilioBuscar.DOM_NUMERO);
-                    frmDocentesPopUpEditar.txtCPostal.Text = Convert.ToString(domicilioBuscar.DOM_CP);
-                    frmDocentesPopUpEditar.txtPiso.Text = Convert.ToString(domicilioBuscar.DOM_PISO);
-                    frmDocentesPopUpEditar.txtDepto.Text = domicilioBuscar.DOM_DPTO;
-                    frmDocentesPopUpEditar.txtBarrio.Text = domicilioBuscar.DOM_BARRIO;
-                    frmDocentesPopUpEditar.txtTelefono.Text = personaBuscar.PER_TELEFONO;
-                    frmDocentesPopUpEditar.txtCelular.Text = personaBuscar.PER_TELEFONO_2;
-                    frmDocentesPopUpEditar.txtEmail.Text = personaBuscar.PER_EMAIL;
-
-
-                    if (salaBuscar.SALA_TURNO == null)
-                    {
-                        frmDocentesPopUpEditar.cbTurno.SelectedIndex = frmDocentesPopUpEditar.cbTurno.FindStringExact("");
-                    }
-                    else
-                    {
-
-                        salaBuscar = objlogSalas.buscarSalaXPersona(personaBuscar.PER_ID);
-
-
-                        if (salaBuscar.SALA_TURNO.Trim() == "TARDE")
-                        {
-                            frmDocentesPopUpEditar.cbTurno.SelectedIndex = frmDocentesPopUpEditar.cbTurno.FindStringExact("TARDE");
-                        }
-                        else
-                        {
-                            frmDocentesPopUpEditar.cbTurno.SelectedIndex = frmDocentesPopUpEditar.cbTurno.FindStringExact("MAÑANA");
-                        }
-
-                        string indexTurno = frmDocentesPopUpEditar.cbTurno.SelectedIndex.ToString();
-                        frmDocentesPopUpEditar.cbSala.DataSource = objlogSalas.ListarSalas(indexTurno);
-                        frmDocentesPopUpEditar.cbSala.DisplayMember = "SAL_NOMBRE";
-                        frmDocentesPopUpEditar.cbSala.ValueMember = "SAL_ID";
-
-                        frmDocentesPopUpEditar.cbSala.SelectedIndex = frmDocentesPopUpEditar.cbSala.FindStringExact(salaBuscar.SAL_NOMBRE);
-                    }
+                    frmDocentesPopUpEditar frmDocentesPopUpEditar = new frmDocentesPopUpEditar(personaBuscar.PER_ID.ToString()); // se usara en el editar                   
+                    frmDocentesPopUpEditar.Cbocargo.SelectedIndex = frmDocentesPopUpEditar.Cbocargo.FindStringExact(cargo.TrimEnd());
+                    frmDocentesPopUpEditar.txt_id_Docente.Text = Convert.ToString(personaBuscar.PER_ID);
+                    frmDocentesPopUpEditar.Text = "GESTION DOCENTES / MODIFICAR/VISUALIZAR DATOS DEL DOCENTE";
+                    AddOwnedForm(frmDocentesPopUpEditar);
+                    frmDocentesPopUpEditar.ShowDialog();
                 }
-                frmDocentesPopUpEditar.Text = "GESTION DOCENTES / MODIFICAR/VISUALIZAR DATOS DEL DOCENTE";
-                AddOwnedForm(frmDocentesPopUpEditar);
-                frmDocentesPopUpEditar.ShowDialog();
-
                 btnGD_Editar.IconColor = Color.Gray;
                 btnGD_Editar.ForeColor = Color.Gray;
                 btnGD_Eliminar.IconColor = Color.Gray;
@@ -238,13 +183,15 @@ namespace GestionJardin
                 dgv_Docentes.ClearSelection();
 
             }
-            
+
             else
             {
                 btnGD_Editar.IconColor = Color.Gray;
                 btnGD_Editar.ForeColor = Color.Gray;
                 MessageBox.Show("Por favor seleccione un registro/fila para poder visualizar/modificar los datos del Docente");
-            }                                 
+            }
+
+
 
         }
 
