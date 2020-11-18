@@ -16,11 +16,12 @@ namespace GestionJardin
 {
     public partial class frmDocentesPopUpAgregar : Form
     {
-
         logPersonas objlogPersonas = new logPersonas();
         entPersona objPersona = new entPersona();
         logDomicilio objlogDomicilio = new logDomicilio();
+        entSala sala = new entSala();
         logSalas logSalas = new logSalas();
+        entGrupoSala objGrupoSala = new entGrupoSala();
         string resultadoValidacion;
 
 
@@ -233,7 +234,7 @@ namespace GestionJardin
             objlogPersonas.EdadDocente(dtNacimiento.Value);
 
             string resultado;
-               
+
             string validacion = validaCampos();
 
             if (validacion == "OK")
@@ -327,7 +328,6 @@ namespace GestionJardin
 
                         }
 
-
                         string turno;
 
 
@@ -351,6 +351,7 @@ namespace GestionJardin
                         }
 
                         string id_sala;
+
                         if (cbSala.SelectedItem == null)
                         {
                             id_sala = "";
@@ -360,48 +361,49 @@ namespace GestionJardin
                             id_sala = cbSala.SelectedValue.ToString();
                         }
 
-                        if (turno == "" && id_sala =="")
+                        //if (turno == "" && id_sala == "")
+                        //{
+                        //    MessageBox.Show("Se ha ingresado el registro con éxito.", "Ingresado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //    this.Close();
+                        //}
+                        //else
+                        //{ //cambiar!!!
+                        if (logSalas.ValidarDocSala(id_sala, turno) <= 1)
                         {
-                            MessageBox.Show("Se ha ingresado el registro con éxito.", "Ingresado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Close();
-                        }
-                        else { //cambiar!!!
-                            if (logSalas.ValidarDocSala(id_sala, turno) == 0)
+                            entGrupoSala grupoSalaInsertar = new entGrupoSala();
+                            grupoSalaInsertar.GRS_PER_ID = Convert.ToInt32(id_persona);
+                            grupoSalaInsertar.GRS_SAL_ID = Convert.ToInt32(id_sala);
+                            grupoSalaInsertar.GRS_CARGO = CARGO.ToString();
+                            resultado = logSalas.insertarGrupoSala(grupoSalaInsertar);
+
+                            if (resultado == "OK")
                             {
-                                entGrupoSala grupoSalaInsertar = new entGrupoSala();
-                                grupoSalaInsertar.GRS_PER_ID = Convert.ToInt32(id_persona);
-                                grupoSalaInsertar.GRS_SAL_ID = Convert.ToInt32(id_sala);
-                                grupoSalaInsertar.GRS_CARGO = CARGO.ToString();
-                                resultado = logSalas.insertarGrupoSala(grupoSalaInsertar);
+                                MessageBox.Show("Se ha ingresado el registro con éxito.", "Ingresado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                                if (resultado == "OK")
-                                {
-                                    MessageBox.Show("Se ha ingresado el registro con éxito.", "Ingresado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                                    this.Close();
-                                }
-                            }
-                            else
-                            {
-                                MessageBox.Show("Ya existe un docente en la sala y turno seleccionados");
-
-                                objlogPersonas.EliminarDocenteDomicilio(personaInsert);
-                                objlogPersonas.EliminarDocentePersona(personaInsert);
-
-                                MessageBox.Show("NO Se ha ingresado el registro.");
+                                this.Close();
                             }
                         }
+                        else
+                        {
+                            MessageBox.Show("El cupo de docente en la sala y turno seleccionados ya esta completo", "Salir", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                            objlogPersonas.EliminarDocenteDomicilio(personaInsert);
+                            objlogPersonas.EliminarDocentePersona(personaInsert);
+
+                            MessageBox.Show("NO Se ha ingresado el registro.", "Salir", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                        //}
 
                     }
-                }                
-              
-            }
 
-            else
-            {
-                MessageBox.Show("No olvide ingresar " + validacion + ".", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                }
 
+                else
+                {
+                    MessageBox.Show("No olvide ingresar " + validacion + ".", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
         }
 
         /***************** CANCELAR *****************/
@@ -554,6 +556,122 @@ namespace GestionJardin
             {
                 lblCelular.Visible = false;
             }
+        }
+
+        private void frmDocentesPopUpAgregar_Load(object sender, EventArgs e)
+        {
+            panelContacto.Hide();
+            panelDatos.Hide();
+            cbSala.Visible = false;
+            metrosala.Visible = false;
+            cbTurno.Visible = false;
+            metroturno.Visible = false;
+        }
+
+        private void Cbocargo_SelectedValueChanged(object sender, EventArgs e)
+        {
+            string CARGO;
+            CARGO = Cbocargo.SelectedItem.ToString();
+
+            if (CARGO == "TITULAR")
+            {
+                DialogResult resp = MessageBox.Show("¿Desea seleccionar una Sala y Turno?", "CONFIRME", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if ((resp == DialogResult.Yes))
+                {
+                    panelContacto.Hide();
+                    panelDatos.Hide();
+                    cbSala.Visible = true;
+                    metrosala.Visible = true;
+                    cbTurno.Visible = true;
+                    metrosala.Visible = true;
+                    metroturno.Visible = true;
+                    btnguardar.Visible = false;
+                    btncancelar.Visible = false;
+
+                }
+                else
+                {
+                    panelContacto.Show();
+                    panelDatos.Show();
+                    metrolabelcargo.Visible = true;
+                    Cbocargo.Visible = true;
+                    cbSala.Visible = false;
+                    metrosala.Visible = false;
+                    cbTurno.Visible = false;
+                    metrosala.Visible = false;
+                    metroturno.Visible = false;
+                    btnguardar.Visible = true;
+                    btncancelar.Visible = true;
+
+                }
+            }
+            else
+            {
+                DialogResult resp = MessageBox.Show("¿Desea seleccionar una Sala y Turno?", "salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if ((resp == DialogResult.Yes))
+                {
+                    panelContacto.Hide();
+                    panelDatos.Hide();
+                    cbSala.Visible = true;
+                    metrosala.Visible = true;
+                    cbTurno.Visible = true;
+                    metrosala.Visible = true;
+                    metroturno.Visible = true;
+                    btnguardar.Visible = false;
+                    btncancelar.Visible = false;
+                }
+                else
+                {
+                    panelContacto.Show();
+                    panelDatos.Show();
+                    metrolabelcargo.Visible = true;
+                    Cbocargo.Visible = true;
+                    cbSala.Visible = false;
+                    metrosala.Visible = false;
+                    cbTurno.Visible = false;
+                    metrosala.Visible = false;
+                    metroturno.Visible = false;
+                    btnguardar.Visible = true;
+                    btncancelar.Visible = true;
+
+
+                }
+            }
+        }
+
+        private void cbTurno_SelectedValueChanged(object sender, EventArgs e)
+        {
+            cargar_cbSala();            
+        }
+        private void cargar_cbSala()
+        {
+            cbSala.SelectedValueChanged -= new EventHandler(cbSala_SelectedValueChanged);
+
+            string indexTurno = cbTurno.SelectedIndex.ToString();
+            logSalas objlogSalas = new logSalas();
+            DataTable Tabla = new DataTable();
+            Tabla = objlogSalas.ListarSalas(indexTurno);
+
+            cbSala.DisplayMember = "SAL_NOMBRE";
+            cbSala.ValueMember = "SAL_ID";
+            cbSala.DataSource = Tabla;
+            cbSala.SelectedItem = null;
+            cbSala.Enabled = true;
+
+            cbSala.SelectedValueChanged += new EventHandler(cbSala_SelectedValueChanged);
+            //panelContacto.Show();
+            //panelDatos.Show();
+
+        }
+
+        private void cbSala_SelectedValueChanged(object sender, EventArgs e)
+        {
+            panelContacto.Show();
+            panelDatos.Show();
+            btnguardar.Visible = true;
+            btncancelar.Visible = true;
         }
     }
 }

@@ -18,20 +18,103 @@ namespace GestionJardin
         entPersona objPersona = new entPersona();
         logDomicilio objlogDomicilio = new logDomicilio();
         logSalas objlogSalas = new logSalas();
+        entGrupoSala objGrupoSala = new entGrupoSala();
+
         string resultadoValidacion;
         int idPersonaBuscar;
-       
-        
-        public frmDocentesPopUpEditar()
+        string idPersonaSelect;
+
+        entDomicilio domicilio = new entDomicilio();
+        entSala sala = new entSala();
+
+
+        public frmDocentesPopUpEditar(string idPersonaSelect2)
         {
-            InitializeComponent();     
-            
+            InitializeComponent();
+            Settooltip();
+            idPersonaSelect = idPersonaSelect2;
+
+            objPersona = objlogPersonas.BuscaPersonaxID(idPersonaSelect);
+            domicilio = objlogDomicilio.buscarDomicilioXPersona(Convert.ToInt32(idPersonaSelect));
+            sala = objlogSalas.buscarSalaXPersona(Convert.ToInt32(idPersonaSelect));
+
+            cargarCampos(objPersona, domicilio, sala);
+            onOffCampos(false);
+
+        }
+
+        private void Settooltip()
+        {
+            ToolTip Tip = new ToolTip();
+            Tip.SetToolTip(this.btnBloqueo, "Permite la edición de los campos del formulario");
+            Tip.SetToolTip(this.btnInforme, "Imprimir ficha del docente");
+
+        }
+
+        private void cargarCampos(entPersona objPersona, entDomicilio domicilio, entSala sala)
+        {
+            idPersonaSelect = Convert.ToString(objPersona.PER_ID); // se usara en el editar
+                     
+            txtNombre.Text = objPersona.PER_NOMBRE;
+            txtApellidos.Text = objPersona.PER_APELLIDO;
+            txtDocumento.Text = Convert.ToString(objPersona.PER_DOCUMENTO);
+
+            dtNacimiento.Value = objPersona.PER_FECHA_NAC;
+
+
+            if (objPersona.PER_GENERO.StartsWith("MASCULINO"))
+            {
+                cbGenero.SelectedIndex = cbGenero.FindStringExact("MASCULINO");
+            }
+            else
+            {
+                cbGenero.SelectedIndex = cbGenero.FindStringExact("FEMENINO");
+            }
+
+
+            txtCalle.Text = domicilio.DOM_CALLE;
+            txtNumero.Text = Convert.ToString(domicilio.DOM_NUMERO);
+            txtCPostal.Text = Convert.ToString(domicilio.DOM_CP);
+            txtPiso.Text = Convert.ToString(domicilio.DOM_PISO);
+            txtDepto.Text = domicilio.DOM_DPTO;
+            txtBarrio.Text = domicilio.DOM_BARRIO;
+            txtTelefono.Text = objPersona.PER_TELEFONO;
+            txtCelular.Text = objPersona.PER_TELEFONO_2;
+            txtEmail.Text = objPersona.PER_EMAIL;
+
+            if (sala.SALA_TURNO.Trim() == "TARDE")
+            {
+                cbTurno.SelectedIndex = cbTurno.FindStringExact("TARDE");
+            }
+            else
+            {
+                cbTurno.SelectedIndex = cbTurno.FindStringExact("MAÑANA");
+            }
+
+            ////if (Cbocargo.SelectedItem.ToString() == "TITULAR")
+            ////{
+            ////    Cbocargo.SelectedIndex = cbTurno.FindStringExact("TITULAR");
+            ////}
+            ////else
+            ////{
+            ////    Cbocargo.SelectedIndex = cbTurno.FindStringExact("SUPLENTE");
+            ////}
+
+            string indexTurno = cbTurno.SelectedIndex.ToString();
+            cbSala.DataSource = objlogSalas.ListarSalas(indexTurno);
+            cbSala.DisplayMember = "SAL_NOMBRE";
+            cbSala.ValueMember = "SAL_ID";
+
+            cbSala.SelectedIndex = cbSala.FindStringExact(sala.SAL_NOMBRE);
+            //txtLegajo.Text = persona.PER_LEGAJO;
         }
 
         private void frmDocentesPopUpEditar_Load(object sender, EventArgs e)
         {
             onOffCampos(false);
         }
+
+       
 
         /*********************************/
         /*********GUARDAR EDITAR**********/
@@ -54,7 +137,7 @@ namespace GestionJardin
                 string apellidosE = txtApellidos.Text.Trim();
                 string documentoE = txtDocumento.Text.Trim();
                 DateTime nacimientoE = dtNacimiento.Value.Date;
-                
+
                 string calleE = txtCalle.Text.Trim();
                 string numeroE = txtNumero.Text.Trim();
                 string cpostalE = txtCPostal.Text.Trim();
@@ -64,17 +147,6 @@ namespace GestionJardin
                 string telefonoE = txtTelefono.Text.Trim();
                 string celularE = txtCelular.Text.Trim();
                 string emailE = txtEmail.Text.Trim();
-
-                string id_sala;
-
-                //if (cbSala.SelectedItem == null)
-                //{
-                //    id_salaE = "";
-                //}
-                //else
-                //{
-                //    id_salaE = cbSala.SelectedValue.ToString();
-                //}
 
                 entPersona personaEditar = new entPersona();
 
@@ -88,7 +160,7 @@ namespace GestionJardin
                     genero = cbGenero.SelectedItem.ToString();
                 }
 
-                personaEditar.PER_ID = idPersonaBuscar;
+                personaEditar.PER_ID = Convert.ToInt32(idPersonaBuscar);
                 personaEditar.PER_NOMBRE = nombreE;
                 personaEditar.PER_APELLIDO = apellidosE;
                 personaEditar.PER_DOCUMENTO = Convert.ToInt32(documentoE);
@@ -121,8 +193,26 @@ namespace GestionJardin
 
                 if (resultadoE == "OK")
                 {
-                    string turno;
+                    string CARGO;
 
+                    if (Cbocargo.SelectedItem == null)
+                    {
+                        CARGO = "";
+                    }
+                    else
+                    {
+                        CARGO = Cbocargo.SelectedItem.ToString();
+                        if (CARGO == "TITULAR")
+                        {
+                            CARGO = "TITULAR";
+                        }
+                        else
+                        {
+                            CARGO = "SUPLENTE";
+                        }
+                    }
+
+                    string turno;
 
                     if (cbTurno.SelectedItem == null)
                     {
@@ -142,7 +232,8 @@ namespace GestionJardin
                         }
 
                     }
-                    
+                    string id_sala;
+
                     if (cbSala.SelectedItem == null)
                     {
                         id_sala = "";
@@ -152,33 +243,39 @@ namespace GestionJardin
                         id_sala = cbSala.SelectedValue.ToString();
                     }
 
-                    if (turno == "" && id_sala == "")
-                    {
-                        MessageBox.Show("Se ha ingresado el registro con éxito.", "Ingresado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
-                    }
-                    else if (objlogSalas.ValidarDocSala(id_sala, turno) == 0)
+                    //if (turno == "" && id_sala == "")
+                    //{
+                    //    MessageBox.Show("Se ha ingresado el registro con éxito.", "Ingresado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //    this.Close();
+                    //}
+                    //else
+                    //{
+                    if (objlogSalas.ValidarDocSala(id_sala, turno) <= 1)
+
                     {
                         entGrupoSala grupoSalaEditar = new entGrupoSala();
                         grupoSalaEditar.GRS_PER_ID = Convert.ToInt32(idPersonaBuscar);
                         grupoSalaEditar.GRS_SAL_ID = Convert.ToInt32(id_sala);
-
+                        grupoSalaEditar.GRS_CARGO = CARGO.ToString();
                         resultadoE = objlogSalas.editarGrupoSala(grupoSalaEditar);
 
                         if (resultadoE == "OK")
                         {
                             MessageBox.Show("Se actualizado ok el registro.", "Ingresado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                             this.Close();
+
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Ya existe un docente en la sala y turno seleccionados");
+                        MessageBox.Show("El cupo de docente en la sala y turno seleccionados ya esta completo", "Salir", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         cbTurno.SelectedIndex = -1;
                         cbSala.SelectedIndex = -1;
+
                     }
+                    //}
                 }
+
                 else
                 {
                     MessageBox.Show("NO OLVIDE INGRESAR " + validacionE + ".", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -373,6 +470,7 @@ namespace GestionJardin
             {
                 this.btnBloqueo.IconChar = FontAwesome.Sharp.IconChar.Unlock;
                 onOffCampos(true);
+                btnInforme.Visible = false;
             }
             else
             {
@@ -402,6 +500,7 @@ namespace GestionJardin
             txtEmail.Enabled = onOff;
             cbSala.Enabled = onOff;
             cbTurno.Enabled = onOff;
+            Cbocargo.Enabled = onOff;
 
         }
 
@@ -439,8 +538,8 @@ namespace GestionJardin
         private void cbTurno_SelectionChangeCommitted(object sender, EventArgs e)
         {
             logPersonas ObjlogPersonas = new logPersonas();
-            DataTable dt = ObjlogPersonas.Llenar_Combo_Salas(cbTurno.SelectedIndex/*, cbSala*/);
 
+            DataTable dt = ObjlogPersonas.Llenar_Combo_Salas(cbTurno.SelectedIndex/*, cbSala*/);
             cbSala.DataSource = dt;
             cbSala.DisplayMember = "SAL_NOMBRE";
             cbSala.ValueMember = "SAL_ID";
@@ -550,5 +649,34 @@ namespace GestionJardin
                 lblCelular.Visible = false;
             }
         }
+
+        private void cbTurno_SelectedValueChanged(object sender, EventArgs e)
+        {
+            cargar_cbSala();
+        }
+        private void cargar_cbSala()
+        {
+            cbSala.SelectedValueChanged -= new EventHandler(cbSala_SelectedValueChanged);
+
+            string indexTurno = cbTurno.SelectedIndex.ToString();
+            logSalas objlogSalas = new logSalas();
+            DataTable Tabla = new DataTable();
+            Tabla = objlogSalas.ListarSalas(indexTurno);
+
+            cbSala.DisplayMember = "SAL_NOMBRE";
+            cbSala.ValueMember = "SAL_ID";
+            cbSala.DataSource = Tabla;
+            cbSala.SelectedItem = null;
+            cbSala.Enabled = true;
+
+            cbSala.SelectedValueChanged += new EventHandler(cbSala_SelectedValueChanged);
+        }
+
+        private void cbSala_SelectedValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

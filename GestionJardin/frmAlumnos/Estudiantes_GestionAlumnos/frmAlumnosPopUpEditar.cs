@@ -44,7 +44,7 @@ namespace GestionJardin
         {
             ToolTip Tip = new ToolTip();
             Tip.SetToolTip(this.btnBloqueo, "Permite la edición de los campos del formulario");
-            Tip.SetToolTip(this.btn_Informe, "Imprimir ficha del alumno");
+            Tip.SetToolTip(this.btnInforme, "Imprimir ficha del alumno");
 
         }
 
@@ -134,7 +134,7 @@ namespace GestionJardin
             {
                 this.btnBloqueo.IconChar = FontAwesome.Sharp.IconChar.Unlock;
                 onOffCampos(true);
-                btn_Informe.Visible = false;
+                btnInforme.Visible = false;
             }
             else
             {

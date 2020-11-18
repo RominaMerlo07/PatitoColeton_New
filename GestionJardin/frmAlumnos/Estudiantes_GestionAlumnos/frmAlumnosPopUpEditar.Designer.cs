@@ -77,12 +77,12 @@
             this.txtDocumento = new MetroFramework.Controls.MetroTextBox();
             this.txtApellidos = new MetroFramework.Controls.MetroTextBox();
             this.txtNombre = new MetroFramework.Controls.MetroTextBox();
-            this.btn_Informe = new FontAwesome.Sharp.IconPictureBox();
+            this.btnInforme = new FontAwesome.Sharp.IconPictureBox();
             this.metroPanel3.SuspendLayout();
             this.panelContacto.SuspendLayout();
             this.panelDatos.SuspendLayout();
             this.metroPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_Informe)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnInforme)).BeginInit();
             this.SuspendLayout();
             // 
             // iconButton2
@@ -770,11 +770,11 @@
             this.btnBloqueo.IconChar = FontAwesome.Sharp.IconChar.Lock;
             this.btnBloqueo.IconColor = System.Drawing.Color.Aqua;
             this.btnBloqueo.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnBloqueo.IconSize = 45;
+            this.btnBloqueo.IconSize = 55;
             this.btnBloqueo.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBloqueo.Location = new System.Drawing.Point(1599, 428);
             this.btnBloqueo.Name = "btnBloqueo";
-            this.btnBloqueo.Size = new System.Drawing.Size(77, 67);
+            this.btnBloqueo.Size = new System.Drawing.Size(77, 74);
             this.btnBloqueo.TabIndex = 54;
             this.btnBloqueo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBloqueo.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
@@ -1087,24 +1087,24 @@
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             this.txtNombre.Leave += new System.EventHandler(this.txtNombre_Leave);
             // 
-            // btn_Informe
+            // btnInforme
             // 
-            this.btn_Informe.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Informe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.btn_Informe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.btn_Informe.ForeColor = System.Drawing.Color.Yellow;
-            this.btn_Informe.IconChar = FontAwesome.Sharp.IconChar.Print;
-            this.btn_Informe.IconColor = System.Drawing.Color.Yellow;
-            this.btn_Informe.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Informe.IconSize = 81;
-            this.btn_Informe.Location = new System.Drawing.Point(1594, 270);
-            this.btn_Informe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_Informe.Name = "btn_Informe";
-            this.btn_Informe.Padding = new System.Windows.Forms.Padding(5);
-            this.btn_Informe.Size = new System.Drawing.Size(91, 81);
-            this.btn_Informe.TabIndex = 55;
-            this.btn_Informe.TabStop = false;
-            this.btn_Informe.Click += new System.EventHandler(this.btn_Informe_Click);
+            this.btnInforme.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnInforme.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.btnInforme.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.btnInforme.ForeColor = System.Drawing.Color.Yellow;
+            this.btnInforme.IconChar = FontAwesome.Sharp.IconChar.Print;
+            this.btnInforme.IconColor = System.Drawing.Color.Yellow;
+            this.btnInforme.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnInforme.IconSize = 75;
+            this.btnInforme.Location = new System.Drawing.Point(1599, 270);
+            this.btnInforme.Margin = new System.Windows.Forms.Padding(2);
+            this.btnInforme.Name = "btnInforme";
+            this.btnInforme.Padding = new System.Windows.Forms.Padding(5);
+            this.btnInforme.Size = new System.Drawing.Size(77, 75);
+            this.btnInforme.TabIndex = 55;
+            this.btnInforme.TabStop = false;
+            this.btnInforme.Click += new System.EventHandler(this.btn_Informe_Click);
             // 
             // frmAlumnosPopUpEditar
             // 
@@ -1112,7 +1112,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(1765, 863);
-            this.Controls.Add(this.btn_Informe);
+            this.Controls.Add(this.btnInforme);
             this.Controls.Add(this.btnBloqueo);
             this.Controls.Add(this.iconButton2);
             this.Controls.Add(this.btnEditar);
@@ -1131,7 +1131,7 @@
             this.panelDatos.ResumeLayout(false);
             this.panelDatos.PerformLayout();
             this.metroPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btn_Informe)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnInforme)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1187,6 +1187,6 @@
         private System.Windows.Forms.Label lblBarrio;
         private System.Windows.Forms.Label lblCelular;
         private System.Windows.Forms.Label lblSala;
-        private FontAwesome.Sharp.IconPictureBox btn_Informe;
+        private FontAwesome.Sharp.IconPictureBox btnInforme;
     }
 }
