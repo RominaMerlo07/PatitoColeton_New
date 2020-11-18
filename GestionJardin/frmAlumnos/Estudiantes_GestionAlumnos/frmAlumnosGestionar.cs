@@ -53,7 +53,7 @@ namespace GestionJardin
         {
             frmAlumnosPopUpAgregar frmAlumnosPopUpAgregar = new frmAlumnosPopUpAgregar();
             frmAlumnosPopUpAgregar.FormClosed += frmAlumnosPopUpAgregar_FormClosed;
-            frmAlumnosPopUpAgregar.Text = "GESTION ALUMNOS / ESTUDIANTES / GESTIONAR ALUMNOS / INGRESAR ALUMNO NUEVO";
+            frmAlumnosPopUpAgregar.Text = "GESTION ALUMNOS / ESTUDIANTES / GESTIONAR ALUMNOS / INGRESAR";
             frmAlumnosPopUpAgregar.ShowDialog();
 
             btnGA_Eliminar.IconColor = Color.Gray;
@@ -72,7 +72,7 @@ namespace GestionJardin
                 string idPersonaSelect = dgvAlumnos.SelectedRows[0].Cells[0].Value.ToString();
                 frmAlumnosPopUpEditar frmAlumnosPopUpEditar = new frmAlumnosPopUpEditar(idPersonaSelect);
                 frmAlumnosPopUpEditar.FormClosed += frmAlumnosPopUpEditar_FormClosed;
-                frmAlumnosPopUpEditar.Text = "GESTION ALUMNOS / ESTUDIANTES / GESTIONAR ALUMNOS / MODIFICAR DATOS ALUMNO";
+                frmAlumnosPopUpEditar.Text = "GESTION ALUMNOS / ESTUDIANTES / GESTIONAR ALUMNOS / MODIFICAR";
                 frmAlumnosPopUpEditar.ShowDialog();
 
                 btnGA_Eliminar.IconColor = Color.Gray;
@@ -101,7 +101,7 @@ namespace GestionJardin
                 string nombreAlumno = dgvAlumnos.SelectedRows[0].Cells[1].Value.ToString();
                 frmAlumnosPopUpEliminar frmAlumnoPopUpEliminar = new frmAlumnosPopUpEliminar(idPersonaSelect, nombreAlumno);
                 frmAlumnoPopUpEliminar.FormClosed += frmAlumnoPopUpEliminar_FormClosed;
-                frmAlumnoPopUpEliminar.Text = "GESTION ALUMNOS / ESTUDIANTES / GESTIONAR ALUMNOS / ELIMINAR ALUMNO";
+                frmAlumnoPopUpEliminar.Text = "GESTION ALUMNOS / ESTUDIANTES / GESTIONAR ALUMNOS / PROCESAR BAJA";
                 frmAlumnoPopUpEliminar.ShowDialog();
 
                 btnGA_Eliminar.IconColor = Color.Gray;

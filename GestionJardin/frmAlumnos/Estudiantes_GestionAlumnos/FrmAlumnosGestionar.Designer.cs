@@ -99,7 +99,6 @@
             // 
             this.btnGA_Eliminar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnGA_Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGA_Eliminar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnGA_Eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGA_Eliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnGA_Eliminar.IconChar = FontAwesome.Sharp.IconChar.UserMinus;
@@ -108,10 +107,9 @@
             this.btnGA_Eliminar.IconSize = 100;
             this.btnGA_Eliminar.Location = new System.Drawing.Point(1313, 681);
             this.btnGA_Eliminar.Name = "btnGA_Eliminar";
-            this.btnGA_Eliminar.Rotation = 0D;
             this.btnGA_Eliminar.Size = new System.Drawing.Size(293, 134);
             this.btnGA_Eliminar.TabIndex = 8;
-            this.btnGA_Eliminar.Text = "ELIMINAR";
+            this.btnGA_Eliminar.Text = "PROCESAR BAJA";
             this.btnGA_Eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGA_Eliminar.UseVisualStyleBackColor = true;
             this.btnGA_Eliminar.Click += new System.EventHandler(this.btnGA_Eliminar_Click);
@@ -120,7 +118,6 @@
             // 
             this.btnGA_Editar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnGA_Editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGA_Editar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnGA_Editar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGA_Editar.ForeColor = System.Drawing.Color.Cyan;
             this.btnGA_Editar.IconChar = FontAwesome.Sharp.IconChar.UserEdit;
@@ -129,10 +126,9 @@
             this.btnGA_Editar.IconSize = 100;
             this.btnGA_Editar.Location = new System.Drawing.Point(1313, 525);
             this.btnGA_Editar.Name = "btnGA_Editar";
-            this.btnGA_Editar.Rotation = 0D;
             this.btnGA_Editar.Size = new System.Drawing.Size(293, 134);
             this.btnGA_Editar.TabIndex = 7;
-            this.btnGA_Editar.Text = "EDITAR";
+            this.btnGA_Editar.Text = "MODIFICAR";
             this.btnGA_Editar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGA_Editar.UseVisualStyleBackColor = true;
             this.btnGA_Editar.Click += new System.EventHandler(this.btnGA_Editar_Click);
@@ -141,7 +137,6 @@
             // 
             this.btnGA_Agregar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnGA_Agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGA_Agregar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnGA_Agregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGA_Agregar.ForeColor = System.Drawing.Color.Lime;
             this.btnGA_Agregar.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
@@ -150,10 +145,9 @@
             this.btnGA_Agregar.IconSize = 100;
             this.btnGA_Agregar.Location = new System.Drawing.Point(1313, 367);
             this.btnGA_Agregar.Name = "btnGA_Agregar";
-            this.btnGA_Agregar.Rotation = 0D;
             this.btnGA_Agregar.Size = new System.Drawing.Size(293, 134);
             this.btnGA_Agregar.TabIndex = 6;
-            this.btnGA_Agregar.Text = "AGREGAR";
+            this.btnGA_Agregar.Text = "INGRESAR";
             this.btnGA_Agregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGA_Agregar.UseVisualStyleBackColor = true;
             this.btnGA_Agregar.Click += new System.EventHandler(this.btnGA_Agregar_Click);

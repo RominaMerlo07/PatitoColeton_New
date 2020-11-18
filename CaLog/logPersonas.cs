@@ -86,6 +86,21 @@ namespace CaLog
 
         }
 
+        public string ValidarDniInactivo(string pDNI)
+        {
+
+            return objMetPersonas.ValidarDniInactivo(pDNI);
+
+        }
+
+        public string AltaPersona(string pDNI)
+        {
+
+            return objMetPersonas.AltaPersona(pDNI);
+
+        }
+        
+
         // Valida que EL MAIL sea ingresado con su estructura correcta
 
         public bool ValidarEmail(String pEmail)

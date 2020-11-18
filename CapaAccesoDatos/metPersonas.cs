@@ -397,8 +397,8 @@ namespace CaAD//GestionJardin
             con.Open();
 
             string result;
-
-            string consulta = "SELECT PER_DOCUMENTO FROM T_PERSONAS WHERE PER_ESTADO='S' AND PER_DOCUMENTO = '" + pDNI + "'"; /*******************************
+            //SELECT PER_DOCUMENTO FROM T_PERSONAS WHERE PER_ESTADO='S' AND PER_DOCUMENTO
+            string consulta = "SELECT PER_DOCUMENTO FROM T_PERSONAS WHERE PER_ESTADO = 'S' AND PER_DOCUMENTO = '" + pDNI + "'"; /*******************************
                              VER SI SE FILTRA POR ACTIVO PARA QUE PERMITA INGRESA UN NUEVO DNI O COMO SE RESUELVE EL ELMINAR UNA PERSONA */
 
             cmd = new SqlCommand(consulta, con);
@@ -419,6 +419,36 @@ namespace CaAD//GestionJardin
 
 
         }
+
+        public string ValidarDniInactivo(string pDNI)
+        {
+            con = generarConexion();
+            con.Open();
+
+            string result;
+
+            string consulta = "SELECT PER_ESTADO FROM T_PERSONAS WHERE PER_ESTADO = 'N' AND PER_DOCUMENTO = '" + pDNI + "'"; /*******************************
+                             VER SI SE FILTRA POR ACTIVO PARA QUE PERMITA INGRESA UN NUEVO DNI O COMO SE RESUELVE EL ELMINAR UNA PERSONA */
+
+            cmd = new SqlCommand(consulta, con);
+
+            dr = cmd.ExecuteReader();
+
+
+            if (dr.Read())
+            {
+                result = "SI";
+            }
+            else
+            {
+                result = "NO";
+            }
+
+            return result;
+
+
+        }
+
 
         // Valida que EL MAIL sea ingresado con su estructura correcta
 
@@ -542,6 +572,38 @@ namespace CaAD//GestionJardin
             return result;
 
         }
+
+
+        public string AltaPersona(string pdni)
+        {
+            string result;
+
+            try
+            {
+                con = generarConexion();
+                con.Open();
+                string consulta = "UPDATE T_PERSONAS " +
+                                  "SET PER_ESTADO = 'S', PER_FECHA_BAJA = NULL, PER_FECHA_MOD = GETDATE()" +
+                                  "WHERE PER_DOCUMENTO = '"+ pdni + "';";
+
+                cmd = new SqlCommand(consulta, con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                result = "OK";
+
+            }
+            catch
+            {
+                result = "ERROR";
+                //MessageBox.Show("Hubo un problema. Contáctese con su administrador.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            return result;
+
+        }
+
+
 
         // ELIMINA EL DOCENTE DE LA GRUPO_SALAS
 

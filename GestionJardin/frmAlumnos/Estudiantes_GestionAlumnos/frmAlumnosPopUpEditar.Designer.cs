@@ -95,7 +95,7 @@
             this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton2.IconSize = 60;
-            this.iconButton2.Location = new System.Drawing.Point(1035, 742);
+            this.iconButton2.Location = new System.Drawing.Point(1259, 745);
             this.iconButton2.Name = "iconButton2";
             this.iconButton2.Size = new System.Drawing.Size(239, 76);
             this.iconButton2.TabIndex = 18;
@@ -114,7 +114,7 @@
             this.btnEditar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEditar.IconSize = 60;
-            this.btnEditar.Location = new System.Drawing.Point(674, 742);
+            this.btnEditar.Location = new System.Drawing.Point(898, 745);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(239, 76);
             this.btnEditar.TabIndex = 17;
