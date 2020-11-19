@@ -323,5 +323,46 @@ namespace CaAD//GestionJardin
             return result;
         }
 
+        public DataSet CantidadAlumnosSalas()
+        {
+
+            DataSet dset = new DataSet();
+
+            con = generarConexion();
+            con.Open();
+
+            try
+            {
+                string consulta = "SELECT COUNT(*) CANTIDAD, " +
+                                         "SAL_NOMBRE SALA, " +
+                                         "CASE SAL_TURNO " +
+                                            "WHEN 'MANANA' THEN 'MAÑANA' " +
+                                            "ELSE 'TARDE' " +
+                                         "END TURNO, SAL_ID " +
+                                    "FROM T_PERSONAS, T_GRUPO_SALA, T_SALA " +
+                                   "WHERE PER_ID = GRS_PER_ID " +
+                                     "AND SAL_ID = GRS_SAL_ID " +
+                                     "AND PER_TPE_ID = 2 " +
+                                     "AND PER_ESTADO = 'S' " +
+                                   "GROUP BY SAL_NOMBRE, SAL_TURNO,SAL_ID " +
+                                   "ORDER BY SAL_TURNO, SAL_ID;";
+
+                cmd = new SqlCommand(consulta, con);
+                dta = new SqlDataAdapter(cmd);
+                dta.Fill(dset);
+
+                con.Close();
+
+
+                return dset;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return dset;
+
+        }
+
     }
 }

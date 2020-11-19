@@ -109,7 +109,7 @@
             this.panelDatos.HorizontalScrollbarBarColor = true;
             this.panelDatos.HorizontalScrollbarHighlightOnWheel = false;
             this.panelDatos.HorizontalScrollbarSize = 10;
-            this.panelDatos.Location = new System.Drawing.Point(37, 203);
+            this.panelDatos.Location = new System.Drawing.Point(37, 201);
             this.panelDatos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelDatos.Name = "panelDatos";
             this.panelDatos.Size = new System.Drawing.Size(493, 478);
@@ -447,7 +447,7 @@
             this.panelContacto.HorizontalScrollbarBarColor = true;
             this.panelContacto.HorizontalScrollbarHighlightOnWheel = false;
             this.panelContacto.HorizontalScrollbarSize = 10;
-            this.panelContacto.Location = new System.Drawing.Point(613, 203);
+            this.panelContacto.Location = new System.Drawing.Point(613, 201);
             this.panelContacto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelContacto.Name = "panelContacto";
             this.panelContacto.Size = new System.Drawing.Size(824, 478);
@@ -962,7 +962,7 @@
             this.btncancelar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btncancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btncancelar.IconSize = 60;
-            this.btncancelar.Location = new System.Drawing.Point(1191, 750);
+            this.btncancelar.Location = new System.Drawing.Point(1191, 748);
             this.btncancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btncancelar.Name = "btncancelar";
             this.btncancelar.Size = new System.Drawing.Size(239, 76);
@@ -983,7 +983,7 @@
             this.btnguardar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnguardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnguardar.IconSize = 60;
-            this.btnguardar.Location = new System.Drawing.Point(855, 750);
+            this.btnguardar.Location = new System.Drawing.Point(855, 748);
             this.btnguardar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnguardar.Name = "btnguardar";
             this.btnguardar.Size = new System.Drawing.Size(239, 76);

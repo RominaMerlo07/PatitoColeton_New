@@ -283,12 +283,12 @@ namespace CaLog
 
                 }
 
-                else if (((EdadAnos == 2 && EdadMeses > 6) || (EdadAnos == 3) || (EdadAnos == 4 && EdadMeses < 6)) && Id_sala == 3)
+                else if (((EdadAnos == 2 && EdadMeses > 6) || (EdadAnos == 3) || (EdadAnos == 4 && EdadMeses < 6)) && (Id_sala == 3 || Id_sala == 4) )
                 {
                     result = "OK";
 
                 }
-                else if (((EdadAnos == 2 && EdadMeses > 6) || (EdadAnos == 3) || (EdadAnos == 4 && EdadMeses < 6)) && Id_sala != 3)
+                else if (((EdadAnos == 2 && EdadMeses > 6) || (EdadAnos == 3) || (EdadAnos == 4 && EdadMeses < 6)) && (Id_sala != 3 || Id_sala != 4))
                 {
 
                     result = "La edad del alumno al mes de junio es de " + EdadAnos + " años  y " + EdadMeses + " meses. Corresponde inscribirlo en la SALA NARANJA.";

@@ -68,6 +68,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CantidadAlumnosSalas.cs" />
     <Compile Include="entAsistencia.cs" />
     <Compile Include="entCalificaciones.cs" />
     <Compile Include="entConcepto.cs" />

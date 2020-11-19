@@ -118,7 +118,7 @@ namespace CaAD//GestionJardin
                                         "AND S.SAL_ID = GS.GRS_SAL_ID " +
                                         "AND P.PER_TPE_ID = 2 " +
                                         "AND P.PER_ESTADO = 'S' " + //ver con GASTON como esta definido, por en mi base tengo 'S'  (Romi)
-                                        "ORDER BY 'ALUMNO' ASC;";
+                                        "ORDER BY EDAD, ALUMNO;";
 
                 cmd = new SqlCommand(consulta, con);
                 dta = new SqlDataAdapter(cmd);
