@@ -604,17 +604,15 @@ namespace GestionJardin
             }
             else
             {
-                panelContacto.Show();
-                panelDatos.Show();
-                metrolabelcargo.Visible = true;
-                Cbocargo.Visible = true;
-                cbSala.Visible = false;
-                metrosala.Visible = false;
-                cbTurno.Visible = false;
-                metrosala.Visible = false;
-                metroturno.Visible = false;
-                btnguardar.Visible = true;
-                btncancelar.Visible = true;
+                panelContacto.Hide();
+                panelDatos.Hide();
+                cbSala.Visible = true;
+                metrosala.Visible = true;
+                cbTurno.Visible = true;
+                metrosala.Visible = true;
+                metroturno.Visible = true;
+                btnguardar.Visible = false;
+                btncancelar.Visible = false;
 
             }
             
