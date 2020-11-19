@@ -108,8 +108,8 @@ namespace CaAD//GestionJardin
                                         "P.PER_FECHA_NAC AS 'FECHA NACIMIENTO', " +
                                         "DATEDIFF(YEAR, P.PER_FECHA_NAC, GETDATE()) AS 'EDAD', " +
                                         "CONCAT(D.DOM_CALLE, ', Nº: ', D.DOM_NUMERO, '. BARRIO: ', D.DOM_BARRIO, ', CP: ', D.DOM_CP, ' ', D.DOM_PROVINCIA) AS 'DOMICILIO', " +
+                                        "P.PER_TELEFONO_2 AS 'CELULAR', " +
                                         "P.PER_TELEFONO AS 'TELEFONO', " +
-                                        "P.PER_TELEFONO_2 AS 'TELEFONO 2', " +
                                         "(CASE WHEN S.SAL_TURNO = 'MANANA' THEN 'MAÑANA' ELSE 'TARDE' END ) AS 'TURNO', " +
                                         "S.SAL_NOMBRE AS 'SALA' " +
                                     "FROM T_PERSONAS P, T_DOMICILIOS D, T_GRUPO_SALA GS, T_SALA S " +
@@ -504,15 +504,14 @@ namespace CaAD//GestionJardin
             com.Connection = con;
 
             string CargarDocente = "SELECT  CONCAT(PER_APELLIDO, ', ', PER_NOMBRE) AS 'DOCENTE', " +
-                                           "PER_DOCUMENTO 'DNI', " +
-                                           "PER_TELEFONO_2 'CELULAR', " +
-                                           "PER_EMAIL 'EMAIL', " +
+                                           "PER_DOCUMENTO 'DOCUMENTO', " +
                                            "CASE GRS_CARGO WHEN 'TITULAR' THEN 'TITULAR' ELSE 'SUPLENTE' END 'CARGO'," +
                                            "CASE SAL_TURNO WHEN 'MANANA' THEN 'MAÑANA' ELSE 'TARDE' END 'TURNO', " +
                                            "SAL_NOMBRE 'SALA', " +
+                                           "PER_TELEFONO_2 'CELULAR', " +
+                                           "PER_EMAIL 'EMAIL', " +
                                            "PER_FECHA_ALTA FECHA_DE_ALTA, " +
-                                           "PER_FECHA_MOD FECHA_DE_MODIFICACION, " +
-                                           "PER_FECHA_BAJA FECHA_DE_BAJA " +
+                                           "PER_FECHA_MOD FECHA_DE_MODIFICACION " +                                          
                                            "FROM T_PERSONAS, T_GRUPO_SALA, T_SALA " +
                                            "WHERE PER_ID = GRS_PER_ID " +
                                            "AND GRS_SAL_ID = SAL_ID " +
@@ -943,6 +942,7 @@ namespace CaAD//GestionJardin
                                                "WHEN 'MANANA' THEN 'MAÑANA' " +
                                                "ELSE 'TARDE' " +
                                           "END)TURNO, " +
+                                          "GRS_CARGO CARGO, " +
                                           "GETDATE() FECHA " +
                                    "FROM T_PERSONAS, " +
                                         "T_SALA, " +
@@ -951,7 +951,6 @@ namespace CaAD//GestionJardin
                                   "WHERE PER_ID = DOM_PER_ID " +
                                     "AND PER_ID = GRS_PER_ID " +
                                     "AND GRS_SAL_ID = SAL_ID " +
-                                    "AND PER_TPE_ID = 2 " +
                                     "AND PER_ESTADO = 'S' " +
                                     "AND PER_ID = "+ idAlumno + ";";
 

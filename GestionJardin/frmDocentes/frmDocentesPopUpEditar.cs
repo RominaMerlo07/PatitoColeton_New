@@ -684,6 +684,9 @@ namespace GestionJardin
 
         }
 
-        
+        private void btnInforme_Click(object sender, EventArgs e)
+        {
+           
+        }
     }
 }

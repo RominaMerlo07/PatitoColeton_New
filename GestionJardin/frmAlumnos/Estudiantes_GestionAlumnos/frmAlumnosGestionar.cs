@@ -110,7 +110,10 @@ namespace GestionJardin
 
                 string idPersonaSelect = dgvAlumnos.SelectedRows[0].Cells[0].Value.ToString();
                 string nombreAlumno = dgvAlumnos.SelectedRows[0].Cells[1].Value.ToString();
-                frmAlumnosPopUpEliminar frmAlumnoPopUpEliminar = new frmAlumnosPopUpEliminar(idPersonaSelect, nombreAlumno);
+                int edad = Convert.ToInt32(dgvAlumnos.SelectedRows[0].Cells[4].Value.ToString());
+
+
+                frmAlumnosPopUpEliminar frmAlumnoPopUpEliminar = new frmAlumnosPopUpEliminar(idPersonaSelect, nombreAlumno,edad);
                 frmAlumnoPopUpEliminar.FormClosed += frmAlumnoPopUpEliminar_FormClosed;
                 frmAlumnoPopUpEliminar.Text = "GESTION ALUMNOS / ESTUDIANTES / GESTIONAR ALUMNOS / PROCESAR BAJA";
                 frmAlumnoPopUpEliminar.ShowDialog();
@@ -150,6 +153,12 @@ namespace GestionJardin
             dgvAlumnos.Columns["PER_ID"].Frozen = true;
             dgvAlumnos.Columns["ALUMNO"].Frozen = true;
             dgvAlumnos.Columns["DOCUMENTO"].Frozen = true;
+                                   
+            this.dgvAlumnos.Columns["DOCUMENTO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            this.dgvAlumnos.Columns["FECHA NACIMIENTO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            this.dgvAlumnos.Columns["EDAD"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            this.dgvAlumnos.Columns["TELEFONO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            this.dgvAlumnos.Columns["CELULAR"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;    
 
         }     
 

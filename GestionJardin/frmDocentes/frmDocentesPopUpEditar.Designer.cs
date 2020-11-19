@@ -1131,7 +1131,7 @@
             this.btnInforme.IconChar = FontAwesome.Sharp.IconChar.Print;
             this.btnInforme.IconColor = System.Drawing.Color.Yellow;
             this.btnInforme.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnInforme.IconSize = 78;
+            this.btnInforme.IconSize = 82;
             this.btnInforme.Location = new System.Drawing.Point(1598, 323);
             this.btnInforme.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnInforme.Name = "btnInforme";
@@ -1139,6 +1139,7 @@
             this.btnInforme.Size = new System.Drawing.Size(86, 82);
             this.btnInforme.TabIndex = 54;
             this.btnInforme.TabStop = false;
+            this.btnInforme.Click += new System.EventHandler(this.btnInforme_Click);
             // 
             // frmDocentesPopUpEditar
             // 
