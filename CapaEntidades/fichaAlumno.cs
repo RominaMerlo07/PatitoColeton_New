@@ -154,7 +154,14 @@ namespace CaEnt
             get { return p_celular; }
             set { p_celular = value; }
         }
-                
+
+        private string p_cargo;
+        public string CARGO
+        {
+            get { return p_cargo; }
+            set { p_cargo = value; }
+        }
+
         public fichaAlumno()
         {
 

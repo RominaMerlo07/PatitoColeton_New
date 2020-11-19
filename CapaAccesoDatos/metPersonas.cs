@@ -947,6 +947,7 @@ namespace CaAD//GestionJardin
                                                "WHEN 'MANANA' THEN 'MAÑANA' " +
                                                "ELSE 'TARDE' " +
                                           "END)TURNO, " +
+                                          "GRS_CARGO CARGO, " +
                                           "GETDATE() FECHA " +
                                    "FROM T_PERSONAS, " +
                                         "T_SALA, " +
@@ -955,7 +956,6 @@ namespace CaAD//GestionJardin
                                   "WHERE PER_ID = DOM_PER_ID " +
                                     "AND PER_ID = GRS_PER_ID " +
                                     "AND GRS_SAL_ID = SAL_ID " +
-                                    "AND PER_TPE_ID = 2 " +
                                     "AND PER_ESTADO = 'S' " +
                                     "AND PER_ID = "+ idAlumno + ";";
 
