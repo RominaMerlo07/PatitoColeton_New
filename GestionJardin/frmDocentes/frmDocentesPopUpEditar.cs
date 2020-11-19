@@ -243,14 +243,14 @@ namespace GestionJardin
                         id_sala = cbSala.SelectedValue.ToString();
                     }
 
-                    //if (turno == "" && id_sala == "")
-                    //{
-                    //    MessageBox.Show("Se ha ingresado el registro con éxito.", "Ingresado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //    this.Close();
-                    //}
+                    if (turno == cbTurno.Text && id_sala == cbSala.Text)
+                    {
+                        MessageBox.Show("Se ha ingresado el registro con éxito.", "Ingresado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
                     //else
                     //{
-                    if (objlogSalas.ValidarDocSala(id_sala, turno) <= 1)
+                    else if (objlogSalas.ValidarDocSala(id_sala, turno) <= 1)
 
                     {
                         entGrupoSala grupoSalaEditar = new entGrupoSala();
@@ -405,6 +405,13 @@ namespace GestionJardin
         {
             logPersonas ObjMetOersonas = new logPersonas();
             objlogPersonas.EdadDocente(dtNacimiento.Value);
+            int Edad = objlogPersonas.EdadDocente(dtNacimiento.Value);
+            if (Edad < 18)
+            {
+                MessageBox.Show("La Persona que esta ingresando es menor de edad!", "Salir", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                dtNacimiento.Focus();
+            }
+
         }
 
         private void txtEmail_Leave(object sender, EventArgs e)
