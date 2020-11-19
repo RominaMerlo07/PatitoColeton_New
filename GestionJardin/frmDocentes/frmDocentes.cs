@@ -37,7 +37,18 @@ namespace GestionJardin
             btnGD_Eliminar.ForeColor = Color.Gray;            
             dgv_Docentes.DataSource = objlogPersonas.Mostrardocente();
             dgv_Docentes.Columns["DOCENTE"].Frozen = true;
-            dgv_Docentes.Columns["DNI"].Frozen = true;
+            dgv_Docentes.Columns["DOCUMENTO"].Frozen = true;
+
+            this.dgv_Docentes.Columns["DOCENTE"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            this.dgv_Docentes.Columns["DOCUMENTO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            this.dgv_Docentes.Columns["CELULAR"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            this.dgv_Docentes.Columns["EMAIL"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            this.dgv_Docentes.Columns["CARGO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            this.dgv_Docentes.Columns["SALA"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            this.dgv_Docentes.Columns["TURNO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            this.dgv_Docentes.Columns["FECHA_DE_ALTA"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            this.dgv_Docentes.Columns["FECHA_DE_MODIFICACION"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
             Settooltip();
         }
 

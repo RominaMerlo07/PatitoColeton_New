@@ -150,6 +150,12 @@ namespace GestionJardin
             dgvAlumnos.Columns["PER_ID"].Frozen = true;
             dgvAlumnos.Columns["ALUMNO"].Frozen = true;
             dgvAlumnos.Columns["DOCUMENTO"].Frozen = true;
+                                   
+            this.dgvAlumnos.Columns["DOCUMENTO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            this.dgvAlumnos.Columns["FECHA NACIMIENTO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            this.dgvAlumnos.Columns["EDAD"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            this.dgvAlumnos.Columns["TELEFONO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            this.dgvAlumnos.Columns["CELULAR"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;    
 
         }     
 

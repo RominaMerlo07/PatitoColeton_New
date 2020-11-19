@@ -48,7 +48,7 @@ namespace CaAD//GestionJardin
                                       "CONCAT(S.SAL_EDAD_MIN, ' años', ' - ', S.SAL_EDAD_MAX, ' años') RANGO, " +
                                       "t1.SAL_CANT_ALUM CUPO_TOTAL, " +
                                       "t1.ACTIVOS CUPOS_ACTIVOS, " +
-                                      "((t1.SAL_CANT_ALUM - t1.ACTIVOS)) CUPOS_VACANTES " +
+                                      "((t1.SAL_CANT_ALUM - t1.ACTIVOS)) VACANTES " +
                                 "FROM t1, T_SALA S " +
                                 "WHERE T1.SAL_ID = S.SAL_ID " +
                                 "AND SAL_ACTIVO = 'S' " +

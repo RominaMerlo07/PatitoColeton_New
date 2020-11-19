@@ -198,6 +198,14 @@ namespace GestionJardin
                 dgv_Alumnos.Columns["PER_ID"].Frozen = true;
                 dgv_Alumnos.Columns["ALUMNO"].Frozen = true;
                 dgv_Alumnos.Columns["DOCUMENTO"].Frozen = true;
+
+
+                this.dgv_Alumnos.Columns["ALUMNO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                this.dgv_Alumnos.Columns["DOCUMENTO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                this.dgv_Alumnos.Columns["TOTAL ASISTENCIAS"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                this.dgv_Alumnos.Columns["TOTAL INASISTENCIAS"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                this.dgv_Alumnos.Columns["JUSTIFICADAS"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                this.dgv_Alumnos.Columns["INJUSTIFICADAS"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             }
             else
             {

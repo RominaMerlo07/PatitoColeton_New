@@ -29,7 +29,14 @@ namespace GestionJardin
             dgv_Salas.DataSource = metSala.GrillaSalas();
             dgv_Salas.Columns["SAL_ID"].Visible = false;
 
-            
+            this.dgv_Salas.Columns["NOMBRE_SALA"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            this.dgv_Salas.Columns["TURNO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            this.dgv_Salas.Columns["RANGO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            this.dgv_Salas.Columns["CUPO_TOTAL"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            this.dgv_Salas.Columns["CUPOS_ACTIVOS"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            this.dgv_Salas.Columns["VACANTES"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+
             DataTable dt = metSala.BuscarSala();
             
             foreach (DataRow row in dt.Rows)

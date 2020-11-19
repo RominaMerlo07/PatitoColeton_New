@@ -209,6 +209,13 @@ namespace GestionJardin
                             dgv_Alumnos.Columns["PER_ID"].Visible = false;
                             dgv_Alumnos.Columns["AS_ID"].Visible = false;
 
+                            this.dgv_Alumnos.Columns["ALUMNO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                            this.dgv_Alumnos.Columns["DOCUMENTO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                            this.dgv_Alumnos.Columns["SALA"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                            this.dgv_Alumnos.Columns["TURNO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                            this.dgv_Alumnos.Columns["ASISTENCIA"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                            this.dgv_Alumnos.Columns["JUSTIFICADO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
                             lblAusencias.Visible = true;
                             lblAusencias.Text = logAsistencia.infoAusencias(id_sala, lblFecha.Text);
 
