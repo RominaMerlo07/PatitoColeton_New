@@ -110,7 +110,10 @@ namespace GestionJardin
 
                 string idPersonaSelect = dgvAlumnos.SelectedRows[0].Cells[0].Value.ToString();
                 string nombreAlumno = dgvAlumnos.SelectedRows[0].Cells[1].Value.ToString();
-                frmAlumnosPopUpEliminar frmAlumnoPopUpEliminar = new frmAlumnosPopUpEliminar(idPersonaSelect, nombreAlumno);
+                int edad = Convert.ToInt32(dgvAlumnos.SelectedRows[0].Cells[4].Value.ToString());
+
+
+                frmAlumnosPopUpEliminar frmAlumnoPopUpEliminar = new frmAlumnosPopUpEliminar(idPersonaSelect, nombreAlumno,edad);
                 frmAlumnoPopUpEliminar.FormClosed += frmAlumnoPopUpEliminar_FormClosed;
                 frmAlumnoPopUpEliminar.Text = "GESTION ALUMNOS / ESTUDIANTES / GESTIONAR ALUMNOS / PROCESAR BAJA";
                 frmAlumnoPopUpEliminar.ShowDialog();
