@@ -158,7 +158,17 @@ namespace GestionJardin
         private void dtNacimiento_Leave(object sender, EventArgs e)
         {
             logPersonas ObjMetOersonas = new logPersonas();
-            objlogPersonas.EdadDocente(dtNacimiento.Value);
+            
+            int Edad= objlogPersonas.EdadDocente(dtNacimiento.Value);
+            if (Edad < 18)
+            {
+                MessageBox.Show("La Persona que esta ingresando es menor de edad!", "Salir", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                dtNacimiento.Focus();
+            }
+            else
+            { }
+
+
         }
 
         private void txtEmail_Leave(object sender, EventArgs e)
@@ -435,6 +445,10 @@ namespace GestionJardin
                     txtDocumento.Focus();
                     MessageBox.Show("El docente ya se encuentra registrado. ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                else
+                {
+                    txtNombre.Focus();
+                }
             }
         }
 
@@ -450,6 +464,7 @@ namespace GestionJardin
             else
             {
                 lblNombre.Visible = false;
+                txtApellidos.Focus();
             }
         }
 
@@ -465,6 +480,7 @@ namespace GestionJardin
             else
             {
                 lblApellido.Visible = false;
+
             }
         }
 
@@ -575,75 +591,41 @@ namespace GestionJardin
 
             if (CARGO == "TITULAR")
             {
-                DialogResult resp = MessageBox.Show("¿Desea seleccionar una Sala y Turno?", "CONFIRME", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                panelContacto.Hide();
+                panelDatos.Hide();
+                cbSala.Visible = true;
+                metrosala.Visible = true;
+                cbTurno.Visible = true;
+                metrosala.Visible = true;
+                metroturno.Visible = true;
+                btnguardar.Visible = false;
+                btncancelar.Visible = false;
 
-                if ((resp == DialogResult.Yes))
-                {
-                    panelContacto.Hide();
-                    panelDatos.Hide();
-                    cbSala.Visible = true;
-                    metrosala.Visible = true;
-                    cbTurno.Visible = true;
-                    metrosala.Visible = true;
-                    metroturno.Visible = true;
-                    btnguardar.Visible = false;
-                    btncancelar.Visible = false;
-
-                }
-                else
-                {
-                    panelContacto.Show();
-                    panelDatos.Show();
-                    metrolabelcargo.Visible = true;
-                    Cbocargo.Visible = true;
-                    cbSala.Visible = false;
-                    metrosala.Visible = false;
-                    cbTurno.Visible = false;
-                    metrosala.Visible = false;
-                    metroturno.Visible = false;
-                    btnguardar.Visible = true;
-                    btncancelar.Visible = true;
-
-                }
             }
             else
             {
-                DialogResult resp = MessageBox.Show("¿Desea seleccionar una Sala y Turno?", "salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                panelContacto.Show();
+                panelDatos.Show();
+                metrolabelcargo.Visible = true;
+                Cbocargo.Visible = true;
+                cbSala.Visible = false;
+                metrosala.Visible = false;
+                cbTurno.Visible = false;
+                metrosala.Visible = false;
+                metroturno.Visible = false;
+                btnguardar.Visible = true;
+                btncancelar.Visible = true;
 
-                if ((resp == DialogResult.Yes))
-                {
-                    panelContacto.Hide();
-                    panelDatos.Hide();
-                    cbSala.Visible = true;
-                    metrosala.Visible = true;
-                    cbTurno.Visible = true;
-                    metrosala.Visible = true;
-                    metroturno.Visible = true;
-                    btnguardar.Visible = false;
-                    btncancelar.Visible = false;
-                }
-                else
-                {
-                    panelContacto.Show();
-                    panelDatos.Show();
-                    metrolabelcargo.Visible = true;
-                    Cbocargo.Visible = true;
-                    cbSala.Visible = false;
-                    metrosala.Visible = false;
-                    cbTurno.Visible = false;
-                    metrosala.Visible = false;
-                    metroturno.Visible = false;
-                    btnguardar.Visible = true;
-                    btncancelar.Visible = true;
-
-
-                }
             }
+            
+            
         }
 
         private void cbTurno_SelectedValueChanged(object sender, EventArgs e)
         {
-            cargar_cbSala();            
+            cargar_cbSala();
+            panelContacto.Hide();
+            panelDatos.Hide();
         }
         private void cargar_cbSala()
         {
@@ -661,17 +643,28 @@ namespace GestionJardin
             cbSala.Enabled = true;
 
             cbSala.SelectedValueChanged += new EventHandler(cbSala_SelectedValueChanged);
-            //panelContacto.Show();
-            //panelDatos.Show();
+            
 
         }
 
         private void cbSala_SelectedValueChanged(object sender, EventArgs e)
         {
-            panelContacto.Show();
-            panelDatos.Show();
-            btnguardar.Visible = true;
-            btncancelar.Visible = true;
+           
+            if(string.IsNullOrWhiteSpace(cbSala.Text.Trim()) == true)
+            {
+                cbSala.Style = MetroFramework.MetroColorStyle.Red;
+                cbSala.Focus();
+                labelsalas.Visible = true;
+                labelsalas.Text = "Por favor ingrese celular";
+            }
+            else
+            {
+                panelContacto.Show();
+                panelDatos.Show();
+                btnguardar.Visible = true;
+                btncancelar.Visible = true;
+                txtDocumento.Focus();
+            }
         }
     }
 }

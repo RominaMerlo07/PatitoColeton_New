@@ -846,14 +846,9 @@ namespace CaAD//GestionJardin
 
 
             int Edad_D = FechaActual.Year - pfechaNacimiento.Year;
-            if (FechaActual < pfechaNacimiento.AddYears(Edad_D))
-                Edad_D--;
-
-            if (Edad_D < 18)
-            {
-                //MessageBox.Show("Este docente tiene menos de 18 años. No puede ser registrado.");
-
-            }
+            
+                    
+           
             return Edad_D;
 
         }    
