@@ -22,6 +22,7 @@ namespace GestionJardin
 
         private void frmAlumnosGrupoFlia_Load(object sender, EventArgs e)
         {
+            Settooltip();
             dgvGrupoFlia.ClearSelection();
             cargar_BuscaAlumnos();
 
@@ -32,6 +33,15 @@ namespace GestionJardin
             btnGF_Editar.IconColor = Color.Gray;
             btnGF_Editar.ForeColor = Color.Gray;
 
+        }
+
+
+        private void Settooltip()
+        {
+            ToolTip Tip = new ToolTip();
+            Tip.SetToolTip(this.btnGF_Agregar, "Ingresar o dar de alta un familiar");
+            Tip.SetToolTip(this.btnGF_Editar, "Visualizar y/o modificar los datos de un familiar");
+            Tip.SetToolTip(this.btnGF_Eliminar, "Dar de baja un familiar");
         }
 
         private void cargar_BuscaAlumnos()
