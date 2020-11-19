@@ -38,6 +38,7 @@
             this.btnGA_Editar = new FontAwesome.Sharp.IconButton();
             this.btnGA_Agregar = new FontAwesome.Sharp.IconButton();
             this.dgvAlumnos = new System.Windows.Forms.DataGridView();
+            this.btn_ImprimirSala = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -198,12 +199,29 @@
             this.dgvAlumnos.TabIndex = 43;
             this.dgvAlumnos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlumnos_CellClick);
             // 
+            // btn_ImprimirSala
+            // 
+            this.btn_ImprimirSala.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ImprimirSala.ForeColor = System.Drawing.Color.Silver;
+            this.btn_ImprimirSala.IconChar = FontAwesome.Sharp.IconChar.Filter;
+            this.btn_ImprimirSala.IconColor = System.Drawing.Color.Silver;
+            this.btn_ImprimirSala.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_ImprimirSala.IconSize = 52;
+            this.btn_ImprimirSala.Location = new System.Drawing.Point(1226, 274);
+            this.btn_ImprimirSala.Name = "btn_ImprimirSala";
+            this.btn_ImprimirSala.Padding = new System.Windows.Forms.Padding(3);
+            this.btn_ImprimirSala.Size = new System.Drawing.Size(64, 60);
+            this.btn_ImprimirSala.TabIndex = 44;
+            this.btn_ImprimirSala.UseVisualStyleBackColor = true;
+            this.btn_ImprimirSala.Click += new System.EventHandler(this.btn_ImprimirSala_Click);
+            // 
             // frmAlumnosGestionar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(1660, 947);
+            this.Controls.Add(this.btn_ImprimirSala);
             this.Controls.Add(this.dgvAlumnos);
             this.Controls.Add(this.txtGA_Buscar);
             this.Controls.Add(this.label1);
@@ -226,5 +244,6 @@
         private System.Windows.Forms.Label label1;
         private MetroFramework.Controls.MetroTextBox txtGA_Buscar;
         public System.Windows.Forms.DataGridView dgvAlumnos;
+        private FontAwesome.Sharp.IconButton btn_ImprimirSala;
     }
 }

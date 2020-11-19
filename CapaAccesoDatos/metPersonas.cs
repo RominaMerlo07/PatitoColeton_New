@@ -1019,5 +1019,94 @@ namespace CaAD//GestionJardin
         }
 
 
+        public DataTable AlumnosSalas(string idSala)    
+        {            
+            DataTable dt = new DataTable();
+            try
+            {
+                con = generarConexion();
+                con.Open();
+
+
+                string consulta = "SELECT (PER_NOMBRE + ' ' + PER_APELLIDO) ALUMNO, " +
+                                          "PER_DOCUMENTO DOCUMENTO, " +
+                                          "(SELECT DATEDIFF(YEAR, PER_FECHA_NAC, GETDATE()) - " +
+                                                   "(CASE " +
+                                                        "WHEN DATEADD(YY, DATEDIFF(YEAR, T_PERSONAS.PER_FECHA_NAC, GETDATE()), T_PERSONAS.PER_FECHA_NAC) > GETDATE() THEN 1 " +
+                                                        "ELSE 0 " +
+                                                   "END)) as EDAD "+
+                                     "FROM T_PERSONAS, T_GRUPO_SALA, T_SALA " +
+                                    "WHERE PER_ID = GRS_PER_ID " +
+                                      "AND SAL_ID = GRS_SAL_ID " +
+                                      "AND PER_TPE_ID = 2 " +
+                                      "AND PER_ESTADO = 'S' " +
+                                      "AND SAL_ID = '" + idSala + "';";
+
+                cmd = new SqlCommand(consulta, con);
+                dta = new SqlDataAdapter(cmd);
+
+                dta.Fill(dt);
+                con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                //result = "ERROR";
+                //MessageBox.Show("Hubo un problema. Contáctese con su administrador. Error: " + ex.ToString());                
+            }
+
+            return dt;
+
+        }
+
+
+        public DataSet listaAlumno(string idSala)
+        {
+
+            DataSet dset = new DataSet();
+
+            con = generarConexion();
+            con.Open();
+
+            try
+            {
+                string consulta = "SELECT (PER_NOMBRE + ' ' + PER_APELLIDO) ALUMNO, " +
+                                          "PER_DOCUMENTO DOCUMENTO, " +
+                                          "(SELECT DATEDIFF(YEAR, PER_FECHA_NAC, GETDATE()) - " +
+                                                   "(CASE " +
+                                                        "WHEN DATEADD(YY, DATEDIFF(YEAR, T_PERSONAS.PER_FECHA_NAC, GETDATE()), T_PERSONAS.PER_FECHA_NAC) > GETDATE() THEN 1 " +
+                                                        "ELSE 0 " +
+                                                   "END)) as EDAD, " +
+                                          "SAL_NOMBRE SALA,  " +
+                                          "CASE SAL_TURNO " +
+                                                "WHEN 'MANANA' THEN 'MAÑANA' " +
+                                                "ELSE 'TARDE' " +
+                                           "END TURNO, " +
+                                           "GETDATE() FECHA " +
+                                     "FROM T_PERSONAS, T_GRUPO_SALA, T_SALA " +
+                                    "WHERE PER_ID = GRS_PER_ID " +
+                                      "AND SAL_ID = GRS_SAL_ID " +
+                                      "AND PER_TPE_ID = 2 " +
+                                      "AND PER_ESTADO = 'S' " +
+                                      "AND SAL_ID = '" + idSala + "';";
+
+                cmd = new SqlCommand(consulta, con);
+                dta = new SqlDataAdapter(cmd);
+                dta.Fill(dset);
+
+                con.Close();
+
+
+                return dset;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return dset;
+
+        }
+
+
     }
 }

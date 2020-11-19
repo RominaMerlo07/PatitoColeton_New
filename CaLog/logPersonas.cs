@@ -331,6 +331,17 @@ namespace CaLog
             return objMetPersonas.fichaAlumnoFamiliar(idAlumno);
         }
 
+        public DataSet listaAlumno(string idSala)
+        {
+            return objMetPersonas.listaAlumno(idSala);
+        }
+
+
+        public DataTable AlumnosSalas(string idSala)
+        {
+            return objMetPersonas.AlumnosSalas(idSala);
+        }
+
     }
 
 }

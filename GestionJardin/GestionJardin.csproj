@@ -399,6 +399,18 @@
     <Compile Include="frmUsuarios\frmUsuariosPopUpEliminar.Designer.cs">
       <DependentUpon>frmUsuariosPopUpEliminar.cs</DependentUpon>
     </Compile>
+    <Compile Include="ImprimirLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImprimirLista.Designer.cs">
+      <DependentUpon>ImprimirLista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListaAlumnos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaAlumnos.Designer.cs">
+      <DependentUpon>ListaAlumnos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reporte\Asistencias\informeTotalAusencias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -426,6 +438,13 @@
     <Compile Include="LocalReportExtension.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ImprimirLista.resx">
+      <DependentUpon>ImprimirLista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaAlumnos.rdlc" />
+    <EmbeddedResource Include="ListaAlumnos.resx">
+      <DependentUpon>ListaAlumnos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reporte\Alumnos\fichaAlumno.rdlc" />
     <EmbeddedResource Include="frmAlumnos\Estudiantes_GrupoFlia\frmAlumnosGrupoFlia.resx">
       <DependentUpon>frmAlumnosGrupoFlia.cs</DependentUpon>
@@ -637,6 +656,7 @@
     <None Include="Properties\DataSources\CaEnt.InformeAsistencia+InformeAsistenciaColeccion.datasource" />
     <None Include="Properties\DataSources\CaEnt.InformeAsistencia.datasource" />
     <None Include="Properties\DataSources\CaEnt.InformeTotalAsistencia.datasource" />
+    <None Include="Properties\DataSources\CaEnt.ListaAlumnos.datasource" />
     <None Include="Properties\DataSources\CaLog.logAsistencia.datasource" />
     <None Include="Properties\DataSources\CapaAccesoDatos.metAsistencia.datasource" />
     <None Include="Properties\DataSources\CapaEntidades.InformeAsistencia+InformeAsistenciaColeccion.datasource" />

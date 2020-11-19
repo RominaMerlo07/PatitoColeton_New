@@ -232,5 +232,13 @@ namespace GestionJardin
                 btnGA_Eliminar.ForeColor = Color.Gray;
             }
         }
+
+        private void btn_ImprimirSala_Click(object sender, EventArgs e)
+        {
+            ImprimirLista ImprimirLista = new ImprimirLista();
+            ImprimirLista.Show();
+        }
+
+       
     }
 }
