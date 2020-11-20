@@ -34,6 +34,7 @@ namespace CaAD//GestionJardin
                                        "WHERE GRS_SAL_ID = SAL_ID " +
                                        "AND GRS_PER_ID = PER_ID " +
                                        "AND PER_TPE_ID = 2 " +
+                                       "GROUP BY SAL_NOMBRE, SAL_TURNO, SAL_CANT_ALUM, SAL_ID " +
                                        "UNION " +
                                        "SELECT 0 , " +
                                               "SAL_NOMBRE, " +

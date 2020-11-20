@@ -112,6 +112,12 @@
     <Compile Include="frmDocentes\ImprimirListaSala.Designer.cs">
       <DependentUpon>ImprimirListaSala.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reporte\GrupoFlia\ListaGrupoFlia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\GrupoFlia\ListaGrupoFlia.Designer.cs">
+      <DependentUpon>ListaGrupoFlia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reporte\Docentes\ListaTotalDocentes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -453,6 +459,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmDocentes\ImprimirListaSala.resx">
       <DependentUpon>ImprimirListaSala.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\GrupoFlia\ListaGrupoFlia.rdlc" />
+    <EmbeddedResource Include="Reporte\GrupoFlia\ListaGrupoFlia.resx">
+      <DependentUpon>ListaGrupoFlia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reporte\Docentes\ListaTotalDocentes.rdlc" />
     <EmbeddedResource Include="Reporte\Docentes\ListaTotalDocentes.resx">

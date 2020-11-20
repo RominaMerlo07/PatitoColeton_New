@@ -15,6 +15,8 @@ namespace GestionJardin
 {
     public partial class frmAlumnosGrupoFlia : Form
     {
+        string idPersona;
+
         public frmAlumnosGrupoFlia()
         {
             InitializeComponent();
@@ -42,6 +44,7 @@ namespace GestionJardin
             Tip.SetToolTip(this.btnGF_Agregar, "Ingresar o dar de alta un familiar");
             Tip.SetToolTip(this.btnGF_Editar, "Visualizar y/o modificar los datos de un familiar");
             Tip.SetToolTip(this.btnGF_Eliminar, "Dar de baja un familiar");
+            Tip.SetToolTip(this.btnLista, "Imprimir grupo familiar del alumno");
         }
 
         private void cargar_BuscaAlumnos()
@@ -196,6 +199,7 @@ namespace GestionJardin
         {
             lblBuscar.Visible = false;
             lblInfo.Visible = true;
+            btnLista.Visible = true;
 
             string nombreB = "";
             string apellidoB = "";
@@ -229,13 +233,14 @@ namespace GestionJardin
             personaBuscar = objlogPersonas.BuscaPersona(nombreB, apellidoB, documentoB);
 
             String id_persona = Convert.ToString(personaBuscar.PER_ID);
+            idPersona = Convert.ToString(personaBuscar.PER_ID);
 
             //rellenar dgv
             dgvGrupoFlia.Refresh();
             DataTable grupoFlia = new DataTable();
             logGrupoFlia objGrupoFlia = new logGrupoFlia();
             grupoFlia = objGrupoFlia.traerPersonasXGrupoFliar2(id_persona);
-
+            
             if (grupoFlia.Rows.Count > 0)
             {              
                 dgvGrupoFlia.DataSource = grupoFlia;
@@ -245,7 +250,24 @@ namespace GestionJardin
                 dgvGrupoFlia.Columns["NOMBRE"].Frozen = true;
                 dgvGrupoFlia.Columns["DOCUMENTO"].Frozen = true;
                 dgvGrupoFlia.Columns["PARENTESCO"].Frozen = true;
+
+                this.dgvGrupoFlia.Columns["NOMBRE"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                this.dgvGrupoFlia.Columns["DOCUMENTO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                this.dgvGrupoFlia.Columns["PARENTESCO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                this.dgvGrupoFlia.Columns["TUTOR"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                this.dgvGrupoFlia.Columns["RETIRAR"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                this.dgvGrupoFlia.Columns["FECHA NACIMIENTO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                this.dgvGrupoFlia.Columns["EDAD"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                this.dgvGrupoFlia.Columns["DOMICILIO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                this.dgvGrupoFlia.Columns["CELULAR"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                this.dgvGrupoFlia.Columns["TELEFONO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+
                 dgvGrupoFlia.ClearSelection();
+
+
+
+               
 
                 int c = dgvGrupoFlia.Rows.Count;
                 for(int i = 0; i < c; i++)
@@ -260,6 +282,7 @@ namespace GestionJardin
                 }
 
                 //dgvGrupoFlia.Visible = true;
+            
             }
         }
 
@@ -300,9 +323,15 @@ namespace GestionJardin
             {
                 lblBuscar.Visible = true;
                 lblInfo.Visible = false;
+                btnLista.Visible = false;
                 dgvGrupoFlia.DataSource = null;
                 dgvGrupoFlia.Refresh();
             }
+        }
+
+        private void btnLista_Click(object sender, EventArgs e)
+        {
+            ListaGrupoFlia ListaGrupoFlia = new ListaGrupoFlia(idPersona);
         }
     }
 }

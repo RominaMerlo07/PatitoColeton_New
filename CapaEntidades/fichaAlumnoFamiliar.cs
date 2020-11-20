@@ -9,46 +9,32 @@ namespace CaEnt
     public class fichaAlumnoFamiliar
     {
 
-        private string p_familiar;
-        public string FAMILIAR
+        private string p_nombre;
+        public string NOMBRE
         {
-            get { return p_familiar; }
-            set { p_familiar = value; }
+            get { return p_nombre; }
+            set { p_nombre = value; }
         }
 
-        private string p_vinculo;
-        public string VINCULO
+        private Int32 p_documento;
+        public Int32 DOCUMENTO
         {
-            get { return p_vinculo; }
-            set { p_vinculo = value; }
+            get { return p_documento; }
+            set { p_documento = value; }
         }
 
-        private Int32 p_documentoFamiliar;
-        public Int32 DOCUMENTO_FAMILIAR
+        private string p_parentesco;
+        public string PARENTESCO
         {
-            get { return p_documentoFamiliar; }
-            set { p_documentoFamiliar = value; }
+            get { return p_parentesco; }
+            set { p_parentesco = value; }
         }
 
-        private string p_emailFamiliar;
-        public string EMAIL_FAMILIAR
+        private string p_tutor;
+        public string TUTOR
         {
-            get { return p_emailFamiliar; }
-            set { p_emailFamiliar = value; }
-        }
-
-        private string p_telefonoFamiliar;
-        public string TELEFONO_FAMILIAR
-        {
-            get { return p_telefonoFamiliar; }
-            set { p_telefonoFamiliar = value; }
-        }
-
-        private string p_celularFamiliar;
-        public string CELULAR_FAMILIAR
-        {
-            get { return p_celularFamiliar; }
-            set { p_celularFamiliar = value; }
+            get { return p_tutor; }
+            set { p_tutor = value; }
         }
 
         private string p_autorizado;
@@ -57,6 +43,36 @@ namespace CaEnt
             get { return p_autorizado; }
             set { p_autorizado = value; }
         }
+
+        private string p_celular;
+        public string CELULAR
+        {
+            get { return p_celular; }
+            set { p_celular = value; }
+        }
+
+        private string p_telefono;
+        public string TELEFONO
+        {
+            get { return p_telefono; }
+            set { p_telefono = value; }
+        }
+
+        private string p_email;
+        public string EMAIL
+        {
+            get { return p_email; }
+            set { p_email = value; }
+        }
+
+        private DateTime p_fecha;
+        public DateTime FECHA
+        {
+            get { return p_fecha; }
+            set { p_fecha = value; }
+        }
+
+
 
         public fichaAlumnoFamiliar()
         {

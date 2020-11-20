@@ -54,5 +54,10 @@ namespace CaLog
 
         }
 
+        public DataSet listaGrupoFlia(string idPersona)
+        {
+            return objMetGrupoFlia.listaGrupoFlia(idPersona);
+        }
+
     }
 }

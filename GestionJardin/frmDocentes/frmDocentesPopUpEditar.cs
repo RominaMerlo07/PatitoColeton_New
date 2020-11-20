@@ -250,32 +250,26 @@ namespace GestionJardin
                     }
                     //else
                     //{
-                    else if (objlogSalas.ValidarDocSala(id_sala, turno) <= 1)
-
-                    {
+                    
                         entGrupoSala grupoSalaEditar = new entGrupoSala();
                         grupoSalaEditar.GRS_PER_ID = Convert.ToInt32(idPersonaBuscar);
                         grupoSalaEditar.GRS_SAL_ID = Convert.ToInt32(id_sala);
                         grupoSalaEditar.GRS_CARGO = CARGO.ToString();
                         resultadoE = objlogSalas.editarGrupoSala(grupoSalaEditar);
-
                         if (resultadoE == "OK")
                         {
                             MessageBox.Show("Se actualizado ok el registro.", "Ingresado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Close();
-
                         }
-                    }
+                    
                     else
                     {
                         MessageBox.Show("El cupo de docente en la sala y turno seleccionados ya esta completo", "Salir", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         cbTurno.SelectedIndex = -1;
                         cbSala.SelectedIndex = -1;
 
-                    }
-                    //}
+                    }  //}
                 }
-
                 else
                 {
                     MessageBox.Show("NO OLVIDE INGRESAR " + validacionE + ".", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
