@@ -60,7 +60,7 @@ namespace GestionJardin
                 btnGS_Editar.ForeColor = Color.Cyan;
                 string idSalaSelect = dgv_Salas.SelectedRows[0].Cells[0].Value.ToString();
                 frmSalasPopUpEditar frmSalasPopUpEditar = new frmSalasPopUpEditar(idSalaSelect);
-                frmSalasPopUpEditar.Text = "GESTIÓN SALAS / EDITAR Y/O VISUALIZAR DATOS DE UNA SALA";
+                frmSalasPopUpEditar.Text = "GESTIÓN SALAS / MODIFICAR DATOS DE UNA SALA";
                 frmSalasPopUpEditar.ShowDialog();
 
                 dgv_Salas.DataSource = metSala.GrillaSalas();
@@ -112,7 +112,7 @@ namespace GestionJardin
                 string idSalaSelect = dgv_Salas.SelectedRows[0].Cells[0].Value.ToString();
                 string nombreSala= dgv_Salas.SelectedRows[0].Cells[1].Value.ToString();
                 frmSalasPopUpEliminar frmSalasPopUpEliminar = new frmSalasPopUpEliminar(idSalaSelect, nombreSala);
-                frmSalasPopUpEliminar.Text = "GESTIÓN SALAS / ELIMINAR SALA";
+                frmSalasPopUpEliminar.Text = "GESTIÓN SALAS / PROCESAR BAJA";
                 frmSalasPopUpEliminar.ShowDialog();
 
                 dgv_Salas.DataSource = metSala.GrillaSalas();

@@ -80,7 +80,7 @@ namespace GestionJardin
 
             frmAlumnosGrupoFliaPopUpAgregar frmAlumnosGrupoFliaPopUpAgregar = new frmAlumnosGrupoFliaPopUpAgregar();
             frmAlumnosGrupoFliaPopUpAgregar.FormClosed += frmAlumnosGrupoFliaPopUpAgregar_FormClosed;
-            frmAlumnosGrupoFliaPopUpAgregar.Text = "GESTION ALUMNOS / ESTUDIANTES / GRUPO FAMILIAR / INGRESAR FAMILIAR";
+            frmAlumnosGrupoFliaPopUpAgregar.Text = "GESTION ALUMNOS / ESTUDIANTES / GRUPO FAMILIAR / INGRESAR";
             frmAlumnosGrupoFliaPopUpAgregar.ShowDialog();
 
             btnGF_Eliminar.IconColor = Color.Gray;
@@ -115,7 +115,7 @@ namespace GestionJardin
                 string idPersonaSelect = dgvGrupoFlia.SelectedRows[0].Cells[0].Value.ToString();
                 frmAlumnosGrupoFliaPopUpEditar frmAlumnosGrupoFliaPopUpEditar = new frmAlumnosGrupoFliaPopUpEditar(idPersonaSelect);
                 frmAlumnosGrupoFliaPopUpEditar.FormClosed += frmAlumnosGrupoFliaPopUpEditar_FormClosed;
-                frmAlumnosGrupoFliaPopUpEditar.Text = "GESTION ALUMNOS / ESTUDIANTES / GRUPO FAMILIAR / EDITAR O VISUALIZAR DATOS DEL FAMILIAR";
+                frmAlumnosGrupoFliaPopUpEditar.Text = "GESTION ALUMNOS / ESTUDIANTES / GRUPO FAMILIAR / MODIFICAR";
                 frmAlumnosGrupoFliaPopUpEditar.ShowDialog();
 
                 }
@@ -159,7 +159,7 @@ namespace GestionJardin
                     string nombreAlumno = dgvGrupoFlia.SelectedRows[0].Cells[1].Value.ToString();
                     frmAlumnosGrupoFliaPopUpEliminar frmAlumnosGrupoFliaPopUpEliminar = new frmAlumnosGrupoFliaPopUpEliminar(idPersonaSelect, nombreAlumno);
                     frmAlumnosGrupoFliaPopUpEliminar.FormClosed += frmAlumnosGrupoFliaPopUpEliminar_FormClosed;
-                    frmAlumnosGrupoFliaPopUpEliminar.Text = "GESTION ALUMNOS / ESTUDIANTES / GRUPO FAMILIAR / ELIMINAR FAMILIAR";
+                    frmAlumnosGrupoFliaPopUpEliminar.Text = "GESTION ALUMNOS / ESTUDIANTES / GRUPO FAMILIAR / PROCESAR BAJA";
                     frmAlumnosGrupoFliaPopUpEliminar.ShowDialog();
 
                     btnGF_Eliminar.IconColor = Color.Gray;
