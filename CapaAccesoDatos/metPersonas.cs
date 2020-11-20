@@ -1103,5 +1103,48 @@ namespace CaAD//GestionJardin
         }
 
 
+        public DataSet listaDocentes()
+        {
+
+            DataSet dset = new DataSet();
+
+            con = generarConexion();
+            con.Open();
+
+            try
+            {
+                string consulta = "SELECT  CONCAT(PER_APELLIDO, ', ', PER_NOMBRE) AS 'DOCENTE', " +
+                                          "PER_DOCUMENTO 'DOCUMENTO', " +
+                                          "CASE GRS_CARGO WHEN 'TITULAR' THEN 'TITULAR' ELSE 'SUPLENTE' END 'CARGO', " +
+                                          "CASE SAL_TURNO WHEN 'MANANA' THEN 'MAÑANA' ELSE 'TARDE' END 'TURNO', " +
+                                          "SAL_NOMBRE 'SALA', " +
+                                          "PER_TELEFONO_2 'CELULAR', " +
+                                          "PER_EMAIL 'EMAIL' " +
+                                          "(DOM_CALLE + ' ' + CONVERT(VARCHAR(10),DOM_NUMERO) + ' - Piso: ' + CONVERT(VARCHAR(10),DOM_PISO) + ' Dpto: ' + DOM_DPTO + ' - Barrio: ' + DOM_BARRIO) DOMICILIO, " +
+                                          "GETDATE() FECHA " +
+                                    "FROM T_PERSONAS, T_GRUPO_SALA, T_SALA " +
+                                   "WHERE PER_ID = GRS_PER_ID " +
+                                   "AND GRS_SAL_ID = SAL_ID " +
+                                   "AND PER_TPE_ID = 1 " +
+                                   "AND PER_ESTADO = 'S';";
+
+                cmd = new SqlCommand(consulta, con);
+                dta = new SqlDataAdapter(cmd);
+                dta.Fill(dset);
+
+                con.Close();
+
+
+                return dset;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return dset;
+
+        }
+
+
     }
 }

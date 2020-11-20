@@ -42,7 +42,7 @@ namespace GestionJardin
             this.dgv_UsuariosActivos.Columns["CONTRASEÑA"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             this.dgv_UsuariosActivos.Columns["FECHA DE ALTA"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             this.dgv_UsuariosActivos.Columns["FECHA DE MODIFICACION"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dgv_UsuariosActivos.Columns["ESTADO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+           
 
             btnGU_Editar.IconColor = Color.Gray;
             btnGU_Editar.ForeColor = Color.Gray;

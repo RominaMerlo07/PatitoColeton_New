@@ -34,7 +34,7 @@ namespace GestionJardin
                 frmPrincipal frmPrincipal = new frmPrincipal();
                 frmPrincipal.Show();
                 this.Hide();
-
+               
                 txtUsuario.Text = "";
                 txtContrasena.Text = "";
 

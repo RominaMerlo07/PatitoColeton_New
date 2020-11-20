@@ -87,6 +87,7 @@
     <Compile Include="InformeAsistencia.cs" />
     <Compile Include="InformeTotalAsistencia.cs" />
     <Compile Include="ListaAlumnos.cs" />
+    <Compile Include="ListaDocentes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

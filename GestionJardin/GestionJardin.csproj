@@ -433,6 +433,7 @@
     <Compile Include="LocalReportExtension.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ListaDocentes.rdlc" />
     <EmbeddedResource Include="Reporte\Docentes\fichaDocente.rdlc" />
     <EmbeddedResource Include="Reporte\Docentes\fichaDocente.resx">
       <DependentUpon>fichaDocente.cs</DependentUpon>
@@ -643,6 +644,7 @@
     <None Include="Properties\DataSources\CaEnt.InformeAsistencia.datasource" />
     <None Include="Properties\DataSources\CaEnt.InformeTotalAsistencia.datasource" />
     <None Include="Properties\DataSources\CaEnt.ListaAlumnos.datasource" />
+    <None Include="Properties\DataSources\CaEnt.ListaDocentes.datasource" />
     <None Include="Properties\DataSources\CaLog.logAsistencia.datasource" />
     <None Include="Properties\DataSources\CapaAccesoDatos.metAsistencia.datasource" />
     <None Include="Properties\DataSources\CapaEntidades.InformeAsistencia+InformeAsistenciaColeccion.datasource" />
