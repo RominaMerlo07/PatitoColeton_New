@@ -1134,7 +1134,6 @@ C:\Users\nanig\Desktop\patocoleton2\GestionJardin\obj\Debug\GestionJardin.frmInf
 C:\Users\nanig\Desktop\patocoleton2\GestionJardin\obj\Debug\GestionJardin.frmInformeProgreso_AgregarMateria.resources
 C:\Users\nanig\Desktop\patocoleton2\GestionJardin\obj\Debug\GestionJardin.frmLogin.resources
 C:\Users\nanig\Desktop\patocoleton2\GestionJardin\obj\Debug\GestionJardin.frmPrincipal.resources
-C:\Users\nanig\Desktop\patocoleton2\GestionJardin\obj\Debug\GestionJardin.frmreporte.resources
 C:\Users\nanig\Desktop\patocoleton2\GestionJardin\obj\Debug\GestionJardin.frmSalasPopUpEliminar.resources
 C:\Users\nanig\Desktop\patocoleton2\GestionJardin\obj\Debug\GestionJardin.frmSalas.resources
 C:\Users\nanig\Desktop\patocoleton2\GestionJardin\obj\Debug\GestionJardin.frmSalasPopUpAgregar.resources
@@ -1294,3 +1293,6 @@ C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.exe
 C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.pdb
 C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.ImprimirLista.resources
 C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.fichaDocente.resources
+C:\Users\nanig\Desktop\patocoleton2\GestionJardin\obj\Debug\GestionJardin.fichaDocente.resources
+C:\Users\nanig\Desktop\patocoleton2\GestionJardin\obj\Debug\GestionJardin.ImprimirLista.resources
+C:\Users\nanig\Desktop\patocoleton2\GestionJardin\obj\Debug\GestionJardin.ListaAlumnos.resources
