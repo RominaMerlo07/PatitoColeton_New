@@ -106,6 +106,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmDocentes\ImprimirListaSala.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDocentes\ImprimirListaSala.Designer.cs">
+      <DependentUpon>ImprimirListaSala.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\Docentes\ListaTotalDocentes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\Docentes\ListaTotalDocentes.Designer.cs">
+      <DependentUpon>ListaTotalDocentes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\Docentes\ListaDocentes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\Docentes\ListaDocentes.Designer.cs">
+      <DependentUpon>ListaDocentes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reporte\Docentes\fichaDocente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -433,7 +451,17 @@
     <Compile Include="LocalReportExtension.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ListaDocentes.rdlc" />
+    <EmbeddedResource Include="frmDocentes\ImprimirListaSala.resx">
+      <DependentUpon>ImprimirListaSala.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\Docentes\ListaTotalDocentes.rdlc" />
+    <EmbeddedResource Include="Reporte\Docentes\ListaTotalDocentes.resx">
+      <DependentUpon>ListaTotalDocentes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\Docentes\ListaDocentes.rdlc" />
+    <EmbeddedResource Include="Reporte\Docentes\ListaDocentes.resx">
+      <DependentUpon>ListaDocentes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reporte\Docentes\fichaDocente.rdlc" />
     <EmbeddedResource Include="Reporte\Docentes\fichaDocente.resx">
       <DependentUpon>fichaDocente.cs</DependentUpon>

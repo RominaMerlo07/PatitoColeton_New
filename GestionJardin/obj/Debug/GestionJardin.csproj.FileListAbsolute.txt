@@ -1294,3 +1294,6 @@ C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.exe
 C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.pdb
 C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.ImprimirLista.resources
 C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.fichaDocente.resources
+C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.ListaDocentes.resources
+C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.ImprimirListaSala.resources
+C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.ListaTotalDocentes.resources

@@ -58,6 +58,8 @@ namespace GestionJardin
             Tip.SetToolTip(this.btnGD_Agregar, "Ingresar o dar de alta un docente");
             Tip.SetToolTip(this.btnGD_Editar, "Visualizar y/o modificar los datos de un docente");
             Tip.SetToolTip(this.btnGD_Eliminar, "Dar de baja un docente");
+            Tip.SetToolTip(this.btn_ImprimirSala, "Visualizar docentes por sala");
+            Tip.SetToolTip(this.btnLista, "Imprimir listado de docentes");
         }
 
 
@@ -257,7 +259,15 @@ namespace GestionJardin
 
         }
 
-    
+        private void btn_ImprimirSala_Click(object sender, EventArgs e)
+        {
+            ImprimirListaSala ImprimirListaSala = new ImprimirListaSala();
+            ImprimirListaSala.Show();
+        }
 
+        private void btnLista_Click(object sender, EventArgs e)
+        {
+            ListaTotalDocentes ListaTotalDocentes = new ListaTotalDocentes();
+        }
     }
 }

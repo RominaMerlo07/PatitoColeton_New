@@ -342,6 +342,22 @@ namespace CaLog
             return objMetPersonas.AlumnosSalas(idSala);
         }
 
+        public DataSet listaDocentes(string idSala)
+        {
+            return objMetPersonas.listaDocentes(idSala);
+        }
+
+        public DataTable ListaDocenteSala(string idSala)
+        {
+            return objMetPersonas.ListaDocenteSala(idSala);
+        }
+
+        public DataSet listaTotalDocentes()
+        {
+            return objMetPersonas.listaTotalDocentes();
+        }
+
+
     }
 
 }
