@@ -189,7 +189,6 @@
             this.MinimizeBox = false;
             this.Name = "frmDocentesPopUpEliminar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Load += new System.EventHandler(this.frmDocentesPopUpEliminar_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frmDocentesPopUpEliminar_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             this.ResumeLayout(false);

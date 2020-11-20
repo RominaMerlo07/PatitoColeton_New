@@ -69,5 +69,8 @@ namespace CaLog
         {
             return objMetSalas.CantidadAlumnosSalas();
         }
+
+     
+
     }
 }

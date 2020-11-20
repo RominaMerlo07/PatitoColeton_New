@@ -23,6 +23,7 @@ namespace GestionJardin
         logSalas logSalas = new logSalas();
         entGrupoSala objGrupoSala = new entGrupoSala();
         string resultadoValidacion;
+        string idPersona;
 
 
         public frmDocentesPopUpAgregar()
@@ -105,19 +106,19 @@ namespace GestionJardin
 
         /* Valiación INDIVIDUAL */
 
-        private void txtDocumento_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Solonumeros(sender, e);
-            string dni = txtDocumento.Text;
-            logPersonas ObjlogPersonas = new logPersonas();
-            string resultado = ObjlogPersonas.ValidarDni(dni);
-            if (resultado == "SI")
-            {
-                txtDocumento.Style = MetroFramework.MetroColorStyle.Red;
-                txtDocumento.Focus();
-                MessageBox.Show("El docente ya se encuentra registrado. ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        //private void txtDocumento_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    Solonumeros(sender, e);
+        //    string dni = txtDocumento.Text;
+        //    logPersonas ObjlogPersonas = new logPersonas();
+        //    string resultado = ObjlogPersonas.ValidarDni(dni);
+        //    if (resultado == "SI")
+        //    {
+        //        txtDocumento.Style = MetroFramework.MetroColorStyle.Red;
+        //        txtDocumento.Focus();
+        //        MessageBox.Show("El docente ya se encuentra registrado. ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
         private void txtNumero_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -438,16 +439,80 @@ namespace GestionJardin
                 lblDni.Visible = false;
                 string dni = txtDocumento.Text;
                 logPersonas ObjlogPersonas = new logPersonas();
+                logDomicilio ObjlogDomicilio = new logDomicilio();
+
                 string resultado = ObjlogPersonas.ValidarDni(dni);
-                if (resultado == "SI")
+                string inactivo = ObjlogPersonas.ValidarDniInactivo(dni);
+
+                entPersona persona = new entPersona();
+                entDomicilio domicilio = new entDomicilio();
+
+                persona = ObjlogPersonas.BuscaDocente(dni);
+                domicilio = ObjlogDomicilio.buscarDomicilioXPersona(Convert.ToInt32(persona.PER_ID));
+
+                idPersona = persona.PER_ID.ToString(); //se usa para invocar al editar
+
+                if (inactivo == "SI")
+                {
+
+                    MessageBoxButtons MessageBoxButtons = MessageBoxButtons.YesNo;
+                    DialogResult dialogResult = MessageBox.Show("El docente esta INACTIVO. ¿Desea darlo de alta nuevamente?", "INFORMACIÓN", MessageBoxButtons, MessageBoxIcon.Question);
+
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        string result = ObjlogPersonas.AltaPersona(dni);
+                        if (result == "OK")
+                        {
+                            MessageBox.Show("Se dio de alta el docente DNI: " + dni + ".", "INFORMACIÓN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            txtNombre.Text = persona.PER_NOMBRE;
+                            txtApellidos.Text = persona.PER_APELLIDO;
+                            dtNacimiento.Value = persona.PER_FECHA_NAC;
+                            if (persona.PER_GENERO.StartsWith("MASCULINO"))
+                            {
+                                cbGenero.SelectedIndex = cbGenero.FindStringExact("MASCULINO");
+                            }
+                            else
+                            {
+                                cbGenero.SelectedIndex = cbGenero.FindStringExact("FEMENINO");
+                            }
+
+                            txtCalle.Text = domicilio.DOM_CALLE;
+                            txtNumero.Text = domicilio.DOM_NUMERO.ToString();
+                            txtCPostal.Text = domicilio.DOM_CP.ToString();
+                            txtPiso.Text = domicilio.DOM_PISO.ToString();
+                            txtDepto.Text = domicilio.DOM_DPTO;
+                            txtBarrio.Text = domicilio.DOM_BARRIO;
+
+                            txtCelular.Text = persona.PER_TELEFONO_2;
+                            txtTelefono.Text = persona.PER_TELEFONO;
+                            txtEmail.Text = persona.PER_EMAIL;
+
+                            btnguardar.Visible = false;
+                            btncancelar.Visible = false;
+                            lblInactivo.Visible = true;
+                            lblInactivo.Text = "*Si desea modificar alguno/s de los datos del docente, debe dirigirse a la opción 'MODIFICAR' en \n " +
+                                        "GESTIÓN DOCENTES > > MODIFICAR";
+                            panelContacto.Enabled = false;
+                            panelDatos.Enabled = false;
+                            panelTurno.Enabled = false;
+
+
+                        }
+                    }
+
+                }
+                else if (resultado == "SI")
                 {
                     txtDocumento.Style = MetroFramework.MetroColorStyle.Red;
                     txtDocumento.Focus();
-                    MessageBox.Show("El docente ya se encuentra registrado. ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    txtNombre.Focus();
+                    MessageBox.Show("El docente ya se encuentra registrado y esta activo. ", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //btnGuardar.Visible = false;
+                    //btnCancelar.Visible = false;
+                    //lblInactivo.Visible = true;
+                    //lblInactivo.Text = "*Si desea modificar alguno/s de los datos del alumno, debe dirigirse a la opción 'Editar' en \n " +
+                    //                    "ESTUDIANTES > GESTIONAR ALUMNOS > EDITAR";
+
+
                 }
             }
         }

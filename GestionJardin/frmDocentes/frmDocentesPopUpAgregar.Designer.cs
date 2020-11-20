@@ -71,7 +71,7 @@
             this.txtCalle = new MetroFramework.Controls.MetroTextBox();
             this.btncancelar = new FontAwesome.Sharp.IconButton();
             this.btnguardar = new FontAwesome.Sharp.IconButton();
-            this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
+            this.panelTurno = new MetroFramework.Controls.MetroPanel();
             this.labelsalas = new System.Windows.Forms.Label();
             this.Cbocargo = new MetroFramework.Controls.MetroComboBox();
             this.metrolabelcargo = new MetroFramework.Controls.MetroLabel();
@@ -80,10 +80,11 @@
             this.metrosala = new MetroFramework.Controls.MetroLabel();
             this.cbTurno = new MetroFramework.Controls.MetroComboBox();
             this.metroturno = new MetroFramework.Controls.MetroLabel();
+            this.lblInactivo = new System.Windows.Forms.Label();
             this.panelDatos.SuspendLayout();
             this.metroPanel1.SuspendLayout();
             this.panelContacto.SuspendLayout();
-            this.metroPanel3.SuspendLayout();
+            this.panelTurno.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelDatos
@@ -336,7 +337,6 @@
             this.txtDocumento.WaterMark = "Documento Ej: 30123456";
             this.txtDocumento.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtDocumento.WaterMarkFont = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDocumento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDocumento_KeyPress);
             this.txtDocumento.Leave += new System.EventHandler(this.txtDocumento_Leave);
             // 
             // txtApellidos
@@ -994,32 +994,32 @@
             this.btnguardar.Visible = false;
             this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
             // 
-            // metroPanel3
+            // panelTurno
             // 
-            this.metroPanel3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.metroPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.metroPanel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.metroPanel3.Controls.Add(this.labelsalas);
-            this.metroPanel3.Controls.Add(this.Cbocargo);
-            this.metroPanel3.Controls.Add(this.metrolabelcargo);
-            this.metroPanel3.Controls.Add(this.metroLabel4);
-            this.metroPanel3.Controls.Add(this.cbSala);
-            this.metroPanel3.Controls.Add(this.metrosala);
-            this.metroPanel3.Controls.Add(this.cbTurno);
-            this.metroPanel3.Controls.Add(this.metroturno);
-            this.metroPanel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.metroPanel3.HorizontalScrollbarBarColor = true;
-            this.metroPanel3.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel3.HorizontalScrollbarSize = 10;
-            this.metroPanel3.Location = new System.Drawing.Point(37, 38);
-            this.metroPanel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.metroPanel3.Name = "metroPanel3";
-            this.metroPanel3.Size = new System.Drawing.Size(1407, 107);
-            this.metroPanel3.TabIndex = 32;
-            this.metroPanel3.UseCustomBackColor = true;
-            this.metroPanel3.VerticalScrollbarBarColor = true;
-            this.metroPanel3.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel3.VerticalScrollbarSize = 11;
+            this.panelTurno.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelTurno.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.panelTurno.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelTurno.Controls.Add(this.labelsalas);
+            this.panelTurno.Controls.Add(this.Cbocargo);
+            this.panelTurno.Controls.Add(this.metrolabelcargo);
+            this.panelTurno.Controls.Add(this.metroLabel4);
+            this.panelTurno.Controls.Add(this.cbSala);
+            this.panelTurno.Controls.Add(this.metrosala);
+            this.panelTurno.Controls.Add(this.cbTurno);
+            this.panelTurno.Controls.Add(this.metroturno);
+            this.panelTurno.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelTurno.HorizontalScrollbarBarColor = true;
+            this.panelTurno.HorizontalScrollbarHighlightOnWheel = false;
+            this.panelTurno.HorizontalScrollbarSize = 10;
+            this.panelTurno.Location = new System.Drawing.Point(37, 26);
+            this.panelTurno.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelTurno.Name = "panelTurno";
+            this.panelTurno.Size = new System.Drawing.Size(1407, 124);
+            this.panelTurno.TabIndex = 32;
+            this.panelTurno.UseCustomBackColor = true;
+            this.panelTurno.VerticalScrollbarBarColor = true;
+            this.panelTurno.VerticalScrollbarHighlightOnWheel = false;
+            this.panelTurno.VerticalScrollbarSize = 11;
             // 
             // labelsalas
             // 
@@ -1138,17 +1138,31 @@
             this.metroturno.UseCustomBackColor = true;
             this.metroturno.UseCustomForeColor = true;
             // 
+            // lblInactivo
+            // 
+            this.lblInactivo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblInactivo.AutoSize = true;
+            this.lblInactivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInactivo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblInactivo.Location = new System.Drawing.Point(48, 725);
+            this.lblInactivo.Name = "lblInactivo";
+            this.lblInactivo.Size = new System.Drawing.Size(20, 25);
+            this.lblInactivo.TabIndex = 48;
+            this.lblInactivo.Text = "*";
+            this.lblInactivo.Visible = false;
+            // 
             // frmDocentesPopUpAgregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(1479, 882);
+            this.Controls.Add(this.lblInactivo);
             this.Controls.Add(this.btncancelar);
             this.Controls.Add(this.btnguardar);
             this.Controls.Add(this.panelContacto);
             this.Controls.Add(this.panelDatos);
-            this.Controls.Add(this.metroPanel3);
+            this.Controls.Add(this.panelTurno);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
@@ -1162,9 +1176,10 @@
             this.metroPanel1.ResumeLayout(false);
             this.panelContacto.ResumeLayout(false);
             this.panelContacto.PerformLayout();
-            this.metroPanel3.ResumeLayout(false);
-            this.metroPanel3.PerformLayout();
+            this.panelTurno.ResumeLayout(false);
+            this.panelTurno.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1212,7 +1227,7 @@
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblBarrio;
         private System.Windows.Forms.Label lblCelular;
-        private MetroFramework.Controls.MetroPanel metroPanel3;
+        private MetroFramework.Controls.MetroPanel panelTurno;
         private MetroFramework.Controls.MetroComboBox Cbocargo;
         private MetroFramework.Controls.MetroLabel metrolabelcargo;
         private MetroFramework.Controls.MetroLabel metroLabel4;
@@ -1221,5 +1236,6 @@
         private MetroFramework.Controls.MetroComboBox cbTurno;
         private MetroFramework.Controls.MetroLabel metroturno;
         private System.Windows.Forms.Label labelsalas;
+        private System.Windows.Forms.Label lblInactivo;
     }
 }

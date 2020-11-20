@@ -45,6 +45,7 @@ namespace GestionJardin
             Tip.SetToolTip(this.btnGA_Agregar,"Ingresar o dar de alta un alumno");
             Tip.SetToolTip(this.btnGA_Editar, "Visualizar y/o modificar los datos de un alumno");
             Tip.SetToolTip(this.btnGA_Eliminar, "Dar de baja un alumno");
+            Tip.SetToolTip(this.btn_ImprimirSala, "Obtener lista de alumnos por sala");
         }
 
         private void carga_grilla_filtrada()

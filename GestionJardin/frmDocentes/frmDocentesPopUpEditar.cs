@@ -681,12 +681,12 @@ namespace GestionJardin
 
         private void cbSala_SelectedValueChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnInforme_Click(object sender, EventArgs e)
         {
-           
+            fichaDocente fichaDocente = new fichaDocente(idPersonaSelect);
         }
     }
 }

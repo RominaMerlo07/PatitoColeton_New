@@ -106,10 +106,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DtasDocente.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DtasDocente.xsd</DependentUpon>
+    <Compile Include="Reporte\Docentes\fichaDocente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\Docentes\fichaDocente.Designer.cs">
+      <DependentUpon>fichaDocente.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAlumnos\Estudiantes_GrupoFlia\frmAlumnosGrupoFlia.cs">
       <SubType>Form</SubType>
@@ -345,12 +346,6 @@
     <Compile Include="frmPrincipal.Designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmreporte.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmreporte.Designer.cs">
-      <DependentUpon>frmreporte.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmSalas\frmSalasPopUpEliminar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -438,6 +433,10 @@
     <Compile Include="LocalReportExtension.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Reporte\Docentes\fichaDocente.rdlc" />
+    <EmbeddedResource Include="Reporte\Docentes\fichaDocente.resx">
+      <DependentUpon>fichaDocente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reporte\Alumnos\CantidadAlumnosSala.rdlc" />
     <EmbeddedResource Include="frmAlumnos\Estudiantes_GestionAlumnos\ImprimirLista.resx">
       <DependentUpon>ImprimirLista.cs</DependentUpon>
@@ -564,9 +563,6 @@
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmreporte.resx">
-      <DependentUpon>frmreporte.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmSalas\frmSalasPopUpEliminar.resx">
       <DependentUpon>frmSalasPopUpEliminar.cs</DependentUpon>
     </EmbeddedResource>
@@ -616,19 +612,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Report2.rdlc" />
     <None Include="ClassDiagram1.cd" />
-    <None Include="DtasDocente.xsc">
-      <DependentUpon>DtasDocente.xsd</DependentUpon>
-    </None>
-    <None Include="DtasDocente.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DtasDocente.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="DtasDocente.xss">
-      <DependentUpon>DtasDocente.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\CaEnt.CantidadAlumnosSalas.datasource" />
     <None Include="Properties\DataSources\CaEnt.entAsistencia+entAsistenciaColeccion.datasource" />

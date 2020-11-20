@@ -30,11 +30,7 @@ namespace GestionJardin
         {
             InitializeComponent();
         }
-
-        private void frmDocentesPopUpEliminar_Load(object sender, EventArgs e)
-        {
-
-        }
+              
 
         private void frmDocentesPopUpEliminar_MouseDown(object sender, MouseEventArgs e)
         {
@@ -53,9 +49,9 @@ namespace GestionJardin
                 
                 var usumetodo = new logUsuario();
                 objetopersona.EliminarDocente(personaEditar);
-                objetopersona.EliminarDocenteGrupoSala(personaEditar);
+               // objetopersona.EliminarDocenteGrupoSala(personaEditar);
 
-                MessageBox.Show("SE DIO DE BAJA CORRECTAMENTE AL DOCENTE " + lblnombredocente.Text);                
+                MessageBox.Show("SE DIO DE BAJA AL DOCENTE " + lblnombredocente.Text, "Información",MessageBoxButtons.OK, MessageBoxIcon.Information);                
                 this.Close();
         }
 

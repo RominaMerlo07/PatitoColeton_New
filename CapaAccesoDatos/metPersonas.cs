@@ -511,12 +511,12 @@ namespace CaAD//GestionJardin
                                            "PER_TELEFONO_2 'CELULAR', " +
                                            "PER_EMAIL 'EMAIL', " +
                                            "PER_FECHA_ALTA FECHA_DE_ALTA, " +
-                                           "PER_FECHA_MOD FECHA_DE_MODIFICACION " +                                          
+                                           "PER_FECHA_MOD FECHA_DE_MODIFICACION " +
                                            "FROM T_PERSONAS, T_GRUPO_SALA, T_SALA " +
                                            "WHERE PER_ID = GRS_PER_ID " +
                                            "AND GRS_SAL_ID = SAL_ID " +
                                            "AND PER_TPE_ID = 1 " +
-                                           "AND PER_ESTADO = 'S' ";
+                                           "AND PER_ESTADO = 'S';";
 
 
             com = new SqlCommand(CargarDocente, con);

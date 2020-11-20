@@ -30,17 +30,19 @@ namespace CaAD//GestionJardin
                                               "SAL_TURNO, " +
                                               "SAL_CANT_ALUM, " +
                                               "SAL_ID " +
-                                        "FROM T_GRUPO_SALA, T_SALA " +
-                                        "WHERE GRS_SAL_ID = SAL_ID " +
-                                        "GROUP BY SAL_NOMBRE, SAL_TURNO, SAL_CANT_ALUM, SAL_ID " +
-                                      "UNION " +
+                                        "FROM T_GRUPO_SALA, T_SALA, T_PERSONAS " +
+                                       "WHERE GRS_SAL_ID = SAL_ID " +
+                                       "AND GRS_PER_ID = PER_ID " +
+                                       "AND PER_TPE_ID = 2 " +
+                                       "UNION " +
                                        "SELECT 0 , " +
                                               "SAL_NOMBRE, " +
                                               "SAL_TURNO, " +
                                               "SAL_CANT_ALUM, " +
                                               "SAL_ID " +
                                        "FROM T_SALA s " +
-                                       "WHERE SAL_ID not in (SELECT GRS_SAL_ID FROM T_GRUPO_SALA ) " +
+                                       "WHERE SAL_ID not in (SELECT GRS_SAL_ID FROM T_GRUPO_SALA) " +
+                                       "AND SAL_ACTIVO = 'S' " +
                                        "GROUP BY SAL_NOMBRE, SAL_TURNO, SAL_CANT_ALUM, SAL_ID) " +
                                "SELECT s.SAL_ID, " +
                                       "t1.SAL_NOMBRE NOMBRE_SALA, " +

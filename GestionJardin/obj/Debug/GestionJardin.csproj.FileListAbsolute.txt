@@ -1270,7 +1270,6 @@ C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.frmInformeProgr
 C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.frmInformeProgreso_AgregarMateria.resources
 C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.frmLogin.resources
 C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.frmPrincipal.resources
-C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.frmreporte.resources
 C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.frmSalasPopUpEliminar.resources
 C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.frmSalas.resources
 C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.frmSalasPopUpAgregar.resources
@@ -1294,3 +1293,4 @@ C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.csproj.CopyComp
 C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.exe
 C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.pdb
 C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.ImprimirLista.resources
+C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.fichaDocente.resources
