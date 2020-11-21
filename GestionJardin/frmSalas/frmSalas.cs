@@ -25,6 +25,7 @@ namespace GestionJardin
 
         private void frmSalas_Load(object sender, EventArgs e)
         {
+            Settooltip();
             dgv_Salas.ClearSelection();          
             dgv_Salas.DataSource = metSala.GrillaSalas();
             dgv_Salas.Columns["SAL_ID"].Visible = false;
@@ -51,6 +52,16 @@ namespace GestionJardin
             btnGS_Eliminar.IconColor = Color.Gray;
             btnGS_Eliminar.ForeColor = Color.Gray;
         }
+
+        private void Settooltip()
+        {
+            ToolTip Tip = new ToolTip();
+            Tip.SetToolTip(this.btnGS_Agregar, "Dar de alta una sala");
+            Tip.SetToolTip(this.btnGS_Editar, "Visualizar y/o modificar los datos de una sala");
+            Tip.SetToolTip(this.btnGS_Eliminar, "Dar de baja una sala");        
+        }
+
+
 
         private void btnGS_Editar_Click(object sender, EventArgs e)
         {
