@@ -20,6 +20,7 @@ namespace GestionJardin
 
         // Variables
         int idHmno;
+        string idPersona;
 
         public frmAlumnosPopUpAgregar()
         {
@@ -538,15 +539,79 @@ namespace GestionJardin
         private void txtDocumento_KeyPress(object sender, KeyPressEventArgs e)
         {
             soloNumeros(sender, e);
-            string dni = txtDocumento.Text;
-            logPersonas ObjlogPersonas = new logPersonas();      
-            string resultado = ObjlogPersonas.ValidarDni(dni);
-            if (resultado == "SI")
-            {
-                txtDocumento.Style = MetroFramework.MetroColorStyle.Red;
-                txtDocumento.Focus();
-                MessageBox.Show("El alumno ya se encuentra registrado. ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //string dni = txtDocumento.Text;
+            //logPersonas ObjlogPersonas = new logPersonas();
+            //logDomicilio ObjlogDomicilio = new logDomicilio();
+
+            //string resultado = ObjlogPersonas.ValidarDni(dni);
+            //string inactivo = ObjlogPersonas.ValidarDniInactivo(dni);
+
+            //entPersona persona = new entPersona();
+            //entDomicilio domicilio = new entDomicilio();
+
+            //persona = ObjlogPersonas.BuscaDocente(dni);
+            //domicilio = ObjlogDomicilio.buscarDomicilioXPersona(Convert.ToInt32(persona.PER_ID));
+
+            //if (inactivo == "SI")
+            //{
+
+            //    MessageBoxButtons MessageBoxButtons = MessageBoxButtons.YesNo;
+            //    DialogResult dialogResult = MessageBox.Show("El alumno esta INACTIVO. ¿Desea darlo de alta nuevamente?", "INFORMACIÓN", MessageBoxButtons, MessageBoxIcon.Question);
+
+            //    if (dialogResult == DialogResult.Yes)
+            //    {
+            //        string result = ObjlogPersonas.AltaPersona(dni);
+            //        if (result == "OK")
+            //        {
+            //            MessageBox.Show("Se dio de alta el alumno DNI: " + dni + ".", "INFORMACIÓN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //            txtNombre.Text = persona.PER_NOMBRE;
+            //            txtApellidos.Text = persona.PER_APELLIDO;
+            //            dtNacimiento.Value = persona.PER_FECHA_NAC;
+            //            if (persona.PER_GENERO.StartsWith("MASCULINO"))
+            //            {
+            //                cbGenero.SelectedIndex = cbGenero.FindStringExact("MASCULINO");
+            //            }
+            //            else
+            //            {
+            //                cbGenero.SelectedIndex = cbGenero.FindStringExact("FEMENINO");
+            //            }
+
+            //            txtCalle.Text = domicilio.DOM_CALLE;
+            //            txtNumero.Text = domicilio.DOM_NUMERO.ToString();
+            //            txtCPostal.Text = domicilio.DOM_CP.ToString();
+            //            txtPiso.Text = domicilio.DOM_PISO.ToString();
+            //            txtDepto.Text = domicilio.DOM_DPTO;
+            //            txtBarrio.Text = domicilio.DOM_BARRIO;
+
+            //            txtCelular.Text = persona.PER_TELEFONO_2;
+            //            txtTelefono.Text = persona.PER_TELEFONO;
+            //            txtEmail.Text = persona.PER_EMAIL;
+
+            //            btnGuardar.Visible = false;
+            //            btnCancelar.Visible = false;
+            //            lblInactivo.Visible = true;
+            //            lblInactivo.Text = "*Si desea modificar alguno/s de los datos del alumno, debe dirigirse a la opción 'Editar' en \n " +
+            //                            "ESTUDIANTES > GESTIONAR ALUMNOS > EDITAR";
+            //            panelContacto.Enabled = false;
+            //            panelDatos.Enabled = false;
+            //            panelTurno.Enabled = false;                 
+            //        }
+            //    }
+
+            //}
+            //else if (resultado == "SI")
+            //{
+            //    txtDocumento.Style = MetroFramework.MetroColorStyle.Red;
+            //    txtDocumento.Focus();
+            //    MessageBox.Show("El alumno ya se encuentra registrado y esta activo. ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    //btnGuardar.Visible = false;
+            //    //btnCancelar.Visible = false;
+            //    //lblInactivo.Visible = true;
+            //    //lblInactivo.Text = "*Si desea modificar alguno/s de los datos del alumno, debe dirigirse a la opción 'Editar' en \n " +
+            //    //                        "ESTUDIANTES > GESTIONAR ALUMNOS > EDITAR";
+             
+            //}
+
         }
 
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
@@ -610,13 +675,81 @@ namespace GestionJardin
                 lblDni.Visible = false;
                 string dni = txtDocumento.Text;
                 logPersonas ObjlogPersonas = new logPersonas();
+                logDomicilio ObjlogDomicilio = new logDomicilio();
+
                 string resultado = ObjlogPersonas.ValidarDni(dni);
-                if (resultado == "SI")
+                string inactivo = ObjlogPersonas.ValidarDniInactivo(dni);
+
+                entPersona persona = new entPersona();
+                entDomicilio domicilio = new entDomicilio();
+
+                persona = ObjlogPersonas.BuscaDocente(dni);
+                domicilio = ObjlogDomicilio.buscarDomicilioXPersona(Convert.ToInt32(persona.PER_ID));
+
+                idPersona = persona.PER_ID.ToString(); //se usa para invocar al editar
+
+                if (inactivo == "SI")
+                {
+                 
+                    MessageBoxButtons MessageBoxButtons = MessageBoxButtons.YesNo;
+                    DialogResult dialogResult = MessageBox.Show("El alumno esta INACTIVO. ¿Desea darlo de alta nuevamente?", "INFORMACIÓN", MessageBoxButtons, MessageBoxIcon.Question);
+
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        string result = ObjlogPersonas.AltaPersona(dni);
+                        if (result == "OK")
+                        {
+                            MessageBox.Show("Se dio de alta el alumno DNI: " + dni + ".", "INFORMACIÓN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            txtNombre.Text = persona.PER_NOMBRE;
+                            txtApellidos.Text = persona.PER_APELLIDO;
+                            dtNacimiento.Value = persona.PER_FECHA_NAC;
+                            if (persona.PER_GENERO.StartsWith("MASCULINO"))
+                            {
+                                cbGenero.SelectedIndex = cbGenero.FindStringExact("MASCULINO");
+                            }
+                            else
+                            {
+                                cbGenero.SelectedIndex = cbGenero.FindStringExact("FEMENINO");
+                            }
+
+                            txtCalle.Text = domicilio.DOM_CALLE;
+                            txtNumero.Text = domicilio.DOM_NUMERO.ToString();
+                            txtCPostal.Text = domicilio.DOM_CP.ToString();
+                            txtPiso.Text = domicilio.DOM_PISO.ToString();
+                            txtDepto.Text = domicilio.DOM_DPTO;
+                            txtBarrio.Text = domicilio.DOM_BARRIO;
+
+                            txtCelular.Text = persona.PER_TELEFONO_2;
+                            txtTelefono.Text = persona.PER_TELEFONO;
+                            txtEmail.Text = persona.PER_EMAIL;
+
+                            btnGuardar.Visible = false;
+                            btnCancelar.Visible = false;
+                            lblInactivo.Visible = true;
+                            lblInactivo.Text = "*Si desea modificar alguno/s de los datos del alumno, debe dirigirse a la opción 'MODIFICAR' en \n " +
+                                        "ESTUDIANTES > GESTIONAR ALUMNOS > MODIFICAR";
+                            panelContacto.Enabled = false;
+                            panelDatos.Enabled = false;
+                            panelTurno.Enabled = false;
+                       
+                            
+                        }
+                    }
+
+                }
+                else if (resultado == "SI")
                 {
                     txtDocumento.Style = MetroFramework.MetroColorStyle.Red;
                     txtDocumento.Focus();
-                    MessageBox.Show("El alumno ya se encuentra registrado. ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                    MessageBox.Show("El alumno ya se encuentra registrado y esta activo. ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //btnGuardar.Visible = false;
+                    //btnCancelar.Visible = false;
+                    //lblInactivo.Visible = true;
+                    //lblInactivo.Text = "*Si desea modificar alguno/s de los datos del alumno, debe dirigirse a la opción 'Editar' en \n " +
+                    //                    "ESTUDIANTES > GESTIONAR ALUMNOS > EDITAR";
+
+
+                }                               
             }
         }
 
@@ -940,7 +1073,10 @@ namespace GestionJardin
 
                 }
             }
-        }        
+        }
 
+       
+
+       
     }
 }

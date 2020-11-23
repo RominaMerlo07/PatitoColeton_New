@@ -1093,7 +1093,6 @@ C:\Users\Federico\Desktop\NO MOVER\GestionJardin\bin\Debug\ru\Microsoft.ReportVi
 C:\Users\Federico\Desktop\NO MOVER\GestionJardin\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\Federico\Desktop\NO MOVER\GestionJardin\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\Federico\Desktop\NO MOVER\GestionJardin\obj\Debug\GestionJardin.csprojAssemblyReference.cache
-C:\Users\Federico\Desktop\NO MOVER\GestionJardin\obj\Debug\GestionJardin.fichaAlumno.resources
 C:\Users\Federico\Desktop\NO MOVER\GestionJardin\obj\Debug\GestionJardin.frmAlumnosGrupoFlia.resources
 C:\Users\Federico\Desktop\NO MOVER\GestionJardin\obj\Debug\GestionJardin.frmAlumnosGrupoFliaPopUpAgregar.resources
 C:\Users\Federico\Desktop\NO MOVER\GestionJardin\obj\Debug\GestionJardin.frmAlumnosGrupoFliaPopUpEditar.resources
@@ -1133,7 +1132,6 @@ C:\Users\Federico\Desktop\NO MOVER\GestionJardin\obj\Debug\GestionJardin.frmInfo
 C:\Users\Federico\Desktop\NO MOVER\GestionJardin\obj\Debug\GestionJardin.frmInformeProgreso_AgregarMateria.resources
 C:\Users\Federico\Desktop\NO MOVER\GestionJardin\obj\Debug\GestionJardin.frmLogin.resources
 C:\Users\Federico\Desktop\NO MOVER\GestionJardin\obj\Debug\GestionJardin.frmPrincipal.resources
-C:\Users\Federico\Desktop\NO MOVER\GestionJardin\obj\Debug\GestionJardin.frmreporte.resources
 C:\Users\Federico\Desktop\NO MOVER\GestionJardin\obj\Debug\GestionJardin.frmSalasPopUpEliminar.resources
 C:\Users\Federico\Desktop\NO MOVER\GestionJardin\obj\Debug\GestionJardin.frmSalas.resources
 C:\Users\Federico\Desktop\NO MOVER\GestionJardin\obj\Debug\GestionJardin.frmSalasPopUpAgregar.resources
@@ -1153,3 +1151,13 @@ C:\Users\Federico\Desktop\NO MOVER\GestionJardin\obj\Debug\GestionJardin.applica
 C:\Users\Federico\Desktop\NO MOVER\GestionJardin\obj\Debug\GestionJardin.csproj.CopyComplete
 C:\Users\Federico\Desktop\NO MOVER\GestionJardin\obj\Debug\GestionJardin.exe
 C:\Users\Federico\Desktop\NO MOVER\GestionJardin\obj\Debug\GestionJardin.pdb
+C:\Users\Federico\Desktop\NO MOVER\GestionJardin\obj\Debug\GestionJardin.ImprimirListaSala.resources
+C:\Users\Federico\Desktop\NO MOVER\GestionJardin\obj\Debug\GestionJardin.ListaGrupoFlia.resources
+C:\Users\Federico\Desktop\NO MOVER\GestionJardin\obj\Debug\GestionJardin.ListaTotalDocentes.resources
+C:\Users\Federico\Desktop\NO MOVER\GestionJardin\obj\Debug\GestionJardin.ListaDocentes.resources
+C:\Users\Federico\Desktop\NO MOVER\GestionJardin\obj\Debug\GestionJardin.fichaDocente.resources
+C:\Users\Federico\Desktop\NO MOVER\GestionJardin\obj\Debug\GestionJardin.ImprimirLista.resources
+C:\Users\Federico\Desktop\NO MOVER\GestionJardin\obj\Debug\GestionJardin.ListaAlumnos.resources
+C:\Users\Federico\Desktop\NO MOVER\GestionJardin\obj\Debug\GestionJardin.informeTotalAusencias.resources
+C:\Users\Federico\Desktop\NO MOVER\GestionJardin\obj\Debug\GestionJardin.InformeTotalAsistencias.resources
+C:\Users\Federico\Desktop\NO MOVER\GestionJardin\obj\Debug\GestionJardin.InformeFichaAlumno.resources

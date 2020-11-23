@@ -25,11 +25,19 @@ namespace GestionJardin
 
         private void frmSalas_Load(object sender, EventArgs e)
         {
+            Settooltip();
             dgv_Salas.ClearSelection();          
             dgv_Salas.DataSource = metSala.GrillaSalas();
             dgv_Salas.Columns["SAL_ID"].Visible = false;
 
-            
+            this.dgv_Salas.Columns["NOMBRE_SALA"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            this.dgv_Salas.Columns["TURNO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            this.dgv_Salas.Columns["RANGO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            this.dgv_Salas.Columns["CUPO_TOTAL"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            this.dgv_Salas.Columns["CUPOS_ACTIVOS"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            this.dgv_Salas.Columns["VACANTES"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+
             DataTable dt = metSala.BuscarSala();
             
             foreach (DataRow row in dt.Rows)
@@ -45,6 +53,16 @@ namespace GestionJardin
             btnGS_Eliminar.ForeColor = Color.Gray;
         }
 
+        private void Settooltip()
+        {
+            ToolTip Tip = new ToolTip();
+            Tip.SetToolTip(this.btnGS_Agregar, "Dar de alta una sala");
+            Tip.SetToolTip(this.btnGS_Editar, "Visualizar y/o modificar los datos de una sala");
+            Tip.SetToolTip(this.btnGS_Eliminar, "Dar de baja una sala");        
+        }
+
+
+
         private void btnGS_Editar_Click(object sender, EventArgs e)
         {
             if (dgv_Salas.SelectedRows.Count > 0)
@@ -53,7 +71,7 @@ namespace GestionJardin
                 btnGS_Editar.ForeColor = Color.Cyan;
                 string idSalaSelect = dgv_Salas.SelectedRows[0].Cells[0].Value.ToString();
                 frmSalasPopUpEditar frmSalasPopUpEditar = new frmSalasPopUpEditar(idSalaSelect);
-                frmSalasPopUpEditar.Text = "GESTIÓN SALAS / EDITAR Y/O VISUALIZAR DATOS DE UNA SALA";
+                frmSalasPopUpEditar.Text = "GESTIÓN SALAS / MODIFICAR DATOS DE UNA SALA";
                 frmSalasPopUpEditar.ShowDialog();
 
                 dgv_Salas.DataSource = metSala.GrillaSalas();
@@ -105,7 +123,7 @@ namespace GestionJardin
                 string idSalaSelect = dgv_Salas.SelectedRows[0].Cells[0].Value.ToString();
                 string nombreSala= dgv_Salas.SelectedRows[0].Cells[1].Value.ToString();
                 frmSalasPopUpEliminar frmSalasPopUpEliminar = new frmSalasPopUpEliminar(idSalaSelect, nombreSala);
-                frmSalasPopUpEliminar.Text = "GESTIÓN SALAS / ELIMINAR SALA";
+                frmSalasPopUpEliminar.Text = "GESTIÓN SALAS / PROCESAR BAJA";
                 frmSalasPopUpEliminar.ShowDialog();
 
                 dgv_Salas.DataSource = metSala.GrillaSalas();

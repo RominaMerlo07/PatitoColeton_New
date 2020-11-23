@@ -45,6 +45,14 @@ namespace GestionJardin
         private void frmAsistencia_Load(object sender, EventArgs e)
         {           
             Inicializar();
+            Settooltip();
+        }
+
+
+        private void Settooltip()
+        {
+            ToolTip Tip = new ToolTip();
+            Tip.SetToolTip(this.btn_Informe, "Aquí puede imprimir la lista de asistencias por día");            
         }
 
         private void cargar_cbSala()
@@ -200,6 +208,13 @@ namespace GestionJardin
 
                             dgv_Alumnos.Columns["PER_ID"].Visible = false;
                             dgv_Alumnos.Columns["AS_ID"].Visible = false;
+
+                            this.dgv_Alumnos.Columns["ALUMNO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                            this.dgv_Alumnos.Columns["DOCUMENTO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                            this.dgv_Alumnos.Columns["SALA"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                            this.dgv_Alumnos.Columns["TURNO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                            this.dgv_Alumnos.Columns["ASISTENCIA"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                            this.dgv_Alumnos.Columns["JUSTIFICADO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
                             lblAusencias.Visible = true;
                             lblAusencias.Text = logAsistencia.infoAusencias(id_sala, lblFecha.Text);
@@ -429,9 +444,7 @@ namespace GestionJardin
             lblErrorJustificado.Visible = false;
             lblInfo.Visible = false;
             btn_Informe.Visible = false;
-
-            
-
+                       
             btnguardar.Visible = false;
             btncancelar.Visible = false;
             dgv_Alumnos.ClearSelection();

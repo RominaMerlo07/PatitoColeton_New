@@ -108,8 +108,8 @@ namespace CaAD//GestionJardin
                                         "P.PER_FECHA_NAC AS 'FECHA NACIMIENTO', " +
                                         "DATEDIFF(YEAR, P.PER_FECHA_NAC, GETDATE()) AS 'EDAD', " +
                                         "CONCAT(D.DOM_CALLE, ', Nº: ', D.DOM_NUMERO, '. BARRIO: ', D.DOM_BARRIO, ', CP: ', D.DOM_CP, ' ', D.DOM_PROVINCIA) AS 'DOMICILIO', " +
+                                        "P.PER_TELEFONO_2 AS 'CELULAR', " +
                                         "P.PER_TELEFONO AS 'TELEFONO', " +
-                                        "P.PER_TELEFONO_2 AS 'TELEFONO 2', " +
                                         "(CASE WHEN S.SAL_TURNO = 'MANANA' THEN 'MAÑANA' ELSE 'TARDE' END ) AS 'TURNO', " +
                                         "S.SAL_NOMBRE AS 'SALA' " +
                                     "FROM T_PERSONAS P, T_DOMICILIOS D, T_GRUPO_SALA GS, T_SALA S " +
@@ -118,7 +118,7 @@ namespace CaAD//GestionJardin
                                         "AND S.SAL_ID = GS.GRS_SAL_ID " +
                                         "AND P.PER_TPE_ID = 2 " +
                                         "AND P.PER_ESTADO = 'S' " + //ver con GASTON como esta definido, por en mi base tengo 'S'  (Romi)
-                                        "ORDER BY 'ALUMNO' ASC;";
+                                        "ORDER BY EDAD, ALUMNO;";
 
                 cmd = new SqlCommand(consulta, con);
                 dta = new SqlDataAdapter(cmd);
@@ -397,8 +397,8 @@ namespace CaAD//GestionJardin
             con.Open();
 
             string result;
-
-            string consulta = "SELECT PER_DOCUMENTO FROM T_PERSONAS WHERE PER_ESTADO='S' AND PER_DOCUMENTO = '" + pDNI + "'"; /*******************************
+            //SELECT PER_DOCUMENTO FROM T_PERSONAS WHERE PER_ESTADO='S' AND PER_DOCUMENTO
+            string consulta = "SELECT PER_DOCUMENTO FROM T_PERSONAS WHERE PER_ESTADO = 'S' AND PER_DOCUMENTO = '" + pDNI + "'"; /*******************************
                              VER SI SE FILTRA POR ACTIVO PARA QUE PERMITA INGRESA UN NUEVO DNI O COMO SE RESUELVE EL ELMINAR UNA PERSONA */
 
             cmd = new SqlCommand(consulta, con);
@@ -419,6 +419,36 @@ namespace CaAD//GestionJardin
 
 
         }
+
+        public string ValidarDniInactivo(string pDNI)
+        {
+            con = generarConexion();
+            con.Open();
+
+            string result;
+
+            string consulta = "SELECT PER_ESTADO FROM T_PERSONAS WHERE PER_ESTADO = 'N' AND PER_DOCUMENTO = '" + pDNI + "'"; /*******************************
+                             VER SI SE FILTRA POR ACTIVO PARA QUE PERMITA INGRESA UN NUEVO DNI O COMO SE RESUELVE EL ELMINAR UNA PERSONA */
+
+            cmd = new SqlCommand(consulta, con);
+
+            dr = cmd.ExecuteReader();
+
+
+            if (dr.Read())
+            {
+                result = "SI";
+            }
+            else
+            {
+                result = "NO";
+            }
+
+            return result;
+
+
+        }
+
 
         // Valida que EL MAIL sea ingresado con su estructura correcta
 
@@ -471,37 +501,22 @@ namespace CaAD//GestionJardin
             con = generarConexion();
             con.Open();
             SqlCommand com = new SqlCommand();
-            com.Connection = con; 
+            com.Connection = con;
+
             string CargarDocente = "SELECT  CONCAT(PER_APELLIDO, ', ', PER_NOMBRE) AS 'DOCENTE', " +
                                            "PER_DOCUMENTO 'DOCUMENTO', " +
-                                           "PER_TELEFONO_2 'CELULAR', " +
-                                           "PER_TELEFONO 'TELEFONO', " +
-                                           "PER_EMAIL 'EMAIL', " +
+                                           "CASE GRS_CARGO WHEN 'TITULAR' THEN 'TITULAR' ELSE 'SUPLENTE' END 'CARGO'," +
                                            "CASE SAL_TURNO WHEN 'MANANA' THEN 'MAÑANA' ELSE 'TARDE' END 'TURNO', " +
                                            "SAL_NOMBRE 'SALA', " +
-                                           "PER_FECHA_ALTA FECHA_DE_ALTA, " +
-                                           "PER_FECHA_MOD FECHA_DE_MODIFICACION, " +
-                                           "PER_FECHA_BAJA FECHA_DE_BAJA " +
-                                     "FROM T_PERSONAS, T_GRUPO_SALA, T_SALA " +
-                                    "WHERE PER_ID = GRS_PER_ID " +
-                                      "AND GRS_SAL_ID = SAL_ID " +
-                                      "AND PER_TPE_ID = 1 " +
-                                      "AND PER_ESTADO = 'S' " +
-                                      "UNION " +
-                                   "SELECT  CONCAT(PER_APELLIDO, ', ', PER_NOMBRE) AS 'DOCENTE', " +
-                                           "PER_DOCUMENTO, " +
                                            "PER_TELEFONO_2 'CELULAR', " +
-                                           "PER_TELEFONO, " +
-                                           "PER_EMAIL, " +
-                                           "'', " +
-                                           "'', " +
-                                           "PER_FECHA_ALTA, " +
-                                           "PER_FECHA_MOD, " +
-                                           "PER_FECHA_BAJA " +
-                                     "FROM T_PERSONAS " +
-                                    "WHERE PER_TPE_ID = 1 " +
-                                      "AND PER_ID not in (SELECT GRS_PER_ID FROM T_GRUPO_SALA) " +
-                                      "AND PER_ESTADO = 'S' ";
+                                           "PER_EMAIL 'EMAIL', " +
+                                           "PER_FECHA_ALTA FECHA_DE_ALTA, " +
+                                           "PER_FECHA_MOD FECHA_DE_MODIFICACION " +
+                                           "FROM T_PERSONAS, T_GRUPO_SALA, T_SALA " +
+                                           "WHERE PER_ID = GRS_PER_ID " +
+                                           "AND GRS_SAL_ID = SAL_ID " +
+                                           "AND PER_TPE_ID = 1 " +
+                                           "AND PER_ESTADO = 'S';";
 
 
             com = new SqlCommand(CargarDocente, con);
@@ -542,6 +557,38 @@ namespace CaAD//GestionJardin
             return result;
 
         }
+
+
+        public string AltaPersona(string pdni)
+        {
+            string result;
+
+            try
+            {
+                con = generarConexion();
+                con.Open();
+                string consulta = "UPDATE T_PERSONAS " +
+                                  "SET PER_ESTADO = 'S', PER_FECHA_BAJA = NULL, PER_FECHA_MOD = GETDATE()" +
+                                  "WHERE PER_DOCUMENTO = '"+ pdni + "';";
+
+                cmd = new SqlCommand(consulta, con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                result = "OK";
+
+            }
+            catch
+            {
+                result = "ERROR";
+                //MessageBox.Show("Hubo un problema. Contáctese con su administrador.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            return result;
+
+        }
+
+
 
         // ELIMINA EL DOCENTE DE LA GRUPO_SALAS
 
@@ -798,14 +845,9 @@ namespace CaAD//GestionJardin
 
 
             int Edad_D = FechaActual.Year - pfechaNacimiento.Year;
-            if (FechaActual < pfechaNacimiento.AddYears(Edad_D))
-                Edad_D--;
-
-            if (Edad_D < 18)
-            {
-                //MessageBox.Show("Este docente tiene menos de 18 años. No puede ser registrado.");
-
-            }
+            
+                    
+           
             return Edad_D;
 
         }    
@@ -864,8 +906,7 @@ namespace CaAD//GestionJardin
 
 
         public DataSet fichaAlumno(string idAlumno)
-        {
-            fichaAlumno fichaAlumno = new fichaAlumno();
+        {        
 
             DataSet dset = new DataSet();
 
@@ -874,38 +915,44 @@ namespace CaAD//GestionJardin
 
             try
             {
-                string consulta = "SELECT PER_NOMBRE, " +
-                                         "PER_APELLIDO, " +
-                                         "PER_DOCUMENTO, " +
+                string consulta = "SELECT PER_NOMBRE NOMBRE, " +
+                                         "PER_APELLIDO APELLIDO, " +
+                                         "PER_DOCUMENTO DOCUMENTO, " +
                                          "(Select DATEDIFF(YEAR, PER_FECHA_NAC, GETDATE()) - " +
                                                  "(CASE " +
-                                                    "WHEN DATEADD(YY, DATEDIFF(YEAR, T_PERSONAS.PER_FECHA_NAC, GETDATE()),T_PERSONAS.PER_FECHA_NAC)> GETDATE() THEN 1 " +
+                                                    "WHEN DATEADD(YY, DATEDIFF(YEAR, T_PERSONAS.PER_FECHA_NAC, GETDATE()), T_PERSONAS.PER_FECHA_NAC) > GETDATE() THEN 1 " +
                                                     "ELSE 0 " +
-                                                    "END)) as EDAD, " +
-                                         "PER_FECHA_NAC, " +
-                                         "PER_GENERO, " +
-                                         "PER_LEGAJO, " +
-                                         "PER_FECHA_ALTA, " +
-                                         "PER_EMAIL, " +
-                                         "DOM_CALLE, " +
-                                         "DOM_NUMERO, " +
-                                         "DOM_DPTO, " +
-                                         "DOM_PISO, " +
-                                         "DOM_BARRIO, " +
-                                         "DOM_CP, " +
-                                         "SAL_NOMBRE, " +
-                                         "SAL_TURNO, " +
-                                         "GETDATE() fecha " +
-                                         "FROM T_PERSONAS, " +
-                                         "T_SALA, " +
-                                         "T_GRUPO_SALA, " +
-                                         "T_DOMICILIOS " +
-                                   "WHERE PER_ID = DOM_PER_ID " +
-                                     "AND PER_ID = GRS_PER_ID " +
-                                     "AND GRS_SAL_ID = SAL_ID " +
-                                     "AND PER_TPE_ID = 2 " +
-                                     "AND PER_ESTADO = 'S' " +
-                                     "AND PER_ID = '"+ idAlumno +"'; ";
+                                                  "END)) as EDAD, " +
+                                         "PER_FECHA_NAC FECHA_NACIMIENTO, " +
+                                         "PER_GENERO GENERO, " +
+                                         "PER_LEGAJO LEGAJO, " +
+                                         "PER_FECHA_ALTA FECHA_ALTA, " +
+                                         "PER_FECHA_MOD FECHA_MODIFICACION, " +
+                                         "PER_EMAIL EMAIL, " +
+                                         "PER_TELEFONO TELEFONO, " +
+                                         "PER_TELEFONO_2 CELULAR, " +
+                                         "DOM_CALLE CALLE, " +
+                                         "DOM_NUMERO NUMERO, " +
+                                         "DOM_DPTO DPTO, " +
+                                         "DOM_PISO PISO, " +
+                                         "DOM_BARRIO BARRIO, " +
+                                         "DOM_CP CP, " +
+                                         "SAL_NOMBRE SALA, " +
+                                         "(CASE SAL_TURNO " +
+                                               "WHEN 'MANANA' THEN 'MAÑANA' " +
+                                               "ELSE 'TARDE' " +
+                                          "END)TURNO, " +
+                                          "GRS_CARGO CARGO, " +
+                                          "GETDATE() FECHA " +
+                                   "FROM T_PERSONAS, " +
+                                        "T_SALA, " +
+                                        "T_GRUPO_SALA, " +
+                                        "T_DOMICILIOS " +
+                                  "WHERE PER_ID = DOM_PER_ID " +
+                                    "AND PER_ID = GRS_PER_ID " +
+                                    "AND GRS_SAL_ID = SAL_ID " +
+                                    "AND PER_ESTADO = 'S' " +
+                                    "AND PER_ID = "+ idAlumno + ";";
 
                 cmd = new SqlCommand(consulta, con);
                 dta = new SqlDataAdapter(cmd);
@@ -923,6 +970,268 @@ namespace CaAD//GestionJardin
             return dset;
 
         }
+
+        public DataSet fichaAlumnoFamiliar(string idAlumno)
+        {
+
+            DataSet dset = new DataSet();
+
+            con = generarConexion();
+            con.Open();
+
+            try
+            {
+                string consulta = "SELECT(PER_NOMBRE + ' ' + PER_APELLIDO) FAMILIAR, " +
+                                         "GRF_OBSERVACION VINCULO, " +
+                                         "PER_DOCUMENTO DOCUMENTO_FAMILIAR, " +
+                                         "PER_EMAIL EMAIL_FAMILIAR, " +
+                                         "PER_TELEFONO TELEFONO_FAMILIAR, " +
+                                         "PER_TELEFONO_2 CELULAR_FAMILIAR, C" +
+                                         "CASE GRF_AUTORIZADO " +
+                                               "WHEN 'N' THEN 'NO' " +
+                                               "WHEN 'S' THEN 'SI' " +
+                                         "END AUTORIZADO " +
+                                    "FROM T_PERSONAS, T_GRUPO_FLIA " +
+                                   "WHERE PER_ID = GRF_PER_ID " +
+                                     "AND GRF_OBSERVACION is not null " +
+                                     "AND GRF_GRUPO_LEGAJO = '" + idAlumno + "';";
+
+                cmd = new SqlCommand(consulta, con);
+                dta = new SqlDataAdapter(cmd);
+                dta.Fill(dset);
+
+                con.Close();
+
+
+                return dset;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return dset;
+
+        }
+
+
+        public DataTable AlumnosSalas(string idSala)    
+        {            
+            DataTable dt = new DataTable();
+            try
+            {
+                con = generarConexion();
+                con.Open();
+
+
+                string consulta = "SELECT (PER_NOMBRE + ' ' + PER_APELLIDO) ALUMNO, " +
+                                          "PER_DOCUMENTO DOCUMENTO, " +
+                                          "(SELECT DATEDIFF(YEAR, PER_FECHA_NAC, GETDATE()) - " +
+                                                   "(CASE " +
+                                                        "WHEN DATEADD(YY, DATEDIFF(YEAR, T_PERSONAS.PER_FECHA_NAC, GETDATE()), T_PERSONAS.PER_FECHA_NAC) > GETDATE() THEN 1 " +
+                                                        "ELSE 0 " +
+                                                   "END)) as EDAD "+
+                                     "FROM T_PERSONAS, T_GRUPO_SALA, T_SALA " +
+                                    "WHERE PER_ID = GRS_PER_ID " +
+                                      "AND SAL_ID = GRS_SAL_ID " +
+                                      "AND PER_TPE_ID = 2 " +
+                                      "AND PER_ESTADO = 'S' " +
+                                      "AND SAL_ID = '" + idSala + "';";
+
+                cmd = new SqlCommand(consulta, con);
+                dta = new SqlDataAdapter(cmd);
+
+                dta.Fill(dt);
+                con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                //result = "ERROR";
+                //MessageBox.Show("Hubo un problema. Contáctese con su administrador. Error: " + ex.ToString());                
+            }
+
+            return dt;
+
+        }
+
+
+        public DataSet listaAlumno(string idSala)
+        {
+
+            DataSet dset = new DataSet();
+
+            con = generarConexion();
+            con.Open();
+
+            try
+            {
+                string consulta = "SELECT (PER_NOMBRE + ' ' + PER_APELLIDO) ALUMNO, " +
+                                          "PER_DOCUMENTO DOCUMENTO, " +
+                                          "(SELECT DATEDIFF(YEAR, PER_FECHA_NAC, GETDATE()) - " +
+                                                   "(CASE " +
+                                                        "WHEN DATEADD(YY, DATEDIFF(YEAR, T_PERSONAS.PER_FECHA_NAC, GETDATE()), T_PERSONAS.PER_FECHA_NAC) > GETDATE() THEN 1 " +
+                                                        "ELSE 0 " +
+                                                   "END)) as EDAD, " +
+                                          "SAL_NOMBRE SALA,  " +
+                                          "CASE SAL_TURNO " +
+                                                "WHEN 'MANANA' THEN 'MAÑANA' " +
+                                                "ELSE 'TARDE' " +
+                                           "END TURNO, " +
+                                           "GETDATE() FECHA " +
+                                     "FROM T_PERSONAS, T_GRUPO_SALA, T_SALA " +
+                                    "WHERE PER_ID = GRS_PER_ID " +
+                                      "AND SAL_ID = GRS_SAL_ID " +
+                                      "AND PER_TPE_ID = 2 " +
+                                      "AND PER_ESTADO = 'S' " +
+                                      "AND SAL_ID = '" + idSala + "';";
+
+                cmd = new SqlCommand(consulta, con);
+                dta = new SqlDataAdapter(cmd);
+                dta.Fill(dset);
+
+                con.Close();
+
+
+                return dset;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return dset;
+
+        }
+
+
+        public DataSet listaDocentes(string idSala)
+        {
+
+            DataSet dset = new DataSet();
+
+            con = generarConexion();
+            con.Open();
+
+            try
+            {
+                string consulta = "SELECT  CONCAT(PER_APELLIDO, ', ', PER_NOMBRE) AS 'DOCENTE', " +
+                                           "PER_DOCUMENTO 'DOCUMENTO', " +
+                                           "CASE GRS_CARGO WHEN 'TITULAR' THEN 'TITULAR' ELSE 'SUPLENTE' END 'CARGO', " +
+                                           "CASE SAL_TURNO WHEN 'MANANA' THEN 'MAÑANA' ELSE 'TARDE' END 'TURNO', " +
+                                           "SAL_NOMBRE 'SALA', " +
+                                           "PER_TELEFONO_2 'CELULAR', " +
+                                           "PER_EMAIL 'EMAIL', " +
+                                           "(DOM_CALLE + ' ' + CONVERT(VARCHAR(10), DOM_NUMERO) + ' - Piso: ' + CONVERT(VARCHAR(10), DOM_PISO) + ' Dpto: ' + DOM_DPTO + ' - Barrio: ' + DOM_BARRIO) DOMICILIO," +
+                                           "GETDATE() FECHA " +
+                                     "FROM T_PERSONAS, T_GRUPO_SALA, T_SALA, T_DOMICILIOS " +
+                                    "WHERE PER_ID = GRS_PER_ID " +
+                                    "AND GRS_SAL_ID = SAL_ID " +
+                                    "AND DOM_PER_ID = PER_ID " +
+                                    "AND PER_TPE_ID = 1 " +
+                                    "AND SAL_ID = '"+ idSala + "'" +
+                                    "AND PER_ESTADO = 'S';";
+
+                cmd = new SqlCommand(consulta, con);
+                dta = new SqlDataAdapter(cmd);
+                dta.Fill(dset);
+
+                con.Close();
+
+
+                return dset;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return dset;
+
+        }
+
+
+        public DataTable ListaDocenteSala(string idSala)        
+        {
+          
+            DataTable dt = new DataTable();
+            try
+            {
+                con = generarConexion();
+                con.Open();
+
+
+                string consulta = "SELECT  CONCAT(PER_APELLIDO, ', ', PER_NOMBRE) AS 'DOCENTE', " +
+                                               "PER_DOCUMENTO 'DOCUMENTO', " +                                              
+                                               "PER_TELEFONO_2 'CELULAR', " +
+                                               "PER_EMAIL 'EMAIL', " +
+                                               "(DOM_CALLE + ' ' + CONVERT(VARCHAR(10), DOM_NUMERO) + ' - Piso: ' + CONVERT(VARCHAR(10), DOM_PISO) + ' Dpto: ' + DOM_DPTO + ' - Barrio: ' + DOM_BARRIO) DOMICILIO " +
+                                        "FROM T_PERSONAS, T_GRUPO_SALA, T_SALA, T_DOMICILIOS " +
+                                        "WHERE PER_ID = GRS_PER_ID " +
+                                        "AND GRS_SAL_ID = SAL_ID " +
+                                        "AND DOM_PER_ID = PER_ID " +
+                                        "AND PER_TPE_ID = 1 " +
+                                        "AND SAL_ID = '" + idSala + "'" +
+                                        "AND PER_ESTADO = 'S';";
+
+                cmd = new SqlCommand(consulta, con);
+                dta = new SqlDataAdapter(cmd);
+
+                dta.Fill(dt);
+                con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                //result = "ERROR";
+                //MessageBox.Show("Hubo un problema. Contáctese con su administrador. Error: " + ex.ToString());                
+            }
+
+            return dt;
+
+        }
+
+
+        public DataSet listaTotalDocentes()
+        {
+
+            DataSet dset = new DataSet();
+
+            con = generarConexion();
+            con.Open();
+
+            try
+            {
+                string consulta = "SELECT  CONCAT(PER_APELLIDO, ', ', PER_NOMBRE) AS 'DOCENTE', " +
+                                          "PER_DOCUMENTO 'DOCUMENTO', " +
+                                          "CASE GRS_CARGO WHEN 'TITULAR' THEN 'TITULAR' ELSE 'SUPLENTE' END 'CARGO', " +
+                                          "CASE SAL_TURNO WHEN 'MANANA' THEN 'MAÑANA' ELSE 'TARDE' END 'TURNO', " +
+                                          "SAL_NOMBRE 'SALA', " +
+                                          "PER_TELEFONO_2 'CELULAR', " +
+                                          "PER_EMAIL 'EMAIL', " +
+                                          "(DOM_CALLE + ' ' + CONVERT(VARCHAR(10), DOM_NUMERO) + ' - Piso: ' + CONVERT(VARCHAR(10), DOM_PISO) + ' Dpto: ' + DOM_DPTO + ' - Barrio: ' + DOM_BARRIO) DOMICILIO," +
+                                          "GETDATE() FECHA " +
+                                    "FROM T_PERSONAS, T_GRUPO_SALA, T_SALA, T_DOMICILIOS " +
+                                    "WHERE PER_ID = GRS_PER_ID " +
+                                      "AND GRS_SAL_ID = SAL_ID " +
+                                      "AND DOM_PER_ID = PER_ID " +
+                                      "AND PER_TPE_ID = 1 " +
+                                      "AND PER_ESTADO = 'S';";
+
+                cmd = new SqlCommand(consulta, con);
+                dta = new SqlDataAdapter(cmd);
+                dta.Fill(dset);
+
+                con.Close();
+
+
+                return dset;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return dset;
+
+        }
+
 
 
     }

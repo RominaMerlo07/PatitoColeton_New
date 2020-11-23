@@ -30,17 +30,20 @@ namespace CaAD//GestionJardin
                                               "SAL_TURNO, " +
                                               "SAL_CANT_ALUM, " +
                                               "SAL_ID " +
-                                        "FROM T_GRUPO_SALA, T_SALA " +
-                                        "WHERE GRS_SAL_ID = SAL_ID " +
-                                        "GROUP BY SAL_NOMBRE, SAL_TURNO, SAL_CANT_ALUM, SAL_ID " +
-                                      "UNION " +
+                                        "FROM T_GRUPO_SALA, T_SALA, T_PERSONAS " +
+                                       "WHERE GRS_SAL_ID = SAL_ID " +
+                                       "AND GRS_PER_ID = PER_ID " +
+                                       "AND PER_TPE_ID = 2 " +
+                                       "GROUP BY SAL_NOMBRE, SAL_TURNO, SAL_CANT_ALUM, SAL_ID " +
+                                       "UNION " +
                                        "SELECT 0 , " +
                                               "SAL_NOMBRE, " +
                                               "SAL_TURNO, " +
                                               "SAL_CANT_ALUM, " +
                                               "SAL_ID " +
                                        "FROM T_SALA s " +
-                                       "WHERE SAL_ID not in (SELECT GRS_SAL_ID FROM T_GRUPO_SALA ) " +
+                                       "WHERE SAL_ID not in (SELECT GRS_SAL_ID FROM T_GRUPO_SALA) " +
+                                       "AND SAL_ACTIVO = 'S' " +
                                        "GROUP BY SAL_NOMBRE, SAL_TURNO, SAL_CANT_ALUM, SAL_ID) " +
                                "SELECT s.SAL_ID, " +
                                       "t1.SAL_NOMBRE NOMBRE_SALA, " +
@@ -48,7 +51,7 @@ namespace CaAD//GestionJardin
                                       "CONCAT(S.SAL_EDAD_MIN, ' años', ' - ', S.SAL_EDAD_MAX, ' años') RANGO, " +
                                       "t1.SAL_CANT_ALUM CUPO_TOTAL, " +
                                       "t1.ACTIVOS CUPOS_ACTIVOS, " +
-                                      "((t1.SAL_CANT_ALUM - t1.ACTIVOS)) CUPOS_VACANTES " +
+                                      "((t1.SAL_CANT_ALUM - t1.ACTIVOS)) VACANTES " +
                                 "FROM t1, T_SALA S " +
                                 "WHERE T1.SAL_ID = S.SAL_ID " +
                                 "AND SAL_ACTIVO = 'S' " +

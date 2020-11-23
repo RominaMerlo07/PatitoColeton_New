@@ -27,6 +27,7 @@ namespace GestionJardin
         public frmAlumnosPopUpEditar(string idPersonaSelect2)
         {
             InitializeComponent();
+            Settooltip();
             idPersonaSelect = idPersonaSelect2;
 
             persona = metPers.BuscaPersonaxID(idPersonaSelect);
@@ -37,6 +38,16 @@ namespace GestionJardin
             onOffCampos(false);
 
         }
+
+
+        private void Settooltip()
+        {
+            ToolTip Tip = new ToolTip();
+            Tip.SetToolTip(this.btnBloqueo, "Permite la edición de los campos del formulario");
+            Tip.SetToolTip(this.btnInforme, "Imprimir ficha del alumno");
+
+        }
+
 
         private void cargarCampos(entPersona persona, entDomicilio domicilio, entSala sala)
         {
@@ -123,6 +134,7 @@ namespace GestionJardin
             {
                 this.btnBloqueo.IconChar = FontAwesome.Sharp.IconChar.Unlock;
                 onOffCampos(true);
+                btnInforme.Visible = false;
             }
             else
             {
@@ -785,7 +797,7 @@ namespace GestionJardin
 
         private void btn_Informe_Click(object sender, EventArgs e)
         {
-            fichaAlumno fichaAlumno = new fichaAlumno(idPersonaSelect);
+            InformeFichaAlumno InformeFichaAlumno = new InformeFichaAlumno(idPersonaSelect);            
         }
     }
 }

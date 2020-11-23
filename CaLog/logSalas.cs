@@ -64,5 +64,13 @@ namespace CaLog
 
             return objMetSalas.ValidarDocSala(id_sala, turno);
         }
+
+        public DataSet CantidadAlumnosSalas()
+        {
+            return objMetSalas.CantidadAlumnosSalas();
+        }
+
+        
+
     }
 }

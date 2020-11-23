@@ -28,15 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtGA_Buscar = new MetroFramework.Controls.MetroTextBox();
             this.btnGA_Eliminar = new FontAwesome.Sharp.IconButton();
             this.btnGA_Editar = new FontAwesome.Sharp.IconButton();
             this.btnGA_Agregar = new FontAwesome.Sharp.IconButton();
             this.dgvAlumnos = new System.Windows.Forms.DataGridView();
+            this.btn_ImprimirSala = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,7 +101,6 @@
             // 
             this.btnGA_Eliminar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnGA_Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGA_Eliminar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnGA_Eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGA_Eliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnGA_Eliminar.IconChar = FontAwesome.Sharp.IconChar.UserMinus;
@@ -108,10 +109,9 @@
             this.btnGA_Eliminar.IconSize = 100;
             this.btnGA_Eliminar.Location = new System.Drawing.Point(1313, 681);
             this.btnGA_Eliminar.Name = "btnGA_Eliminar";
-            this.btnGA_Eliminar.Rotation = 0D;
             this.btnGA_Eliminar.Size = new System.Drawing.Size(293, 134);
             this.btnGA_Eliminar.TabIndex = 8;
-            this.btnGA_Eliminar.Text = "ELIMINAR";
+            this.btnGA_Eliminar.Text = "PROCESAR BAJA";
             this.btnGA_Eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGA_Eliminar.UseVisualStyleBackColor = true;
             this.btnGA_Eliminar.Click += new System.EventHandler(this.btnGA_Eliminar_Click);
@@ -120,7 +120,6 @@
             // 
             this.btnGA_Editar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnGA_Editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGA_Editar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnGA_Editar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGA_Editar.ForeColor = System.Drawing.Color.Cyan;
             this.btnGA_Editar.IconChar = FontAwesome.Sharp.IconChar.UserEdit;
@@ -129,10 +128,9 @@
             this.btnGA_Editar.IconSize = 100;
             this.btnGA_Editar.Location = new System.Drawing.Point(1313, 525);
             this.btnGA_Editar.Name = "btnGA_Editar";
-            this.btnGA_Editar.Rotation = 0D;
             this.btnGA_Editar.Size = new System.Drawing.Size(293, 134);
             this.btnGA_Editar.TabIndex = 7;
-            this.btnGA_Editar.Text = "EDITAR";
+            this.btnGA_Editar.Text = "MODIFICAR";
             this.btnGA_Editar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGA_Editar.UseVisualStyleBackColor = true;
             this.btnGA_Editar.Click += new System.EventHandler(this.btnGA_Editar_Click);
@@ -141,7 +139,6 @@
             // 
             this.btnGA_Agregar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnGA_Agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGA_Agregar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnGA_Agregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGA_Agregar.ForeColor = System.Drawing.Color.Lime;
             this.btnGA_Agregar.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
@@ -150,10 +147,9 @@
             this.btnGA_Agregar.IconSize = 100;
             this.btnGA_Agregar.Location = new System.Drawing.Point(1313, 367);
             this.btnGA_Agregar.Name = "btnGA_Agregar";
-            this.btnGA_Agregar.Rotation = 0D;
             this.btnGA_Agregar.Size = new System.Drawing.Size(293, 134);
             this.btnGA_Agregar.TabIndex = 6;
-            this.btnGA_Agregar.Text = "AGREGAR";
+            this.btnGA_Agregar.Text = "INGRESAR";
             this.btnGA_Agregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGA_Agregar.UseVisualStyleBackColor = true;
             this.btnGA_Agregar.Click += new System.EventHandler(this.btnGA_Agregar_Click);
@@ -165,35 +161,59 @@
             this.dgvAlumnos.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dgvAlumnos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvAlumnos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAlumnos.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAlumnos.DefaultCellStyle = dataGridViewCellStyle14;
             this.dgvAlumnos.Location = new System.Drawing.Point(38, 353);
             this.dgvAlumnos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvAlumnos.MultiSelect = false;
             this.dgvAlumnos.Name = "dgvAlumnos";
             this.dgvAlumnos.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAlumnos.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvAlumnos.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAlumnos.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvAlumnos.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvAlumnos.RowTemplate.Height = 24;
             this.dgvAlumnos.Size = new System.Drawing.Size(1252, 495);
             this.dgvAlumnos.TabIndex = 43;
             this.dgvAlumnos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlumnos_CellClick);
+            // 
+            // btn_ImprimirSala
+            // 
+            this.btn_ImprimirSala.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ImprimirSala.ForeColor = System.Drawing.Color.Silver;
+            this.btn_ImprimirSala.IconChar = FontAwesome.Sharp.IconChar.Filter;
+            this.btn_ImprimirSala.IconColor = System.Drawing.Color.Silver;
+            this.btn_ImprimirSala.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_ImprimirSala.IconSize = 40;
+            this.btn_ImprimirSala.Location = new System.Drawing.Point(1208, 260);
+            this.btn_ImprimirSala.Name = "btn_ImprimirSala";
+            this.btn_ImprimirSala.Padding = new System.Windows.Forms.Padding(3);
+            this.btn_ImprimirSala.Size = new System.Drawing.Size(74, 63);
+            this.btn_ImprimirSala.TabIndex = 44;
+            this.btn_ImprimirSala.UseVisualStyleBackColor = true;
+            this.btn_ImprimirSala.Click += new System.EventHandler(this.btn_ImprimirSala_Click);
             // 
             // frmAlumnosGestionar
             // 
@@ -201,6 +221,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(1660, 947);
+            this.Controls.Add(this.btn_ImprimirSala);
             this.Controls.Add(this.dgvAlumnos);
             this.Controls.Add(this.txtGA_Buscar);
             this.Controls.Add(this.label1);
@@ -223,5 +244,6 @@
         private System.Windows.Forms.Label label1;
         private MetroFramework.Controls.MetroTextBox txtGA_Buscar;
         public System.Windows.Forms.DataGridView dgvAlumnos;
+        private FontAwesome.Sharp.IconButton btn_ImprimirSala;
     }
 }

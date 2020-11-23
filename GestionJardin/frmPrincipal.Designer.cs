@@ -178,7 +178,6 @@
             this.btnInformes.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnInformes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.btnInformes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInformes.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnInformes.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInformes.ForeColor = System.Drawing.Color.Aqua;
             this.btnInformes.IconChar = FontAwesome.Sharp.IconChar.ClipboardCheck;
@@ -188,7 +187,6 @@
             this.btnInformes.Location = new System.Drawing.Point(985, 354);
             this.btnInformes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnInformes.Name = "btnInformes";
-            this.btnInformes.Rotation = 0D;
             this.btnInformes.Size = new System.Drawing.Size(353, 379);
             this.btnInformes.TabIndex = 11;
             this.btnInformes.Text = "INFORMES";
@@ -202,7 +200,6 @@
             this.btnCobros.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCobros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.btnCobros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCobros.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnCobros.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCobros.ForeColor = System.Drawing.Color.Red;
             this.btnCobros.IconChar = FontAwesome.Sharp.IconChar.FileInvoiceDollar;
@@ -212,7 +209,6 @@
             this.btnCobros.Location = new System.Drawing.Point(532, -78);
             this.btnCobros.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCobros.Name = "btnCobros";
-            this.btnCobros.Rotation = 0D;
             this.btnCobros.Size = new System.Drawing.Size(353, 379);
             this.btnCobros.TabIndex = 10;
             this.btnCobros.Text = "GESTIÓN COBROS";
@@ -227,7 +223,6 @@
             this.btnSalas.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSalas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.btnSalas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalas.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnSalas.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnSalas.IconChar = FontAwesome.Sharp.IconChar.School;
@@ -237,7 +232,6 @@
             this.btnSalas.Location = new System.Drawing.Point(985, -78);
             this.btnSalas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSalas.Name = "btnSalas";
-            this.btnSalas.Rotation = 0D;
             this.btnSalas.Size = new System.Drawing.Size(353, 379);
             this.btnSalas.TabIndex = 9;
             this.btnSalas.Text = "GESTIÓN SALAS";
@@ -252,7 +246,6 @@
             this.btnDocentes.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnDocentes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.btnDocentes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDocentes.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnDocentes.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDocentes.ForeColor = System.Drawing.Color.Yellow;
             this.btnDocentes.IconChar = FontAwesome.Sharp.IconChar.ChalkboardTeacher;
@@ -262,7 +255,6 @@
             this.btnDocentes.Location = new System.Drawing.Point(63, 354);
             this.btnDocentes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDocentes.Name = "btnDocentes";
-            this.btnDocentes.Rotation = 0D;
             this.btnDocentes.Size = new System.Drawing.Size(353, 379);
             this.btnDocentes.TabIndex = 8;
             this.btnDocentes.Text = "GESTIÓN DOCENTES";
@@ -277,7 +269,6 @@
             this.btnAlumnos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAlumnos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.btnAlumnos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAlumnos.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnAlumnos.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAlumnos.ForeColor = System.Drawing.Color.Magenta;
             this.btnAlumnos.IconChar = FontAwesome.Sharp.IconChar.Child;
@@ -287,7 +278,6 @@
             this.btnAlumnos.Location = new System.Drawing.Point(63, -78);
             this.btnAlumnos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAlumnos.Name = "btnAlumnos";
-            this.btnAlumnos.Rotation = 0D;
             this.btnAlumnos.Size = new System.Drawing.Size(353, 379);
             this.btnAlumnos.TabIndex = 7;
             this.btnAlumnos.Text = "GESTIÓN ALUMNOS";
@@ -302,7 +292,6 @@
             this.btnUsuarios.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUsuarios.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsuarios.ForeColor = System.Drawing.Color.Lime;
             this.btnUsuarios.IconChar = FontAwesome.Sharp.IconChar.UserCircle;
@@ -312,13 +301,11 @@
             this.btnUsuarios.Location = new System.Drawing.Point(532, 354);
             this.btnUsuarios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUsuarios.Name = "btnUsuarios";
-            this.btnUsuarios.Rotation = 0D;
             this.btnUsuarios.Size = new System.Drawing.Size(353, 379);
             this.btnUsuarios.TabIndex = 6;
             this.btnUsuarios.Text = "GESTIÓN USUARIOS";
             this.btnUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnUsuarios.UseVisualStyleBackColor = false;
-
             this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
             this.btnUsuarios.MouseLeave += new System.EventHandler(this.btnUsuarios_MouseLeave);
             this.btnUsuarios.MouseHover += new System.EventHandler(this.btnUsuarios_MouseHover);

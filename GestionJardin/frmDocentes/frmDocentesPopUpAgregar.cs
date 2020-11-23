@@ -16,12 +16,14 @@ namespace GestionJardin
 {
     public partial class frmDocentesPopUpAgregar : Form
     {
-
         logPersonas objlogPersonas = new logPersonas();
         entPersona objPersona = new entPersona();
         logDomicilio objlogDomicilio = new logDomicilio();
+        entSala sala = new entSala();
         logSalas logSalas = new logSalas();
+        entGrupoSala objGrupoSala = new entGrupoSala();
         string resultadoValidacion;
+        string idPersona;
 
 
         public frmDocentesPopUpAgregar()
@@ -104,19 +106,19 @@ namespace GestionJardin
 
         /* Valiación INDIVIDUAL */
 
-        private void txtDocumento_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Solonumeros(sender, e);
-            string dni = txtDocumento.Text;
-            logPersonas ObjlogPersonas = new logPersonas();
-            string resultado = ObjlogPersonas.ValidarDni(dni);
-            if (resultado == "SI")
-            {
-                txtDocumento.Style = MetroFramework.MetroColorStyle.Red;
-                txtDocumento.Focus();
-                MessageBox.Show("El docente ya se encuentra registrado. ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        //private void txtDocumento_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    Solonumeros(sender, e);
+        //    string dni = txtDocumento.Text;
+        //    logPersonas ObjlogPersonas = new logPersonas();
+        //    string resultado = ObjlogPersonas.ValidarDni(dni);
+        //    if (resultado == "SI")
+        //    {
+        //        txtDocumento.Style = MetroFramework.MetroColorStyle.Red;
+        //        txtDocumento.Focus();
+        //        MessageBox.Show("El docente ya se encuentra registrado. ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
         private void txtNumero_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -157,7 +159,17 @@ namespace GestionJardin
         private void dtNacimiento_Leave(object sender, EventArgs e)
         {
             logPersonas ObjMetOersonas = new logPersonas();
-            objlogPersonas.EdadDocente(dtNacimiento.Value);
+            
+            int Edad= objlogPersonas.EdadDocente(dtNacimiento.Value);
+            if (Edad < 18)
+            {
+                MessageBox.Show("La Persona que esta ingresando es menor de edad!", "Salir", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                dtNacimiento.Focus();
+            }
+            else
+            { }
+
+
         }
 
         private void txtEmail_Leave(object sender, EventArgs e)
@@ -233,7 +245,7 @@ namespace GestionJardin
             objlogPersonas.EdadDocente(dtNacimiento.Value);
 
             string resultado;
-               
+
             string validacion = validaCampos();
 
             if (validacion == "OK")
@@ -327,7 +339,6 @@ namespace GestionJardin
 
                         }
 
-
                         string turno;
 
 
@@ -351,6 +362,7 @@ namespace GestionJardin
                         }
 
                         string id_sala;
+
                         if (cbSala.SelectedItem == null)
                         {
                             id_sala = "";
@@ -360,48 +372,49 @@ namespace GestionJardin
                             id_sala = cbSala.SelectedValue.ToString();
                         }
 
-                        if (turno == "" && id_sala =="")
+                        //if (turno == "" && id_sala == "")
+                        //{
+                        //    MessageBox.Show("Se ha ingresado el registro con éxito.", "Ingresado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //    this.Close();
+                        //}
+                        //else
+                        //{ //cambiar!!!
+                        if (logSalas.ValidarDocSala(id_sala, turno) <= 1)
                         {
-                            MessageBox.Show("Se ha ingresado el registro con éxito.", "Ingresado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Close();
-                        }
-                        else { //cambiar!!!
-                            if (logSalas.ValidarDocSala(id_sala, turno) == 0)
+                            entGrupoSala grupoSalaInsertar = new entGrupoSala();
+                            grupoSalaInsertar.GRS_PER_ID = Convert.ToInt32(id_persona);
+                            grupoSalaInsertar.GRS_SAL_ID = Convert.ToInt32(id_sala);
+                            grupoSalaInsertar.GRS_CARGO = CARGO.ToString();
+                            resultado = logSalas.insertarGrupoSala(grupoSalaInsertar);
+
+                            if (resultado == "OK")
                             {
-                                entGrupoSala grupoSalaInsertar = new entGrupoSala();
-                                grupoSalaInsertar.GRS_PER_ID = Convert.ToInt32(id_persona);
-                                grupoSalaInsertar.GRS_SAL_ID = Convert.ToInt32(id_sala);
-                                grupoSalaInsertar.GRS_CARGO = CARGO.ToString();
-                                resultado = logSalas.insertarGrupoSala(grupoSalaInsertar);
+                                MessageBox.Show("Se ha ingresado el registro con éxito.", "Ingresado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                                if (resultado == "OK")
-                                {
-                                    MessageBox.Show("Se ha ingresado el registro con éxito.", "Ingresado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                                    this.Close();
-                                }
-                            }
-                            else
-                            {
-                                MessageBox.Show("Ya existe un docente en la sala y turno seleccionados");
-
-                                objlogPersonas.EliminarDocenteDomicilio(personaInsert);
-                                objlogPersonas.EliminarDocentePersona(personaInsert);
-
-                                MessageBox.Show("NO Se ha ingresado el registro.");
+                                this.Close();
                             }
                         }
+                        else
+                        {
+                            MessageBox.Show("El cupo de docente en la sala y turno seleccionados ya esta completo", "Salir", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                            objlogPersonas.EliminarDocenteDomicilio(personaInsert);
+                            objlogPersonas.EliminarDocentePersona(personaInsert);
+
+                            MessageBox.Show("NO Se ha ingresado el registro.", "Salir", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                        //}
 
                     }
-                }                
-              
-            }
 
-            else
-            {
-                MessageBox.Show("No olvide ingresar " + validacion + ".", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                }
 
+                else
+                {
+                    MessageBox.Show("No olvide ingresar " + validacion + ".", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
         }
 
         /***************** CANCELAR *****************/
@@ -426,12 +439,80 @@ namespace GestionJardin
                 lblDni.Visible = false;
                 string dni = txtDocumento.Text;
                 logPersonas ObjlogPersonas = new logPersonas();
+                logDomicilio ObjlogDomicilio = new logDomicilio();
+
                 string resultado = ObjlogPersonas.ValidarDni(dni);
-                if (resultado == "SI")
+                string inactivo = ObjlogPersonas.ValidarDniInactivo(dni);
+
+                entPersona persona = new entPersona();
+                entDomicilio domicilio = new entDomicilio();
+
+                persona = ObjlogPersonas.BuscaDocente(dni);
+                domicilio = ObjlogDomicilio.buscarDomicilioXPersona(Convert.ToInt32(persona.PER_ID));
+
+                idPersona = persona.PER_ID.ToString(); //se usa para invocar al editar
+
+                if (inactivo == "SI")
+                {
+
+                    MessageBoxButtons MessageBoxButtons = MessageBoxButtons.YesNo;
+                    DialogResult dialogResult = MessageBox.Show("El docente esta INACTIVO. ¿Desea darlo de alta nuevamente?", "INFORMACIÓN", MessageBoxButtons, MessageBoxIcon.Question);
+
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        string result = ObjlogPersonas.AltaPersona(dni);
+                        if (result == "OK")
+                        {
+                            MessageBox.Show("Se dio de alta el docente DNI: " + dni + ".", "INFORMACIÓN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            txtNombre.Text = persona.PER_NOMBRE;
+                            txtApellidos.Text = persona.PER_APELLIDO;
+                            dtNacimiento.Value = persona.PER_FECHA_NAC;
+                            if (persona.PER_GENERO.StartsWith("MASCULINO"))
+                            {
+                                cbGenero.SelectedIndex = cbGenero.FindStringExact("MASCULINO");
+                            }
+                            else
+                            {
+                                cbGenero.SelectedIndex = cbGenero.FindStringExact("FEMENINO");
+                            }
+
+                            txtCalle.Text = domicilio.DOM_CALLE;
+                            txtNumero.Text = domicilio.DOM_NUMERO.ToString();
+                            txtCPostal.Text = domicilio.DOM_CP.ToString();
+                            txtPiso.Text = domicilio.DOM_PISO.ToString();
+                            txtDepto.Text = domicilio.DOM_DPTO;
+                            txtBarrio.Text = domicilio.DOM_BARRIO;
+
+                            txtCelular.Text = persona.PER_TELEFONO_2;
+                            txtTelefono.Text = persona.PER_TELEFONO;
+                            txtEmail.Text = persona.PER_EMAIL;
+
+                            btnguardar.Visible = false;
+                            btncancelar.Visible = false;
+                            lblInactivo.Visible = true;
+                            lblInactivo.Text = "*Si desea modificar alguno/s de los datos del docente, debe dirigirse a la opción 'MODIFICAR' en \n " +
+                                        "GESTIÓN DOCENTES > > MODIFICAR";
+                            panelContacto.Enabled = false;
+                            panelDatos.Enabled = false;
+                            panelTurno.Enabled = false;
+
+
+                        }
+                    }
+
+                }
+                else if (resultado == "SI")
                 {
                     txtDocumento.Style = MetroFramework.MetroColorStyle.Red;
                     txtDocumento.Focus();
-                    MessageBox.Show("El docente ya se encuentra registrado. ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("El docente ya se encuentra registrado y esta activo. ", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //btnGuardar.Visible = false;
+                    //btnCancelar.Visible = false;
+                    //lblInactivo.Visible = true;
+                    //lblInactivo.Text = "*Si desea modificar alguno/s de los datos del alumno, debe dirigirse a la opción 'Editar' en \n " +
+                    //                    "ESTUDIANTES > GESTIONAR ALUMNOS > EDITAR";
+
+
                 }
             }
         }
@@ -448,6 +529,7 @@ namespace GestionJardin
             else
             {
                 lblNombre.Visible = false;
+                txtApellidos.Focus();
             }
         }
 
@@ -463,6 +545,7 @@ namespace GestionJardin
             else
             {
                 lblApellido.Visible = false;
+
             }
         }
 
@@ -553,6 +636,97 @@ namespace GestionJardin
             else
             {
                 lblCelular.Visible = false;
+            }
+        }
+
+        private void frmDocentesPopUpAgregar_Load(object sender, EventArgs e)
+        {
+            panelContacto.Hide();
+            panelDatos.Hide();
+            cbSala.Visible = false;
+            metrosala.Visible = false;
+            cbTurno.Visible = false;
+            metroturno.Visible = false;
+        }
+
+        private void Cbocargo_SelectedValueChanged(object sender, EventArgs e)
+        {
+            string CARGO;
+            CARGO = Cbocargo.SelectedItem.ToString();
+
+            if (CARGO == "TITULAR")
+            {
+                panelContacto.Hide();
+                panelDatos.Hide();
+                cbSala.Visible = true;
+                metrosala.Visible = true;
+                cbTurno.Visible = true;
+                metrosala.Visible = true;
+                metroturno.Visible = true;
+                btnguardar.Visible = false;
+                btncancelar.Visible = false;
+
+            }
+            else
+            {
+                panelContacto.Hide();
+                panelDatos.Hide();
+                cbSala.Visible = true;
+                metrosala.Visible = true;
+                cbTurno.Visible = true;
+                metrosala.Visible = true;
+                metroturno.Visible = true;
+                btnguardar.Visible = false;
+                btncancelar.Visible = false;
+
+            }
+            
+            
+        }
+
+        private void cbTurno_SelectedValueChanged(object sender, EventArgs e)
+        {
+            cargar_cbSala();
+            panelContacto.Hide();
+            panelDatos.Hide();
+        }
+        private void cargar_cbSala()
+        {
+            cbSala.SelectedValueChanged -= new EventHandler(cbSala_SelectedValueChanged);
+
+            string indexTurno = cbTurno.SelectedIndex.ToString();
+            logSalas objlogSalas = new logSalas();
+            DataTable Tabla = new DataTable();
+            Tabla = objlogSalas.ListarSalas(indexTurno);
+
+            cbSala.DisplayMember = "SAL_NOMBRE";
+            cbSala.ValueMember = "SAL_ID";
+            cbSala.DataSource = Tabla;
+            cbSala.SelectedItem = null;
+            cbSala.Enabled = true;
+
+            cbSala.SelectedValueChanged += new EventHandler(cbSala_SelectedValueChanged);
+            
+
+        }
+
+        private void cbSala_SelectedValueChanged(object sender, EventArgs e)
+        {
+           
+            if(string.IsNullOrWhiteSpace(cbSala.Text.Trim()) == true)
+            {
+                cbSala.Style = MetroFramework.MetroColorStyle.Red;
+                cbSala.Focus();
+                labelsalas.Visible = true;
+                labelsalas.Text = "Por favor ingrese celular";
+            }
+            else
+            {
+                panelContacto.Show();
+                panelDatos.Show();
+                btnguardar.Visible = true;
+                btncancelar.Visible = true;
+                txtDocumento.Focus();
             }
         }
     }

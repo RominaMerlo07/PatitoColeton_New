@@ -417,7 +417,7 @@ namespace CaAD//GestionJardin
                 cmd = new SqlCommand ("SELECT distinct p.PER_ID AS 'PER_ID'," +
                                          "CONCAT(p.PER_APELLIDO , p.PER_NOMBRE) AS 'ALUMNO', " +
                                          "p.PER_DOCUMENTO AS 'DOCUMENTO'" +
-                                         "from T_PERSONAS p, T_SALA s," +
+                                          "from T_PERSONAS p, T_SALA s," +
                                          " T_GRUPO_SALA g WHERE g.GRS_PER_ID = p.PER_ID and" +
                                          " g.GRS_SAL_ID = s.SAL_ID AND s.SAL_NOMBRE= '" + nombre_sala + "' and " +
                                          "s.SAL_TURNO ='" + turno_sala + "' AND p.PER_TPE_ID = 2" +
@@ -438,13 +438,16 @@ namespace CaAD//GestionJardin
             DataTable dt = new DataTable();
             con.Open();
 
-            string consulta = "SELECT PER_ID, PER_NOMBRE NOMBRE, PER_DOCUMENTO "+
-                 "FROM T_GRUPO_SALA , T_PERSONAS  "+
+            string consulta = "SELECT PER_ID, CONCAT(PER_APELLIDO, ', ', PER_NOMBRE) ALUMNO, " +
+                 "PER_DOCUMENTO AS 'DOCUMENTO' " +
+                
+                 "FROM T_GRUPO_SALA , T_PERSONAS " +
                  "WHERE PER_ID = GRS_PER_ID " +
 
                   "AND GRS_SAL_ID = @salaID " +
 
-                  "AND PER_TPE_ID = 2 ; ";
+                  "AND PER_TPE_ID = 2 " +
+                  "AND PER_ESTADO = 'S';";
 
             cmd = new SqlCommand(consulta, con);
 

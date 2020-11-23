@@ -31,6 +31,12 @@
             this.btncancelar = new FontAwesome.Sharp.IconButton();
             this.btnguardar = new FontAwesome.Sharp.IconButton();
             this.panelContacto = new MetroFramework.Controls.MetroPanel();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblCelular = new System.Windows.Forms.Label();
+            this.lblBarrio = new System.Windows.Forms.Label();
+            this.lblCp = new System.Windows.Forms.Label();
+            this.lblNumero = new System.Windows.Forms.Label();
+            this.lblCalle = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -48,6 +54,9 @@
             this.txtPiso = new MetroFramework.Controls.MetroTextBox();
             this.txtCalle = new MetroFramework.Controls.MetroTextBox();
             this.panelDatos = new MetroFramework.Controls.MetroPanel();
+            this.lblApellido = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.lblDni = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -62,46 +71,36 @@
             this.txtApellidos = new MetroFramework.Controls.MetroTextBox();
             this.txtNombre = new MetroFramework.Controls.MetroTextBox();
             this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
+            this.Cbocargo = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.cbSala = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.cbTurno = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.btnBloqueo = new FontAwesome.Sharp.IconButton();
-            this.btnGA_Pdf = new FontAwesome.Sharp.IconPictureBox();
-            this.btnGA_Excel = new FontAwesome.Sharp.IconPictureBox();
             this.txt_id_Docente = new System.Windows.Forms.TextBox();
-            this.lblDni = new System.Windows.Forms.Label();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.lblApellido = new System.Windows.Forms.Label();
-            this.lblCalle = new System.Windows.Forms.Label();
-            this.lblCp = new System.Windows.Forms.Label();
-            this.lblNumero = new System.Windows.Forms.Label();
-            this.lblBarrio = new System.Windows.Forms.Label();
-            this.lblCelular = new System.Windows.Forms.Label();
-            this.lblEmail = new System.Windows.Forms.Label();
+            this.btnInforme = new FontAwesome.Sharp.IconPictureBox();
             this.panelContacto.SuspendLayout();
             this.panelDatos.SuspendLayout();
             this.metroPanel1.SuspendLayout();
             this.metroPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnGA_Pdf)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnGA_Excel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnInforme)).BeginInit();
             this.SuspendLayout();
             // 
             // btncancelar
             // 
             this.btncancelar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btncancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btncancelar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btncancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btncancelar.IconChar = FontAwesome.Sharp.IconChar.Eraser;
             this.btncancelar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btncancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btncancelar.IconSize = 60;
-            this.btncancelar.Location = new System.Drawing.Point(950, 731);
+            this.btncancelar.Location = new System.Drawing.Point(1276, 731);
             this.btncancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btncancelar.Name = "btncancelar";
-            this.btncancelar.Rotation = 0D;
-            this.btncancelar.Size = new System.Drawing.Size(239, 76);
+            this.btncancelar.Size = new System.Drawing.Size(245, 84);
             this.btncancelar.TabIndex = 52;
             this.btncancelar.Text = "CANCELAR";
             this.btncancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -112,17 +111,16 @@
             // 
             this.btnguardar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnguardar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnguardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnguardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnguardar.IconChar = FontAwesome.Sharp.IconChar.Save;
             this.btnguardar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnguardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnguardar.IconSize = 60;
-            this.btnguardar.Location = new System.Drawing.Point(606, 731);
+            this.btnguardar.Location = new System.Drawing.Point(924, 731);
             this.btnguardar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnguardar.Name = "btnguardar";
-            this.btnguardar.Rotation = 0D;
-            this.btnguardar.Size = new System.Drawing.Size(239, 76);
+            this.btnguardar.Size = new System.Drawing.Size(245, 84);
             this.btnguardar.TabIndex = 51;
             this.btnguardar.Text = "GUARDAR";
             this.btnguardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -159,7 +157,7 @@
             this.panelContacto.HorizontalScrollbarBarColor = true;
             this.panelContacto.HorizontalScrollbarHighlightOnWheel = false;
             this.panelContacto.HorizontalScrollbarSize = 10;
-            this.panelContacto.Location = new System.Drawing.Point(606, 219);
+            this.panelContacto.Location = new System.Drawing.Point(697, 210);
             this.panelContacto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelContacto.Name = "panelContacto";
             this.panelContacto.Size = new System.Drawing.Size(824, 478);
@@ -168,6 +166,78 @@
             this.panelContacto.VerticalScrollbarBarColor = true;
             this.panelContacto.VerticalScrollbarHighlightOnWheel = false;
             this.panelContacto.VerticalScrollbarSize = 11;
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail.ForeColor = System.Drawing.Color.Red;
+            this.lblEmail.Location = new System.Drawing.Point(45, 379);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(46, 17);
+            this.lblEmail.TabIndex = 60;
+            this.lblEmail.Text = "label1";
+            this.lblEmail.Visible = false;
+            // 
+            // lblCelular
+            // 
+            this.lblCelular.AutoSize = true;
+            this.lblCelular.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCelular.ForeColor = System.Drawing.Color.Red;
+            this.lblCelular.Location = new System.Drawing.Point(45, 311);
+            this.lblCelular.Name = "lblCelular";
+            this.lblCelular.Size = new System.Drawing.Size(46, 17);
+            this.lblCelular.TabIndex = 59;
+            this.lblCelular.Text = "label1";
+            this.lblCelular.Visible = false;
+            // 
+            // lblBarrio
+            // 
+            this.lblBarrio.AutoSize = true;
+            this.lblBarrio.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBarrio.ForeColor = System.Drawing.Color.Red;
+            this.lblBarrio.Location = new System.Drawing.Point(475, 244);
+            this.lblBarrio.Name = "lblBarrio";
+            this.lblBarrio.Size = new System.Drawing.Size(46, 17);
+            this.lblBarrio.TabIndex = 58;
+            this.lblBarrio.Text = "label1";
+            this.lblBarrio.Visible = false;
+            // 
+            // lblCp
+            // 
+            this.lblCp.AutoSize = true;
+            this.lblCp.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCp.ForeColor = System.Drawing.Color.Red;
+            this.lblCp.Location = new System.Drawing.Point(544, 171);
+            this.lblCp.Name = "lblCp";
+            this.lblCp.Size = new System.Drawing.Size(46, 17);
+            this.lblCp.TabIndex = 56;
+            this.lblCp.Text = "label1";
+            this.lblCp.Visible = false;
+            // 
+            // lblNumero
+            // 
+            this.lblNumero.AutoSize = true;
+            this.lblNumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumero.ForeColor = System.Drawing.Color.Red;
+            this.lblNumero.Location = new System.Drawing.Point(475, 171);
+            this.lblNumero.Name = "lblNumero";
+            this.lblNumero.Size = new System.Drawing.Size(46, 17);
+            this.lblNumero.TabIndex = 55;
+            this.lblNumero.Text = "label1";
+            this.lblNumero.Visible = false;
+            // 
+            // lblCalle
+            // 
+            this.lblCalle.AutoSize = true;
+            this.lblCalle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCalle.ForeColor = System.Drawing.Color.Red;
+            this.lblCalle.Location = new System.Drawing.Point(45, 170);
+            this.lblCalle.Name = "lblCalle";
+            this.lblCalle.Size = new System.Drawing.Size(46, 17);
+            this.lblCalle.TabIndex = 53;
+            this.lblCalle.Text = "label1";
+            this.lblCalle.Visible = false;
             // 
             // label1
             // 
@@ -613,7 +683,7 @@
             this.panelDatos.HorizontalScrollbarBarColor = true;
             this.panelDatos.HorizontalScrollbarHighlightOnWheel = false;
             this.panelDatos.HorizontalScrollbarSize = 10;
-            this.panelDatos.Location = new System.Drawing.Point(53, 219);
+            this.panelDatos.Location = new System.Drawing.Point(121, 210);
             this.panelDatos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelDatos.Name = "panelDatos";
             this.panelDatos.Size = new System.Drawing.Size(493, 478);
@@ -622,6 +692,42 @@
             this.panelDatos.VerticalScrollbarBarColor = true;
             this.panelDatos.VerticalScrollbarHighlightOnWheel = false;
             this.panelDatos.VerticalScrollbarSize = 11;
+            // 
+            // lblApellido
+            // 
+            this.lblApellido.AutoSize = true;
+            this.lblApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApellido.ForeColor = System.Drawing.Color.Red;
+            this.lblApellido.Location = new System.Drawing.Point(48, 270);
+            this.lblApellido.Name = "lblApellido";
+            this.lblApellido.Size = new System.Drawing.Size(46, 17);
+            this.lblApellido.TabIndex = 51;
+            this.lblApellido.Text = "label1";
+            this.lblApellido.Visible = false;
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.ForeColor = System.Drawing.Color.Red;
+            this.lblNombre.Location = new System.Drawing.Point(48, 202);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(46, 17);
+            this.lblNombre.TabIndex = 50;
+            this.lblNombre.Text = "label1";
+            this.lblNombre.Visible = false;
+            // 
+            // lblDni
+            // 
+            this.lblDni.AutoSize = true;
+            this.lblDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDni.ForeColor = System.Drawing.Color.Red;
+            this.lblDni.Location = new System.Drawing.Point(48, 140);
+            this.lblDni.Name = "lblDni";
+            this.lblDni.Size = new System.Drawing.Size(46, 17);
+            this.lblDni.TabIndex = 49;
+            this.lblDni.Text = "label1";
+            this.lblDni.Visible = false;
             // 
             // label5
             // 
@@ -877,6 +983,8 @@
             this.metroPanel3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.metroPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.metroPanel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.metroPanel3.Controls.Add(this.Cbocargo);
+            this.metroPanel3.Controls.Add(this.metroLabel5);
             this.metroPanel3.Controls.Add(this.cbSala);
             this.metroPanel3.Controls.Add(this.metroLabel2);
             this.metroPanel3.Controls.Add(this.cbTurno);
@@ -885,45 +993,70 @@
             this.metroPanel3.HorizontalScrollbarBarColor = true;
             this.metroPanel3.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel3.HorizontalScrollbarSize = 10;
-            this.metroPanel3.Location = new System.Drawing.Point(190, 43);
+            this.metroPanel3.Location = new System.Drawing.Point(121, 48);
             this.metroPanel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.metroPanel3.Name = "metroPanel3";
-            this.metroPanel3.Size = new System.Drawing.Size(1099, 126);
+            this.metroPanel3.Size = new System.Drawing.Size(1407, 107);
             this.metroPanel3.TabIndex = 48;
             this.metroPanel3.UseCustomBackColor = true;
             this.metroPanel3.VerticalScrollbarBarColor = true;
             this.metroPanel3.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel3.VerticalScrollbarSize = 11;
             // 
+            // Cbocargo
+            // 
+            this.Cbocargo.FormattingEnabled = true;
+            this.Cbocargo.ItemHeight = 24;
+            this.Cbocargo.Items.AddRange(new object[] {
+            "TITULAR",
+            "SUPLENTE"});
+            this.Cbocargo.Location = new System.Drawing.Point(183, 36);
+            this.Cbocargo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Cbocargo.Name = "Cbocargo";
+            this.Cbocargo.Size = new System.Drawing.Size(185, 30);
+            this.Cbocargo.Style = MetroFramework.MetroColorStyle.Green;
+            this.Cbocargo.TabIndex = 35;
+            this.Cbocargo.UseCustomBackColor = true;
+            this.Cbocargo.UseSelectable = true;
+            this.Cbocargo.UseStyleColors = true;
+            // 
+            // metroLabel5
+            // 
+            this.metroLabel5.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel5.ForeColor = System.Drawing.Color.Cyan;
+            this.metroLabel5.Location = new System.Drawing.Point(46, 36);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(205, 44);
+            this.metroLabel5.TabIndex = 36;
+            this.metroLabel5.Text = "CARGO";
+            this.metroLabel5.UseCustomBackColor = true;
+            this.metroLabel5.UseCustomForeColor = true;
+            // 
             // cbSala
             // 
             this.cbSala.Enabled = false;
             this.cbSala.FormattingEnabled = true;
             this.cbSala.ItemHeight = 24;
-            this.cbSala.Items.AddRange(new object[] {
-            "VERDE",
-            "NARANJA",
-            "ROSA"});
-            this.cbSala.Location = new System.Drawing.Point(859, 46);
+            this.cbSala.Location = new System.Drawing.Point(1160, 36);
             this.cbSala.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbSala.Name = "cbSala";
             this.cbSala.Size = new System.Drawing.Size(185, 30);
             this.cbSala.Style = MetroFramework.MetroColorStyle.Blue;
-            this.cbSala.TabIndex = 25;
+            this.cbSala.TabIndex = 34;
             this.cbSala.UseCustomBackColor = true;
             this.cbSala.UseSelectable = true;
             this.cbSala.UseStyleColors = true;
+            this.cbSala.SelectedValueChanged += new System.EventHandler(this.cbSala_SelectedValueChanged);
             // 
             // metroLabel2
             // 
             this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.metroLabel2.ForeColor = System.Drawing.Color.Aqua;
-            this.metroLabel2.Location = new System.Drawing.Point(531, 46);
+            this.metroLabel2.Location = new System.Drawing.Point(1024, 36);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(287, 44);
-            this.metroLabel2.TabIndex = 24;
-            this.metroLabel2.Text = "SELECCIONE SALA";
+            this.metroLabel2.TabIndex = 33;
+            this.metroLabel2.Text = "SALA";
             this.metroLabel2.UseCustomBackColor = true;
             this.metroLabel2.UseCustomForeColor = true;
             // 
@@ -934,28 +1067,27 @@
             this.cbTurno.Items.AddRange(new object[] {
             "MAÑANA",
             "TARDE"});
-            this.cbTurno.Location = new System.Drawing.Point(255, 46);
+            this.cbTurno.Location = new System.Drawing.Point(693, 36);
             this.cbTurno.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbTurno.Name = "cbTurno";
             this.cbTurno.PromptText = "TURNO";
             this.cbTurno.Size = new System.Drawing.Size(185, 30);
             this.cbTurno.Style = MetroFramework.MetroColorStyle.Blue;
-            this.cbTurno.TabIndex = 23;
+            this.cbTurno.TabIndex = 32;
             this.cbTurno.UseCustomBackColor = true;
             this.cbTurno.UseSelectable = true;
             this.cbTurno.UseStyleColors = true;
-            this.cbTurno.SelectionChangeCommitted += new System.EventHandler(this.cbTurno_SelectionChangeCommitted);
+            this.cbTurno.SelectedValueChanged += new System.EventHandler(this.cbTurno_SelectedValueChanged);
             // 
             // metroLabel3
             // 
             this.metroLabel3.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel3.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.metroLabel3.ForeColor = System.Drawing.Color.Aqua;
-            this.metroLabel3.Location = new System.Drawing.Point(24, 46);
+            this.metroLabel3.Location = new System.Drawing.Point(544, 36);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(293, 44);
-            this.metroLabel3.TabIndex = 21;
-            this.metroLabel3.Text = "SELECCIONE:";
+            this.metroLabel3.TabIndex = 31;
+            this.metroLabel3.Text = "TURNO";
             this.metroLabel3.UseCustomBackColor = true;
             this.metroLabel3.UseCustomForeColor = true;
             // 
@@ -963,56 +1095,22 @@
             // 
             this.btnBloqueo.FlatAppearance.BorderSize = 0;
             this.btnBloqueo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBloqueo.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnBloqueo.ForeColor = System.Drawing.Color.Transparent;
             this.btnBloqueo.IconChar = FontAwesome.Sharp.IconChar.Lock;
             this.btnBloqueo.IconColor = System.Drawing.Color.Aqua;
-            this.btnBloqueo.IconSize = 45;
+            this.btnBloqueo.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBloqueo.IconSize = 50;
             this.btnBloqueo.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnBloqueo.Location = new System.Drawing.Point(1489, 476);
+            this.btnBloqueo.Location = new System.Drawing.Point(1598, 454);
             this.btnBloqueo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBloqueo.Name = "btnBloqueo";
-            this.btnBloqueo.Rotation = 0D;
-            this.btnBloqueo.Size = new System.Drawing.Size(77, 66);
+            this.btnBloqueo.Padding = new System.Windows.Forms.Padding(2, 4, 2, 2);
+            this.btnBloqueo.Size = new System.Drawing.Size(86, 84);
             this.btnBloqueo.TabIndex = 53;
             this.btnBloqueo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBloqueo.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.btnBloqueo.UseVisualStyleBackColor = true;
             this.btnBloqueo.Click += new System.EventHandler(this.btnBloqueo_Click);
-            // 
-            // btnGA_Pdf
-            // 
-            this.btnGA_Pdf.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnGA_Pdf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.btnGA_Pdf.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.btnGA_Pdf.ForeColor = System.Drawing.Color.Salmon;
-            this.btnGA_Pdf.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
-            this.btnGA_Pdf.IconColor = System.Drawing.Color.Salmon;
-            this.btnGA_Pdf.IconSize = 68;
-            this.btnGA_Pdf.Location = new System.Drawing.Point(1489, 385);
-            this.btnGA_Pdf.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnGA_Pdf.Name = "btnGA_Pdf";
-            this.btnGA_Pdf.Padding = new System.Windows.Forms.Padding(5);
-            this.btnGA_Pdf.Size = new System.Drawing.Size(77, 68);
-            this.btnGA_Pdf.TabIndex = 55;
-            this.btnGA_Pdf.TabStop = false;
-            // 
-            // btnGA_Excel
-            // 
-            this.btnGA_Excel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnGA_Excel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.btnGA_Excel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.btnGA_Excel.ForeColor = System.Drawing.Color.Chartreuse;
-            this.btnGA_Excel.IconChar = FontAwesome.Sharp.IconChar.FileExcel;
-            this.btnGA_Excel.IconColor = System.Drawing.Color.Chartreuse;
-            this.btnGA_Excel.IconSize = 68;
-            this.btnGA_Excel.Location = new System.Drawing.Point(1489, 286);
-            this.btnGA_Excel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnGA_Excel.Name = "btnGA_Excel";
-            this.btnGA_Excel.Padding = new System.Windows.Forms.Padding(5);
-            this.btnGA_Excel.Size = new System.Drawing.Size(77, 68);
-            this.btnGA_Excel.TabIndex = 54;
-            this.btnGA_Excel.TabStop = false;
             // 
             // txt_id_Docente
             // 
@@ -1024,124 +1122,34 @@
             this.txt_id_Docente.TabIndex = 56;
             this.txt_id_Docente.Visible = false;
             // 
-            // lblDni
+            // btnInforme
             // 
-            this.lblDni.AutoSize = true;
-            this.lblDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDni.ForeColor = System.Drawing.Color.Red;
-            this.lblDni.Location = new System.Drawing.Point(48, 140);
-            this.lblDni.Name = "lblDni";
-            this.lblDni.Size = new System.Drawing.Size(46, 17);
-            this.lblDni.TabIndex = 49;
-            this.lblDni.Text = "label1";
-            this.lblDni.Visible = false;
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.ForeColor = System.Drawing.Color.Red;
-            this.lblNombre.Location = new System.Drawing.Point(48, 202);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(46, 17);
-            this.lblNombre.TabIndex = 50;
-            this.lblNombre.Text = "label1";
-            this.lblNombre.Visible = false;
-            // 
-            // lblApellido
-            // 
-            this.lblApellido.AutoSize = true;
-            this.lblApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApellido.ForeColor = System.Drawing.Color.Red;
-            this.lblApellido.Location = new System.Drawing.Point(48, 270);
-            this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(46, 17);
-            this.lblApellido.TabIndex = 51;
-            this.lblApellido.Text = "label1";
-            this.lblApellido.Visible = false;
-            // 
-            // lblCalle
-            // 
-            this.lblCalle.AutoSize = true;
-            this.lblCalle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCalle.ForeColor = System.Drawing.Color.Red;
-            this.lblCalle.Location = new System.Drawing.Point(46, 170);
-            this.lblCalle.Name = "lblCalle";
-            this.lblCalle.Size = new System.Drawing.Size(46, 17);
-            this.lblCalle.TabIndex = 53;
-            this.lblCalle.Text = "label1";
-            this.lblCalle.Visible = false;
-            // 
-            // lblCp
-            // 
-            this.lblCp.AutoSize = true;
-            this.lblCp.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCp.ForeColor = System.Drawing.Color.Red;
-            this.lblCp.Location = new System.Drawing.Point(544, 171);
-            this.lblCp.Name = "lblCp";
-            this.lblCp.Size = new System.Drawing.Size(46, 17);
-            this.lblCp.TabIndex = 56;
-            this.lblCp.Text = "label1";
-            this.lblCp.Visible = false;
-            // 
-            // lblNumero
-            // 
-            this.lblNumero.AutoSize = true;
-            this.lblNumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumero.ForeColor = System.Drawing.Color.Red;
-            this.lblNumero.Location = new System.Drawing.Point(474, 171);
-            this.lblNumero.Name = "lblNumero";
-            this.lblNumero.Size = new System.Drawing.Size(46, 17);
-            this.lblNumero.TabIndex = 55;
-            this.lblNumero.Text = "label1";
-            this.lblNumero.Visible = false;
-            // 
-            // lblBarrio
-            // 
-            this.lblBarrio.AutoSize = true;
-            this.lblBarrio.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBarrio.ForeColor = System.Drawing.Color.Red;
-            this.lblBarrio.Location = new System.Drawing.Point(474, 244);
-            this.lblBarrio.Name = "lblBarrio";
-            this.lblBarrio.Size = new System.Drawing.Size(46, 17);
-            this.lblBarrio.TabIndex = 58;
-            this.lblBarrio.Text = "label1";
-            this.lblBarrio.Visible = false;
-            // 
-            // lblCelular
-            // 
-            this.lblCelular.AutoSize = true;
-            this.lblCelular.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCelular.ForeColor = System.Drawing.Color.Red;
-            this.lblCelular.Location = new System.Drawing.Point(46, 311);
-            this.lblCelular.Name = "lblCelular";
-            this.lblCelular.Size = new System.Drawing.Size(46, 17);
-            this.lblCelular.TabIndex = 59;
-            this.lblCelular.Text = "label1";
-            this.lblCelular.Visible = false;
-            // 
-            // lblEmail
-            // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.ForeColor = System.Drawing.Color.Red;
-            this.lblEmail.Location = new System.Drawing.Point(46, 379);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(46, 17);
-            this.lblEmail.TabIndex = 60;
-            this.lblEmail.Text = "label1";
-            this.lblEmail.Visible = false;
+            this.btnInforme.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnInforme.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.btnInforme.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.btnInforme.ForeColor = System.Drawing.Color.Yellow;
+            this.btnInforme.IconChar = FontAwesome.Sharp.IconChar.Print;
+            this.btnInforme.IconColor = System.Drawing.Color.Yellow;
+            this.btnInforme.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnInforme.IconSize = 82;
+            this.btnInforme.Location = new System.Drawing.Point(1598, 323);
+            this.btnInforme.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnInforme.Name = "btnInforme";
+            this.btnInforme.Padding = new System.Windows.Forms.Padding(2, 6, 2, 2);
+            this.btnInforme.Size = new System.Drawing.Size(86, 82);
+            this.btnInforme.TabIndex = 54;
+            this.btnInforme.TabStop = false;
+            this.btnInforme.Click += new System.EventHandler(this.btnInforme_Click);
             // 
             // frmDocentesPopUpEditar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.ClientSize = new System.Drawing.Size(1620, 840);
+            this.ClientSize = new System.Drawing.Size(1765, 863);
             this.Controls.Add(this.txt_id_Docente);
             this.Controls.Add(this.btnBloqueo);
-            this.Controls.Add(this.btnGA_Pdf);
-            this.Controls.Add(this.btnGA_Excel);
+            this.Controls.Add(this.btnInforme);
             this.Controls.Add(this.btncancelar);
             this.Controls.Add(this.btnguardar);
             this.Controls.Add(this.panelContacto);
@@ -1160,8 +1168,7 @@
             this.panelDatos.PerformLayout();
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnGA_Pdf)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnGA_Excel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnInforme)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1188,11 +1195,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroLabel lblDatosPersonales;
         private MetroFramework.Controls.MetroPanel metroPanel3;
-        private MetroFramework.Controls.MetroLabel metroLabel2;
-        private MetroFramework.Controls.MetroLabel metroLabel3;
         private FontAwesome.Sharp.IconButton btnBloqueo;
-        private FontAwesome.Sharp.IconPictureBox btnGA_Pdf;
-        private FontAwesome.Sharp.IconPictureBox btnGA_Excel;
         public MetroFramework.Controls.MetroTextBox txtEmail;
         public MetroFramework.Controls.MetroTextBox txtCelular;
         public MetroFramework.Controls.MetroTextBox txtTelefono;
@@ -1207,8 +1210,6 @@
         public MetroFramework.Controls.MetroTextBox txtDocumento;
         public MetroFramework.Controls.MetroTextBox txtApellidos;
         public MetroFramework.Controls.MetroTextBox txtNombre;
-        public MetroFramework.Controls.MetroComboBox cbSala;
-        public MetroFramework.Controls.MetroComboBox cbTurno;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox txt_id_Docente;
         private System.Windows.Forms.Label lblDni;
@@ -1220,5 +1221,12 @@
         private System.Windows.Forms.Label lblBarrio;
         private System.Windows.Forms.Label lblCelular;
         private System.Windows.Forms.Label lblEmail;
+        public MetroFramework.Controls.MetroComboBox Cbocargo;
+        private MetroFramework.Controls.MetroLabel metroLabel5;
+        public MetroFramework.Controls.MetroComboBox cbSala;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
+        public MetroFramework.Controls.MetroComboBox cbTurno;
+        private MetroFramework.Controls.MetroLabel metroLabel3;
+        private FontAwesome.Sharp.IconPictureBox btnInforme;
     }
 }
