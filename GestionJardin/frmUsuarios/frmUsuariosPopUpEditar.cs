@@ -34,11 +34,7 @@ namespace GestionJardin
         {
             frmUsuarios U = Owner as frmUsuarios;
             metroTextBoxContrasenaEdit.UseSystemPasswordChar = true;         
-           if (U.dgv_UsuariosActivos.CurrentRow.Cells[5].Value.ToString() == "INACTIVO")
-            {
-                this.Close();
-                MessageBox.Show("NO SE PUEDE EDITAR USUARIO DADO DE BAJA!");
-            }
+          
 
         }
             /************* PERMITE MOVER EL FORM **************/

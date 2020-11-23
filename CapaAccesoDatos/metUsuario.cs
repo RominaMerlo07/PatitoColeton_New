@@ -56,63 +56,58 @@ namespace CaAD//GestionJardin
         }
 
         public bool ingresar(string usuario, string contrasena)
-        {
-            bool valido = new bool();
+        {            
+                bool valido = new bool();
 
+                entUsuario usr = new entUsuario();
+                usr.USU_USUARIO = usuario;
+
+                DataTable t_usuario = buscarUsuario(usr);
+
+                if (t_usuario.Rows.Count == 0)
+                {
+                    valido = false;
+
+                }
+            else if (t_usuario.Rows[0][8].ToString() == "INACTIVO")
+            {
+                valido = false;
+            }
+
+            else if (t_usuario.Rows[0]["USU_CLAVE"].ToString() == contrasena)
+
+                {
+                    valido = true;
+                }
+                else
+                {
+                    valido = false;
+                }
+
+
+                return valido;
+            }
+
+        public bool Permisos(string usuario, string contrasena)
+        {
             entUsuario usr = new entUsuario();
             usr.USU_USUARIO = usuario;
             DataTable t_usuario = buscarUsuario(usr);
+            bool rol = new bool();
+            if (t_usuario.Rows[0][4].ToString() == "1")
+            {
+                rol = true;
+            }
+            else if (t_usuario.Rows[0][4].ToString() == "2")
+            {
 
-            if (t_usuario.Rows.Count == 0)
-            {
-                valido = false;
+                rol = false;
             }
-            else if (t_usuario.Rows[0]["USU_CLAVE"].ToString() == contrasena)
-            {
-                valido = true;
-                if (t_usuario.Rows[0][4].ToString() == "1")
-                {
-                    valido = true;
-                    if (t_usuario.Rows[0][8].ToString() == "N")
-                    {
-                        valido = false;
-                        //frmPrincipal frmP = new frmPrincipal();
-                        //frmP.btnUsuarios.Visible = false;
-                        //frmP.btnAlumnos.Visible = false;
-                        //frmP.btnCobros.Visible = false;
-                        //frmP.btnDocentes.Visible = false;
-                        //frmP.btnInformes.Visible = false;
-                        //frmP.btnSalas.Visible = false;
-                        //MessageBox.Show("USUARIO DESHABILITADO!!");
-                        //frmP.Close();
-                    }
-                }
-                if (t_usuario.Rows[0][4].ToString() == "2")
-                {
-                    //frmPrincipal frmP = new frmPrincipal();
-                    //frmP.Show();
-                    //frmP.btnUsuarios.Visible = false;
-                    if (t_usuario.Rows[0][8].ToString() == "N")
-                    {
-                        valido = false;
-                        //frmP.btnUsuarios.Visible = false;
-                        //frmP.btnAlumnos.Visible = false;
-                        //frmP.btnCobros.Visible = false;
-                        //frmP.btnDocentes.Visible = false;
-                        //frmP.btnInformes.Visible = false;
-                        //frmP.btnSalas.Visible = false;
-                        //MessageBox.Show("USUARIO DESHABILITADO!!");
-                        //frmP.Close();
-                    }
-                }
-            }
-            else
-            {
-                valido = false;
-            }
-            return valido;
+            
+            return rol;
         }
-        public DataTable MostrarUsu()
+
+            public DataTable MostrarUsu()
         {
             con = generarConexion();
             con.Open();
