@@ -407,7 +407,57 @@ namespace CaAD//GestionJardin
             return result;
         }
 
+        public DataTable VisualizarAlumnosporSalaTurno(string nombre_sala, string turno_sala)
+        {
+            
+            
+                con = generarConexion();
+                con.Open();
 
+                cmd = new SqlCommand ("SELECT distinct p.PER_ID AS 'PER_ID'," +
+                                         "CONCAT(p.PER_APELLIDO , p.PER_NOMBRE) AS 'ALUMNO', " +
+                                         "p.PER_DOCUMENTO AS 'DOCUMENTO'" +
+                                         "from T_PERSONAS p, T_SALA s," +
+                                         " T_GRUPO_SALA g WHERE g.GRS_PER_ID = p.PER_ID and" +
+                                         " g.GRS_SAL_ID = s.SAL_ID AND s.SAL_NOMBRE= '" + nombre_sala + "' and " +
+                                         "s.SAL_TURNO ='" + turno_sala + "' AND p.PER_TPE_ID = 2" +
+                                         " AND p.PER_ESTADO = 'S';", con);
+
+            dta = new SqlDataAdapter(cmd);
+            dt = new DataTable();
+            dta.Fill(dt);
+            con.Close();
+
+            return dt;
+        }
+
+        public DataTable traerAlumnosSala(  int idSala)
+        {
+            con = generarConexion();
+
+            DataTable dt = new DataTable();
+            con.Open();
+
+            string consulta = "SELECT PER_ID, PER_NOMBRE NOMBRE, PER_DOCUMENTO "+
+                 "FROM T_GRUPO_SALA , T_PERSONAS  "+
+                 "WHERE PER_ID = GRS_PER_ID " +
+
+                  "AND GRS_SAL_ID = @salaID " +
+
+                  "AND PER_TPE_ID = 2 ; ";
+
+            cmd = new SqlCommand(consulta, con);
+
+            cmd.Parameters.Add(new SqlParameter("@salaID", idSala));
+
+            dr = cmd.ExecuteReader();
+            dt.Load(dr);
+            dr.Close();
+
+            con.Close();
+            return dt;
+
+        }
 
     }
 }

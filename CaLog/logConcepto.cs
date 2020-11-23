@@ -23,6 +23,19 @@ namespace CaLog
             return objMetConcepto.InsertarConcepto(concepto);
         }
 
+        public int Extraer_ultimo_idConcepto()
+        {
+            return objMetConcepto.Extraer_ultimo_idConcepto();
+        }
+
+        public DataTable CargaDtNombreConcepto()
+        {
+            return objMetConcepto.CargaDtNombreConcepto();
+        }
+        public decimal Extraer_Valor_Anterior_Concepto(entConcepto concepto)
+        {
+            return objMetConcepto.Extraer_Valor_Anterior_Concepto(concepto);
+        }
 
         //************************************************************
         //METODO QUE VALIDA QUE LOS DATOS A INGRESAR EN LA T_CONCEPTOS NO ESTEN REPETIDOS
@@ -68,10 +81,10 @@ namespace CaLog
         }
 
         // Esto solo pasaria cuando se inactiva un concepto activo. El monto no deberia cambiar
-        public string ActualizarEstadoN(entConcepto conceptoEN)
+        public string DeshabilitarConcepto(entConcepto conceptoEN)
         {
 
-            return objMetConcepto.ActualizarEstadoN(conceptoEN);
+            return objMetConcepto.DeshabilitarConcepto(conceptoEN);
         }
 
         // Esto solo pasaria cuando SOLO se activa un concepto inactivo y el monto no cambia
@@ -82,11 +95,10 @@ namespace CaLog
         }
 
         //Cuando solo se modifica el monto de un concepto Activo
-        public string ActualizarMonto(entConcepto conceptoM)
+        public string ActualizarMonto(entConcepto conceptoM, string p_fecha_hasta, string p_fecha_ult_act)
         {
 
-            
-            return objMetConcepto.ActualizarMonto(conceptoM);
+            return objMetConcepto.ActualizarMonto(conceptoM, p_fecha_hasta,p_fecha_ult_act);
         }
 
         public string nombre_concepto(string concepto)
@@ -98,6 +110,15 @@ namespace CaLog
                 string[] nombre_concepto = concepto.Split(delimitador);
                 return nombre_concepto[0];
             }                 
+        }
+
+        public string ExtraerData()
+        {
+            string fecha = DateTime.Today.ToShortDateString();
+            string[] solo_dma = fecha.Split(' ');
+
+            return solo_dma[0];
+
         }
 
     }

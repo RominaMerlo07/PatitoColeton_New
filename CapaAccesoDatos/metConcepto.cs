@@ -41,20 +41,16 @@ namespace CaAD//GestionJardin
                                                             "(CON_CONCEPTO ," +
                                                             " CON_VALOR_ACTUAL, " +
                                                             " CON_FECHA_INI, " +
-                                                            " CON_FECHA_FIN, " +
-                                                            " CON_FECHA_ACT, " +
                                                             " CON_ACTIVO, " +
-                                                            " CON_PERIODO, " +
-                                                            " CON_VALOR_ANTERIOR) " +
-                                                "VALUES " +
+                                                            "CON_FECHA_ACT,"+
+                                                            "CON_VALOR_ANTERIOR)"+
+                                                            "VALUES " +
                                                         "('" + concepto.CON_CONCEPTO + "', " +
                                                         " " + concepto.CON_VALOR_ACTUAL.ToString().Replace(",",".") + "," +
-                                                        "'" + concepto.CON_FECHA_INI + "', " +
-                                                        "'" + concepto.CON_FECHA_FIN + "', " +
-                                                        "'" + concepto.CON_FECHA_ACT + "'," +
-                                                        "'" + concepto.CON_ACTIVO + "', " +
-                                                        " " + concepto.CON_PERIODO + ", " +
-                                                        " " + concepto.CON_VALOR_ANTERIOR + ")", con);
+                                                        " GETDATE(), " +
+                                                        "'" + concepto.CON_ACTIVO +"',"+
+                                                        "GETDATE(), " +
+                                                        "'" +concepto.CON_VALOR_ANTERIOR.ToString().Replace(",", ".") + "')", con);
                 cmd.ExecuteNonQuery();
                 result = "SE INSERTO EL CONCEPTO: " + concepto.CON_CONCEPTO;
 
@@ -66,6 +62,23 @@ namespace CaAD//GestionJardin
                 con.Close();
             }
             return result;
+        }
+
+        public int Extraer_ultimo_idConcepto()
+        {
+            int id_concepto;
+            con = generarConexion();
+            con.Open();
+
+            cmd = new SqlCommand("Select TOP 1 (CON_ID) FROM T_CONCEPTOS ORDER BY CON_ID DESC", con);
+            
+            cmd.ExecuteNonQuery();
+
+            
+            id_concepto = Convert.ToInt32(cmd.ExecuteScalar());
+            con.Close();
+            return id_concepto ;
+
         }
 
 
@@ -147,14 +160,7 @@ namespace CaAD//GestionJardin
             dr2 = cmd.ExecuteReader();
             dt.Load(dr2);
 
-            //while (dr2.Read())
-            //{
-            //    autoComplete.Add(dr2.GetString(0));
-            //}
-            //dr2.Close();
-
-            //p_buscarCon.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            //p_buscarCon.AutoCompleteCustomSource = autoComplete;
+            
             return dt;
     
 
@@ -242,10 +248,11 @@ namespace CaAD//GestionJardin
 
             string consulta = "SELECT CON_ID 'CON_ID' ," +
                                      "CON_CONCEPTO as 'CONCEPTO', " +
-                                     "CON_PERIODO 'PERIODO',  " +
                                      "CON_VALOR_ACTUAL as 'VALOR ACTUAL', " +
-                                     "CONVERT(VARCHAR(10), T_CONCEPTOS.CON_FECHA_ACT, 103) as 'MODIFICADO', " +
+                                     "CONVERT(VARCHAR(10), T_CONCEPTOS.CON_FECHA_ACT, 103) as 'DESDE', " +
                                      "CON_VALOR_ANTERIOR 'VALOR ANTERIOR',  " +
+                                     "CON_FECHA_ULT_ACT AS 'DESDE',"+
+                                     "CON_FECHA_HASTA 'HASTA',"+
                                      "CONVERT(VARCHAR(10), T_CONCEPTOS.CON_FECHA_INI, 103) as 'ALTA', " +
                                      "CONVERT(VARCHAR(10), T_CONCEPTOS.CON_FECHA_FIN, 103) as 'FIN', " +
                                      "(CASE CON_ACTIVO " +
@@ -265,8 +272,45 @@ namespace CaAD//GestionJardin
 
         }
 
+
+
+        public DataTable CargaDtNombreConcepto()
+
+        {
+                       
+            con = generarConexion();
+            con.Open();
+
+            cmd = new SqlCommand("SELECT CON_CONCEPTO 'CONCEPTO' from t_conceptos", con);
+            dta = new SqlDataAdapter(cmd);
+            dt = new DataTable();
+            dta.Fill(dt);
+            con.Close();
+
+               return dt;
+            
+        }
+
+        public decimal Extraer_Valor_Anterior_Concepto(entConcepto concepto)
+        {
+            con = generarConexion();
+            con.Open();
+
+            cmd = new SqlCommand("Select CON_VALOR_ACTUAL FROM T_CONCEPTOS WHERE CON_ID = " + concepto.CON_ID + "", con);
+
+            decimal valor_actual_concepto = Convert.ToDecimal(cmd.ExecuteScalar());
+            con.Close();
+
+            return valor_actual_concepto;
+        
+        }
+        
+        
+        
         // Esto solo pasaria cuando se activa un inactivo y ademas cambia el monto
-        public string ActualizarMontoEstado(entConcepto conceptoME)
+       
+
+       public string ActualizarMontoEstado(entConcepto conceptoME)
         {
 
             con = generarConexion();
@@ -280,7 +324,7 @@ namespace CaAD//GestionJardin
                 cmd = new SqlCommand("UPDATE T_CONCEPTOS SET CON_FECHA_ACT = '"+ conceptoME.CON_FECHA_ACT+"', " +
                                                             "CON_ACTIVO = 'S', " +
                                                             "CON_VALOR_ACTUAL = "+ conceptoME.CON_VALOR_ACTUAL.ToString().Replace(",", ".") + "," +
-                                                            " CON_VALOR_ANTERIOR = "+ conceptoME.CON_VALOR_ANTERIOR.ToString().Replace(",", ".") + ", " +
+                                                            "CON_VALOR_ANTERIOR = "+ conceptoME.CON_VALOR_ANTERIOR.ToString().Replace(",", ".") + ", " +
                                                             "CON_FECHA_FIN = '"+ conceptoME.CON_FECHA_FIN +"' " +
                                                             "WHERE CON_ID = " + conceptoME.CON_ID+"; ", con);
                 cmd.ExecuteNonQuery();
@@ -297,7 +341,7 @@ namespace CaAD//GestionJardin
         }
 
         // Esto solo pasaria cuando se inactiva un concepto activo. El monto no deberia cambiar
-        public string ActualizarEstadoN(entConcepto conceptoEN)
+        public string DeshabilitarConcepto(entConcepto conceptoEN)
         {
 
             con = generarConexion();
@@ -308,13 +352,12 @@ namespace CaAD//GestionJardin
 
                 con.Open();
                 //el SqlCommand se usa para realizar consultas a la base
-                cmd = new SqlCommand("UPDATE T_CONCEPTOS SET CON_FECHA_ACT = '" + conceptoEN.CON_FECHA_ACT + "', " +
-                                                            "CON_ACTIVO = 'N', " +
-                                                            "CON_FECHA_FIN = '"+ conceptoEN.CON_FECHA_FIN+"' " +
-                                                            "WHERE CON_ID = "+ conceptoEN.CON_ID+";", con);
+                cmd = new SqlCommand("UPDATE T_CONCEPTOS SET CON_FECHA_ACT = GETDATE(), " +
+                                                            "CON_ACTIVO = 'N'," +
+                                                            "CON_FECHA_FIN = GETDATE()" +
+                                                            "WHERE CON_ID = "+ conceptoEN.CON_ID +";", con);
                 cmd.ExecuteNonQuery();
                 result = "SE DESHABILITO EL CONCEPTO";
-
 
             }
             catch (Exception ex)
@@ -337,9 +380,9 @@ namespace CaAD//GestionJardin
 
                 con.Open();
                 //el SqlCommand se usa para realizar consultas a la base
-                cmd = new SqlCommand("UPDATE T_CONCEPTOS SET CON_FECHA_ACT = '" + conceptoES.CON_FECHA_ACT + "', " +
+                cmd = new SqlCommand("UPDATE T_CONCEPTOS SET CON_FECHA_ACT = GETDATE(), " +
                                                             "CON_ACTIVO = 'S', " +
-                                                            "CON_FECHA_FIN = '" + conceptoES.CON_FECHA_FIN + "' " +
+                                                            "CON_FECHA_FIN =  GETDATE()" +
                                                             "WHERE CON_ID = " + conceptoES.CON_ID + ";", con);
                 cmd.ExecuteNonQuery();
                 result = "SE HABILITO EL CONCEPTO";
@@ -355,7 +398,7 @@ namespace CaAD//GestionJardin
         }
 
         //Cuando solo se modifica el monto de un concepto Activo
-        public string ActualizarMonto(entConcepto conceptoM)
+        public string ActualizarMonto(entConcepto conceptoM, string p_fecha_hasta,string p_fecha_ult_act)
         {
 
             con = generarConexion();
@@ -366,12 +409,19 @@ namespace CaAD//GestionJardin
 
                 con.Open();
                 //el SqlCommand se usa para realizar consultas a la base
-                cmd = new SqlCommand("UPDATE T_CONCEPTOS SET CON_FECHA_ACT = '" + conceptoM.CON_FECHA_ACT+ "'," +
-                                                             " CON_VALOR_ACTUAL = "+ conceptoM.CON_VALOR_ACTUAL.ToString().Replace(",",".")+", " +
-                                                             "CON_VALOR_ANTERIOR = "+ conceptoM.CON_VALOR_ANTERIOR.ToString().Replace(",", ".") + " " +
-                                                             "WHERE CON_ID = "+ conceptoM.CON_ID+"; ", con);
+                cmd = new SqlCommand("  UPDATE T_CONCEPTOS SET CON_FECHA_ACT = GETDATE()," +
+                                                             "CON_VALOR_ACTUAL = " + conceptoM.CON_VALOR_ACTUAL.ToString().Replace(",", ".") + ", " +
+                                                             "CON_VALOR_ANTERIOR = " + conceptoM.CON_VALOR_ANTERIOR.ToString().Replace(",", ".") + ", " +
+                                                             "CON_FECHA_ULT_ACT = CAST('" + p_fecha_ult_act+"'AS DATE), " +
+                                                             "CON_FECHA_HASTA = CAST ('" + p_fecha_hasta + "'AS DATE)" +
+                                                             "WHERE CON_ID = " + conceptoM.CON_ID + "; ", con);
+
                 cmd.ExecuteNonQuery();
 
+
+                
+                cmd.ExecuteNonQuery();
+                
                 result = "SE ACTUALIZO EL MONTO DEL CONCEPTO";
 
 
@@ -383,6 +433,10 @@ namespace CaAD//GestionJardin
             }
             return result;
         }
+
+       
+
+
 
     }
 }

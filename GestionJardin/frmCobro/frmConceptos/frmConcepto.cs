@@ -41,16 +41,21 @@ namespace GestionJardin
         private void btnCon_Editar_Click(object sender, EventArgs e)
         {
             
-            if (dgvConceptos.SelectedRows.Count > 0)
+            if (dgvConceptos.SelectedRows.Count > 0 )
             {
                 btnCon_Editar.IconColor = Color.Cyan;
                 btnCon_Editar.ForeColor = Color.Cyan;
                 string idConceptoSelect = dgvConceptos.SelectedRows[0].Cells[0].Value.ToString();
-                frmConcepto_Editar frmConcepto_Editar = new frmConcepto_Editar();
+                string NombreConceptoSelect = dgvConceptos.SelectedRows[0].Cells[1].Value.ToString();
+                DateTime Fecha_InicioSelect = Convert.ToDateTime(dgvConceptos.SelectedRows[0].Cells[7].Value);
+                string Valor_anteriorSelect = dgvConceptos.SelectedRows[0].Cells[4].Value.ToString();
+                string ValorActualConceptoSelect = dgvConceptos.SelectedRows[0].Cells[2].Value.ToString();
+                string EstadoConceptosSelect = dgvConceptos.SelectedRows[0].Cells[9].Value.ToString();
+
+                frmConcepto_Editar frmConcepto_Editar = new frmConcepto_Editar(idConceptoSelect, NombreConceptoSelect, ValorActualConceptoSelect, Fecha_InicioSelect, Valor_anteriorSelect, EstadoConceptosSelect);
                 frmConcepto_Editar.FormClosed += frmConcepto_Editar_FormClosed;
                 frmConcepto_Editar.Text = "GESTIÓN COBROS / CONCEPTOS / GESTIONAR / EDITAR";
                 frmConcepto_Editar.ShowDialog();
-
 
                 btnCon_Editar.IconColor = Color.Gray;
                 btnCon_Editar.ForeColor = Color.Gray;
@@ -81,13 +86,13 @@ namespace GestionJardin
                 btnCon_Eliminar.ForeColor = Color.FromArgb(255, 128, 0);
 
                 string idConceptoSelect = dgvConceptos.SelectedRows[0].Cells[0].Value.ToString();
-                string nombreConcepto = dgvConceptos.SelectedRows[0].Cells[1].Value.ToString();
-                frmConcepto_Eliminar frmConcepto_Eliminar = new frmConcepto_Eliminar();
+                string nombreConceptoSelect = dgvConceptos.SelectedRows[0].Cells[1].Value.ToString();
+                frmConcepto_Eliminar frmConcepto_Eliminar = new frmConcepto_Eliminar(idConceptoSelect, nombreConceptoSelect);
                 frmConcepto_Eliminar.FormClosed += frmConcepto_Eliminar_FormClosed;
                 frmConcepto_Eliminar.Text = "GESTIÓN COBROS / CONCEPTOS / GESTIONAR / ELIMINAR";
                 frmConcepto_Eliminar.ShowDialog();
 
-               btnCon_Eliminar.IconColor = Color.Gray;
+                btnCon_Eliminar.IconColor = Color.Gray;
                 btnCon_Eliminar.ForeColor = Color.Gray;
                 btnCon_Editar.IconColor = Color.Gray;
                 btnCon_Editar.ForeColor = Color.Gray;
@@ -198,26 +203,47 @@ namespace GestionJardin
 
         private void dgvConceptos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            string EstadoConceptosSelect = dgvConceptos.SelectedRows[0].Cells[9].Value.ToString();
 
 
-                if (dgvConceptos.SelectedRows.Count > 0)
-                {
-                    btnCon_Editar.IconColor = Color.Cyan;
-                    btnCon_Editar.ForeColor = Color.Cyan;
-                    btnCon_Eliminar.IconColor = Color.FromArgb(255, 128, 0);
-                    btnCon_Eliminar.ForeColor = Color.FromArgb(255, 128, 0);
+            if (dgvConceptos.SelectedRows.Count > 0 && EstadoConceptosSelect == "ACTIVO")
+            {
+                btnCon_Editar.Text = "ACTUALIZAR";
+                btnCon_Editar.IconColor = Color.Cyan;
+                btnCon_Editar.ForeColor = Color.Cyan;
+                btnCon_Eliminar.IconColor = Color.FromArgb(255, 128, 0);
+                btnCon_Eliminar.ForeColor = Color.FromArgb(255, 128, 0);
 
-                }
-                else
-                {
-                    dgvConceptos.ClearSelection();
-                    btnCon_Editar.IconColor = Color.Gray;
-                    btnCon_Editar.ForeColor = Color.Gray;
-                    btnCon_Eliminar.IconColor = Color.Gray;
-                    btnCon_Eliminar.ForeColor = Color.Gray;
+            }
+            else if (dgvConceptos.SelectedRows.Count > 0 && EstadoConceptosSelect == "INACTIVO")
+            {
+                btnCon_Editar.Text = "HABILITAR";
+                btnCon_Editar.IconColor = Color.Cyan;
+                btnCon_Editar.ForeColor = Color.Cyan;
+                btnCon_Eliminar.IconColor = Color.FromArgb(255, 128, 0);
+                btnCon_Eliminar.ForeColor = Color.FromArgb(255, 128, 0);
+            }
+            else
+            {
+                dgvConceptos.ClearSelection();
+                btnCon_Editar.IconColor = Color.Gray;
+                btnCon_Editar.ForeColor = Color.Gray;
+                btnCon_Eliminar.IconColor = Color.Gray;
+                btnCon_Eliminar.ForeColor = Color.Gray;
 
-                }
+            }
 
+        }
+
+        private void btnCon_Editar_TextChanged(object sender, EventArgs e)
+        {
+            
+            string EstadoConceptosSelect = dgvConceptos.SelectedRows[0].Cells[9].Value.ToString();
+            if (dgvConceptos.SelectedRows.Count > 0 && EstadoConceptosSelect == "INACTIVO")
+            {
+                btnCon_Editar.Text = "HABILITAR";
+            
+            }
         }
     }
 }

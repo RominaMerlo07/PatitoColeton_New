@@ -185,19 +185,12 @@ namespace CaAD//GestionJardin
             con.Open();
             string consultadocente = "SELECT CONCAT  (PER_NOMBRE, ' ', PER_APELLIDO,  ' ' , '(' , PER_DOCUMENTO, ')' ) DOCENTE , PER_ID FROM T_PERSONAS " +
                                     "WHERE PER_TPE_ID = 1 AND PER_ID NOT IN (SELECT DISTINCT PER_ID FROM T_PERSONAS , T_USUARIOS  where PER_ID = USU_PER_ID)";
-            //"SELECT [PER_NOMBRE] +' ' +  [PER_APELLIDO ] 'DOCENTE',PER_ID FROM T_PERSONAS " +
-            //                 "WHERE PER_TPE_ID = 1  "; ESTA CONSULTA TRAE A TODOS LOS DOCENTES, PERONECESITÁBAMOS A AQUELLOS QUE NO TENÍAN USUARIO.
+            
 
             comando = new SqlCommand(consultadocente, con);
             dr = comando.ExecuteReader();
             dt.Load(dr);
-            //while (dr.Read())
-            //{
-            //    pbarrabuscar.AutoCompleteCustomSource.Add(dr["DOCENTE"].ToString());
-
-            //    /*barrabuscar.AutoCompleteCustomSource.Add(dr["DOCENTE"].ToString());*/
-            //}
-            //dr.Close();
+            
             con.Close();
             return dt;
         }
@@ -238,10 +231,9 @@ namespace CaAD//GestionJardin
             return "yes";
 
         }
-        //string[] extraccion = consulta.Split(' ');
-        //return extraccion[0];
+        
 
-        public string CrearUsuario(string nombreApe/*pbarrabuscar*//*, MetroFramework.Controls.MetroTextBox newuser*/)
+        public string CrearUsuario(string nombreApe)
         {
 
             string Nombre = ExtraerNombre(nombreApe);
@@ -270,13 +262,12 @@ namespace CaAD//GestionJardin
 
                 {
 
-                    //newuser.Text = nombre_usuario;
-                    //nombre_usuario = nombre_usuario;
+                   
 
                 }
                 else
                 {
-                    //newuser.Text = nombre_usuario + acumulador;
+                    
                     nombre_usuario = nombre_usuario + acumulador;
                 }
             }
@@ -288,7 +279,7 @@ namespace CaAD//GestionJardin
 
         }
 
-        public DataTable AutocompletarenDocente(/*MetroFramework.Controls.MetroTextBox pbarrabuscar*/)
+        public DataTable AutocompletarenDocente()
         {
             DataTable dt = new DataTable();
             con = generarConexion();

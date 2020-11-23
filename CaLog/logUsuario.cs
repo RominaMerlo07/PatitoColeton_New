@@ -52,7 +52,7 @@ namespace CaLog
             string info = pbarrabuscar;
             string[] extraccion = info.Split(' ');
             return extraccion[0];
-            //return objMetUsuario.ExtraerNombre(pbarrabuscar);
+           
         }
 
         public string ExtraerDni(string pbarrabuscar)
@@ -60,7 +60,7 @@ namespace CaLog
             string info = pbarrabuscar;
             string[] extraccion = info.Split('(', ')');
             return extraccion[1];
-            //return objMetUsuario.ExtraerDni(pbarrabuscar);
+            
         }
 
 
@@ -74,7 +74,7 @@ namespace CaLog
         public string CrearUsuario(String pbarrabuscar/*, String newuser*/)
         {
 
-            return objMetUsuario.CrearUsuario(pbarrabuscar/*, newuser*/);
+            return objMetUsuario.CrearUsuario(pbarrabuscar);
         }
 
         public DataTable AutocompletarenDocente(/*MetroFramework.Controls.MetroTextBox pbarrabuscar*/)

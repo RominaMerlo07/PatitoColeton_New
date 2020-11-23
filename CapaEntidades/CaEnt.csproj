@@ -74,6 +74,7 @@
     <Compile Include="entDomicilio.cs" />
     <Compile Include="entGrupoFlia.cs" />
     <Compile Include="entGrupoSala.cs" />
+    <Compile Include="entHistorial.cs" />
     <Compile Include="entMateria.cs" />
     <Compile Include="entMateriaTipo.cs" />
     <Compile Include="entPersona.cs" />

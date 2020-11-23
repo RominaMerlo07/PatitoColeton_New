@@ -704,8 +704,8 @@ namespace GestionJardin
                     objConceptos.CON_FECHA_ACT = fechaActual;
                     objConceptos.CON_FECHA_FIN = fechaActual;
 
-                    MessageBox.Show(objMet_Conceptos.ActualizarEstadoN(objConceptos));
-                    limpiarCampos();
+                    //MessageBox.Show(objMet_Conceptos.ActualizarEstadoN(objConceptos));
+                    //limpiarCampos();
 
                 }
                 else if (estadoE == "ACTIVO")
@@ -725,8 +725,8 @@ namespace GestionJardin
                 objConceptos.CON_VALOR_ACTUAL = montoE;
                 objConceptos.CON_VALOR_ANTERIOR = montoAct;
 
-                MessageBox.Show(objMet_Conceptos.ActualizarMonto(objConceptos));
-                limpiarCampos();
+                //MessageBox.Show(objMet_Conceptos.ActualizarMonto(objConceptos));
+                //limpiarCampos();
             }
             else
             {

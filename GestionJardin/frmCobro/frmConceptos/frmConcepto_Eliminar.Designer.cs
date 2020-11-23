@@ -28,67 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_CancelarUsuNuevo = new FontAwesome.Sharp.IconButton();
-            this.btn_GuardarUsuNuevo = new FontAwesome.Sharp.IconButton();
-            this.label4 = new System.Windows.Forms.Label();
+            this.btn_canc_deshab_con = new FontAwesome.Sharp.IconButton();
+            this.btn_deshabilitar_concepto = new FontAwesome.Sharp.IconButton();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbl_nombre_concepto = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // btn_CancelarUsuNuevo
+            // btn_canc_deshab_con
             // 
-            this.btn_CancelarUsuNuevo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_CancelarUsuNuevo.BackColor = System.Drawing.Color.Transparent;
-            this.btn_CancelarUsuNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_CancelarUsuNuevo.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btn_CancelarUsuNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_CancelarUsuNuevo.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btn_CancelarUsuNuevo.IconChar = FontAwesome.Sharp.IconChar.TimesCircle;
-            this.btn_CancelarUsuNuevo.IconColor = System.Drawing.Color.DarkGray;
-            this.btn_CancelarUsuNuevo.IconSize = 36;
-            this.btn_CancelarUsuNuevo.Location = new System.Drawing.Point(602, 369);
-            this.btn_CancelarUsuNuevo.Name = "btn_CancelarUsuNuevo";
-            this.btn_CancelarUsuNuevo.Rotation = 0D;
-            this.btn_CancelarUsuNuevo.Size = new System.Drawing.Size(125, 52);
-            this.btn_CancelarUsuNuevo.TabIndex = 20;
-            this.btn_CancelarUsuNuevo.Text = "NO";
-            this.btn_CancelarUsuNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_CancelarUsuNuevo.UseVisualStyleBackColor = false;
+            this.btn_canc_deshab_con.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_canc_deshab_con.BackColor = System.Drawing.Color.Transparent;
+            this.btn_canc_deshab_con.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_canc_deshab_con.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_canc_deshab_con.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btn_canc_deshab_con.IconChar = FontAwesome.Sharp.IconChar.TimesCircle;
+            this.btn_canc_deshab_con.IconColor = System.Drawing.Color.DarkGray;
+            this.btn_canc_deshab_con.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_canc_deshab_con.IconSize = 36;
+            this.btn_canc_deshab_con.Location = new System.Drawing.Point(352, 270);
+            this.btn_canc_deshab_con.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_canc_deshab_con.Name = "btn_canc_deshab_con";
+            this.btn_canc_deshab_con.Size = new System.Drawing.Size(94, 42);
+            this.btn_canc_deshab_con.TabIndex = 20;
+            this.btn_canc_deshab_con.Text = "NO";
+            this.btn_canc_deshab_con.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_canc_deshab_con.UseVisualStyleBackColor = false;
+            this.btn_canc_deshab_con.Click += new System.EventHandler(this.btn_canc_deshab_con_Click);
             // 
-            // btn_GuardarUsuNuevo
+            // btn_deshabilitar_concepto
             // 
-            this.btn_GuardarUsuNuevo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_GuardarUsuNuevo.BackColor = System.Drawing.Color.Transparent;
-            this.btn_GuardarUsuNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_GuardarUsuNuevo.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btn_GuardarUsuNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_GuardarUsuNuevo.ForeColor = System.Drawing.Color.Red;
-            this.btn_GuardarUsuNuevo.IconChar = FontAwesome.Sharp.IconChar.CheckCircle;
-            this.btn_GuardarUsuNuevo.IconColor = System.Drawing.Color.Red;
-            this.btn_GuardarUsuNuevo.IconSize = 36;
-            this.btn_GuardarUsuNuevo.Location = new System.Drawing.Point(397, 369);
-            this.btn_GuardarUsuNuevo.Name = "btn_GuardarUsuNuevo";
-            this.btn_GuardarUsuNuevo.Rotation = 0D;
-            this.btn_GuardarUsuNuevo.Size = new System.Drawing.Size(125, 52);
-            this.btn_GuardarUsuNuevo.TabIndex = 19;
-            this.btn_GuardarUsuNuevo.Text = "SI";
-            this.btn_GuardarUsuNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_GuardarUsuNuevo.UseVisualStyleBackColor = false;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(393, 258);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(259, 24);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "NO podrá reactivar el mismo. ";
+            this.btn_deshabilitar_concepto.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_deshabilitar_concepto.BackColor = System.Drawing.Color.Transparent;
+            this.btn_deshabilitar_concepto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_deshabilitar_concepto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_deshabilitar_concepto.ForeColor = System.Drawing.Color.Red;
+            this.btn_deshabilitar_concepto.IconChar = FontAwesome.Sharp.IconChar.CheckCircle;
+            this.btn_deshabilitar_concepto.IconColor = System.Drawing.Color.Red;
+            this.btn_deshabilitar_concepto.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_deshabilitar_concepto.IconSize = 36;
+            this.btn_deshabilitar_concepto.Location = new System.Drawing.Point(96, 270);
+            this.btn_deshabilitar_concepto.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_deshabilitar_concepto.Name = "btn_deshabilitar_concepto";
+            this.btn_deshabilitar_concepto.Size = new System.Drawing.Size(94, 42);
+            this.btn_deshabilitar_concepto.TabIndex = 19;
+            this.btn_deshabilitar_concepto.Text = "SI";
+            this.btn_deshabilitar_concepto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_deshabilitar_concepto.UseVisualStyleBackColor = false;
+            this.btn_deshabilitar_concepto.Click += new System.EventHandler(this.btn_deshabilitar_concepto_Click);
             // 
             // label3
             // 
@@ -96,23 +85,24 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(364, 207);
+            this.label3.Location = new System.Drawing.Point(273, 168);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(299, 24);
+            this.label3.Size = new System.Drawing.Size(0, 18);
             this.label3.TabIndex = 17;
-            this.label3.Text = "Tenga en cuenta que al confirmar,";
             // 
-            // label2
+            // lbl_nombre_concepto
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Yellow;
-            this.label2.Location = new System.Drawing.Point(84, 100);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(197, 32);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "CONCEPTO ?";
+            this.lbl_nombre_concepto.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbl_nombre_concepto.AutoSize = true;
+            this.lbl_nombre_concepto.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_nombre_concepto.ForeColor = System.Drawing.Color.Yellow;
+            this.lbl_nombre_concepto.Location = new System.Drawing.Point(214, 69);
+            this.lbl_nombre_concepto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_nombre_concepto.Name = "lbl_nombre_concepto";
+            this.lbl_nombre_concepto.Size = new System.Drawing.Size(154, 26);
+            this.lbl_nombre_concepto.TabIndex = 16;
+            this.lbl_nombre_concepto.Text = "CONCEPTO ?";
             // 
             // label1
             // 
@@ -120,11 +110,12 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(77, 29);
+            this.label1.Location = new System.Drawing.Point(92, 31);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(521, 29);
+            this.label1.Size = new System.Drawing.Size(457, 24);
             this.label1.TabIndex = 15;
-            this.label1.Text = "¿Esta seguro que desea ELIMINAR el concepto";
+            this.label1.Text = "¿Esta seguro que desea DESHABILITAR el concepto";
             // 
             // iconPictureBox1
             // 
@@ -133,27 +124,29 @@
             this.iconPictureBox1.ForeColor = System.Drawing.Color.Red;
             this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.ExclamationCircle;
             this.iconPictureBox1.IconColor = System.Drawing.Color.Red;
-            this.iconPictureBox1.IconSize = 170;
-            this.iconPictureBox1.Location = new System.Drawing.Point(74, 169);
+            this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox1.IconSize = 138;
+            this.iconPictureBox1.Location = new System.Drawing.Point(219, 106);
+            this.iconPictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.iconPictureBox1.Name = "iconPictureBox1";
-            this.iconPictureBox1.Padding = new System.Windows.Forms.Padding(5);
-            this.iconPictureBox1.Size = new System.Drawing.Size(190, 170);
+            this.iconPictureBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.iconPictureBox1.Size = new System.Drawing.Size(142, 138);
             this.iconPictureBox1.TabIndex = 14;
             this.iconPictureBox1.TabStop = false;
             // 
             // frmConcepto_Eliminar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btn_CancelarUsuNuevo);
-            this.Controls.Add(this.btn_GuardarUsuNuevo);
-            this.Controls.Add(this.label4);
+            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.btn_canc_deshab_con);
+            this.Controls.Add(this.btn_deshabilitar_concepto);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbl_nombre_concepto);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.iconPictureBox1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmConcepto_Eliminar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
@@ -164,11 +157,10 @@
 
         #endregion
 
-        private FontAwesome.Sharp.IconButton btn_CancelarUsuNuevo;
-        private FontAwesome.Sharp.IconButton btn_GuardarUsuNuevo;
-        private System.Windows.Forms.Label label4;
+        private FontAwesome.Sharp.IconButton btn_canc_deshab_con;
+        private FontAwesome.Sharp.IconButton btn_deshabilitar_concepto;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbl_nombre_concepto;
         private System.Windows.Forms.Label label1;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
     }

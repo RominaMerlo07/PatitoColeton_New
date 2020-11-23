@@ -72,6 +72,17 @@ namespace CaLog
             return objMetCuota.bajaCuotaFinal(idCuotaFinal);
 
         }
+
+        public DataTable VisualizarAlumnosporSalaTurno(string nombre_sala, string turno_sala)
+        {
+            return objMetCuota.VisualizarAlumnosporSalaTurno(nombre_sala, turno_sala);
+       
+        }
+
+        public DataTable traerAlumnosSala(int idSala)
+        {
+            return objMetCuota.traerAlumnosSala(idSala);
+        }
     }
         
 }
