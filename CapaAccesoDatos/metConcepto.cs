@@ -252,9 +252,8 @@ namespace CaAD//GestionJardin
                                      "CONVERT(VARCHAR(10), T_CONCEPTOS.CON_FECHA_ACT, 103) as 'DESDE', " +
                                      "CON_VALOR_ANTERIOR 'VALOR ANTERIOR',  " +
                                      "CON_FECHA_ULT_ACT AS 'DESDE',"+
-                                     "CON_FECHA_HASTA 'HASTA',"+
-                                     "CONVERT(VARCHAR(10), T_CONCEPTOS.CON_FECHA_INI, 103) as 'ALTA', " +
-                                     "CONVERT(VARCHAR(10), T_CONCEPTOS.CON_FECHA_FIN, 103) as 'FIN', " +
+                                     "CON_FECHA_ACT 'HASTA',"+
+                                     "CONVERT(VARCHAR(10), T_CONCEPTOS.CON_FECHA_INI, 103) as 'ALTA', " +                                     
                                      "(CASE CON_ACTIVO " +
                                         "WHEN 'S' THEN 'ACTIVO' " +
                                         "WHEN 'N' THEN 'INACTIVO' " +
@@ -409,8 +408,8 @@ namespace CaAD//GestionJardin
 
                 con.Open();
                 //el SqlCommand se usa para realizar consultas a la base
-                cmd = new SqlCommand("  UPDATE T_CONCEPTOS SET CON_FECHA_ACT = GETDATE()," +
-                                                             "CON_VALOR_ACTUAL = " + conceptoM.CON_VALOR_ACTUAL.ToString().Replace(",", ".") + ", " +
+                cmd = new SqlCommand("UPDATE T_CONCEPTOS SET CON_FECHA_ACT = GETDATE()," +
+                                                            "CON_VALOR_ACTUAL = " + conceptoM.CON_VALOR_ACTUAL.ToString().Replace(",", ".") + ", " +
                                                              "CON_VALOR_ANTERIOR = " + conceptoM.CON_VALOR_ANTERIOR.ToString().Replace(",", ".") + ", " +
                                                              "CON_FECHA_ULT_ACT = CAST('" + p_fecha_ult_act+"'AS DATE), " +
                                                              "CON_FECHA_HASTA = CAST ('" + p_fecha_hasta + "'AS DATE)" +

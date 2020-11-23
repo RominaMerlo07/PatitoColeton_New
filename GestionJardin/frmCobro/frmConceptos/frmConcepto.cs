@@ -50,7 +50,7 @@ namespace GestionJardin
                 DateTime Fecha_InicioSelect = Convert.ToDateTime(dgvConceptos.SelectedRows[0].Cells[7].Value);
                 string Valor_anteriorSelect = dgvConceptos.SelectedRows[0].Cells[4].Value.ToString();
                 string ValorActualConceptoSelect = dgvConceptos.SelectedRows[0].Cells[2].Value.ToString();
-                string EstadoConceptosSelect = dgvConceptos.SelectedRows[0].Cells[9].Value.ToString();
+                string EstadoConceptosSelect = dgvConceptos.SelectedRows[0].Cells[8].Value.ToString();
 
                 frmConcepto_Editar frmConcepto_Editar = new frmConcepto_Editar(idConceptoSelect, NombreConceptoSelect, ValorActualConceptoSelect, Fecha_InicioSelect, Valor_anteriorSelect, EstadoConceptosSelect);
                 frmConcepto_Editar.FormClosed += frmConcepto_Editar_FormClosed;
@@ -133,12 +133,12 @@ namespace GestionJardin
 
         }
         private void Dgv_Conceptos()
-
         {
             DataTable dt = new DataTable();
             logConcepto objlogConcepto = new logConcepto();
             dt = objlogConcepto.Visualizar();
             dgvConceptos.DataSource = dt;
+            dgvConceptos.Columns["CON_ID"].Visible = false;
 
         }
 
@@ -158,7 +158,6 @@ namespace GestionJardin
 
         private void txtCon_Buscar_TextChanged(object sender, EventArgs e)
         {
-
             
                 if (txtCon_Buscar.Text.Length > 0)
                 {
@@ -203,7 +202,7 @@ namespace GestionJardin
 
         private void dgvConceptos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            string EstadoConceptosSelect = dgvConceptos.SelectedRows[0].Cells[9].Value.ToString();
+            string EstadoConceptosSelect = dgvConceptos.SelectedRows[0].Cells[8].Value.ToString();
 
 
             if (dgvConceptos.SelectedRows.Count > 0 && EstadoConceptosSelect == "ACTIVO")
@@ -238,7 +237,7 @@ namespace GestionJardin
         private void btnCon_Editar_TextChanged(object sender, EventArgs e)
         {
             
-            string EstadoConceptosSelect = dgvConceptos.SelectedRows[0].Cells[9].Value.ToString();
+            string EstadoConceptosSelect = dgvConceptos.SelectedRows[0].Cells[8].Value.ToString();
             if (dgvConceptos.SelectedRows.Count > 0 && EstadoConceptosSelect == "INACTIVO")
             {
                 btnCon_Editar.Text = "HABILITAR";
