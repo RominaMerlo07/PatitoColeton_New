@@ -100,8 +100,9 @@ namespace GestionJardin
         private void Settooltip()
         {
             ToolTip Tip = new ToolTip();
-            Tip.SetToolTip(this.btnGU_Eliminar, "SELECCIONE UN REGISTRO PARA PODER ELIMINAR");           
-            Tip.SetToolTip(this.btnGU_Editar, "SELECCIONE UN REGISTRO PARA PODER EDITAR");
+            Tip.SetToolTip(this.btnGU_Eliminar, "Dar de baja un usuario");           
+            Tip.SetToolTip(this.btnGU_Editar, "Cambiar contraseña de un usuario");
+            Tip.SetToolTip(this.btnGU_Agregar, "Generar nuevo usuario");
         }
 
 

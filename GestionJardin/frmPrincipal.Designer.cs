@@ -206,7 +206,7 @@
             this.btnCobros.IconColor = System.Drawing.Color.Red;
             this.btnCobros.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCobros.IconSize = 160;
-            this.btnCobros.Location = new System.Drawing.Point(532, -78);
+            this.btnCobros.Location = new System.Drawing.Point(521, -78);
             this.btnCobros.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCobros.Name = "btnCobros";
             this.btnCobros.Size = new System.Drawing.Size(353, 379);
@@ -229,7 +229,7 @@
             this.btnSalas.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnSalas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSalas.IconSize = 180;
-            this.btnSalas.Location = new System.Drawing.Point(985, -78);
+            this.btnSalas.Location = new System.Drawing.Point(521, 354);
             this.btnSalas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSalas.Name = "btnSalas";
             this.btnSalas.Size = new System.Drawing.Size(353, 379);
@@ -252,7 +252,7 @@
             this.btnDocentes.IconColor = System.Drawing.Color.Yellow;
             this.btnDocentes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnDocentes.IconSize = 180;
-            this.btnDocentes.Location = new System.Drawing.Point(63, 354);
+            this.btnDocentes.Location = new System.Drawing.Point(985, -78);
             this.btnDocentes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDocentes.Name = "btnDocentes";
             this.btnDocentes.Size = new System.Drawing.Size(353, 379);
@@ -297,8 +297,8 @@
             this.btnUsuarios.IconChar = FontAwesome.Sharp.IconChar.UserCircle;
             this.btnUsuarios.IconColor = System.Drawing.Color.Lime;
             this.btnUsuarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnUsuarios.IconSize = 180;
-            this.btnUsuarios.Location = new System.Drawing.Point(532, 354);
+            this.btnUsuarios.IconSize = 176;
+            this.btnUsuarios.Location = new System.Drawing.Point(63, 354);
             this.btnUsuarios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUsuarios.Name = "btnUsuarios";
             this.btnUsuarios.Size = new System.Drawing.Size(353, 379);
