@@ -23,10 +23,10 @@ namespace GestionJardin
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             logUsuario ingresaUsuario = new logUsuario();
-
+            bool rol = ingresaUsuario.Permisos(txtUsuario.Text, txtContrasena.Text);
             bool ingreso = ingresaUsuario.ingresar(txtUsuario.Text, txtContrasena.Text);
 
-            if (ingreso == true)
+            if (ingreso == true & rol == true)
             {
 
                 lblAccesoDenegado.Visible = false;
@@ -34,12 +34,30 @@ namespace GestionJardin
                 frmPrincipal frmPrincipal = new frmPrincipal();
                 frmPrincipal.Show();
                 this.Hide();
-               
+
                 txtUsuario.Text = "";
                 txtContrasena.Text = "";
 
 
-            } else
+            }
+            else if (ingreso == true & rol == false)
+            {
+                lblAccesoDenegado.Visible = false;
+                frmPrincipal frmPrincipal = new frmPrincipal();
+                frmPrincipal.Show();
+                frmPrincipal.btnAlumnos.Location = new Point(399,109) ;
+                frmPrincipal.btnCobros.Visible = false;
+                frmPrincipal.btnDocentes.Visible = false;
+                frmPrincipal.btnInformes.Visible = false;
+                frmPrincipal.btnUsuarios.Visible = false;
+                frmPrincipal.btnSalas.Visible = false;
+
+                this.Hide();
+                txtUsuario.Text = "";
+                txtContrasena.Text = "";
+
+            }
+            else
             {
                 lblAccesoDenegado.Visible = true;
             }
