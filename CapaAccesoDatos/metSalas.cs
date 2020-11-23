@@ -177,7 +177,6 @@ namespace CaAD//GestionJardin
         }
 
         public DataTable traerPersonasXSala(Int32 idSala)
-
         {
 
             //entPersona.entPersonaColeccion colPers = new entPersona.entPersonaColeccion();

@@ -1300,3 +1300,4 @@ C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.ImprimirListaSa
 C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.ListaTotalDocentes.resources
 C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.ListaDocentes.resources
 C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.ListaGrupoFlia.resources
+C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.frmInformes.resources

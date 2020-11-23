@@ -192,6 +192,7 @@
             this.btnInformes.Text = "INFORMES";
             this.btnInformes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnInformes.UseVisualStyleBackColor = false;
+
             this.btnInformes.MouseLeave += new System.EventHandler(this.btnInformes_MouseLeave);
             this.btnInformes.MouseHover += new System.EventHandler(this.btnInformes_MouseHover);
             // 
