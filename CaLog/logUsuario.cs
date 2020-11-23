@@ -24,6 +24,11 @@ namespace CaLog
             return objMetUsuario.Permisos(usuario, contrasena);
 
         }
+        public bool Inactivo(string usuario, string contrasena)
+        {
+            return objMetUsuario.Permisos(usuario, contrasena);
+
+        }
 
         public bool ingresar(string usuario, string contrasena)
         {

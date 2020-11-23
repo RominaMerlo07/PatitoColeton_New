@@ -46,7 +46,7 @@ namespace GestionJardin
                 frmPrincipal frmPrincipal = new frmPrincipal();
                 frmPrincipal.Show();
                 frmPrincipal.btnAlumnos.Location = new Point(399,109) ;
-                frmPrincipal.btnCobros.Visible = false;
+                 frmPrincipal.btnCobros.Visible = false;
                 frmPrincipal.btnDocentes.Visible = false;
                 frmPrincipal.btnInformes.Visible = false;
                 frmPrincipal.btnUsuarios.Visible = false;

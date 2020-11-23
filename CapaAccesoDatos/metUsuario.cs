@@ -67,9 +67,14 @@ namespace CaAD//GestionJardin
                 if (t_usuario.Rows.Count == 0)
                 {
                     valido = false;
-                }
 
-                else if (t_usuario.Rows[0]["USU_CLAVE"].ToString() == contrasena)
+                }
+            else if (t_usuario.Rows[0][8].ToString() == "INACTIVO")
+            {
+                valido = false;
+            }
+
+            else if (t_usuario.Rows[0]["USU_CLAVE"].ToString() == contrasena)
 
                 {
                     valido = true;
@@ -92,20 +97,13 @@ namespace CaAD//GestionJardin
             if (t_usuario.Rows[0][4].ToString() == "1")
             {
                 rol = true;
-                if (t_usuario.Rows[0][8].ToString() == "N")
-                {
-                    rol = false;
-                }
-
-                else if (t_usuario.Rows[0][4].ToString() == "2")
-                {
-
-                    rol = false;
-
-
-                }
-
             }
+            else if (t_usuario.Rows[0][4].ToString() == "2")
+            {
+
+                rol = false;
+            }
+            
             return rol;
         }
 
