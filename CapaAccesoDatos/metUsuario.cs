@@ -69,12 +69,7 @@ namespace CaAD//GestionJardin
                     valido = false;
 
                 }
-            else if (t_usuario.Rows[0][8].ToString() == "INACTIVO")
-            {
-                valido = false;
-            }
-
-            else if (t_usuario.Rows[0]["USU_CLAVE"].ToString() == contrasena)
+              else if (t_usuario.Rows[0]["USU_CLAVE"].ToString() == contrasena)
 
                 {
                     valido = true;
