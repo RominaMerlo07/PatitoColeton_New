@@ -43,8 +43,10 @@ namespace GestionJardin
         {
             lblBuscar.Visible = false;
             string alumno= txt_Buscar.Text;
-            dgvCobros.DataSource = objCobros.InsetarDatosCobrosenformBuscar(alumno);
+            dgvCobros.DataSource = objCobros.InsetarDatosCobrosenformBuscar(alumno);         
+                     
         }
+
         private void txt_Buscar_Enter(object sender, EventArgs e)
         {
             //lblBuscar.Visible = false;
@@ -56,27 +58,43 @@ namespace GestionJardin
 
         private void dgvCobros_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if(this.dgvCobros.Columns[e.ColumnIndex].Name == "ESTADO")
-            {   
-                if ( e.Value !=null)
+            int dia = DateTime.Today.Day;
+            int mes = DateTime.Today.Month;
+
+            if (this.dgvCobros.Columns[e.ColumnIndex].Name == "ESTADO")
+            {
+            
+                string valor = Convert.ToString(e.Value);             
+
+                if (valor.Trim() == "ADEUDADA" && dia > 10 && (mes >=11 && mes <= 12))
                 {
-                    if(e.Value.GetType() != typeof(System.DBNull))
-                    {
-                        if (e.Value.ToString() == "ADEUDADA")
-                        {
-                            e.CellStyle.ForeColor = Color.Red;
-                            
-                        }
-
-                        if (e.Value.ToString() == "PAGADA")
-                        {
-                            e.CellStyle.ForeColor = Color.Green;
-
-                        }
-
-
-                    }
+                    e.CellStyle.ForeColor = Color.White;
+                    e.CellStyle.BackColor = Color.Red;                  
+                   
                 }
+                else if (valor.Trim() == "PAGADA")
+                {
+                    e.CellStyle.ForeColor = Color.Black;
+                    e.CellStyle.BackColor = Color.Green;               
+
+                }
+                else if (valor.Trim() == "ANULADA")
+                {
+                    e.CellStyle.ForeColor = Color.Black;
+                    e.CellStyle.BackColor = Color.Gray;               
+
+                }
+                else if (valor.Trim() == "ADEUDADA" && dia <= 10 && mes == 11)
+                {
+                    e.CellStyle.ForeColor = Color.Black;
+                    e.CellStyle.BackColor = Color.Yellow;
+
+                }
+                else 
+                {
+                  
+                }
+
             }
         }
 

@@ -36,13 +36,13 @@
             this.btn_Cerrar = new FontAwesome.Sharp.IconPictureBox();
             this.lbl_Titulo = new System.Windows.Forms.Label();
             this.panel_Contenedor = new System.Windows.Forms.Panel();
-            this.btnInformes = new FontAwesome.Sharp.IconButton();
             this.btnCobros = new FontAwesome.Sharp.IconButton();
             this.btnSalas = new FontAwesome.Sharp.IconButton();
             this.btnDocentes = new FontAwesome.Sharp.IconButton();
             this.btnAlumnos = new FontAwesome.Sharp.IconButton();
             this.btnUsuarios = new FontAwesome.Sharp.IconButton();
             this.panel_Shadow = new System.Windows.Forms.Panel();
+            this.btnInformes = new FontAwesome.Sharp.IconButton();
             this.panel_Titulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnGestiones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_inicio)).BeginInit();
@@ -173,28 +173,6 @@
             this.panel_Contenedor.Size = new System.Drawing.Size(1387, 640);
             this.panel_Contenedor.TabIndex = 6;
             // 
-            // btnInformes
-            // 
-            this.btnInformes.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnInformes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.btnInformes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInformes.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInformes.ForeColor = System.Drawing.Color.Aqua;
-            this.btnInformes.IconChar = FontAwesome.Sharp.IconChar.ClipboardCheck;
-            this.btnInformes.IconColor = System.Drawing.Color.Aqua;
-            this.btnInformes.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnInformes.IconSize = 160;
-            this.btnInformes.Location = new System.Drawing.Point(985, 354);
-            this.btnInformes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnInformes.Name = "btnInformes";
-            this.btnInformes.Size = new System.Drawing.Size(353, 379);
-            this.btnInformes.TabIndex = 11;
-            this.btnInformes.Text = "INFORMES";
-            this.btnInformes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnInformes.UseVisualStyleBackColor = false;
-            this.btnInformes.MouseLeave += new System.EventHandler(this.btnInformes_MouseLeave);
-            this.btnInformes.MouseHover += new System.EventHandler(this.btnInformes_MouseHover);
-            // 
             // btnCobros
             // 
             this.btnCobros.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -320,6 +298,28 @@
             this.panel_Shadow.Size = new System.Drawing.Size(1387, 9);
             this.panel_Shadow.TabIndex = 5;
             // 
+            // btnInformes
+            // 
+            this.btnInformes.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnInformes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.btnInformes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInformes.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInformes.ForeColor = System.Drawing.Color.Aqua;
+            this.btnInformes.IconChar = FontAwesome.Sharp.IconChar.ClipboardCheck;
+            this.btnInformes.IconColor = System.Drawing.Color.Aqua;
+            this.btnInformes.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnInformes.IconSize = 160;
+            this.btnInformes.Location = new System.Drawing.Point(985, 354);
+            this.btnInformes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnInformes.Name = "btnInformes";
+            this.btnInformes.Size = new System.Drawing.Size(353, 379);
+            this.btnInformes.TabIndex = 11;
+            this.btnInformes.Text = "INFORMES";
+            this.btnInformes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnInformes.UseVisualStyleBackColor = false;
+            this.btnInformes.MouseLeave += new System.EventHandler(this.btnInformes_MouseLeave);
+            this.btnInformes.MouseHover += new System.EventHandler(this.btnInformes_MouseHover);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -364,7 +364,7 @@
         public FontAwesome.Sharp.IconButton btnDocentes;
         public FontAwesome.Sharp.IconButton btnSalas;
         public FontAwesome.Sharp.IconButton btnCobros;
-        public FontAwesome.Sharp.IconButton btnInformes;
         private System.Windows.Forms.PictureBox btnGestiones;
+        public FontAwesome.Sharp.IconButton btnInformes;
     }
 }
