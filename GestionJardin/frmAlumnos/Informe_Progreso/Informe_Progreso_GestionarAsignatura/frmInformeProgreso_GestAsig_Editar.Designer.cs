@@ -56,11 +56,12 @@
             this.metroTextBox2.ForeColor = System.Drawing.Color.LightGoldenrodYellow;
             this.metroTextBox2.Lines = new string[] {
         " Descripción de los criterios a evaluar"};
-            this.metroTextBox2.Location = new System.Drawing.Point(15, 227);
+            this.metroTextBox2.Location = new System.Drawing.Point(29, 230);
             this.metroTextBox2.MaxLength = 32767;
+            this.metroTextBox2.Multiline = true;
             this.metroTextBox2.Name = "metroTextBox2";
             this.metroTextBox2.PasswordChar = '\0';
-            this.metroTextBox2.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.metroTextBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.metroTextBox2.SelectedText = "";
             this.metroTextBox2.SelectionLength = 0;
             this.metroTextBox2.SelectionStart = 0;
@@ -130,7 +131,7 @@
             this.metroTextBox1.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.metroTextBox1.Lines = new string[] {
         "nombre asignatura, se sacan de la provincia salvo las salas 1 y2"};
-            this.metroTextBox1.Location = new System.Drawing.Point(304, 144);
+            this.metroTextBox1.Location = new System.Drawing.Point(318, 147);
             this.metroTextBox1.MaxLength = 32767;
             this.metroTextBox1.Name = "metroTextBox1";
             this.metroTextBox1.PasswordChar = '\0';
@@ -152,7 +153,7 @@
             this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.metroLabel1.ForeColor = System.Drawing.Color.Aqua;
-            this.metroLabel1.Location = new System.Drawing.Point(15, 144);
+            this.metroLabel1.Location = new System.Drawing.Point(29, 147);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(216, 44);
             this.metroLabel1.TabIndex = 45;
@@ -166,7 +167,7 @@
             this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.metroLabel2.ForeColor = System.Drawing.Color.Aqua;
-            this.metroLabel2.Location = new System.Drawing.Point(12, 69);
+            this.metroLabel2.Location = new System.Drawing.Point(26, 72);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(1485, 44);
             this.metroLabel2.TabIndex = 44;
@@ -181,7 +182,7 @@
             this.metroLabel4.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel4.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.metroLabel4.ForeColor = System.Drawing.Color.Aqua;
-            this.metroLabel4.Location = new System.Drawing.Point(12, 25);
+            this.metroLabel4.Location = new System.Drawing.Point(26, 28);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(1236, 44);
             this.metroLabel4.TabIndex = 43;
@@ -200,7 +201,7 @@
             this.btnBloqueo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBloqueo.IconSize = 45;
             this.btnBloqueo.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnBloqueo.Location = new System.Drawing.Point(1171, 121);
+            this.btnBloqueo.Location = new System.Drawing.Point(1185, 124);
             this.btnBloqueo.Name = "btnBloqueo";
             this.btnBloqueo.Size = new System.Drawing.Size(77, 67);
             this.btnBloqueo.TabIndex = 55;

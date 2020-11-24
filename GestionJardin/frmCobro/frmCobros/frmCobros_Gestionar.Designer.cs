@@ -128,7 +128,7 @@
             this.dgvCobros.RowTemplate.Height = 24;
             this.dgvCobros.Size = new System.Drawing.Size(1236, 495);
             this.dgvCobros.TabIndex = 50;
-            this.dgvCobros.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvCobros_CellFormatting);
+
             // 
             // label1
             // 

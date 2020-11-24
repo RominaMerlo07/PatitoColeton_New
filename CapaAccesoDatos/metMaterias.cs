@@ -154,11 +154,21 @@ namespace CaAD
             con = generarConexion();
             con.Open();
 
-            string consulta = "SELECT * " +
-                "FROM T_MATERIA_TIPO MT " +
-                "WHERE MT.MT_MATERIA_ANO = YEAR(GETDATE()) " +
-                "AND MT.MT_MATERIA_EDAD = " + edad + " " +
-                ";";
+            //string consulta = "SELECT * " +
+            //    "FROM T_MATERIA_TIPO MT " +
+            //    "WHERE MT.MT_MATERIA_ANO = YEAR(GETDATE()) " +
+            //    "AND MT.MT_MATERIA_EDAD = " + edad + " " +
+            //    ";";
+
+
+            string consulta = "SELECT MT_ID ID, " +
+                                     "MT_NOMBRE APRENDIZAJE, " +
+                                     "MT_DESCRIPCION DESCRIPCIÓN, " +
+                                     "MT_MATERIA_ANO ANIO, " +
+                                     "MT_MATERIA_EDAD EDAD " +
+                                "FROM T_MATERIA_TIPO MT " +
+                               "WHERE MT.MT_MATERIA_ANO = YEAR(GETDATE()) " +
+                                 "AND MT.MT_MATERIA_EDAD = " + edad + ";";
 
 
             cmd = new SqlCommand(consulta, con);

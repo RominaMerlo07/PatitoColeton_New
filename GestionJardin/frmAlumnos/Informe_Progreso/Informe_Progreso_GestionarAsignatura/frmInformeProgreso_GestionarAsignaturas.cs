@@ -24,6 +24,14 @@ namespace GestionJardin
         private void frmInformeProgreso_AgregarMateria_Load(object sender, EventArgs e)
         {
             Inicializar();
+
+            btn_Eliminar.IconColor = Color.Gray;
+            btn_Eliminar.ForeColor = Color.Gray;
+            btn_Editar.IconColor = Color.Gray;
+            btn_Editar.ForeColor = Color.Gray;
+
+            Settooltip();
+
         }
 
         string edad;
@@ -34,15 +42,23 @@ namespace GestionJardin
          
             cbSala.SelectedIndex = -1;            
             lbl_panelInforme.Visible = true;         
-            lblSala.Visible = false;
-            txtGA_Buscar.Visible = false;
+            lblSala.Visible = false;           
             dgvAsignatura.Visible = false;
             lblInfoAsignatura.Visible = false;
             btn_Agregar.Visible = false;
             btn_Editar.Visible = false;
             btn_Eliminar.Visible = false;            
-        }               
-        
+        }
+
+        private void Settooltip()
+        {
+            ToolTip Tip = new ToolTip();
+            Tip.SetToolTip(this.btn_Agregar, "Ingresar o dar de alta un aprendizaje");
+            Tip.SetToolTip(this.btn_Editar, "Visualizar y/o modificar la descripción de un aprendizaje");
+            Tip.SetToolTip(this.btn_Eliminar, "Dar de baja un aprendizaje");            
+        }
+
+
 
         private void cbSala_SelectedValueChanged(object sender, EventArgs e)
         {
@@ -50,8 +66,7 @@ namespace GestionJardin
             if (string.IsNullOrWhiteSpace(cbSala.Text.Trim()) == false)
             { 
 
-                lbl_panelInforme.Visible = false;             
-                txtGA_Buscar.Visible = true;
+                lbl_panelInforme.Visible = false;                             
                 dgvAsignatura.Visible = true;
                 lblInfoAsignatura.Visible = true;
                 btn_Agregar.Visible = true;
@@ -70,9 +85,13 @@ namespace GestionJardin
                 DataTable dt = logMaterias.buscaMateriaXEdad(resultString); // turno no hace falta (se saca de la sala) //etapa no hace falta, se usa para determinar qué informe se carga o edita
 
                 dgvAsignatura.DataSource = dt;
-                dgvAsignatura.Columns["MT_ID"].Visible = false;
-                dgvAsignatura.Columns["MT_MATERIA_ANO"].Visible = false;
+                dgvAsignatura.Columns["ID"].Visible = false;
+                dgvAsignatura.Columns["ANIO"].Visible = false;
                 //dgvAsignatura.Columns[""].Visible = false;
+
+                this.dgvAsignatura.Columns["APRENDIZAJE"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                this.dgvAsignatura.Columns["DESCRIPCIÓN"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                this.dgvAsignatura.Columns["EDAD"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
                 //--
 
@@ -128,30 +147,64 @@ namespace GestionJardin
 
         private void btn_Editar_Click(object sender, EventArgs e)
         {
-            string idMtMateria = dgvAsignatura.SelectedRows[0].Cells[0].Value.ToString();
-            string nombreMtMateria = dgvAsignatura.SelectedRows[0].Cells[1].Value.ToString();
-            string descripcionMtMateria = dgvAsignatura.SelectedRows[0].Cells[2].Value.ToString();
-            string edadMtMateria = dgvAsignatura.SelectedRows[0].Cells[4].Value.ToString();          
+            if (dgvAsignatura.SelectedRows.Count > 0)
+            {
+                btn_Editar.IconColor = Color.Cyan;
+                btn_Editar.ForeColor = Color.Cyan;
 
-            frmInformeProgreso_GestAsig_Editar frmInformeProgreso_GestAsig_Editar = new frmInformeProgreso_GestAsig_Editar(idMtMateria, nombreMtMateria, descripcionMtMateria, edadMtMateria);
+                string idMtMateria = dgvAsignatura.SelectedRows[0].Cells[0].Value.ToString();
+                string nombreMtMateria = dgvAsignatura.SelectedRows[0].Cells[1].Value.ToString();
+                string descripcionMtMateria = dgvAsignatura.SelectedRows[0].Cells[2].Value.ToString();
+                string edadMtMateria = dgvAsignatura.SelectedRows[0].Cells[4].Value.ToString();
 
-            frmInformeProgreso_GestAsig_Editar.FormClosed += frmInformeProgreso_GestAsig_Editar_FormClosed;
-            frmInformeProgreso_GestAsig_Editar.Text = "GESTIÓN ALUMNOS / INFORME DE PROGRESO / GESTIONAR CRITERIO DE APRENDIZAJE / MODIFICAR ";
-            frmInformeProgreso_GestAsig_Editar.ShowDialog();
+                frmInformeProgreso_GestAsig_Editar frmInformeProgreso_GestAsig_Editar = new frmInformeProgreso_GestAsig_Editar(idMtMateria, nombreMtMateria, descripcionMtMateria, edadMtMateria);
 
+                frmInformeProgreso_GestAsig_Editar.FormClosed += frmInformeProgreso_GestAsig_Editar_FormClosed;
+                frmInformeProgreso_GestAsig_Editar.Text = "GESTIÓN ALUMNOS / INFORME DE PROGRESO / GESTIONAR CRITERIO DE APRENDIZAJE / MODIFICAR ";
+                frmInformeProgreso_GestAsig_Editar.ShowDialog();
+
+                btn_Editar.IconColor = Color.Gray;
+                btn_Editar.ForeColor = Color.Gray;
+                btn_Eliminar.IconColor = Color.Gray;
+                btn_Eliminar.ForeColor = Color.Gray;
+            }
+            else
+            {
+                btn_Editar.IconColor = Color.Gray;
+                btn_Editar.ForeColor = Color.Gray;
+                MessageBox.Show("Debe seleccionar un registro para poder visualizar y/o editar los datos de un aprendizaje", "Información", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
 
         }
 
         private void btn_Eliminar_Click(object sender, EventArgs e)
         {
-            string idMtMateria = dgvAsignatura.SelectedRows[0].Cells[0].Value.ToString();
-            string nombreMtMateria = dgvAsignatura.SelectedRows[0].Cells[1].Value.ToString();
+            if (dgvAsignatura.SelectedRows.Count > 0)
+            {
+                btn_Eliminar.IconColor = Color.FromArgb(255, 128, 0);
+                btn_Eliminar.ForeColor = Color.FromArgb(255, 128, 0);
 
-            frmInformeProgreso_GestAsig_Eliminar frmInformeProgreso_GestAsig_Eliminar = new frmInformeProgreso_GestAsig_Eliminar(idMtMateria, nombreMtMateria);
+                string idMtMateria = dgvAsignatura.SelectedRows[0].Cells[0].Value.ToString();
+                string nombreMtMateria = dgvAsignatura.SelectedRows[0].Cells[1].Value.ToString();
 
-            frmInformeProgreso_GestAsig_Eliminar.FormClosed += frmInformeProgreso_GestAsig_Eliminar_FormClosed;
-            frmInformeProgreso_GestAsig_Eliminar.Text = "GESTIÓN ALUMNOS / INFORME DE PROGRESO / GESTIONAR CRITERIO DE APRENDIZAJE / ELIMINAR ";
-            frmInformeProgreso_GestAsig_Eliminar.ShowDialog();
+                frmInformeProgreso_GestAsig_Eliminar frmInformeProgreso_GestAsig_Eliminar = new frmInformeProgreso_GestAsig_Eliminar(idMtMateria, nombreMtMateria);
+
+                frmInformeProgreso_GestAsig_Eliminar.FormClosed += frmInformeProgreso_GestAsig_Eliminar_FormClosed;
+                frmInformeProgreso_GestAsig_Eliminar.Text = "GESTIÓN ALUMNOS / INFORME DE PROGRESO / GESTIONAR CRITERIO DE APRENDIZAJE / ELIMINAR ";
+                frmInformeProgreso_GestAsig_Eliminar.ShowDialog();
+
+                btn_Editar.IconColor = Color.Gray;
+                btn_Editar.ForeColor = Color.Gray;
+                btn_Eliminar.IconColor = Color.Gray;
+                btn_Eliminar.ForeColor = Color.Gray;
+            }
+            else
+            {
+                btn_Eliminar.IconColor = Color.Gray;
+                btn_Eliminar.ForeColor = Color.Gray;
+                MessageBox.Show("Debe seleccionar un registro para poder eliminar un aprendizaje", "Información", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+
         }
 
         private void frmInformeProgreso_GestAsig_Agregar_FormClosed(object sender, FormClosedEventArgs e)
@@ -164,8 +217,8 @@ namespace GestionJardin
             DataTable dt = logMaterias.buscaMateriaXEdad(resultString); // turno no hace falta (se saca de la sala) //etapa no hace falta, se usa para determinar qué informe se carga o edita
 
             dgvAsignatura.DataSource = dt;
-            dgvAsignatura.Columns["MT_ID"].Visible = false;
-            dgvAsignatura.Columns["MT_MATERIA_ANO"].Visible = false;
+            dgvAsignatura.Columns["ID"].Visible = false;
+            dgvAsignatura.Columns["ANIO"].Visible = false;
         }
 
         private void frmInformeProgreso_GestAsig_Editar_FormClosed(object sender, FormClosedEventArgs e)
@@ -178,8 +231,8 @@ namespace GestionJardin
             DataTable dt = logMaterias.buscaMateriaXEdad(resultString); // turno no hace falta (se saca de la sala) //etapa no hace falta, se usa para determinar qué informe se carga o edita
 
             dgvAsignatura.DataSource = dt;
-            dgvAsignatura.Columns["MT_ID"].Visible = false;
-            dgvAsignatura.Columns["MT_MATERIA_ANO"].Visible = false;
+            dgvAsignatura.Columns["ID"].Visible = false;
+            dgvAsignatura.Columns["ANIO"].Visible = false;
         }
 
         private void frmInformeProgreso_GestAsig_Eliminar_FormClosed(object sender, FormClosedEventArgs e)
@@ -192,13 +245,30 @@ namespace GestionJardin
             DataTable dt = logMaterias.buscaMateriaXEdad(resultString); // turno no hace falta (se saca de la sala) //etapa no hace falta, se usa para determinar qué informe se carga o edita
 
             dgvAsignatura.DataSource = dt;
-            dgvAsignatura.Columns["MT_ID"].Visible = false;
-            dgvAsignatura.Columns["MT_MATERIA_ANO"].Visible = false;
+            dgvAsignatura.Columns["ID"].Visible = false;
+            dgvAsignatura.Columns["ANIO"].Visible = false;
         }
 
-        
+        private void dgvAsignatura_CellClick(object sender, DataGridViewCellEventArgs e)
+        {           
+                if (dgvAsignatura.SelectedRows.Count > 0)
+                {
+                    btn_Editar.IconColor = Color.Cyan;
+                    btn_Editar.ForeColor = Color.Cyan;
+                    btn_Eliminar.IconColor = Color.FromArgb(255, 128, 0);
+                    btn_Eliminar.ForeColor = Color.FromArgb(255, 128, 0);
 
-        
+                }
+                else
+                {
+                    dgvAsignatura.ClearSelection();
+                    btn_Editar.IconColor = Color.Gray;
+                    btn_Editar .ForeColor = Color.Gray;
+                    btn_Eliminar.IconColor = Color.Gray;
+                    btn_Eliminar.ForeColor = Color.Gray;
 
+                }
+            
+        }
     }
 }

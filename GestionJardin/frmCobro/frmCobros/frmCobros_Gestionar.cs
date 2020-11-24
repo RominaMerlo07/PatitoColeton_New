@@ -54,49 +54,7 @@ namespace GestionJardin
             //dgvCobros.DataSource = objCobros.InsetarDatosCobrosenformBuscar(alumno);
         }
 
-        /****** Condicional Semaforo Grilla ******/
-
-        private void dgvCobros_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            int dia = DateTime.Today.Day;
-            int mes = DateTime.Today.Month;
-
-            if (this.dgvCobros.Columns[e.ColumnIndex].Name == "ESTADO")
-            {
-            
-                string valor = Convert.ToString(e.Value);             
-
-                if (valor.Trim() == "ADEUDADA" && dia > 10 && (mes >=11 && mes <= 12))
-                {
-                    e.CellStyle.ForeColor = Color.White;
-                    e.CellStyle.BackColor = Color.Red;                  
-                   
-                }
-                else if (valor.Trim() == "PAGADA")
-                {
-                    e.CellStyle.ForeColor = Color.Black;
-                    e.CellStyle.BackColor = Color.Green;               
-
-                }
-                else if (valor.Trim() == "ANULADA")
-                {
-                    e.CellStyle.ForeColor = Color.Black;
-                    e.CellStyle.BackColor = Color.Gray;               
-
-                }
-                else if (valor.Trim() == "ADEUDADA" && dia <= 10 && mes == 11)
-                {
-                    e.CellStyle.ForeColor = Color.Black;
-                    e.CellStyle.BackColor = Color.Yellow;
-
-                }
-                else 
-                {
-                  
-                }
-
-            }
-        }
+        
 
 
         private void btnCob_Agregar_Click(object sender, EventArgs e)
@@ -111,9 +69,7 @@ namespace GestionJardin
             frmCobros_Anular frmCobros_Anular = new frmCobros_Anular();
             frmCobros_Anular.Text = "GESTIÓN COBROS / COBROS / GESTIONAR / ANULAR";
             frmCobros_Anular.ShowDialog();
-        }
-
-       
+        }      
 
        
 

@@ -154,7 +154,6 @@
             // 
             // txtDescrApr
             // 
-            this.txtDescrApr.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             // 
             // 
             // 
@@ -172,10 +171,11 @@
             this.txtDescrApr.Lines = new string[0];
             this.txtDescrApr.Location = new System.Drawing.Point(31, 221);
             this.txtDescrApr.MaxLength = 32767;
+            this.txtDescrApr.Multiline = true;
             this.txtDescrApr.Name = "txtDescrApr";
             this.txtDescrApr.PasswordChar = '\0';
             this.txtDescrApr.PromptText = "Descripción del criterio a evaluar";
-            this.txtDescrApr.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtDescrApr.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDescrApr.SelectedText = "";
             this.txtDescrApr.SelectionLength = 0;
             this.txtDescrApr.SelectionStart = 0;
