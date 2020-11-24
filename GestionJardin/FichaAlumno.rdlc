@@ -137,7 +137,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!nombre.Value, "fichaAlumno")</Value>
+                <Value>=Fields!nombre.Value</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -169,7 +169,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!apellido.Value, "fichaAlumno")</Value>
+                <Value>=Fields!apellido.Value</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -510,7 +510,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!DOM_CALLE.Value, "fichaAlumno")</Value>
+                <Value>=Fields!DOM_CALLE.Value</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -766,7 +766,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!DOM_BARRIO.Value, "fichaAlumno")</Value>
+                <Value>=Fields!DOM_BARRIO.Value</Value>
                 <Style />
               </TextRun>
             </TextRuns>

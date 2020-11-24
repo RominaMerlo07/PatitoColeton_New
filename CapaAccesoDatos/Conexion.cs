@@ -14,7 +14,7 @@ namespace CaAD//GestionJardin
 
         public Conexion()
         {
-            cadenaDeConexion = "Data Source=(local)\\SQLEXPRESS01; Initial Catalog = GESTION_JARDIN; Integrated Security = True";
+            cadenaDeConexion = "Data Source=(local)\\SQLEXPRESS; Initial Catalog = GESTION_JARDIN; Integrated Security = True";
             //Cadena Romi: "Data Source=DESKTOP-4EDP5RJ\\SQLEXPRESS; Initial Catalog = GESTION_JARDIN; Integrated Security = True";
             //Cadena Gaston: "Data Source=LAPTOP-AS4VOUTB\\SQLEXPRESS; Initial Catalog = GESTION_JARDIN; Integrated Security = True";
             //Nadia: DESKTOP-1IPVM4C-LAPTOP-LO0TLLQO

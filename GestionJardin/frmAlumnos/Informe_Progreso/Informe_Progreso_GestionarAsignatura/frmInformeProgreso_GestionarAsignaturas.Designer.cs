@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvAsignatura = new System.Windows.Forms.DataGridView();
             this.txtGA_Buscar = new MetroFramework.Controls.MetroTextBox();
             this.lblInfoAsignatura = new System.Windows.Forms.Label();
@@ -53,27 +53,27 @@
             this.dgvAsignatura.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvAsignatura.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvAsignatura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAsignatura.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAsignatura.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvAsignatura.Location = new System.Drawing.Point(36, 379);
             this.dgvAsignatura.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvAsignatura.MultiSelect = false;
             this.dgvAsignatura.Name = "dgvAsignatura";
             this.dgvAsignatura.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAsignatura.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAsignatura.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvAsignatura.RowTemplate.Height = 24;
             this.dgvAsignatura.Size = new System.Drawing.Size(1252, 495);
             this.dgvAsignatura.TabIndex = 49;
@@ -113,6 +113,7 @@
             this.txtGA_Buscar.Size = new System.Drawing.Size(540, 50);
             this.txtGA_Buscar.TabIndex = 48;
             this.txtGA_Buscar.UseSelectable = true;
+            this.txtGA_Buscar.Visible = false;
             this.txtGA_Buscar.WaterMark = "BUSCAR CRITERIO DE APRENDIZAJE";
             this.txtGA_Buscar.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtGA_Buscar.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -215,15 +216,14 @@
             // 
             this.btn_Eliminar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Eliminar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btn_Eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Eliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btn_Eliminar.IconChar = FontAwesome.Sharp.IconChar.FolderMinus;
             this.btn_Eliminar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_Eliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_Eliminar.IconSize = 100;
             this.btn_Eliminar.Location = new System.Drawing.Point(1311, 707);
             this.btn_Eliminar.Name = "btn_Eliminar";
-            this.btn_Eliminar.Rotation = 0D;
             this.btn_Eliminar.Size = new System.Drawing.Size(293, 134);
             this.btn_Eliminar.TabIndex = 46;
             this.btn_Eliminar.Text = "ELIMINAR";
@@ -235,15 +235,14 @@
             // 
             this.btn_Editar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Editar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btn_Editar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Editar.ForeColor = System.Drawing.Color.Cyan;
             this.btn_Editar.IconChar = FontAwesome.Sharp.IconChar.FolderOpen;
             this.btn_Editar.IconColor = System.Drawing.Color.Cyan;
+            this.btn_Editar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_Editar.IconSize = 100;
             this.btn_Editar.Location = new System.Drawing.Point(1311, 551);
             this.btn_Editar.Name = "btn_Editar";
-            this.btn_Editar.Rotation = 0D;
             this.btn_Editar.Size = new System.Drawing.Size(293, 134);
             this.btn_Editar.TabIndex = 45;
             this.btn_Editar.Text = "EDITAR";
@@ -255,15 +254,14 @@
             // 
             this.btn_Agregar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Agregar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btn_Agregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Agregar.ForeColor = System.Drawing.Color.Lime;
             this.btn_Agregar.IconChar = FontAwesome.Sharp.IconChar.FolderPlus;
             this.btn_Agregar.IconColor = System.Drawing.Color.Lime;
+            this.btn_Agregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_Agregar.IconSize = 100;
             this.btn_Agregar.Location = new System.Drawing.Point(1311, 393);
             this.btn_Agregar.Name = "btn_Agregar";
-            this.btn_Agregar.Rotation = 0D;
             this.btn_Agregar.Size = new System.Drawing.Size(293, 134);
             this.btn_Agregar.TabIndex = 44;
             this.btn_Agregar.Text = "AGREGAR";

@@ -79,39 +79,39 @@
             // 
             this.btncancelar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btncancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btncancelar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btncancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btncancelar.IconChar = FontAwesome.Sharp.IconChar.Eraser;
             this.btncancelar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btncancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btncancelar.IconSize = 60;
             this.btncancelar.Location = new System.Drawing.Point(1258, 465);
             this.btncancelar.Name = "btncancelar";
-            this.btncancelar.Rotation = 0D;
             this.btncancelar.Size = new System.Drawing.Size(239, 76);
             this.btncancelar.TabIndex = 48;
             this.btncancelar.Text = "CANCELAR";
             this.btncancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btncancelar.UseVisualStyleBackColor = true;
+            this.btncancelar.Click += new System.EventHandler(this.btncancelar_Click);
             // 
             // btnguardar
             // 
             this.btnguardar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnguardar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnguardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnguardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnguardar.IconChar = FontAwesome.Sharp.IconChar.Save;
             this.btnguardar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnguardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnguardar.IconSize = 60;
             this.btnguardar.Location = new System.Drawing.Point(947, 465);
             this.btnguardar.Name = "btnguardar";
-            this.btnguardar.Rotation = 0D;
             this.btnguardar.Size = new System.Drawing.Size(239, 76);
             this.btnguardar.TabIndex = 47;
             this.btnguardar.Text = "GUARDAR";
             this.btnguardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnguardar.UseVisualStyleBackColor = true;
+            this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
             // 
             // metroTextBox1
             // 
@@ -194,20 +194,20 @@
             this.btnBloqueo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.btnBloqueo.FlatAppearance.BorderSize = 0;
             this.btnBloqueo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBloqueo.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnBloqueo.ForeColor = System.Drawing.Color.Transparent;
             this.btnBloqueo.IconChar = FontAwesome.Sharp.IconChar.Lock;
             this.btnBloqueo.IconColor = System.Drawing.Color.Aqua;
+            this.btnBloqueo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBloqueo.IconSize = 45;
             this.btnBloqueo.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBloqueo.Location = new System.Drawing.Point(1171, 121);
             this.btnBloqueo.Name = "btnBloqueo";
-            this.btnBloqueo.Rotation = 0D;
             this.btnBloqueo.Size = new System.Drawing.Size(77, 67);
             this.btnBloqueo.TabIndex = 55;
             this.btnBloqueo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBloqueo.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.btnBloqueo.UseVisualStyleBackColor = false;
+            this.btnBloqueo.Visible = false;
             // 
             // frmInformeProgreso_GestAsig_Editar
             // 

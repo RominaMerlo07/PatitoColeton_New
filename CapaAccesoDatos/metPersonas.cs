@@ -874,8 +874,8 @@ namespace CaAD//GestionJardin
 
             try
             {
-                string consulta = "SELECT PER_NOMBRE, " +
-                                         "PER_APELLIDO, " +
+                string consulta = "SELECT PER_NOMBRE nombre, " +
+                                         "PER_APELLIDO apellido, " +
                                          "PER_DOCUMENTO, " +
                                          "(Select DATEDIFF(YEAR, PER_FECHA_NAC, GETDATE()) - " +
                                                  "(CASE " +
