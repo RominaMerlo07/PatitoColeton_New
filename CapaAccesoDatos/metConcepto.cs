@@ -42,14 +42,14 @@ namespace CaAD//GestionJardin
                                                             " CON_VALOR_ACTUAL, " +
                                                             " CON_FECHA_INI, " +
                                                             " CON_ACTIVO, " +
-                                                            "CON_FECHA_ACT,"+
+                                                            //"CON_FECHA_ACT,"+
                                                             "CON_VALOR_ANTERIOR)"+
                                                             "VALUES " +
                                                         "('" + concepto.CON_CONCEPTO + "', " +
                                                         " " + concepto.CON_VALOR_ACTUAL.ToString().Replace(",",".") + "," +
                                                         " GETDATE(), " +
                                                         "'" + concepto.CON_ACTIVO +"',"+
-                                                        "GETDATE(), " +
+                                                        //"GETDATE(), " +
                                                         "'" +concepto.CON_VALOR_ANTERIOR.ToString().Replace(",", ".") + "')", con);
                 cmd.ExecuteNonQuery();
                 result = "SE INSERTO EL CONCEPTO: " + concepto.CON_CONCEPTO;
@@ -246,20 +246,24 @@ namespace CaAD//GestionJardin
             con.Open();
 
 
-            string consulta = "SELECT CON_ID 'CON_ID' ," +
+            string consulta = "SELECT CON_ID 'CON_ID', " +
                                      "CON_CONCEPTO as 'CONCEPTO', " +
-                                     "CON_VALOR_ACTUAL as 'VALOR ACTUAL', " +
-                                     "CONVERT(VARCHAR(10), T_CONCEPTOS.CON_FECHA_ACT, 103) as 'DESDE', " +
-                                     "CON_VALOR_ANTERIOR 'VALOR ANTERIOR',  " +
-                                     "CON_FECHA_ULT_ACT AS 'DESDE',"+
-                                     "CON_FECHA_ACT 'HASTA',"+
-                                     "CONVERT(VARCHAR(10), T_CONCEPTOS.CON_FECHA_INI, 103) as 'ALTA', " +                                     
-                                     "(CASE CON_ACTIVO " +
-                                        "WHEN 'S' THEN 'ACTIVO' " +
-                                        "WHEN 'N' THEN 'INACTIVO' " +
-                                      "END) ESTADO " +
-                               "FROM T_CONCEPTOS " +
-                               "ORDER BY 1,8;";
+                                     "CONVERT(VARCHAR(10), T_CONCEPTOS.CON_FECHA_INI, 103) as 'FECHA DE ALTA', " +
+                                     "CON_VALOR_ACTUAL 'VALOR ACTUAL', " +                                
+                                     "CASE CON_FECHA_ULT_ACT " +
+                                         "WHEN NULL THEN CONVERT(VARCHAR(10), T_CONCEPTOS.CON_FECHA_INI, 103) " +
+                                         "ELSE CONVERT(VARCHAR(10), T_CONCEPTOS.CON_FECHA_ULT_ACT, 103) " +
+                                    "END 'VIGENTE DESDE', " +
+                                    "CON_VALOR_ANTERIOR 'VALOR ANTERIOR', " +
+                                    "CON_FECHA_ULT_ACT AS 'DESDE', " +
+                                    "CON_FECHA_ACT 'HASTA', " +
+                                    "(CASE CON_ACTIVO " +
+                                         "WHEN 'S' THEN 'ACTIVO' " +
+                                         "WHEN 'N' THEN 'INACTIVO' " +
+                                    "END) ESTADO " +
+                              "FROM T_CONCEPTOS " +
+                              "ORDER BY 2,8; ";
+
             cmd = new SqlCommand(consulta, con);
             dta = new SqlDataAdapter(cmd);
             dt = new DataTable();
@@ -411,8 +415,8 @@ namespace CaAD//GestionJardin
                 cmd = new SqlCommand("UPDATE T_CONCEPTOS SET CON_FECHA_ACT = GETDATE()," +
                                                             "CON_VALOR_ACTUAL = " + conceptoM.CON_VALOR_ACTUAL.ToString().Replace(",", ".") + ", " +
                                                              "CON_VALOR_ANTERIOR = " + conceptoM.CON_VALOR_ANTERIOR.ToString().Replace(",", ".") + ", " +
-                                                             "CON_FECHA_ULT_ACT = CAST('" + p_fecha_ult_act+"'AS DATE), " +
-                                                             "CON_FECHA_HASTA = CAST ('" + p_fecha_hasta + "'AS DATE)" +
+                                                             "CON_FECHA_ULT_ACT = CAST('" + p_fecha_ult_act+"'AS DATE) " +
+                                                             //"CON_FECHA_HASTA = CAST ('" + p_fecha_hasta + "'AS DATE)" +
                                                              "WHERE CON_ID = " + conceptoM.CON_ID + "; ", con);
 
                 cmd.ExecuteNonQuery();
@@ -421,20 +425,255 @@ namespace CaAD//GestionJardin
                 
                 cmd.ExecuteNonQuery();
                 
-                result = "SE ACTUALIZO EL MONTO DEL CONCEPTO";
+                result = "SE ACTUALIZO EL VALOR DEL CONCEPTO";
 
 
             }
             catch (Exception ex)
             {
-                result = "NO SE PUDO ACTUALIZAR EL MONTO DEL CONCEPTO: " + ex.ToString();
+                result = "NO SE PUDO ACTUALIZAR EL VALOR DEL CONCEPTO: " + ex.ToString();
                 con.Close();
             }
             return result;
         }
 
-       
+        public DataSet listaConceptos()
+        {
 
+            DataSet dset = new DataSet();
+
+            con = generarConexion();
+            con.Open();
+
+            try
+            {
+                string consulta = "SELECT CON_CONCEPTO as 'CONCEPTO', " +
+                                         "CONVERT(VARCHAR(10), T_CONCEPTOS.CON_FECHA_INI, 103) as 'FECHA_DE_ALTA', " +
+                                         "CASE " +
+                                           "WHEN CON_CONCEPTO = 'INTERES POR MORA' THEN CONCAT('%','',CON_VALOR_ACTUAL) " +
+                                           "ELSE CONCAT('$','',CON_VALOR_ACTUAL) " +
+                                         "END VALOR_ACTUAL, " +
+                                         "CASE CON_FECHA_ULT_ACT " +
+                                           "WHEN NULL THEN CONVERT(VARCHAR(10), T_CONCEPTOS.CON_FECHA_INI, 103) " +
+                                           "ELSE CONVERT(VARCHAR(10), T_CONCEPTOS.CON_FECHA_ULT_ACT, 103) " +
+                                         "END 'VIGENTE_DESDE', " +
+                                         "CASE " +
+                                           "WHEN CON_CONCEPTO = 'INTERES POR MORA' THEN CONCAT('%','',CON_VALOR_ANTERIOR) " +
+                                           "ELSE CONCAT('$','',CON_VALOR_ANTERIOR) " +
+                                         "END VALOR_ANTERIOR, " +
+                                         "CON_FECHA_ULT_ACT AS 'DESDE', " +
+                                         "CON_FECHA_ACT 'HASTA', " +
+                                         "GETDATE() FECHA, " +
+                                         "(CASE CON_ACTIVO " +
+                                            "WHEN 'S' THEN 'ACTIVO' " +
+                                            "WHEN 'N' THEN 'INACTIVO' " +
+                                         "END) ESTADO " +
+                                    "FROM T_CONCEPTOS " +
+                                    "WHERE CON_ACTIVO = 'S' " +
+                                    "ORDER BY 2,8; ";
+
+                cmd = new SqlCommand(consulta, con);
+                dta = new SqlDataAdapter(cmd);
+                dta.Fill(dset);
+
+                con.Close();
+
+
+                return dset;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return dset;
+
+        }
+
+        public DataSet listaPorConceptos(int con_id, DateTime desde, DateTime hasta)
+        {
+
+            DataSet dset = new DataSet();
+
+            con = generarConexion();
+            con.Open();
+
+            try
+            {
+                string consulta = "WITH T1 AS " +
+                                        "(SELECT CON_CONCEPTO 'CONCEPTO', " +
+                                                "CON_FECHA_INI 'FECHA_ALTA', " +
+                                                "CASE " +
+                                                  "WHEN CON_CONCEPTO = 'INTERES POR MORA' THEN CONCAT('%',' ', CON_VALOR_ACTUAL) " +
+                                                  "ELSE CONCAT('$',' ', CON_VALOR_ACTUAL) " +
+                                                "END 'VALOR_ACTUAL', " +
+                                                "CON_FECHA_ULT_ACT 'FECHA_DESDE', " +
+                                                "NULL 'FECHA_HASTA', " +
+                                                "0 HIS_ID, " +
+                                                "GETDATE() 'FECHA' " +
+                                           "FROM T_CONCEPTOS " +
+                                          "WHERE CON_ID = " + con_id + " " +
+                                            "AND CON_FECHA_ULT_ACT >= '" + desde + "' " +
+                                         "UNION " +
+                                         "SELECT CON_CONCEPTO 'CONCEPTO', " +
+                                                "CON_FECHA_INI 'FECHA_ALTA', " +
+                                                "CASE " +
+                                                  "WHEN CON_CONCEPTO = 'INTERES POR MORA' THEN CONCAT('%',' ', CON_VALOR_ANTERIOR) " +
+                                                  "ELSE CONCAT('$',' ', CON_VALOR_ANTERIOR) " +
+                                               "END 'VALOR_ACTUAL', " +
+                                               "CON_FECHA_ULT_ACT 'FECHA_DESDE', " +
+                                               "CON_FECHA_ACT 'FECHA_HASTA', " +
+                                               "0 HIS_ID, " +
+                                               "GETDATE() 'FECHA' " +
+                                         "FROM T_CONCEPTOS " +
+                                        "WHERE CON_ID = " + con_id + " " +
+                                          "AND CON_FECHA_ULT_ACT >= '" + desde + "' " +
+                                          "AND CON_FECHA_ACT <= '" + hasta + "' " +
+                                        "UNION " +
+                                        "SELECT CON_CONCEPTO 'CONCEPTO', " +
+                                              "CON_FECHA_INI 'FECHA_ALTA', " +
+                                              "CASE " +
+                                                "WHEN CON_CONCEPTO = 'INTERES POR MORA' THEN CONCAT('%',' ', HIS_VALOR_ANTERIOR) " +
+                                                "ELSE CONCAT('$',' ', HIS_VALOR_ANTERIOR) " +
+                                              "END 'VALOR_ACTUAL', " +
+                                              "HIS_DESDE 'FECHA_DESDE', " +
+                                              "HIS_HASTA 'FECHA_HASTA', " +
+                                              "HIS_ID, " +
+                                              "GETDATE() 'FECHA' " +
+                                        "FROM T_CONCEPTOS, T_HISTORIAL " +
+                                       "WHERE CON_ID = HIS_CON_ID " +
+                                          "AND CON_ID = " + con_id + " " +
+                                         "AND HIS_DESDE >= '" + desde + "' " +
+                                         "AND HIS_HASTA  <= '" + hasta + "')" +
+                                       "SELECT * FROM T1 " +
+                                       "WHERE t1.HIS_ID != (SELECT MAX(HIS_ID) FROM T_HISTORIAL WHERE HIS_CON_ID = " + con_id + ")" +
+                                       "ORDER BY T1.FECHA_HASTA, T1.VALOR_ACTUAL DESC,T1.HIS_ID;";
+
+                cmd = new SqlCommand(consulta, con);
+                dta = new SqlDataAdapter(cmd);
+                dta.Fill(dset);
+
+                con.Close();
+
+
+                return dset;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return dset;
+
+        }
+
+
+        public int idConcepto(string concepto)
+        {
+            con = generarConexion();
+            con.Open();
+
+            int result = 0;
+            try
+            {
+
+                cmd = new SqlCommand("SELECT CON_ID FROM T_CONCEPTOS WHERE CON_CONCEPTO = '"+ concepto + "'; ", con);
+
+
+                dt = new DataTable();
+                dta = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+
+                dta.Fill(ds);
+                dt = ds.Tables[0];
+                con.Close();
+
+                if (dt != null)
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+
+                        if (dr["CON_ID"] != DBNull.Value)
+                            result = Convert.ToInt32(dr["CON_ID"]);
+
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                result = 0;
+            }
+
+
+            return result;
+        }
+
+
+        public DataTable TablaPorConceptos(int con_id, DateTime desde, DateTime hasta)
+        {                   
+            con = generarConexion();
+            con.Open();
+
+           
+                string consulta = "WITH T1 AS " +
+                                         "(SELECT CON_CONCEPTO 'CONCEPTO', " +
+                                                 "CON_FECHA_INI 'FECHA ALTA', " +
+                                                 "CASE " +
+                                                   "WHEN CON_CONCEPTO = 'INTERES POR MORA' THEN CONCAT('%',' ', CON_VALOR_ACTUAL) " +
+                                                   "ELSE CONCAT('$',' ', CON_VALOR_ACTUAL) " +
+                                                 "END 'VALOR', " +
+                                                 "CON_FECHA_ULT_ACT 'FECHA DESDE', " +
+                                                 "NULL 'FECHA HASTA', " +
+                                                 "0 HIS_ID, " +
+                                                 "GETDATE() 'FECHA' " +
+                                            "FROM T_CONCEPTOS " +
+                                           "WHERE CON_ID = " + con_id + " " +
+                                             "AND CON_FECHA_ULT_ACT >= '" + desde + "' " +
+                                          "UNION " +
+                                          "SELECT CON_CONCEPTO 'CONCEPTO', " +
+                                                 "CON_FECHA_INI 'FECHA ALTA', " +
+                                                 "CASE " +
+                                                   "WHEN CON_CONCEPTO = 'INTERES POR MORA' THEN CONCAT('%',' ', CON_VALOR_ANTERIOR) " +
+                                                   "ELSE CONCAT('$',' ', CON_VALOR_ANTERIOR) " +
+                                                "END 'VALOR', " +
+                                                "CON_FECHA_ULT_ACT 'FECHA DESDE', " +
+                                                "CON_FECHA_ACT 'FECHA HASTA', " +
+                                                "0 HIS_ID, " +
+                                                "GETDATE() 'FECHA' " +
+                                          "FROM T_CONCEPTOS " +
+                                         "WHERE CON_ID = " + con_id + " " +
+                                           "AND CON_FECHA_ULT_ACT >= '" + desde + "' " +
+                                           "AND CON_FECHA_ACT <= '" + hasta + "' " +
+                                         "UNION " +
+                                         "SELECT CON_CONCEPTO 'CONCEPTO', " +
+                                               "CON_FECHA_INI 'FECHA ALTA', " +
+                                               "CASE " +
+                                                 "WHEN CON_CONCEPTO = 'INTERES POR MORA' THEN CONCAT('%',' ', HIS_VALOR_ANTERIOR) " +
+                                                 "ELSE CONCAT('$',' ', HIS_VALOR_ANTERIOR) " +
+                                               "END 'VALOR', " +
+                                               "HIS_DESDE 'FECHA DESDE', " +
+                                               "HIS_HASTA 'FECHA HASTA', " +
+                                               "HIS_ID, " +
+                                               "GETDATE() 'FECHA' " +
+                                         "FROM T_CONCEPTOS, T_HISTORIAL " +
+                                        "WHERE CON_ID = HIS_CON_ID " +
+                                          "AND CON_ID = "+ con_id + " "+
+                                          "AND HIS_DESDE >= '" + desde + "' " +
+                                          "AND HIS_HASTA  <= '" + hasta + "')" +
+                                        "SELECT * FROM T1 " +
+                                        "WHERE t1.HIS_ID != (SELECT MAX(HIS_ID) FROM T_HISTORIAL WHERE HIS_CON_ID = "+ con_id + ")" +
+                                        "ORDER BY T1.[FECHA HASTA], T1.VALOR DESC,T1.HIS_ID;";
+
+
+            cmd = new SqlCommand(consulta, con);
+            dta = new SqlDataAdapter(cmd);
+            dt = new DataTable();
+            dta.Fill(dt);
+
+            con.Close();
+
+            return dt;
+
+        }
 
 
     }
