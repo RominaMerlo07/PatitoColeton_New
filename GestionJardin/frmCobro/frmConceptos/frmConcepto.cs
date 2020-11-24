@@ -18,6 +18,17 @@ namespace GestionJardin
         public frmConcepto()
         {
             InitializeComponent();
+            Settooltip();
+        }
+
+        private void Settooltip()
+        {
+            ToolTip Tip = new ToolTip();
+            Tip.SetToolTip(this.btnCon_Agregar, "Dar de alta un concepto por primera vez");
+            Tip.SetToolTip(this.btnCon_Editar, "Modificar el valor de un concepto");
+            Tip.SetToolTip(this.btnCon_Eliminar, "Deshabilitar un concepto");
+            Tip.SetToolTip(this.btnLista, "Imprimir lista de conceptos activos");
+            Tip.SetToolTip(this.btn_ImprimirConcepto, "Visualizar historial por concepto");
         }
 
         private void btnCon_Agregar_Click(object sender, EventArgs e)
@@ -40,16 +51,16 @@ namespace GestionJardin
 
         private void btnCon_Editar_Click(object sender, EventArgs e)
         {
-            
-            if (dgvConceptos.SelectedRows.Count > 0 )
+
+            if (dgvConceptos.SelectedRows.Count > 0)
             {
                 btnCon_Editar.IconColor = Color.Cyan;
                 btnCon_Editar.ForeColor = Color.Cyan;
                 string idConceptoSelect = dgvConceptos.SelectedRows[0].Cells[0].Value.ToString();
                 string NombreConceptoSelect = dgvConceptos.SelectedRows[0].Cells[1].Value.ToString();
-                DateTime Fecha_InicioSelect = Convert.ToDateTime(dgvConceptos.SelectedRows[0].Cells[7].Value);
-                string Valor_anteriorSelect = dgvConceptos.SelectedRows[0].Cells[4].Value.ToString();
-                string ValorActualConceptoSelect = dgvConceptos.SelectedRows[0].Cells[2].Value.ToString();
+                DateTime Fecha_InicioSelect = Convert.ToDateTime(dgvConceptos.SelectedRows[0].Cells[2].Value);
+                string Valor_anteriorSelect = dgvConceptos.SelectedRows[0].Cells[5].Value.ToString();               
+                string ValorActualConceptoSelect = dgvConceptos.SelectedRows[0].Cells[3].Value.ToString();               
                 string EstadoConceptosSelect = dgvConceptos.SelectedRows[0].Cells[8].Value.ToString();
 
                 frmConcepto_Editar frmConcepto_Editar = new frmConcepto_Editar(idConceptoSelect, NombreConceptoSelect, ValorActualConceptoSelect, Fecha_InicioSelect, Valor_anteriorSelect, EstadoConceptosSelect);
@@ -66,9 +77,8 @@ namespace GestionJardin
             {
                 btnCon_Editar.IconColor = Color.Gray;
                 btnCon_Editar.ForeColor = Color.Gray;
-                MessageBox.Show("Debe seleccionar un registro para poder visualizar y/o editar los datos de un concepto");
+                MessageBox.Show("Debe seleccionar un registro para poder modificar el valor de un concepto","INFORMACIÓN",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
-
 
         }
 
@@ -101,7 +111,7 @@ namespace GestionJardin
             {
                 btnCon_Eliminar.IconColor = Color.Gray;
                 btnCon_Eliminar.ForeColor = Color.Gray;
-                MessageBox.Show("Debe seleccionar un registro para poder dar de baja a un concepto");
+                MessageBox.Show("Debe seleccionar un registro para poder deshabilitar a un concepto", "INFORMACIÓN", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
           }
@@ -132,6 +142,7 @@ namespace GestionJardin
             btnCon_Editar.ForeColor = Color.Gray;
 
         }
+
         private void Dgv_Conceptos()
         {
             DataTable dt = new DataTable();
@@ -139,6 +150,14 @@ namespace GestionJardin
             dt = objlogConcepto.Visualizar();
             dgvConceptos.DataSource = dt;
             dgvConceptos.Columns["CON_ID"].Visible = false;
+
+            this.dgvConceptos.Columns["CONCEPTO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            this.dgvConceptos.Columns["VALOR ACTUAL"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            this.dgvConceptos.Columns["VIGENTE DESDE"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            this.dgvConceptos.Columns["VALOR ANTERIOR"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            this.dgvConceptos.Columns["DESDE"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            this.dgvConceptos.Columns["HASTA"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            this.dgvConceptos.Columns["ESTADO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
 
         }
 
@@ -174,7 +193,6 @@ namespace GestionJardin
                 }
                                         
         }
-
             
 
         private void txtCon_Buscar_Click(object sender, EventArgs e)
@@ -196,7 +214,6 @@ namespace GestionJardin
                 btnCon_Eliminar.ForeColor = Color.Gray;
 
             }
-
 
         }
 
@@ -243,6 +260,18 @@ namespace GestionJardin
                 btnCon_Editar.Text = "HABILITAR";
             
             }
+        }
+
+        private void btnLista_Click(object sender, EventArgs e)
+        {
+            ListaConceptos ListaConceptos = new ListaConceptos();
+        }
+
+        private void btn_ImprimirConcepto_Click(object sender, EventArgs e)
+        {
+            HistorialConceptos HistorialConceptos = new HistorialConceptos();
+            HistorialConceptos.Show();
+
         }
     }
 }

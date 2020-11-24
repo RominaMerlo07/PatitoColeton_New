@@ -85,9 +85,11 @@
     <Compile Include="entUsuario.cs" />
     <Compile Include="fichaAlumno.cs" />
     <Compile Include="fichaAlumnoFamiliar.cs" />
+    <Compile Include="historialConceptos.cs" />
     <Compile Include="InformeAsistencia.cs" />
     <Compile Include="InformeTotalAsistencia.cs" />
     <Compile Include="ListaAlumnos.cs" />
+    <Compile Include="listaConcepto.cs" />
     <Compile Include="ListaDocentes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -110,5 +110,78 @@ namespace GestionJardin
                 lblValor.Visible = false;
             }
         }
+
+        //VALIDA EL INGRESO DE NUMEROS Y DECIMALES
+        private void UnPunto(KeyPressEventArgs e, string cadena)
+        {
+            int contador = 0;
+            string caracter = "";
+            bool bandera;
+
+            for (int n = 0; n < cadena.Length; n++)
+            {
+                caracter = cadena.Substring(n, 1);
+                if (caracter == ".")
+                {
+                    contador++;
+                }
+            }
+
+            if (contador == 0)
+            {
+                bandera = true;
+                if (e.KeyChar == ',' && bandera)
+                {
+                    bandera = false; // ya no acepta otro punto
+                    e.Handled = false;
+                }
+                else if (Char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else if (Char.IsControl(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+            else
+            {
+                bandera = false;
+                e.Handled = true;
+                if (Char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else if (Char.IsControl(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void txt_valor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            UnPunto(e, txt_valor.Text);
+        }
+
+        private void cbConcepto_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cbConcepto.SelectedItem.ToString() == "INTERES POR MORA")
+            {
+                txtSigno.Text = "%";
+            }
+            else
+            {
+                txtSigno.Text = "$";
+            }
+        }
     }
 }

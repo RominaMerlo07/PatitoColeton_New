@@ -30,12 +30,16 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvConceptos = new System.Windows.Forms.DataGridView();
             this.txtCon_Buscar = new MetroFramework.Controls.MetroTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCon_Eliminar = new FontAwesome.Sharp.IconButton();
             this.btnCon_Editar = new FontAwesome.Sharp.IconButton();
             this.btnCon_Agregar = new FontAwesome.Sharp.IconButton();
+            this.btnLista = new FontAwesome.Sharp.IconButton();
+            this.btn_ImprimirConcepto = new FontAwesome.Sharp.IconButton();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConceptos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,30 +50,38 @@
             this.dgvConceptos.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dgvConceptos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvConceptos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvConceptos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvConceptos.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvConceptos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvConceptos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvConceptos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvConceptos.Location = new System.Drawing.Point(41, 383);
             this.dgvConceptos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvConceptos.MultiSelect = false;
             this.dgvConceptos.Name = "dgvConceptos";
             this.dgvConceptos.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvConceptos.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvConceptos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvConceptos.RowTemplate.Height = 24;
-            this.dgvConceptos.Size = new System.Drawing.Size(1252, 495);
+            this.dgvConceptos.Size = new System.Drawing.Size(1271, 495);
             this.dgvConceptos.TabIndex = 52;
             this.dgvConceptos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConceptos_CellClick);
             // 
@@ -194,12 +206,63 @@
             this.btnCon_Agregar.UseVisualStyleBackColor = true;
             this.btnCon_Agregar.Click += new System.EventHandler(this.btnCon_Agregar_Click);
             // 
+            // btnLista
+            // 
+            this.btnLista.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnLista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLista.ForeColor = System.Drawing.Color.Yellow;
+            this.btnLista.IconChar = FontAwesome.Sharp.IconChar.Print;
+            this.btnLista.IconColor = System.Drawing.Color.Yellow;
+            this.btnLista.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnLista.IconSize = 40;
+            this.btnLista.Location = new System.Drawing.Point(1006, 287);
+            this.btnLista.Name = "btnLista";
+            this.btnLista.Padding = new System.Windows.Forms.Padding(3);
+            this.btnLista.Size = new System.Drawing.Size(74, 63);
+            this.btnLista.TabIndex = 54;
+            this.btnLista.UseVisualStyleBackColor = true;
+            this.btnLista.Click += new System.EventHandler(this.btnLista_Click);
+            // 
+            // btn_ImprimirConcepto
+            // 
+            this.btn_ImprimirConcepto.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_ImprimirConcepto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ImprimirConcepto.ForeColor = System.Drawing.Color.Silver;
+            this.btn_ImprimirConcepto.IconChar = FontAwesome.Sharp.IconChar.Filter;
+            this.btn_ImprimirConcepto.IconColor = System.Drawing.Color.Silver;
+            this.btn_ImprimirConcepto.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_ImprimirConcepto.IconSize = 40;
+            this.btn_ImprimirConcepto.Location = new System.Drawing.Point(1121, 287);
+            this.btn_ImprimirConcepto.Name = "btn_ImprimirConcepto";
+            this.btn_ImprimirConcepto.Padding = new System.Windows.Forms.Padding(3);
+            this.btn_ImprimirConcepto.Size = new System.Drawing.Size(74, 63);
+            this.btn_ImprimirConcepto.TabIndex = 53;
+            this.btn_ImprimirConcepto.UseVisualStyleBackColor = true;
+            this.btn_ImprimirConcepto.Click += new System.EventHandler(this.btn_ImprimirConcepto_Click);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label2.AutoSize = true;
+            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(37, 895);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(844, 20);
+            this.label2.TabIndex = 55;
+            this.label2.Text = "* Para poder modificar el valor de un concepto o deshabilitar al mismo, debe sele" +
+    "ccionar el registro previamente";
+            // 
             // frmConcepto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(1660, 947);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btnLista);
+            this.Controls.Add(this.btn_ImprimirConcepto);
             this.Controls.Add(this.dgvConceptos);
             this.Controls.Add(this.txtCon_Buscar);
             this.Controls.Add(this.label1);
@@ -224,5 +287,8 @@
         private FontAwesome.Sharp.IconButton btnCon_Eliminar;
         private FontAwesome.Sharp.IconButton btnCon_Editar;
         private FontAwesome.Sharp.IconButton btnCon_Agregar;
+        private FontAwesome.Sharp.IconButton btnLista;
+        private FontAwesome.Sharp.IconButton btn_ImprimirConcepto;
+        private System.Windows.Forms.Label label2;
     }
 }
