@@ -54,5 +54,11 @@ namespace CaLog
             return objMetAsistencia.InformeAsistencia(turno, sala, fecha);
         }
 
+        public DataSet InformeTotalAsistencias(string idSala, string fechaDesde, string fechaHasta)
+        {
+
+            return objMetAsistencia.InformeTotalAsistencia(idSala, fechaDesde, fechaHasta);
+        }
+
     }
 }

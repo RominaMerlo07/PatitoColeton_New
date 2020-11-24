@@ -25,7 +25,7 @@ namespace CaAD//GestionJardin
 
         public DataTable AutocompletarenCobros()
         {
-
+            DataTable dt = new DataTable();
             con = generarConexion();
 
             con.Open();
@@ -33,7 +33,7 @@ namespace CaAD//GestionJardin
 
             string consulta = "SELECT CONCAT(PER_NOMBRE, ', ', PER_APELLIDO, ' (', PER_DOCUMENTO, ')') NOMBRE  " +
                               "FROM T_PERSONAS " +
-                              "WHERE PER_TPE_ID = '2'";
+                              "WHERE PER_TPE_ID = 2";
 
             cmd = new SqlCommand(consulta, con);
 
@@ -72,6 +72,7 @@ namespace CaAD//GestionJardin
 
 
         {
+            DataTable dt = new DataTable();
 
             con = generarConexion();
             con.Open();
@@ -81,16 +82,25 @@ namespace CaAD//GestionJardin
 
             string dniencontrado = pbarrabuscao;
 
-            string consulta = "SELECT co.COB_ID, " +
-                                    "p.PER_NOMBRE + ',' + p.PER_APELLIDO NOMBRE_APELLIDO, " +
-                                    "p.PER_DOCUMENTO, " +
-                                    "p.PER_LEGAJO, " +
-                                    "c.CUO_FECHA_VENC, " +
-                                    "CONCAT(CONCAT('$', c.CUO_IMPORTE), '  ', convert(nvarchar(20), c.CUO_FECHA_VENC, 103), '  ', '(', c.CUO_ESTADO, ')') INFO_CUOTA " +
-                                    "FROM T_PERSONAS p, T_CUOTA_FINAL c, T_COBRO co " +
-                                    "WHERE p.PER_LEGAJO = c.CUO_PER_LEGAJO " +
-                                    "AND co.COB_CUO_ID = c.CUO_ID " +
-                                    "AND p.PER_DOCUMENTO = '" + dniencontrado + "' and c.CUO_ESTADO = 'PAGADA' ";
+            
+
+            //string consulta= "SELECT p.PER_NOMBRE + ',' + p.PER_APELLIDO ALUMNO,"+
+            //                    "p.PER_DOCUMENTO DOCUMENTO,"+
+            //                    "c.CUO_FECHA_VENC 'VENCIMIENTO', "+
+            //                    "c.CUO_IMPORTE IMPORTE,"+
+            //                    "c.CUO_ESTADO ESTADO FROM T_PERSONAS p,"+
+            //                    "T_CUOTA_FINAL c, T_COBRO co WHERE p.PER_LEGAJO = c.CUO_PER_LEGAJO AND co.COB_CUO_ID = c.CUO_ID "+
+            //                    "AND p.PER_DOCUMENTO = '" + dniencontrado + "' ";
+
+            string consulta= "SELECT(PER_NOMBRE + ' ' + PER_APELLIDO) ALUMNO,"+
+                               "PER_DOCUMENTO DOCUMENTO,"+
+                               "CUO_NUMERO 'NUMERO DE CUOTA',"+
+	                           "CUO_IMPORTE AS IMPORTE,"+
+	                           "CUO_FECHA_VENC AS VENCIMIENTO,"+
+	                           "CUO_ESTADO AS ESTADO "+
+                               "FROM T_CUOTA_FINAL, T_PERSONAS "+
+                               "WHERE PER_ID = CUO_PER_ID "+
+                               "AND PER_DOCUMENTO = '"+ dniencontrado +"'"; 
 
             cmd = new SqlCommand(consulta, con);
 

@@ -37,6 +37,13 @@ namespace GestionJardin
 
             //--
             dgv_UsuariosActivos.DataSource = ObjetoUsu.MostrarUsu();
+            this.dgv_UsuariosActivos.Columns["DOCENTE"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            this.dgv_UsuariosActivos.Columns["USUARIO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            this.dgv_UsuariosActivos.Columns["CONTRASEÑA"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            this.dgv_UsuariosActivos.Columns["FECHA DE ALTA"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            this.dgv_UsuariosActivos.Columns["FECHA DE MODIFICACION"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+           
+
             btnGU_Editar.IconColor = Color.Gray;
             btnGU_Editar.ForeColor = Color.Gray;
             btnGU_Eliminar.IconColor = Color.Gray;
@@ -93,8 +100,9 @@ namespace GestionJardin
         private void Settooltip()
         {
             ToolTip Tip = new ToolTip();
-            Tip.SetToolTip(this.btnGU_Eliminar, "SELECCIONE UN REGISTRO PARA PODER ELIMINAR");           
-            Tip.SetToolTip(this.btnGU_Editar, "SELECCIONE UN REGISTRO PARA PODER EDITAR");
+            Tip.SetToolTip(this.btnGU_Eliminar, "Dar de baja un usuario");           
+            Tip.SetToolTip(this.btnGU_Editar, "Cambiar contraseña de un usuario");
+            Tip.SetToolTip(this.btnGU_Agregar, "Generar nuevo usuario");
         }
 
 

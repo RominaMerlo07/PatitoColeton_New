@@ -106,16 +106,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DtasDocente.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DtasDocente.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="fichaAlumno.cs">
+    <Compile Include="frmDocentes\ImprimirListaSala.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fichaAlumno.Designer.cs">
-      <DependentUpon>fichaAlumno.cs</DependentUpon>
+    <Compile Include="frmDocentes\ImprimirListaSala.Designer.cs">
+      <DependentUpon>ImprimirListaSala.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\Conceptos\HistConceptos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\Conceptos\HistConceptos.Designer.cs">
+      <DependentUpon>HistConceptos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\Conceptos\HistorialConceptos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\Conceptos\HistorialConceptos.Designer.cs">
+      <DependentUpon>HistorialConceptos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\Conceptos\ListaConceptos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\Conceptos\ListaConceptos.Designer.cs">
+      <DependentUpon>ListaConceptos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\GrupoFlia\ListaGrupoFlia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\GrupoFlia\ListaGrupoFlia.Designer.cs">
+      <DependentUpon>ListaGrupoFlia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\Docentes\ListaTotalDocentes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\Docentes\ListaTotalDocentes.Designer.cs">
+      <DependentUpon>ListaTotalDocentes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\Docentes\ListaDocentes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\Docentes\ListaDocentes.Designer.cs">
+      <DependentUpon>ListaDocentes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\Docentes\fichaDocente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\Docentes\fichaDocente.Designer.cs">
+      <DependentUpon>fichaDocente.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAlumnos\Estudiantes_GrupoFlia\frmAlumnosGrupoFlia.cs">
       <SubType>Form</SubType>
@@ -351,12 +388,6 @@
     <Compile Include="frmPrincipal.Designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmreporte.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmreporte.Designer.cs">
-      <DependentUpon>frmreporte.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmSalas\frmSalasPopUpEliminar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -405,19 +436,84 @@
     <Compile Include="frmUsuarios\frmUsuariosPopUpEliminar.Designer.cs">
       <DependentUpon>frmUsuariosPopUpEliminar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporte\InformeAsistencia.cs">
+    <Compile Include="frmAlumnos\Estudiantes_GestionAlumnos\ImprimirLista.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reporte\InformeAsistencia.Designer.cs">
+    <Compile Include="frmAlumnos\Estudiantes_GestionAlumnos\ImprimirLista.Designer.cs">
+      <DependentUpon>ImprimirLista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\Alumnos\ListaAlumnos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\Alumnos\ListaAlumnos.Designer.cs">
+      <DependentUpon>ListaAlumnos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\Asistencias\informeTotalAusencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\Asistencias\informeTotalAusencias.Designer.cs">
+      <DependentUpon>informeTotalAusencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\Asistencias\InformeTotalAsistencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\Asistencias\InformeTotalAsistencias.Designer.cs">
+      <DependentUpon>InformeTotalAsistencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\Alumnos\InformeFichaAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\Alumnos\InformeFichaAlumno.Designer.cs">
+      <DependentUpon>InformeFichaAlumno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\Asistencias\InformeAsistencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\Asistencias\InformeAsistencia.Designer.cs">
       <DependentUpon>InformeAsistencia.cs</DependentUpon>
     </Compile>
     <Compile Include="LocalReportExtension.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FichaAlumno.rdlc" />
-    <EmbeddedResource Include="fichaAlumno.resx">
-      <DependentUpon>fichaAlumno.cs</DependentUpon>
+    <EmbeddedResource Include="frmDocentes\ImprimirListaSala.resx">
+      <DependentUpon>ImprimirListaSala.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\Conceptos\HistConceptos.resx">
+      <DependentUpon>HistConceptos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\Conceptos\HistorialConceptos.rdlc" />
+    <EmbeddedResource Include="Reporte\Conceptos\HistorialConceptos.resx">
+      <DependentUpon>HistorialConceptos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\Conceptos\ListaConceptos.rdlc" />
+    <EmbeddedResource Include="Reporte\Conceptos\ListaConceptos.resx">
+      <DependentUpon>ListaConceptos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\GrupoFlia\ListaGrupoFlia.rdlc" />
+    <EmbeddedResource Include="Reporte\GrupoFlia\ListaGrupoFlia.resx">
+      <DependentUpon>ListaGrupoFlia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\Docentes\ListaTotalDocentes.rdlc" />
+    <EmbeddedResource Include="Reporte\Docentes\ListaTotalDocentes.resx">
+      <DependentUpon>ListaTotalDocentes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\Docentes\ListaDocentes.rdlc" />
+    <EmbeddedResource Include="Reporte\Docentes\ListaDocentes.resx">
+      <DependentUpon>ListaDocentes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\Docentes\fichaDocente.rdlc" />
+    <EmbeddedResource Include="Reporte\Docentes\fichaDocente.resx">
+      <DependentUpon>fichaDocente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\Alumnos\CantidadAlumnosSala.rdlc" />
+    <EmbeddedResource Include="frmAlumnos\Estudiantes_GestionAlumnos\ImprimirLista.resx">
+      <DependentUpon>ImprimirLista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\Alumnos\ListaAlumnos.rdlc" />
+    <EmbeddedResource Include="Reporte\Alumnos\ListaAlumnos.resx">
+      <DependentUpon>ListaAlumnos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\Alumnos\fichaAlumno.rdlc" />
     <EmbeddedResource Include="frmAlumnos\Estudiantes_GrupoFlia\frmAlumnosGrupoFlia.resx">
       <DependentUpon>frmAlumnosGrupoFlia.cs</DependentUpon>
     </EmbeddedResource>
@@ -535,9 +631,6 @@
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmreporte.resx">
-      <DependentUpon>frmreporte.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmSalas\frmSalasPopUpEliminar.resx">
       <DependentUpon>frmSalasPopUpEliminar.cs</DependentUpon>
     </EmbeddedResource>
@@ -562,8 +655,19 @@
     <EmbeddedResource Include="frmUsuarios\frmUsuariosPopUpEliminar.resx">
       <DependentUpon>frmUsuariosPopUpEliminar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InformeAsistencia.rdlc" />
-    <EmbeddedResource Include="Reporte\InformeAsistencia.resx">
+    <EmbeddedResource Include="Reporte\Asistencias\graficoTotalAusencias.rdlc" />
+    <EmbeddedResource Include="Reporte\Asistencias\InformeAsistencia.rdlc" />
+    <EmbeddedResource Include="Reporte\Asistencias\InformeTotalAsistencias.rdlc" />
+    <EmbeddedResource Include="Reporte\Asistencias\informeTotalAusencias.resx">
+      <DependentUpon>informeTotalAusencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\Asistencias\InformeTotalAsistencias.resx">
+      <DependentUpon>InformeTotalAsistencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\Alumnos\InformeFichaAlumno.resx">
+      <DependentUpon>InformeFichaAlumno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\Asistencias\InformeAsistencia.resx">
       <DependentUpon>InformeAsistencia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -576,24 +680,40 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Report2.rdlc" />
     <None Include="ClassDiagram1.cd" />
-    <None Include="DtasDocente.xsc">
-      <DependentUpon>DtasDocente.xsd</DependentUpon>
-    </None>
-    <None Include="DtasDocente.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DtasDocente.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="DtasDocente.xss">
-      <DependentUpon>DtasDocente.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\CaEnt.CantidadAlumnosSalas.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entAsistencia+entAsistenciaColeccion.datasource" />
     <None Include="Properties\DataSources\CaEnt.entAsistencia.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entCalificaciones+entCalificacionesColeccion.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entCalificaciones.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entConcepto+entConceptoColeccion.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entConcepto.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entDomicilio.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entGrupoFlia.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entGrupoSala.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entMateria+entMateriaColeccion.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entMateria.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entMateriaTipo+entMateriaTipoColeccion.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entMateriaTipo.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entPersona+entPersonaColeccion.datasource" />
     <None Include="Properties\DataSources\CaEnt.entPersona.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entRol.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entSala+entSalaColeccion.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entSala.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entTipoPersona+enTipoPersonaColeccion.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entTipoPersona.datasource" />
+    <None Include="Properties\DataSources\CaEnt.entUsuario.datasource" />
+    <None Include="Properties\DataSources\CaEnt.fichaAlumno+fichaAlumnoColeccion.datasource" />
     <None Include="Properties\DataSources\CaEnt.fichaAlumno.datasource" />
+    <None Include="Properties\DataSources\CaEnt.fichaAlumnoFamiliar.datasource" />
+    <None Include="Properties\DataSources\CaEnt.historialConceptos.datasource" />
+    <None Include="Properties\DataSources\CaEnt.InformeAsistencia+InformeAsistenciaColeccion.datasource" />
     <None Include="Properties\DataSources\CaEnt.InformeAsistencia.datasource" />
+    <None Include="Properties\DataSources\CaEnt.InformeTotalAsistencia.datasource" />
+    <None Include="Properties\DataSources\CaEnt.ListaAlumnos.datasource" />
+    <None Include="Properties\DataSources\CaEnt.listaConcepto.datasource" />
+    <None Include="Properties\DataSources\CaEnt.ListaDocentes.datasource" />
     <None Include="Properties\DataSources\CaLog.logAsistencia.datasource" />
     <None Include="Properties\DataSources\CapaAccesoDatos.metAsistencia.datasource" />
     <None Include="Properties\DataSources\CapaEntidades.InformeAsistencia+InformeAsistenciaColeccion.datasource" />

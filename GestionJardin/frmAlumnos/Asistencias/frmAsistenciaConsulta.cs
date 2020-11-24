@@ -29,6 +29,14 @@ namespace GestionJardin
         private void frmAsistenciaConsulta_Load(object sender, EventArgs e)
         {
             Inicializar();
+            Settooltip();
+        }
+
+        private void Settooltip()
+        {
+            ToolTip Tip = new ToolTip();
+            Tip.SetToolTip(this.btn_Informe, "Aquí puede imprimir la lista de asistencias e inasistencias acumuladas");
+            Tip.SetToolTip(this.btnGraficoAusencias, "Aquí puede visualizar graficamente el total de asistencias e inasistencias acumuladas");
         }
 
         private void cargar_cbSala()
@@ -182,6 +190,7 @@ namespace GestionJardin
                 txtGAs_Buscar.Visible = true;
                 dgv_Alumnos.Visible = true;
                 btn_Informe.Visible = true;
+                btnGraficoAusencias.Visible = true;
                 dgv_Alumnos.ClearSelection();
 
                 dgv_Alumnos.DataSource = logAsistencia.GrillaAsistenciaConsultar(id_sala, fechaDesde.ToShortDateString(), fechaHasta.ToShortDateString());
@@ -189,6 +198,14 @@ namespace GestionJardin
                 dgv_Alumnos.Columns["PER_ID"].Frozen = true;
                 dgv_Alumnos.Columns["ALUMNO"].Frozen = true;
                 dgv_Alumnos.Columns["DOCUMENTO"].Frozen = true;
+
+
+                this.dgv_Alumnos.Columns["ALUMNO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                this.dgv_Alumnos.Columns["DOCUMENTO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                this.dgv_Alumnos.Columns["TOTAL ASISTENCIAS"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                this.dgv_Alumnos.Columns["TOTAL INASISTENCIAS"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                this.dgv_Alumnos.Columns["JUSTIFICADAS"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                this.dgv_Alumnos.Columns["INJUSTIFICADAS"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             }
             else
             {
@@ -223,6 +240,17 @@ namespace GestionJardin
                 dgv_Alumnos.Columns["ALUMNO"].Frozen = true;
                 dgv_Alumnos.Columns["DOCUMENTO"].Frozen = true;
             }
+        }
+
+        private void btn_Informe_Click(object sender, EventArgs e)
+        {
+            InformeTotalAsistencias InformeTotalAsistencias = new InformeTotalAsistencias(id_sala, fechaDesde.ToShortDateString(),fechaHasta.ToShortDateString());
+        }
+
+        private void iconPictureBox1_Click(object sender, EventArgs e)
+        {
+            informeTotalAusencias informeTotalAusencias = new informeTotalAusencias(id_sala, fechaDesde.ToShortDateString(), fechaHasta.ToShortDateString());
+            informeTotalAusencias.Show();
         }
     }
 }

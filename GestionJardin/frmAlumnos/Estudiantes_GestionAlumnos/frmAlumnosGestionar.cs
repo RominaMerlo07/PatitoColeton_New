@@ -31,9 +31,18 @@ namespace GestionJardin
             btnGA_Eliminar.IconColor = Color.Gray;
             btnGA_Eliminar.ForeColor = Color.Gray;
             btnGA_Editar.IconColor = Color.Gray;
-            btnGA_Editar.ForeColor = Color.Gray;                        
-                        
-            
+            btnGA_Editar.ForeColor = Color.Gray;
+
+            Settooltip();
+        }
+
+        private void Settooltip()
+        {
+            ToolTip Tip = new ToolTip();
+            Tip.SetToolTip(this.btnGA_Agregar,"Ingresar o dar de alta un alumno");
+            Tip.SetToolTip(this.btnGA_Editar, "Visualizar y/o modificar los datos de un alumno");
+            Tip.SetToolTip(this.btnGA_Eliminar, "Dar de baja un alumno");
+            Tip.SetToolTip(this.btn_ImprimirSala, "Obtener lista de alumnos por sala");
         }
 
         private void carga_grilla_filtrada()
@@ -53,7 +62,7 @@ namespace GestionJardin
         {
             frmAlumnosPopUpAgregar frmAlumnosPopUpAgregar = new frmAlumnosPopUpAgregar();
             frmAlumnosPopUpAgregar.FormClosed += frmAlumnosPopUpAgregar_FormClosed;
-            frmAlumnosPopUpAgregar.Text = "GESTION ALUMNOS / ESTUDIANTES / GESTIONAR ALUMNOS / INGRESAR ALUMNO NUEVO";
+            frmAlumnosPopUpAgregar.Text = "GESTION ALUMNOS / ESTUDIANTES / GESTIONAR ALUMNOS / INGRESAR";
             frmAlumnosPopUpAgregar.ShowDialog();
 
             btnGA_Eliminar.IconColor = Color.Gray;
@@ -72,7 +81,7 @@ namespace GestionJardin
                 string idPersonaSelect = dgvAlumnos.SelectedRows[0].Cells[0].Value.ToString();
                 frmAlumnosPopUpEditar frmAlumnosPopUpEditar = new frmAlumnosPopUpEditar(idPersonaSelect);
                 frmAlumnosPopUpEditar.FormClosed += frmAlumnosPopUpEditar_FormClosed;
-                frmAlumnosPopUpEditar.Text = "GESTION ALUMNOS / ESTUDIANTES / GESTIONAR ALUMNOS / MODIFICAR DATOS ALUMNO";
+                frmAlumnosPopUpEditar.Text = "GESTION ALUMNOS / ESTUDIANTES / GESTIONAR ALUMNOS / MODIFICAR";
                 frmAlumnosPopUpEditar.ShowDialog();
 
                 btnGA_Eliminar.IconColor = Color.Gray;
@@ -84,7 +93,7 @@ namespace GestionJardin
             {
                 btnGA_Editar.IconColor = Color.Gray;
                 btnGA_Editar.ForeColor = Color.Gray;
-                MessageBox.Show("Debe seleccionar un registro para poder visualizar y/o editar los datos de un alumno");
+                MessageBox.Show("Debe seleccionar un registro para poder visualizar y/o editar los datos de un alumno", "Información",MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
 
         }
@@ -99,9 +108,12 @@ namespace GestionJardin
 
                 string idPersonaSelect = dgvAlumnos.SelectedRows[0].Cells[0].Value.ToString();
                 string nombreAlumno = dgvAlumnos.SelectedRows[0].Cells[1].Value.ToString();
-                frmAlumnosPopUpEliminar frmAlumnoPopUpEliminar = new frmAlumnosPopUpEliminar(idPersonaSelect, nombreAlumno);
+                int edad = Convert.ToInt32(dgvAlumnos.SelectedRows[0].Cells[4].Value.ToString());
+
+
+                frmAlumnosPopUpEliminar frmAlumnoPopUpEliminar = new frmAlumnosPopUpEliminar(idPersonaSelect, nombreAlumno,edad);
                 frmAlumnoPopUpEliminar.FormClosed += frmAlumnoPopUpEliminar_FormClosed;
-                frmAlumnoPopUpEliminar.Text = "GESTION ALUMNOS / ESTUDIANTES / GESTIONAR ALUMNOS / ELIMINAR ALUMNO";
+                frmAlumnoPopUpEliminar.Text = "GESTION ALUMNOS / ESTUDIANTES / GESTIONAR ALUMNOS / PROCESAR BAJA";
                 frmAlumnoPopUpEliminar.ShowDialog();
 
                 btnGA_Eliminar.IconColor = Color.Gray;
@@ -113,7 +125,8 @@ namespace GestionJardin
             {
                 btnGA_Eliminar.IconColor = Color.Gray;
                 btnGA_Eliminar.ForeColor = Color.Gray;
-                MessageBox.Show("Debe seleccionar un registro para poder dar de baja a un alumno");
+                MessageBox.Show("Debe seleccionar un registro para poder dar de baja a un alumno", "Información", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+          
             }
 
         }         
@@ -138,6 +151,12 @@ namespace GestionJardin
             dgvAlumnos.Columns["PER_ID"].Frozen = true;
             dgvAlumnos.Columns["ALUMNO"].Frozen = true;
             dgvAlumnos.Columns["DOCUMENTO"].Frozen = true;
+                                   
+            this.dgvAlumnos.Columns["DOCUMENTO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            this.dgvAlumnos.Columns["FECHA NACIMIENTO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            this.dgvAlumnos.Columns["EDAD"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            this.dgvAlumnos.Columns["TELEFONO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            this.dgvAlumnos.Columns["CELULAR"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;    
 
         }     
 
@@ -211,5 +230,13 @@ namespace GestionJardin
                 btnGA_Eliminar.ForeColor = Color.Gray;
             }
         }
+
+        private void btn_ImprimirSala_Click(object sender, EventArgs e)
+        {
+            ImprimirLista ImprimirLista = new ImprimirLista();
+            ImprimirLista.Show();
+        }
+
+       
     }
 }

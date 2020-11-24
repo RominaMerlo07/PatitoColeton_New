@@ -56,63 +56,53 @@ namespace CaAD//GestionJardin
         }
 
         public bool ingresar(string usuario, string contrasena)
-        {
-            bool valido = new bool();
+        {            
+                bool valido = new bool();
 
+                entUsuario usr = new entUsuario();
+                usr.USU_USUARIO = usuario;
+
+                DataTable t_usuario = buscarUsuario(usr);
+
+                if (t_usuario.Rows.Count == 0)
+                {
+                    valido = false;
+
+                }
+              else if (t_usuario.Rows[0]["USU_CLAVE"].ToString() == contrasena)
+
+                {
+                    valido = true;
+                }
+                else
+                {
+                    valido = false;
+                }
+
+
+                return valido;
+            }
+
+        public bool Permisos(string usuario, string contrasena)
+        {
             entUsuario usr = new entUsuario();
             usr.USU_USUARIO = usuario;
             DataTable t_usuario = buscarUsuario(usr);
+            bool rol = new bool();
+            if (t_usuario.Rows[0][4].ToString() == "1")
+            {
+                rol = true;
+            }
+            else if (t_usuario.Rows[0][4].ToString() == "2")
+            {
 
-            if (t_usuario.Rows.Count == 0)
-            {
-                valido = false;
+                rol = false;
             }
-            else if (t_usuario.Rows[0]["USU_CLAVE"].ToString() == contrasena)
-            {
-                valido = true;
-                if (t_usuario.Rows[0][4].ToString() == "1")
-                {
-                    valido = true;
-                    if (t_usuario.Rows[0][8].ToString() == "N")
-                    {
-                        valido = false;
-                        //frmPrincipal frmP = new frmPrincipal();
-                        //frmP.btnUsuarios.Visible = false;
-                        //frmP.btnAlumnos.Visible = false;
-                        //frmP.btnCobros.Visible = false;
-                        //frmP.btnDocentes.Visible = false;
-                        //frmP.btnInformes.Visible = false;
-                        //frmP.btnSalas.Visible = false;
-                        //MessageBox.Show("USUARIO DESHABILITADO!!");
-                        //frmP.Close();
-                    }
-                }
-                if (t_usuario.Rows[0][4].ToString() == "2")
-                {
-                    //frmPrincipal frmP = new frmPrincipal();
-                    //frmP.Show();
-                    //frmP.btnUsuarios.Visible = false;
-                    if (t_usuario.Rows[0][8].ToString() == "N")
-                    {
-                        valido = false;
-                        //frmP.btnUsuarios.Visible = false;
-                        //frmP.btnAlumnos.Visible = false;
-                        //frmP.btnCobros.Visible = false;
-                        //frmP.btnDocentes.Visible = false;
-                        //frmP.btnInformes.Visible = false;
-                        //frmP.btnSalas.Visible = false;
-                        //MessageBox.Show("USUARIO DESHABILITADO!!");
-                        //frmP.Close();
-                    }
-                }
-            }
-            else
-            {
-                valido = false;
-            }
-            return valido;
+            
+            return rol;
         }
-        public DataTable MostrarUsu()
+
+            public DataTable MostrarUsu()
         {
             con = generarConexion();
             con.Open();
@@ -122,8 +112,7 @@ namespace CaAD//GestionJardin
                                " USU.USU_USUARIO USUARIO," +
                                "USU.USU_CLAVE CONTRASEÑA," +
                                 "USU.USU_FECHA_ALTA 'FECHA DE ALTA' ," +
-                                "USU.USU_FECHA_MOD 'FECHA DE MODIFICACION', " +
-                                "USU.USU_ESTADO 'ESTADO'" +
+                                "USU.USU_FECHA_MOD 'FECHA DE MODIFICACION' " +
                                 "FROM T_PERSONAS AS D, T_USUARIOS AS USU " +
                                 "WHERE USU.USU_PER_ID = D.PER_ID AND USU.USU_ESTADO = 'ACTIVO'";
 
@@ -185,19 +174,12 @@ namespace CaAD//GestionJardin
             con.Open();
             string consultadocente = "SELECT CONCAT  (PER_NOMBRE, ' ', PER_APELLIDO,  ' ' , '(' , PER_DOCUMENTO, ')' ) DOCENTE , PER_ID FROM T_PERSONAS " +
                                     "WHERE PER_TPE_ID = 1 AND PER_ID NOT IN (SELECT DISTINCT PER_ID FROM T_PERSONAS , T_USUARIOS  where PER_ID = USU_PER_ID)";
-            //"SELECT [PER_NOMBRE] +' ' +  [PER_APELLIDO ] 'DOCENTE',PER_ID FROM T_PERSONAS " +
-            //                 "WHERE PER_TPE_ID = 1  "; ESTA CONSULTA TRAE A TODOS LOS DOCENTES, PERONECESITÁBAMOS A AQUELLOS QUE NO TENÍAN USUARIO.
+            
 
             comando = new SqlCommand(consultadocente, con);
             dr = comando.ExecuteReader();
             dt.Load(dr);
-            //while (dr.Read())
-            //{
-            //    pbarrabuscar.AutoCompleteCustomSource.Add(dr["DOCENTE"].ToString());
-
-            //    /*barrabuscar.AutoCompleteCustomSource.Add(dr["DOCENTE"].ToString());*/
-            //}
-            //dr.Close();
+            
             con.Close();
             return dt;
         }
@@ -238,10 +220,9 @@ namespace CaAD//GestionJardin
             return "yes";
 
         }
-        //string[] extraccion = consulta.Split(' ');
-        //return extraccion[0];
+        
 
-        public string CrearUsuario(string nombreApe/*pbarrabuscar*//*, MetroFramework.Controls.MetroTextBox newuser*/)
+        public string CrearUsuario(string nombreApe)
         {
 
             string Nombre = ExtraerNombre(nombreApe);
@@ -270,13 +251,12 @@ namespace CaAD//GestionJardin
 
                 {
 
-                    //newuser.Text = nombre_usuario;
-                    //nombre_usuario = nombre_usuario;
+                   
 
                 }
                 else
                 {
-                    //newuser.Text = nombre_usuario + acumulador;
+                    
                     nombre_usuario = nombre_usuario + acumulador;
                 }
             }
@@ -288,7 +268,7 @@ namespace CaAD//GestionJardin
 
         }
 
-        public DataTable AutocompletarenDocente(/*MetroFramework.Controls.MetroTextBox pbarrabuscar*/)
+        public DataTable AutocompletarenDocente()
         {
             DataTable dt = new DataTable();
             con = generarConexion();

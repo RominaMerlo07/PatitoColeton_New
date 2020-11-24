@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CaLog;
+using CaEnt;
 
 namespace GestionJardin
 {
     public partial class frmConcepto_Agregar : Form
-    {
-
-        
+    {              
 
         public frmConcepto_Agregar()
         {
@@ -22,20 +22,166 @@ namespace GestionJardin
 
         private void frmConcepto_Agregar_Load(object sender, EventArgs e)
         {
-            txtOtros.Visible = false;
+            DataTable dt_conceptos = new DataTable();            
+            logConcepto objMetConcepto = new logConcepto();
+            dt_conceptos = objMetConcepto.CargaDtNombreConcepto();
+           
+
+            for (int i = 0; i < dt_conceptos.Rows.Count; i++)
+            {
+                string resultado_dt;
+
+                resultado_dt = dt_conceptos.Rows[i]["CONCEPTO"].ToString();
+
+                if (resultado_dt != null)
+                {
+
+                    cbConcepto.Items.Remove(resultado_dt);
+                }
+
+            }
+
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+
+        {
+            if (cbConcepto.SelectedItem != null && txt_valor.Text.Length != 0)
+            {
+                string nombre_concepto = cbConcepto.SelectedItem.ToString();
+                decimal valor_actual = Convert.ToDecimal(txt_valor.Text.Trim());
+                DateTime fecha_inicio = DateTime.Today;
+                string activo = "S";
+                decimal valor_anterior = 0;
+                logConcepto objlogConcepto = new logConcepto();
+
+                entConcepto Insertar_Concepto = new entConcepto();
+
+
+                Insertar_Concepto.CON_CONCEPTO = nombre_concepto;
+                Insertar_Concepto.CON_VALOR_ACTUAL = valor_actual;
+                Insertar_Concepto.CON_FECHA_INI = fecha_inicio;
+                Insertar_Concepto.CON_ACTIVO = activo;
+                Insertar_Concepto.CON_FECHA_ULT_ACT = fecha_inicio;
+                Insertar_Concepto.CON_VALOR_ANTERIOR = valor_anterior;
+
+                string resultado = objlogConcepto.InsertarConcepto(Insertar_Concepto);
+
+                MessageBox.Show(resultado, "INFORMACIÓN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+                this.Close();
+            }
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void cbConcepto_Leave(object sender, EventArgs e)
+        {
+            
+             if (string.IsNullOrWhiteSpace(cbConcepto.Text.Trim()) == true)
+             {
+                  cbConcepto.Style = MetroFramework.MetroColorStyle.Red;
+                  cbConcepto.Focus();
+                  lblConcepto.Visible = true;
+                  lblConcepto.Text = "Por favor seleccione un concepto";
+             }
+             else
+             {
+                    lblConcepto.Visible = false;
+             }
+            
+        }
+
+        private void txt_valor_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txt_valor.Text.Trim()) == true)
+            {
+                txt_valor.Style = MetroFramework.MetroColorStyle.Red;
+                txt_valor.Focus();
+                lblValor.Visible = true;
+                lblValor.Text = "Por favor ingrese un valor";
+            }
+            else
+            {
+                lblValor.Visible = false;
+            }
+        }
+
+        //VALIDA EL INGRESO DE NUMEROS Y DECIMALES
+        private void UnPunto(KeyPressEventArgs e, string cadena)
+        {
+            int contador = 0;
+            string caracter = "";
+            bool bandera;
+
+            for (int n = 0; n < cadena.Length; n++)
+            {
+                caracter = cadena.Substring(n, 1);
+                if (caracter == ".")
+                {
+                    contador++;
+                }
+            }
+
+            if (contador == 0)
+            {
+                bandera = true;
+                if (e.KeyChar == ',' && bandera)
+                {
+                    bandera = false; // ya no acepta otro punto
+                    e.Handled = false;
+                }
+                else if (Char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else if (Char.IsControl(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+            else
+            {
+                bandera = false;
+                e.Handled = true;
+                if (Char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else if (Char.IsControl(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void txt_valor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            UnPunto(e, txt_valor.Text);
         }
 
         private void cbConcepto_SelectedValueChanged(object sender, EventArgs e)
         {
-            if(cbConcepto.SelectedItem.ToString() == "OTROS")
+            if (cbConcepto.SelectedItem.ToString() == "INTERES POR MORA")
             {
-                txtOtros.Visible = true;            
+                txtSigno.Text = "%";
             }
             else
             {
-                txtOtros.Visible = false;
+                txtSigno.Text = "$";
             }
         }
-
     }
 }

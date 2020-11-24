@@ -74,6 +74,7 @@
     <Compile Include="logCuota.cs" />
     <Compile Include="logDomicilio.cs" />
     <Compile Include="logGrupoFlia.cs" />
+    <Compile Include="logHistorial.cs" />
     <Compile Include="logMaterias.cs" />
     <Compile Include="logParametricas.cs" />
     <Compile Include="logPersonas.cs" />

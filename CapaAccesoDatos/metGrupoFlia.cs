@@ -119,8 +119,8 @@ namespace CaAD//GestionJardin
                                   "P.PER_FECHA_NAC AS 'FECHA NACIMIENTO', " +
                                   "DATEDIFF(YEAR, P.PER_FECHA_NAC, GETDATE()) AS 'EDAD', " +
                                   "CONCAT(D.DOM_CALLE, ', Nº: ', D.DOM_NUMERO, '. BARRIO: ', D.DOM_BARRIO, ', CP: ', D.DOM_CP, ' ', D.DOM_PROVINCIA) AS 'DOMICILIO', " +
-                                  "P.PER_TELEFONO AS 'TELEFONO', " +
-                                  "P.PER_TELEFONO_2 AS 'TELEFONO 2' " +
+                                  "P.PER_TELEFONO_2 AS 'CELULAR', " +
+                                  "P.PER_TELEFONO AS 'TELEFONO' " +
                                   "FROM T_GRUPO_FLIA gf, T_PERSONAS p, T_DOMICILIOS d " +
                                   "WHERE p.PER_ID = gf.GRF_PER_ID " +
                                   "AND p.per_id = d.DOM_PER_ID " +
@@ -128,7 +128,7 @@ namespace CaAD//GestionJardin
                                   "AND gf.GRF_GRUPO_LEGAJO = (SELECT gf2.GRF_GRUPO_LEGAJO " +
                                                                "FROM T_GRUPO_FLIA gf2 " +
                                                                "WHERE gf2.GRF_PER_ID = " + idPersona + ") " +
-                                  "ORDER BY 1;";
+                                  "ORDER BY P.PER_DOCUMENTO DESC;";
 
 
 
@@ -274,5 +274,47 @@ namespace CaAD//GestionJardin
             return result;
 
         }
+
+        public DataSet listaGrupoFlia(string idPersona)
+        {
+
+            DataSet dset = new DataSet();
+
+            con = generarConexion();
+            con.Open();
+
+            try
+            {
+                string consulta = "SELECT (PER_NOMBRE + ' '+ PER_APELLIDO) NOMBRE, " +
+                                          "PER_DOCUMENTO DOCUMENTO, " +
+                                          "(CASE WHEN GRF_OBSERVACION IS NULL AND PER_TPE_ID = 2 THEN 'ALUMNO' ELSE GRF_OBSERVACION END) PARENTESCO, " +
+                                          "CASE GRF_TUTOR WHEN 'N' THEN 'NO' ELSE 'SI' END TUTOR, " +
+                                          "CASE GRF_AUTORIZADO WHEN 'N' THEN 'NO' ELSE 'SI' END AUTORIZADO, " +
+                                          "PER_TELEFONO_2 CELULAR, " +
+                                          "PER_TELEFONO TELEFONO, " +
+                                          "PER_EMAIL EMAIL, " +
+                                          "GETDATE() FECHA " +
+                                    "FROM T_PERSONAS, T_GRUPO_FLIA " +
+                                   "WHERE PER_ID = GRF_PER_ID " +
+                                     "AND GRF_GRUPO_LEGAJO = '"+idPersona+"'" +
+                                     "ORDER BY PER_DOCUMENTO DESC;";
+
+                cmd = new SqlCommand(consulta, con);
+                dta = new SqlDataAdapter(cmd);
+                dta.Fill(dset);
+
+                con.Close();
+
+
+                return dset;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return dset;
+
+        }
+
     }
 }

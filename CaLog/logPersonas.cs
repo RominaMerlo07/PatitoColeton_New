@@ -17,7 +17,7 @@ namespace CaLog
 
         public DataTable traerPersonasAutocompetar(string tipo_persona) //FILTRA POR TIPO DE PERSONA. "0" TRAE TODOS. 
         {
-            
+
             return objMetPersonas.traerPersonasAutocompetar(tipo_persona);
 
         }
@@ -80,7 +80,7 @@ namespace CaLog
         // Valida que el dni no se encuentre repetido
 
         public string ValidarDni(string pDNI)
-        {            
+        {
 
             return objMetPersonas.ValidarDni(pDNI);
 
@@ -114,7 +114,7 @@ namespace CaLog
             string[] dni_alumno = alumno.Split('(', ')');
 
             return dni_alumno[0];
-            
+
 
         }
 
@@ -128,7 +128,7 @@ namespace CaLog
 
         public DataTable Mostrardocente()
         {
-            
+
             return objMetPersonas.Mostrardocente();
         }
 
@@ -136,7 +136,7 @@ namespace CaLog
 
         public string EliminarDocente(entPersona eli_Docente)
         {
-            
+
             return objMetPersonas.EliminarDocente(eli_Docente);
 
         }
@@ -145,7 +145,7 @@ namespace CaLog
 
         public string EliminarDocenteGrupoSala(entPersona eli_Docente)//metodo que elimina docente, le coloca fecha de baja no elimina de la base 
         {
-            
+
             return objMetPersonas.EliminarDocenteGrupoSala(eli_Docente);
 
         }
@@ -172,7 +172,7 @@ namespace CaLog
 
         public DataTable llenarGrilla(string docente)
         {
-            
+
             return objMetPersonas.llenarGrilla(docente);
         }
 
@@ -181,7 +181,7 @@ namespace CaLog
 
         public entPersona BuscaDocente(string documento)
         {
- 
+
 
             return objMetPersonas.BuscaDocente(documento);
         }
@@ -206,7 +206,7 @@ namespace CaLog
             string[] dni_docente = docente.Split('(', ')');
 
             return dni_docente[0];
-            
+
         }
 
         public string EliminarDocenteDomicilio(entPersona eli_Docente)//metodo que elimina docente en domicilio cuando ya existe un docente con sala y turno en la t_grupo_sala
@@ -218,7 +218,7 @@ namespace CaLog
 
         public string EliminarDocentePersona(entPersona eli_Docente)//metodo que elimina docente en persona cuando ya existe un docente con sala y turno en la t_grupo_sala
         {
-            
+
             return objMetPersonas.EliminarDocentePersona(eli_Docente);
 
         }
@@ -268,25 +268,25 @@ namespace CaLog
 
                 }
 
-                else if (((EdadAnos == 2 && EdadMeses > 6) || (EdadAnos == 3) || (EdadAnos == 4 && EdadMeses >= 6)) && Id_sala == 3)
+                else if (((EdadAnos == 2 && EdadMeses > 6) || (EdadAnos == 3) || (EdadAnos == 4 && EdadMeses < 6)) && Id_sala == 3)
                 {
                     result = "OK";
 
                 }
-                else if (((EdadAnos == 2 && EdadMeses > 6) || (EdadAnos == 3) || (EdadAnos == 4 && EdadMeses >= 6)) && Id_sala != 3)
+                else if (((EdadAnos == 2 && EdadMeses > 6) || (EdadAnos == 3) || (EdadAnos == 4 && EdadMeses < 6)) && Id_sala != 3)
                 {
 
                     result = "La edad del alumno al mes de junio es de " + EdadAnos + " años  y " + EdadMeses + " meses. Corresponde inscribirlo en la SALA NARANJA.";
 
                 }
 
-                else if (((EdadAnos == 4 && EdadMeses < 6) || (EdadAnos == 5 && EdadMeses <= 6)) && Id_sala == 5)
+                else if (((EdadAnos == 4 && EdadMeses >= 6) || (EdadAnos == 5 && EdadMeses <= 6)) && Id_sala == 5)
                 {
                     result = "OK";
 
                 }
 
-                else if (((EdadAnos == 4 && EdadMeses < 6) || (EdadAnos == 5 && EdadMeses <= 6)) && Id_sala != 5)
+                else if (((EdadAnos == 4 && EdadMeses >= 6) || (EdadAnos == 5 && EdadMeses <= 6)) && Id_sala != 5)
                 {
                     result = "La edad del alumno al mes de junio es de " + EdadAnos + " años  y " + EdadMeses + " meses. Corresponde inscribirlo en la SALA VERDE.";
 
@@ -311,7 +311,41 @@ namespace CaLog
             return objMetPersonas.fichaAlumno(idAlumno);
         }
 
-    }
+        public string ValidarDniInactivo(string pDNI)
 
+        {
+            return objMetPersonas.ValidarDniInactivo(pDNI);
+        }
+
+        public string AltaPersona(string pdni)
+        {
+            return objMetPersonas.AltaPersona(pdni);
+        }
+
+        public DataTable AlumnosSalas(string idSala)
+        {
+            return objMetPersonas.AlumnosSalas(idSala);
+        }
+
+        public DataSet listaDocentes(string idSala)
+        {
+            return objMetPersonas.listaDocentes(idSala);
+        }
+
+        public DataSet listaAlumno(string idSala)
+        {
+            return objMetPersonas.listaAlumno(idSala);
+        }
+
+        public DataTable ListaDocenteSala(string idSala)
+        {
+            return objMetPersonas.ListaDocenteSala(idSala);
+        }
+
+        public DataSet listaTotalDocentes()
+        {
+            return objMetPersonas.listaTotalDocentes();
+        }
+    }
 }
 

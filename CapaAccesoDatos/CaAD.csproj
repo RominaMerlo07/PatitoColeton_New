@@ -85,6 +85,7 @@
     <Compile Include="metCuota.cs" />
     <Compile Include="metDomicilio.cs" />
     <Compile Include="metGrupoFlia.cs" />
+    <Compile Include="metHistorial.cs" />
     <Compile Include="metMaterias.cs" />
     <Compile Include="metParametricas.cs" />
     <Compile Include="metPersonas.cs" />

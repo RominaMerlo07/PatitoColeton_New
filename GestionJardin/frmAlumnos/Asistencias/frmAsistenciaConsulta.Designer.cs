@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
             this.dtp_FechaHasta = new MetroFramework.Controls.MetroDateTime();
             this.dtp_FechaDesde = new MetroFramework.Controls.MetroDateTime();
@@ -48,9 +47,11 @@
             this.txtGAs_Buscar = new MetroFramework.Controls.MetroTextBox();
             this.dgv_Alumnos = new System.Windows.Forms.DataGridView();
             this.btn_Informe = new FontAwesome.Sharp.IconPictureBox();
+            this.btnGraficoAusencias = new FontAwesome.Sharp.IconPictureBox();
             this.metroPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Alumnos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Informe)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnGraficoAusencias)).BeginInit();
             this.SuspendLayout();
             // 
             // metroPanel3
@@ -105,15 +106,14 @@
             // btnBuscar
             // 
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.Cyan;
             this.btnBuscar.IconChar = FontAwesome.Sharp.IconChar.Search;
             this.btnBuscar.IconColor = System.Drawing.Color.Cyan;
+            this.btnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBuscar.IconSize = 55;
             this.btnBuscar.Location = new System.Drawing.Point(92, 535);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Rotation = 0D;
             this.btnBuscar.Size = new System.Drawing.Size(249, 85);
             this.btnBuscar.TabIndex = 5;
             this.btnBuscar.Text = "BUSCAR";
@@ -290,39 +290,37 @@
             // 
             this.dgv_Alumnos.AllowUserToAddRows = false;
             this.dgv_Alumnos.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgv_Alumnos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
             this.dgv_Alumnos.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dgv_Alumnos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgv_Alumnos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Alumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Alumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_Alumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Alumnos.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Alumnos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_Alumnos.Location = new System.Drawing.Point(545, 382);
             this.dgv_Alumnos.Name = "dgv_Alumnos";
             this.dgv_Alumnos.ReadOnly = true;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Alumnos.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Alumnos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_Alumnos.RowTemplate.Height = 24;
             this.dgv_Alumnos.Size = new System.Drawing.Size(1231, 578);
             this.dgv_Alumnos.TabIndex = 28;
@@ -335,6 +333,7 @@
             this.btn_Informe.ForeColor = System.Drawing.Color.Yellow;
             this.btn_Informe.IconChar = FontAwesome.Sharp.IconChar.Print;
             this.btn_Informe.IconColor = System.Drawing.Color.Yellow;
+            this.btn_Informe.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_Informe.IconSize = 81;
             this.btn_Informe.Location = new System.Drawing.Point(1635, 270);
             this.btn_Informe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -343,6 +342,27 @@
             this.btn_Informe.Size = new System.Drawing.Size(91, 81);
             this.btn_Informe.TabIndex = 53;
             this.btn_Informe.TabStop = false;
+            this.btn_Informe.Click += new System.EventHandler(this.btn_Informe_Click);
+            // 
+            // btnGraficoAusencias
+            // 
+            this.btnGraficoAusencias.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnGraficoAusencias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.btnGraficoAusencias.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.btnGraficoAusencias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnGraficoAusencias.IconChar = FontAwesome.Sharp.IconChar.ChartBar;
+            this.btnGraficoAusencias.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnGraficoAusencias.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnGraficoAusencias.IconSize = 81;
+            this.btnGraficoAusencias.Location = new System.Drawing.Point(1506, 270);
+            this.btnGraficoAusencias.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnGraficoAusencias.Name = "btnGraficoAusencias";
+            this.btnGraficoAusencias.Padding = new System.Windows.Forms.Padding(5);
+            this.btnGraficoAusencias.Size = new System.Drawing.Size(91, 81);
+            this.btnGraficoAusencias.TabIndex = 54;
+            this.btnGraficoAusencias.TabStop = false;
+            this.btnGraficoAusencias.Visible = false;
+            this.btnGraficoAusencias.Click += new System.EventHandler(this.iconPictureBox1_Click);
             // 
             // frmAsistenciaConsulta
             // 
@@ -350,6 +370,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(1781, 1042);
+            this.Controls.Add(this.btnGraficoAusencias);
             this.Controls.Add(this.btn_Informe);
             this.Controls.Add(this.txtGAs_Buscar);
             this.Controls.Add(this.dgv_Alumnos);
@@ -361,6 +382,7 @@
             this.metroPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Alumnos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Informe)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnGraficoAusencias)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -383,5 +405,6 @@
         private MetroFramework.Controls.MetroDateTime dtp_FechaHasta;
         private MetroFramework.Controls.MetroDateTime dtp_FechaDesde;
         private FontAwesome.Sharp.IconPictureBox btn_Informe;
+        private FontAwesome.Sharp.IconPictureBox btnGraficoAusencias;
     }
 }

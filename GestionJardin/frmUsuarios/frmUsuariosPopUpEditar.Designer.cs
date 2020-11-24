@@ -67,10 +67,10 @@
             this.metroTextBoxContrasenaEdit.CustomButton.FlatAppearance.BorderSize = 0;
             this.metroTextBoxContrasenaEdit.CustomButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.metroTextBoxContrasenaEdit.CustomButton.Image = null;
-            this.metroTextBoxContrasenaEdit.CustomButton.Location = new System.Drawing.Point(365, 1);
+            this.metroTextBoxContrasenaEdit.CustomButton.Location = new System.Drawing.Point(274, 1);
             this.metroTextBoxContrasenaEdit.CustomButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.metroTextBoxContrasenaEdit.CustomButton.Name = "";
-            this.metroTextBoxContrasenaEdit.CustomButton.Size = new System.Drawing.Size(49, 46);
+            this.metroTextBoxContrasenaEdit.CustomButton.Size = new System.Drawing.Size(37, 37);
             this.metroTextBoxContrasenaEdit.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroTextBoxContrasenaEdit.CustomButton.TabIndex = 1;
             this.metroTextBoxContrasenaEdit.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -109,16 +109,15 @@
             // 
             this.btn_CancelarUsuMod.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_CancelarUsuMod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_CancelarUsuMod.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btn_CancelarUsuMod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_CancelarUsuMod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btn_CancelarUsuMod.IconChar = FontAwesome.Sharp.IconChar.Eraser;
             this.btn_CancelarUsuMod.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_CancelarUsuMod.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_CancelarUsuMod.IconSize = 50;
             this.btn_CancelarUsuMod.Location = new System.Drawing.Point(369, 330);
             this.btn_CancelarUsuMod.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_CancelarUsuMod.Name = "btn_CancelarUsuMod";
-            this.btn_CancelarUsuMod.Rotation = 0D;
             this.btn_CancelarUsuMod.Size = new System.Drawing.Size(216, 66);
             this.btn_CancelarUsuMod.TabIndex = 50;
             this.btn_CancelarUsuMod.Text = "CANCELAR";
@@ -130,16 +129,15 @@
             // 
             this.btn_GuardarUsuMod.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_GuardarUsuMod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_GuardarUsuMod.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btn_GuardarUsuMod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_GuardarUsuMod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btn_GuardarUsuMod.IconChar = FontAwesome.Sharp.IconChar.Save;
             this.btn_GuardarUsuMod.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btn_GuardarUsuMod.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_GuardarUsuMod.IconSize = 50;
             this.btn_GuardarUsuMod.Location = new System.Drawing.Point(119, 330);
             this.btn_GuardarUsuMod.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_GuardarUsuMod.Name = "btn_GuardarUsuMod";
-            this.btn_GuardarUsuMod.Rotation = 0D;
             this.btn_GuardarUsuMod.Size = new System.Drawing.Size(216, 66);
             this.btn_GuardarUsuMod.TabIndex = 49;
             this.btn_GuardarUsuMod.Text = "GUARDAR";
@@ -163,16 +161,15 @@
             this.btnBloqueo.FlatAppearance.BorderColor = System.Drawing.Color.Navy;
             this.btnBloqueo.FlatAppearance.BorderSize = 0;
             this.btnBloqueo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBloqueo.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnBloqueo.ForeColor = System.Drawing.Color.Transparent;
             this.btnBloqueo.IconChar = FontAwesome.Sharp.IconChar.Eye;
             this.btnBloqueo.IconColor = System.Drawing.Color.Gray;
+            this.btnBloqueo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBloqueo.IconSize = 45;
             this.btnBloqueo.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBloqueo.Location = new System.Drawing.Point(508, 213);
             this.btnBloqueo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBloqueo.Name = "btnBloqueo";
-            this.btnBloqueo.Rotation = 0D;
             this.btnBloqueo.Size = new System.Drawing.Size(57, 57);
             this.btnBloqueo.TabIndex = 82;
             this.btnBloqueo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -199,7 +196,7 @@
             this.MinimizeBox = false;
             this.Name = "frmUsuariosPopUpEditar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "GESTIÓN USUARIO / EDITAR CONTRASEÑA";
+            this.Text = "GESTIÓN USUARIO / MODIFICAR CONTRASEÑA";
             this.Load += new System.EventHandler(this.frmUsuariosPopUpEditar_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frmUsuariosPopUpEditar_MouseDown);
             this.ResumeLayout(false);

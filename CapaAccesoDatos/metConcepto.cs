@@ -41,20 +41,16 @@ namespace CaAD//GestionJardin
                                                             "(CON_CONCEPTO ," +
                                                             " CON_VALOR_ACTUAL, " +
                                                             " CON_FECHA_INI, " +
-                                                            " CON_FECHA_FIN, " +
-                                                            " CON_FECHA_ACT, " +
                                                             " CON_ACTIVO, " +
-                                                            " CON_PERIODO, " +
-                                                            " CON_VALOR_ANTERIOR) " +
-                                                "VALUES " +
+                                                            //"CON_FECHA_ACT,"+
+                                                            "CON_VALOR_ANTERIOR)"+
+                                                            "VALUES " +
                                                         "('" + concepto.CON_CONCEPTO + "', " +
                                                         " " + concepto.CON_VALOR_ACTUAL.ToString().Replace(",",".") + "," +
-                                                        "'" + concepto.CON_FECHA_INI + "', " +
-                                                        "'" + concepto.CON_FECHA_FIN + "', " +
-                                                        "'" + concepto.CON_FECHA_ACT + "'," +
-                                                        "'" + concepto.CON_ACTIVO + "', " +
-                                                        " " + concepto.CON_PERIODO + ", " +
-                                                        " " + concepto.CON_VALOR_ANTERIOR + ")", con);
+                                                        " GETDATE(), " +
+                                                        "'" + concepto.CON_ACTIVO +"',"+
+                                                        //"GETDATE(), " +
+                                                        "'" +concepto.CON_VALOR_ANTERIOR.ToString().Replace(",", ".") + "')", con);
                 cmd.ExecuteNonQuery();
                 result = "SE INSERTO EL CONCEPTO: " + concepto.CON_CONCEPTO;
 
@@ -66,6 +62,23 @@ namespace CaAD//GestionJardin
                 con.Close();
             }
             return result;
+        }
+
+        public int Extraer_ultimo_idConcepto()
+        {
+            int id_concepto;
+            con = generarConexion();
+            con.Open();
+
+            cmd = new SqlCommand("Select TOP 1 (CON_ID) FROM T_CONCEPTOS ORDER BY CON_ID DESC", con);
+            
+            cmd.ExecuteNonQuery();
+
+            
+            id_concepto = Convert.ToInt32(cmd.ExecuteScalar());
+            con.Close();
+            return id_concepto ;
+
         }
 
 
@@ -147,14 +160,7 @@ namespace CaAD//GestionJardin
             dr2 = cmd.ExecuteReader();
             dt.Load(dr2);
 
-            //while (dr2.Read())
-            //{
-            //    autoComplete.Add(dr2.GetString(0));
-            //}
-            //dr2.Close();
-
-            //p_buscarCon.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            //p_buscarCon.AutoCompleteCustomSource = autoComplete;
+            
             return dt;
     
 
@@ -240,20 +246,24 @@ namespace CaAD//GestionJardin
             con.Open();
 
 
-            string consulta = "SELECT CON_ID 'CON_ID' ," +
+            string consulta = "SELECT CON_ID 'CON_ID', " +
                                      "CON_CONCEPTO as 'CONCEPTO', " +
-                                     "CON_PERIODO 'PERIODO',  " +
-                                     "CON_VALOR_ACTUAL as 'VALOR ACTUAL', " +
-                                     "CONVERT(VARCHAR(10), T_CONCEPTOS.CON_FECHA_ACT, 103) as 'MODIFICADO', " +
-                                     "CON_VALOR_ANTERIOR 'VALOR ANTERIOR',  " +
-                                     "CONVERT(VARCHAR(10), T_CONCEPTOS.CON_FECHA_INI, 103) as 'ALTA', " +
-                                     "CONVERT(VARCHAR(10), T_CONCEPTOS.CON_FECHA_FIN, 103) as 'FIN', " +
-                                     "(CASE CON_ACTIVO " +
-                                        "WHEN 'S' THEN 'ACTIVO' " +
-                                        "WHEN 'N' THEN 'INACTIVO' " +
-                                      "END) ESTADO " +
-                               "FROM T_CONCEPTOS " +
-                               "ORDER BY 1,8;";
+                                     "CONVERT(VARCHAR(10), T_CONCEPTOS.CON_FECHA_INI, 103) as 'FECHA DE ALTA', " +
+                                     "CON_VALOR_ACTUAL 'VALOR ACTUAL', " +                                
+                                     "CASE CON_FECHA_ULT_ACT " +
+                                         "WHEN NULL THEN CONVERT(VARCHAR(10), T_CONCEPTOS.CON_FECHA_INI, 103) " +
+                                         "ELSE CONVERT(VARCHAR(10), T_CONCEPTOS.CON_FECHA_ULT_ACT, 103) " +
+                                    "END 'VIGENTE DESDE', " +
+                                    "CON_VALOR_ANTERIOR 'VALOR ANTERIOR', " +
+                                    "CON_FECHA_ULT_ACT AS 'DESDE', " +
+                                    "CON_FECHA_ACT 'HASTA', " +
+                                    "(CASE CON_ACTIVO " +
+                                         "WHEN 'S' THEN 'ACTIVO' " +
+                                         "WHEN 'N' THEN 'INACTIVO' " +
+                                    "END) ESTADO " +
+                              "FROM T_CONCEPTOS " +
+                              "ORDER BY 2,8; ";
+
             cmd = new SqlCommand(consulta, con);
             dta = new SqlDataAdapter(cmd);
             dt = new DataTable();
@@ -265,8 +275,45 @@ namespace CaAD//GestionJardin
 
         }
 
+
+
+        public DataTable CargaDtNombreConcepto()
+
+        {
+                       
+            con = generarConexion();
+            con.Open();
+
+            cmd = new SqlCommand("SELECT CON_CONCEPTO 'CONCEPTO' from t_conceptos", con);
+            dta = new SqlDataAdapter(cmd);
+            dt = new DataTable();
+            dta.Fill(dt);
+            con.Close();
+
+               return dt;
+            
+        }
+
+        public decimal Extraer_Valor_Anterior_Concepto(entConcepto concepto)
+        {
+            con = generarConexion();
+            con.Open();
+
+            cmd = new SqlCommand("Select CON_VALOR_ACTUAL FROM T_CONCEPTOS WHERE CON_ID = " + concepto.CON_ID + "", con);
+
+            decimal valor_actual_concepto = Convert.ToDecimal(cmd.ExecuteScalar());
+            con.Close();
+
+            return valor_actual_concepto;
+        
+        }
+        
+        
+        
         // Esto solo pasaria cuando se activa un inactivo y ademas cambia el monto
-        public string ActualizarMontoEstado(entConcepto conceptoME)
+       
+
+       public string ActualizarMontoEstado(entConcepto conceptoME)
         {
 
             con = generarConexion();
@@ -280,7 +327,7 @@ namespace CaAD//GestionJardin
                 cmd = new SqlCommand("UPDATE T_CONCEPTOS SET CON_FECHA_ACT = '"+ conceptoME.CON_FECHA_ACT+"', " +
                                                             "CON_ACTIVO = 'S', " +
                                                             "CON_VALOR_ACTUAL = "+ conceptoME.CON_VALOR_ACTUAL.ToString().Replace(",", ".") + "," +
-                                                            " CON_VALOR_ANTERIOR = "+ conceptoME.CON_VALOR_ANTERIOR.ToString().Replace(",", ".") + ", " +
+                                                            "CON_VALOR_ANTERIOR = "+ conceptoME.CON_VALOR_ANTERIOR.ToString().Replace(",", ".") + ", " +
                                                             "CON_FECHA_FIN = '"+ conceptoME.CON_FECHA_FIN +"' " +
                                                             "WHERE CON_ID = " + conceptoME.CON_ID+"; ", con);
                 cmd.ExecuteNonQuery();
@@ -297,7 +344,7 @@ namespace CaAD//GestionJardin
         }
 
         // Esto solo pasaria cuando se inactiva un concepto activo. El monto no deberia cambiar
-        public string ActualizarEstadoN(entConcepto conceptoEN)
+        public string DeshabilitarConcepto(entConcepto conceptoEN)
         {
 
             con = generarConexion();
@@ -308,13 +355,12 @@ namespace CaAD//GestionJardin
 
                 con.Open();
                 //el SqlCommand se usa para realizar consultas a la base
-                cmd = new SqlCommand("UPDATE T_CONCEPTOS SET CON_FECHA_ACT = '" + conceptoEN.CON_FECHA_ACT + "', " +
-                                                            "CON_ACTIVO = 'N', " +
-                                                            "CON_FECHA_FIN = '"+ conceptoEN.CON_FECHA_FIN+"' " +
-                                                            "WHERE CON_ID = "+ conceptoEN.CON_ID+";", con);
+                cmd = new SqlCommand("UPDATE T_CONCEPTOS SET CON_FECHA_ACT = GETDATE(), " +
+                                                            "CON_ACTIVO = 'N'," +
+                                                            "CON_FECHA_FIN = GETDATE()" +
+                                                            "WHERE CON_ID = "+ conceptoEN.CON_ID +";", con);
                 cmd.ExecuteNonQuery();
                 result = "SE DESHABILITO EL CONCEPTO";
-
 
             }
             catch (Exception ex)
@@ -337,9 +383,9 @@ namespace CaAD//GestionJardin
 
                 con.Open();
                 //el SqlCommand se usa para realizar consultas a la base
-                cmd = new SqlCommand("UPDATE T_CONCEPTOS SET CON_FECHA_ACT = '" + conceptoES.CON_FECHA_ACT + "', " +
+                cmd = new SqlCommand("UPDATE T_CONCEPTOS SET CON_FECHA_ACT = GETDATE(), " +
                                                             "CON_ACTIVO = 'S', " +
-                                                            "CON_FECHA_FIN = '" + conceptoES.CON_FECHA_FIN + "' " +
+                                                            "CON_FECHA_FIN =  GETDATE()" +
                                                             "WHERE CON_ID = " + conceptoES.CON_ID + ";", con);
                 cmd.ExecuteNonQuery();
                 result = "SE HABILITO EL CONCEPTO";
@@ -355,7 +401,7 @@ namespace CaAD//GestionJardin
         }
 
         //Cuando solo se modifica el monto de un concepto Activo
-        public string ActualizarMonto(entConcepto conceptoM)
+        public string ActualizarMonto(entConcepto conceptoM, string p_fecha_hasta,string p_fecha_ult_act)
         {
 
             con = generarConexion();
@@ -366,23 +412,269 @@ namespace CaAD//GestionJardin
 
                 con.Open();
                 //el SqlCommand se usa para realizar consultas a la base
-                cmd = new SqlCommand("UPDATE T_CONCEPTOS SET CON_FECHA_ACT = '" + conceptoM.CON_FECHA_ACT+ "'," +
-                                                             " CON_VALOR_ACTUAL = "+ conceptoM.CON_VALOR_ACTUAL.ToString().Replace(",",".")+", " +
-                                                             "CON_VALOR_ANTERIOR = "+ conceptoM.CON_VALOR_ANTERIOR.ToString().Replace(",", ".") + " " +
-                                                             "WHERE CON_ID = "+ conceptoM.CON_ID+"; ", con);
+                cmd = new SqlCommand("UPDATE T_CONCEPTOS SET CON_FECHA_ACT = GETDATE()," +
+                                                            "CON_VALOR_ACTUAL = " + conceptoM.CON_VALOR_ACTUAL.ToString().Replace(",", ".") + ", " +
+                                                             "CON_VALOR_ANTERIOR = " + conceptoM.CON_VALOR_ANTERIOR.ToString().Replace(",", ".") + ", " +
+                                                             "CON_FECHA_ULT_ACT = CAST('" + p_fecha_ult_act+"'AS DATE) " +
+                                                             //"CON_FECHA_HASTA = CAST ('" + p_fecha_hasta + "'AS DATE)" +
+                                                             "WHERE CON_ID = " + conceptoM.CON_ID + "; ", con);
+
                 cmd.ExecuteNonQuery();
 
-                result = "SE ACTUALIZO EL MONTO DEL CONCEPTO";
+
+                
+                cmd.ExecuteNonQuery();
+                
+                result = "SE ACTUALIZO EL VALOR DEL CONCEPTO";
 
 
             }
             catch (Exception ex)
             {
-                result = "NO SE PUDO ACTUALIZAR EL MONTO DEL CONCEPTO: " + ex.ToString();
+                result = "NO SE PUDO ACTUALIZAR EL VALOR DEL CONCEPTO: " + ex.ToString();
                 con.Close();
             }
             return result;
         }
+
+        public DataSet listaConceptos()
+        {
+
+            DataSet dset = new DataSet();
+
+            con = generarConexion();
+            con.Open();
+
+            try
+            {
+                string consulta = "SELECT CON_CONCEPTO as 'CONCEPTO', " +
+                                         "CONVERT(VARCHAR(10), T_CONCEPTOS.CON_FECHA_INI, 103) as 'FECHA_DE_ALTA', " +
+                                         "CASE " +
+                                           "WHEN CON_CONCEPTO = 'INTERES POR MORA' THEN CONCAT('%','',CON_VALOR_ACTUAL) " +
+                                           "ELSE CONCAT('$','',CON_VALOR_ACTUAL) " +
+                                         "END VALOR_ACTUAL, " +
+                                         "CASE CON_FECHA_ULT_ACT " +
+                                           "WHEN NULL THEN CONVERT(VARCHAR(10), T_CONCEPTOS.CON_FECHA_INI, 103) " +
+                                           "ELSE CONVERT(VARCHAR(10), T_CONCEPTOS.CON_FECHA_ULT_ACT, 103) " +
+                                         "END 'VIGENTE_DESDE', " +
+                                         "CASE " +
+                                           "WHEN CON_CONCEPTO = 'INTERES POR MORA' THEN CONCAT('%','',CON_VALOR_ANTERIOR) " +
+                                           "ELSE CONCAT('$','',CON_VALOR_ANTERIOR) " +
+                                         "END VALOR_ANTERIOR, " +
+                                         "CON_FECHA_ULT_ACT AS 'DESDE', " +
+                                         "CON_FECHA_ACT 'HASTA', " +
+                                         "GETDATE() FECHA, " +
+                                         "(CASE CON_ACTIVO " +
+                                            "WHEN 'S' THEN 'ACTIVO' " +
+                                            "WHEN 'N' THEN 'INACTIVO' " +
+                                         "END) ESTADO " +
+                                    "FROM T_CONCEPTOS " +
+                                    "WHERE CON_ACTIVO = 'S' " +
+                                    "ORDER BY 2,8; ";
+
+                cmd = new SqlCommand(consulta, con);
+                dta = new SqlDataAdapter(cmd);
+                dta.Fill(dset);
+
+                con.Close();
+
+
+                return dset;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return dset;
+
+        }
+
+        public DataSet listaPorConceptos(int con_id, DateTime desde, DateTime hasta)
+        {
+
+            DataSet dset = new DataSet();
+
+            con = generarConexion();
+            con.Open();
+
+            try
+            {
+                string consulta = "WITH T1 AS " +
+                                        "(SELECT CON_CONCEPTO 'CONCEPTO', " +
+                                                "CON_FECHA_INI 'FECHA_ALTA', " +
+                                                "CASE " +
+                                                  "WHEN CON_CONCEPTO = 'INTERES POR MORA' THEN CONCAT('%',' ', CON_VALOR_ACTUAL) " +
+                                                  "ELSE CONCAT('$',' ', CON_VALOR_ACTUAL) " +
+                                                "END 'VALOR_ACTUAL', " +
+                                                "CON_FECHA_ULT_ACT 'FECHA_DESDE', " +
+                                                "NULL 'FECHA_HASTA', " +
+                                                "0 HIS_ID, " +
+                                                "GETDATE() 'FECHA' " +
+                                           "FROM T_CONCEPTOS " +
+                                          "WHERE CON_ID = " + con_id + " " +
+                                            "AND CON_FECHA_ULT_ACT >= '" + desde + "' " +
+                                         "UNION " +
+                                         "SELECT CON_CONCEPTO 'CONCEPTO', " +
+                                                "CON_FECHA_INI 'FECHA_ALTA', " +
+                                                "CASE " +
+                                                  "WHEN CON_CONCEPTO = 'INTERES POR MORA' THEN CONCAT('%',' ', CON_VALOR_ANTERIOR) " +
+                                                  "ELSE CONCAT('$',' ', CON_VALOR_ANTERIOR) " +
+                                               "END 'VALOR_ACTUAL', " +
+                                               "CON_FECHA_ULT_ACT 'FECHA_DESDE', " +
+                                               "CON_FECHA_ACT 'FECHA_HASTA', " +
+                                               "0 HIS_ID, " +
+                                               "GETDATE() 'FECHA' " +
+                                         "FROM T_CONCEPTOS " +
+                                        "WHERE CON_ID = " + con_id + " " +
+                                          "AND CON_FECHA_ULT_ACT >= '" + desde + "' " +
+                                          "AND CON_FECHA_ACT <= '" + hasta + "' " +
+                                        "UNION " +
+                                        "SELECT CON_CONCEPTO 'CONCEPTO', " +
+                                              "CON_FECHA_INI 'FECHA_ALTA', " +
+                                              "CASE " +
+                                                "WHEN CON_CONCEPTO = 'INTERES POR MORA' THEN CONCAT('%',' ', HIS_VALOR_ANTERIOR) " +
+                                                "ELSE CONCAT('$',' ', HIS_VALOR_ANTERIOR) " +
+                                              "END 'VALOR_ACTUAL', " +
+                                              "HIS_DESDE 'FECHA_DESDE', " +
+                                              "HIS_HASTA 'FECHA_HASTA', " +
+                                              "HIS_ID, " +
+                                              "GETDATE() 'FECHA' " +
+                                        "FROM T_CONCEPTOS, T_HISTORIAL " +
+                                       "WHERE CON_ID = HIS_CON_ID " +
+                                          "AND CON_ID = " + con_id + " " +
+                                         "AND HIS_DESDE >= '" + desde + "' " +
+                                         "AND HIS_HASTA  <= '" + hasta + "')" +
+                                       "SELECT * FROM T1 " +
+                                       "WHERE t1.HIS_ID != (SELECT MAX(HIS_ID) FROM T_HISTORIAL WHERE HIS_CON_ID = " + con_id + ")" +
+                                       "ORDER BY T1.FECHA_HASTA, T1.VALOR_ACTUAL DESC,T1.HIS_ID;";
+
+                cmd = new SqlCommand(consulta, con);
+                dta = new SqlDataAdapter(cmd);
+                dta.Fill(dset);
+
+                con.Close();
+
+
+                return dset;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return dset;
+
+        }
+
+
+        public int idConcepto(string concepto)
+        {
+            con = generarConexion();
+            con.Open();
+
+            int result = 0;
+            try
+            {
+
+                cmd = new SqlCommand("SELECT CON_ID FROM T_CONCEPTOS WHERE CON_CONCEPTO = '"+ concepto + "'; ", con);
+
+
+                dt = new DataTable();
+                dta = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+
+                dta.Fill(ds);
+                dt = ds.Tables[0];
+                con.Close();
+
+                if (dt != null)
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+
+                        if (dr["CON_ID"] != DBNull.Value)
+                            result = Convert.ToInt32(dr["CON_ID"]);
+
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                result = 0;
+            }
+
+
+            return result;
+        }
+
+
+        public DataTable TablaPorConceptos(int con_id, DateTime desde, DateTime hasta)
+        {                   
+            con = generarConexion();
+            con.Open();
+
+           
+                string consulta = "WITH T1 AS " +
+                                         "(SELECT CON_CONCEPTO 'CONCEPTO', " +
+                                                 "CON_FECHA_INI 'FECHA ALTA', " +
+                                                 "CASE " +
+                                                   "WHEN CON_CONCEPTO = 'INTERES POR MORA' THEN CONCAT('%',' ', CON_VALOR_ACTUAL) " +
+                                                   "ELSE CONCAT('$',' ', CON_VALOR_ACTUAL) " +
+                                                 "END 'VALOR', " +
+                                                 "CON_FECHA_ULT_ACT 'FECHA DESDE', " +
+                                                 "NULL 'FECHA HASTA', " +
+                                                 "0 HIS_ID, " +
+                                                 "GETDATE() 'FECHA' " +
+                                            "FROM T_CONCEPTOS " +
+                                           "WHERE CON_ID = " + con_id + " " +
+                                             "AND CON_FECHA_ULT_ACT >= '" + desde + "' " +
+                                          "UNION " +
+                                          "SELECT CON_CONCEPTO 'CONCEPTO', " +
+                                                 "CON_FECHA_INI 'FECHA ALTA', " +
+                                                 "CASE " +
+                                                   "WHEN CON_CONCEPTO = 'INTERES POR MORA' THEN CONCAT('%',' ', CON_VALOR_ANTERIOR) " +
+                                                   "ELSE CONCAT('$',' ', CON_VALOR_ANTERIOR) " +
+                                                "END 'VALOR', " +
+                                                "CON_FECHA_ULT_ACT 'FECHA DESDE', " +
+                                                "CON_FECHA_ACT 'FECHA HASTA', " +
+                                                "0 HIS_ID, " +
+                                                "GETDATE() 'FECHA' " +
+                                          "FROM T_CONCEPTOS " +
+                                         "WHERE CON_ID = " + con_id + " " +
+                                           "AND CON_FECHA_ULT_ACT >= '" + desde + "' " +
+                                           "AND CON_FECHA_ACT <= '" + hasta + "' " +
+                                         "UNION " +
+                                         "SELECT CON_CONCEPTO 'CONCEPTO', " +
+                                               "CON_FECHA_INI 'FECHA ALTA', " +
+                                               "CASE " +
+                                                 "WHEN CON_CONCEPTO = 'INTERES POR MORA' THEN CONCAT('%',' ', HIS_VALOR_ANTERIOR) " +
+                                                 "ELSE CONCAT('$',' ', HIS_VALOR_ANTERIOR) " +
+                                               "END 'VALOR', " +
+                                               "HIS_DESDE 'FECHA DESDE', " +
+                                               "HIS_HASTA 'FECHA HASTA', " +
+                                               "HIS_ID, " +
+                                               "GETDATE() 'FECHA' " +
+                                         "FROM T_CONCEPTOS, T_HISTORIAL " +
+                                        "WHERE CON_ID = HIS_CON_ID " +
+                                          "AND CON_ID = "+ con_id + " "+
+                                          "AND HIS_DESDE >= '" + desde + "' " +
+                                          "AND HIS_HASTA  <= '" + hasta + "')" +
+                                        "SELECT * FROM T1 " +
+                                        "WHERE t1.HIS_ID != (SELECT MAX(HIS_ID) FROM T_HISTORIAL WHERE HIS_CON_ID = "+ con_id + ")" +
+                                        "ORDER BY T1.[FECHA HASTA], T1.VALOR DESC,T1.HIS_ID;";
+
+
+            cmd = new SqlCommand(consulta, con);
+            dta = new SqlDataAdapter(cmd);
+            dt = new DataTable();
+            dta.Fill(dt);
+
+            con.Close();
+
+            return dt;
+
+        }
+
 
     }
 }

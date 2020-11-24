@@ -53,7 +53,7 @@ namespace GestionJardin
             else
             {
                 //ObjetoUsu.CrearUsuario(txtSeleccionarDocente, txt_nombre_usuario);
-                string nomUsuario = ObjetoUsu.CrearUsuario(txtSeleccionarDocente.Text/*, txt_nombre_usuario.Text*/);
+                string nomUsuario = ObjetoUsu.CrearUsuario(txtSeleccionarDocente.Text);
                 txt_nombre_usuario.Text = nomUsuario;
 
                 /***me habilita para poder escribir***/

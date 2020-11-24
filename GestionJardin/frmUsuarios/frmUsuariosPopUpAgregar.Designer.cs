@@ -45,10 +45,10 @@
             // 
             this.txt_nombre_usuario.CustomButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_nombre_usuario.CustomButton.Image = null;
-            this.txt_nombre_usuario.CustomButton.Location = new System.Drawing.Point(188, 1);
+            this.txt_nombre_usuario.CustomButton.Location = new System.Drawing.Point(141, 1);
             this.txt_nombre_usuario.CustomButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_nombre_usuario.CustomButton.Name = "";
-            this.txt_nombre_usuario.CustomButton.Size = new System.Drawing.Size(49, 46);
+            this.txt_nombre_usuario.CustomButton.Size = new System.Drawing.Size(37, 37);
             this.txt_nombre_usuario.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txt_nombre_usuario.CustomButton.TabIndex = 1;
             this.txt_nombre_usuario.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -85,16 +85,15 @@
             // 
             this.btn_GuardarUsuNuevo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_GuardarUsuNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_GuardarUsuNuevo.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btn_GuardarUsuNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_GuardarUsuNuevo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btn_GuardarUsuNuevo.IconChar = FontAwesome.Sharp.IconChar.Save;
             this.btn_GuardarUsuNuevo.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btn_GuardarUsuNuevo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_GuardarUsuNuevo.IconSize = 50;
             this.btn_GuardarUsuNuevo.Location = new System.Drawing.Point(76, 334);
             this.btn_GuardarUsuNuevo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_GuardarUsuNuevo.Name = "btn_GuardarUsuNuevo";
-            this.btn_GuardarUsuNuevo.Rotation = 0D;
             this.btn_GuardarUsuNuevo.Size = new System.Drawing.Size(216, 66);
             this.btn_GuardarUsuNuevo.TabIndex = 41;
             this.btn_GuardarUsuNuevo.Text = "GUARDAR";
@@ -106,16 +105,15 @@
             // 
             this.btn_CancelarUsuNuevo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_CancelarUsuNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_CancelarUsuNuevo.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btn_CancelarUsuNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_CancelarUsuNuevo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btn_CancelarUsuNuevo.IconChar = FontAwesome.Sharp.IconChar.Eraser;
             this.btn_CancelarUsuNuevo.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_CancelarUsuNuevo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_CancelarUsuNuevo.IconSize = 50;
             this.btn_CancelarUsuNuevo.Location = new System.Drawing.Point(375, 334);
             this.btn_CancelarUsuNuevo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_CancelarUsuNuevo.Name = "btn_CancelarUsuNuevo";
-            this.btn_CancelarUsuNuevo.Rotation = 0D;
             this.btn_CancelarUsuNuevo.Size = new System.Drawing.Size(216, 66);
             this.btn_CancelarUsuNuevo.TabIndex = 42;
             this.btn_CancelarUsuNuevo.Text = "CANCELAR";
@@ -130,10 +128,10 @@
             // 
             this.txt_contra_usu.CustomButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_contra_usu.CustomButton.Image = null;
-            this.txt_contra_usu.CustomButton.Location = new System.Drawing.Point(383, 1);
+            this.txt_contra_usu.CustomButton.Location = new System.Drawing.Point(287, 1);
             this.txt_contra_usu.CustomButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_contra_usu.CustomButton.Name = "";
-            this.txt_contra_usu.CustomButton.Size = new System.Drawing.Size(49, 46);
+            this.txt_contra_usu.CustomButton.Size = new System.Drawing.Size(37, 37);
             this.txt_contra_usu.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txt_contra_usu.CustomButton.TabIndex = 1;
             this.txt_contra_usu.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -231,16 +229,15 @@
             this.btnBloqueo.FlatAppearance.BorderColor = System.Drawing.Color.Navy;
             this.btnBloqueo.FlatAppearance.BorderSize = 0;
             this.btnBloqueo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBloqueo.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnBloqueo.ForeColor = System.Drawing.Color.Transparent;
             this.btnBloqueo.IconChar = FontAwesome.Sharp.IconChar.Eye;
             this.btnBloqueo.IconColor = System.Drawing.Color.Gray;
+            this.btnBloqueo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBloqueo.IconSize = 50;
             this.btnBloqueo.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBloqueo.Location = new System.Drawing.Point(491, 222);
             this.btnBloqueo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBloqueo.Name = "btnBloqueo";
-            this.btnBloqueo.Rotation = 0D;
             this.btnBloqueo.Size = new System.Drawing.Size(57, 75);
             this.btnBloqueo.TabIndex = 81;
             this.btnBloqueo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -268,7 +265,7 @@
             this.MinimizeBox = false;
             this.Name = "frmUsuariosPopUpAgregar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "GESTIÓN USUARIO / GENERAR USUARIO NUEVO";
+            this.Text = "GESTIÓN USUARIO / GENERAR NUEVO USUARIO ";
             this.Load += new System.EventHandler(this.frmUsuariosPopUpAgregar_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();

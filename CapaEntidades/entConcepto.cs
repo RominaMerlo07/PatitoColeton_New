@@ -30,6 +30,16 @@ namespace CaEnt//GestionJardin
             set { p_valoractual = value; }
         }
 
+        private DateTime p_Con_FechaAlta;
+
+        public DateTime  CON_FECHA_HASTA
+            {
+
+            get{ return p_Con_FechaAlta;}
+            set { p_Con_FechaAlta = value; }
+
+            }
+
         private DateTime p_fechainicio;
         public DateTime CON_FECHA_INI
         {
@@ -68,6 +78,14 @@ namespace CaEnt//GestionJardin
         {
             get { return p_con_valor_anterior; }
             set { p_con_valor_anterior = value; }
+        }
+
+        private DateTime p_Fecha_Ult_Act;
+        public DateTime CON_FECHA_ULT_ACT
+        {
+        
+           get { return p_Fecha_Ult_Act; }
+            set { p_Fecha_Ult_Act = value; }
         }
 
         public entConcepto()

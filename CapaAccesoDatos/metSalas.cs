@@ -66,10 +66,12 @@ namespace CaAD//GestionJardin
 
                 string consulta = "INSERT INTO T_GRUPO_SALA " +
                                                 "(GRS_SAL_ID" +
-                                                ", GRS_PER_ID)" +
-                                        "VALUES " +
-                                                "('" + grupoSala.GRS_SAL_ID + "'" +
-                                                ", '" + grupoSala.GRS_PER_ID + "')";
+                                                ", GRS_PER_ID" +
+                                                ", GRS_CARGO )" +
+                "VALUES " +
+                           "(" + grupoSala.GRS_SAL_ID + " " +
+                            "," + grupoSala.GRS_PER_ID + "" +
+                             ", '" + grupoSala.GRS_CARGO + "')";
 
 
                 cmd = new SqlCommand(consulta, con);
@@ -145,9 +147,15 @@ namespace CaAD//GestionJardin
                 con = generarConexion();
                 con.Open();
 
-                string consulta = "UPDATE T_GRUPO_SALA " +
-                                    "SET GRS_SAL_ID = '" + grupoSalaEditar.GRS_SAL_ID + "' " +
-                                  "WHERE GRS_PER_ID = '" + grupoSalaEditar.GRS_PER_ID + "';";
+                //string consulta = "UPDATE T_GRUPO_SALA SET" +
+                //                     " GRS_CARGO = '" + grupoSalaEditar.GRS_CARGO + "' " +
+                //                     ", GRS_PER_ID = '" + grupoSalaEditar.GRS_PER_ID + "' " +
+                //                   "WHERE GRS_SAL_ID = '" + grupoSalaEditar.GRS_SAL_ID + "';";
+                string consulta = "UPDATE T_GRUPO_SALA SET " +
+                                    "GRS_CARGO = '" + grupoSalaEditar.GRS_CARGO + "' " +
+                                    ", GRS_SAL_ID = '" + grupoSalaEditar.GRS_SAL_ID + "' " +
+                                    "WHERE GRS_PER_ID = '" + grupoSalaEditar.GRS_PER_ID + "';";
+
 
 
                 cmd = new SqlCommand(consulta, con);
@@ -160,15 +168,15 @@ namespace CaAD//GestionJardin
             catch
             {
                 result = "ERROR";
-                //MessageBox.Show("Hubo un problema. Contáctese con su administrador.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
 
 
             return result;
+
         }
 
         public DataTable traerPersonasXSala(Int32 idSala)
-
         {
 
             //entPersona.entPersonaColeccion colPers = new entPersona.entPersonaColeccion();
@@ -268,7 +276,7 @@ namespace CaAD//GestionJardin
             con = generarConexion();
             con.Open();
 
-            int result = 1;
+            int result = 2;
             try
             {
 
@@ -305,7 +313,7 @@ namespace CaAD//GestionJardin
             }
             catch (Exception ex)
             {
-                result = 1;
+                result = 2;
                 //MessageBox.Show("Hubo un problema. Contáctese con su administrador. Error " + ex.ToString());
 
             }
@@ -313,6 +321,48 @@ namespace CaAD//GestionJardin
 
             return result;
         }
+
+        public DataSet CantidadAlumnosSalas()
+        {
+
+            DataSet dset = new DataSet();
+
+            con = generarConexion();
+            con.Open();
+
+            try
+            {
+                string consulta = "SELECT COUNT(*) CANTIDAD, " +
+                                         "SAL_NOMBRE SALA, " +
+                                         "CASE SAL_TURNO " +
+                                            "WHEN 'MANANA' THEN 'MAÑANA' " +
+                                            "ELSE 'TARDE' " +
+                                         "END TURNO, SAL_ID " +
+                                    "FROM T_PERSONAS, T_GRUPO_SALA, T_SALA " +
+                                   "WHERE PER_ID = GRS_PER_ID " +
+                                     "AND SAL_ID = GRS_SAL_ID " +
+                                     "AND PER_TPE_ID = 2 " +
+                                     "AND PER_ESTADO = 'S' " +
+                                   "GROUP BY SAL_NOMBRE, SAL_TURNO,SAL_ID " +
+                                   "ORDER BY SAL_TURNO, SAL_ID;";
+
+                cmd = new SqlCommand(consulta, con);
+                dta = new SqlDataAdapter(cmd);
+                dta.Fill(dset);
+
+                con.Close();
+
+
+                return dset;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return dset;
+
+        }     
+
 
     }
 }
