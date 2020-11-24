@@ -80,7 +80,6 @@ namespace GestionJardin
                 MessageBox.Show("Debe seleccionar un registro para poder modificar el valor de un concepto","INFORMACIÓN",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
 
-
         }
 
         private void frmConcepto_Editar_FormClosed(object sender, FormClosedEventArgs e)
@@ -143,6 +142,7 @@ namespace GestionJardin
             btnCon_Editar.ForeColor = Color.Gray;
 
         }
+
         private void Dgv_Conceptos()
         {
             DataTable dt = new DataTable();
@@ -158,7 +158,6 @@ namespace GestionJardin
             this.dgvConceptos.Columns["DESDE"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             this.dgvConceptos.Columns["HASTA"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             this.dgvConceptos.Columns["ESTADO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-
 
         }
 
@@ -194,7 +193,6 @@ namespace GestionJardin
                 }
                                         
         }
-
             
 
         private void txtCon_Buscar_Click(object sender, EventArgs e)
@@ -216,7 +214,6 @@ namespace GestionJardin
                 btnCon_Eliminar.ForeColor = Color.Gray;
 
             }
-
 
         }
 
