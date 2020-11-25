@@ -60,10 +60,10 @@
             this.lblInformeEdit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblInformeEdit.Location = new System.Drawing.Point(41, 912);
             this.lblInformeEdit.Name = "lblInformeEdit";
-            this.lblInformeEdit.Size = new System.Drawing.Size(716, 20);
+            this.lblInformeEdit.Size = new System.Drawing.Size(654, 20);
             this.lblInformeEdit.TabIndex = 50;
-            this.lblInformeEdit.Text = "* Para poder redactar o editar un informe de progreso debe seleccionar el registr" +
-    "o previamente";
+            this.lblInformeEdit.Text = "* Para poder imprimir un informe de progreso debe seleccionar el registro previam" +
+    "ente";
             // 
             // lbl_panelInforme
             // 
