@@ -56,25 +56,26 @@
             this.metroPanel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.metroPanel3.HorizontalScrollbarBarColor = true;
             this.metroPanel3.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel3.HorizontalScrollbarSize = 10;
-            this.metroPanel3.Location = new System.Drawing.Point(45, 39);
-            this.metroPanel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.metroPanel3.HorizontalScrollbarSize = 8;
+            this.metroPanel3.Location = new System.Drawing.Point(34, 32);
+            this.metroPanel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.metroPanel3.Name = "metroPanel3";
-            this.metroPanel3.Size = new System.Drawing.Size(1261, 322);
+            this.metroPanel3.Size = new System.Drawing.Size(946, 262);
             this.metroPanel3.TabIndex = 1;
             this.metroPanel3.UseCustomBackColor = true;
             this.metroPanel3.VerticalScrollbarBarColor = true;
             this.metroPanel3.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel3.VerticalScrollbarSize = 11;
+            this.metroPanel3.VerticalScrollbarSize = 8;
             // 
             // lblValor
             // 
             this.lblValor.AutoSize = true;
             this.lblValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblValor.ForeColor = System.Drawing.Color.Red;
-            this.lblValor.Location = new System.Drawing.Point(769, 188);
+            this.lblValor.Location = new System.Drawing.Point(577, 153);
+            this.lblValor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblValor.Name = "lblValor";
-            this.lblValor.Size = new System.Drawing.Size(46, 17);
+            this.lblValor.Size = new System.Drawing.Size(35, 13);
             this.lblValor.TabIndex = 32;
             this.lblValor.Text = "label2";
             this.lblValor.Visible = false;
@@ -84,9 +85,10 @@
             this.lblConcepto.AutoSize = true;
             this.lblConcepto.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConcepto.ForeColor = System.Drawing.Color.Red;
-            this.lblConcepto.Location = new System.Drawing.Point(52, 188);
+            this.lblConcepto.Location = new System.Drawing.Point(39, 153);
+            this.lblConcepto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblConcepto.Name = "lblConcepto";
-            this.lblConcepto.Size = new System.Drawing.Size(46, 17);
+            this.lblConcepto.Size = new System.Drawing.Size(35, 13);
             this.lblConcepto.TabIndex = 31;
             this.lblConcepto.Text = "label1";
             this.lblConcepto.Visible = false;
@@ -97,10 +99,10 @@
             // 
             // 
             this.txtSigno.CustomButton.Image = null;
-            this.txtSigno.CustomButton.Location = new System.Drawing.Point(8, 2);
-            this.txtSigno.CustomButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSigno.CustomButton.Location = new System.Drawing.Point(3, 2);
+            this.txtSigno.CustomButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSigno.CustomButton.Name = "";
-            this.txtSigno.CustomButton.Size = new System.Drawing.Size(29, 29);
+            this.txtSigno.CustomButton.Size = new System.Drawing.Size(17, 19);
             this.txtSigno.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtSigno.CustomButton.TabIndex = 1;
             this.txtSigno.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -110,8 +112,8 @@
             this.txtSigno.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.txtSigno.Lines = new string[] {
         "$"};
-            this.txtSigno.Location = new System.Drawing.Point(941, 144);
-            this.txtSigno.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSigno.Location = new System.Drawing.Point(706, 117);
+            this.txtSigno.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSigno.MaxLength = 32767;
             this.txtSigno.Name = "txtSigno";
             this.txtSigno.PasswordChar = '\0';
@@ -121,7 +123,7 @@
             this.txtSigno.SelectionLength = 0;
             this.txtSigno.SelectionStart = 0;
             this.txtSigno.ShortcutsEnabled = true;
-            this.txtSigno.Size = new System.Drawing.Size(40, 34);
+            this.txtSigno.Size = new System.Drawing.Size(30, 28);
             this.txtSigno.Style = MetroFramework.MetroColorStyle.Green;
             this.txtSigno.TabIndex = 30;
             this.txtSigno.Text = "$";
@@ -136,7 +138,7 @@
             // 
             this.cbConcepto.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbConcepto.FormattingEnabled = true;
-            this.cbConcepto.ItemHeight = 24;
+            this.cbConcepto.ItemHeight = 23;
             this.cbConcepto.Items.AddRange(new object[] {
             "CUOTA SALA 1",
             "CUOTA SALA 2",
@@ -145,12 +147,13 @@
             "CUOTA SALA 5",
             "INTERES POR MORA",
             "MATERIAL DIDACTICO",
+            "HORAS EXTRAS",
             "MATRICULA"});
-            this.cbConcepto.Location = new System.Drawing.Point(263, 140);
-            this.cbConcepto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbConcepto.Location = new System.Drawing.Point(197, 114);
+            this.cbConcepto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbConcepto.Name = "cbConcepto";
             this.cbConcepto.PromptText = "Seleccione";
-            this.cbConcepto.Size = new System.Drawing.Size(311, 30);
+            this.cbConcepto.Size = new System.Drawing.Size(234, 29);
             this.cbConcepto.Style = MetroFramework.MetroColorStyle.Green;
             this.cbConcepto.TabIndex = 0;
             this.cbConcepto.UseCustomBackColor = true;
@@ -165,10 +168,10 @@
             // 
             // 
             this.txt_valor.CustomButton.Image = null;
-            this.txt_valor.CustomButton.Location = new System.Drawing.Point(145, 2);
-            this.txt_valor.CustomButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_valor.CustomButton.Location = new System.Drawing.Point(80, 2);
+            this.txt_valor.CustomButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txt_valor.CustomButton.Name = "";
-            this.txt_valor.CustomButton.Size = new System.Drawing.Size(29, 29);
+            this.txt_valor.CustomButton.Size = new System.Drawing.Size(17, 19);
             this.txt_valor.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txt_valor.CustomButton.TabIndex = 1;
             this.txt_valor.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -177,8 +180,8 @@
             this.txt_valor.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.txt_valor.ForeColor = System.Drawing.Color.Yellow;
             this.txt_valor.Lines = new string[0];
-            this.txt_valor.Location = new System.Drawing.Point(986, 144);
-            this.txt_valor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_valor.Location = new System.Drawing.Point(740, 117);
+            this.txt_valor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txt_valor.MaxLength = 32767;
             this.txt_valor.Name = "txt_valor";
             this.txt_valor.PasswordChar = '\0';
@@ -187,7 +190,7 @@
             this.txt_valor.SelectionLength = 0;
             this.txt_valor.SelectionStart = 0;
             this.txt_valor.ShortcutsEnabled = true;
-            this.txt_valor.Size = new System.Drawing.Size(177, 34);
+            this.txt_valor.Size = new System.Drawing.Size(133, 28);
             this.txt_valor.Style = MetroFramework.MetroColorStyle.Green;
             this.txt_valor.TabIndex = 1;
             this.txt_valor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -206,9 +209,10 @@
             this.metroLabel4.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel4.FontWeight = MetroFramework.MetroLabelWeight.Bold;
             this.metroLabel4.ForeColor = System.Drawing.Color.Yellow;
-            this.metroLabel4.Location = new System.Drawing.Point(762, 140);
+            this.metroLabel4.Location = new System.Drawing.Point(572, 114);
+            this.metroLabel4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(173, 40);
+            this.metroLabel4.Size = new System.Drawing.Size(130, 32);
             this.metroLabel4.TabIndex = 28;
             this.metroLabel4.Text = "VALOR:";
             this.metroLabel4.UseCustomBackColor = true;
@@ -220,9 +224,10 @@
             this.metroLabel3.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel3.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.metroLabel3.ForeColor = System.Drawing.Color.Lime;
-            this.metroLabel3.Location = new System.Drawing.Point(52, 140);
+            this.metroLabel3.Location = new System.Drawing.Point(39, 114);
+            this.metroLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(293, 44);
+            this.metroLabel3.Size = new System.Drawing.Size(220, 36);
             this.metroLabel3.TabIndex = 21;
             this.metroLabel3.Text = "CONCEPTO:";
             this.metroLabel3.UseCustomBackColor = true;
@@ -238,10 +243,10 @@
             this.btnCancelar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnCancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCancelar.IconSize = 60;
-            this.btnCancelar.Location = new System.Drawing.Point(1052, 421);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCancelar.Location = new System.Drawing.Point(789, 342);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(239, 76);
+            this.btnCancelar.Size = new System.Drawing.Size(179, 62);
             this.btnCancelar.TabIndex = 3;
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -258,10 +263,10 @@
             this.btnGuardar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnGuardar.IconSize = 60;
-            this.btnGuardar.Location = new System.Drawing.Point(723, 421);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnGuardar.Location = new System.Drawing.Point(542, 342);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(239, 76);
+            this.btnGuardar.Size = new System.Drawing.Size(179, 62);
             this.btnGuardar.TabIndex = 2;
             this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -270,15 +275,15 @@
             // 
             // frmConcepto_Agregar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.ClientSize = new System.Drawing.Size(1365, 546);
+            this.ClientSize = new System.Drawing.Size(1024, 444);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.metroPanel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmConcepto_Agregar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.frmConcepto_Agregar_Load);

@@ -551,7 +551,7 @@ namespace CaAD//GestionJardin
 
 
                 cmd = new SqlCommand(consulta, con);
-                cmd.ExecuteNonQuery();
+                //cmd.ExecuteNonQuery();
                 id_cuota =cmd.ExecuteScalar().ToString();
                 con.Close();
 
@@ -568,5 +568,52 @@ namespace CaAD//GestionJardin
             return RESULTADO; 
         }
 
+        public int Id_Cargo_HS_Extras()
+        {
+            con = generarConexion();
+            con.Open();
+
+            string consulta = "SELECT CON_ID FROM T_CONCEPTOS WHERE CON_CONCEPTO = 'HORAS EXTRAS'";
+
+            cmd = new SqlCommand(consulta, con);
+            int id_Hs_Ex = Convert.ToInt32(cmd.ExecuteScalar());
+
+            con.Close();
+
+            return id_Hs_Ex;
+        }
+
+        public int Id_Cargo_MatDid()
+        {
+            con = generarConexion();
+            con.Open();
+
+            string consulta = "SELECT CON_ID FROM T_CONCEPTOS WHERE CON_CONCEPTO = 'MATERIAL DIDACTICO'";
+
+            cmd = new SqlCommand(consulta, con);
+            int id_Mat_Did = Convert.ToInt32(cmd.ExecuteScalar());
+
+            con.Close();
+
+            return id_Mat_Did;
+        }
+
+        public decimal Monto_Cargos(int ID_CARGOS)
+        
+        {
+            con = generarConexion();
+            con.Open();
+
+            string consulta = "SELECT CON_VALOR_ACTUAL FROM T_CONCEPTOS WHERE CON_ID = " + ID_CARGOS + " ";
+
+            cmd = new SqlCommand(consulta, con);
+            decimal monto_cargo = Convert.ToDecimal(cmd.ExecuteScalar());
+
+            con.Close();
+
+            return monto_cargo;
+
+
+        }
     }
 }

@@ -37,7 +37,7 @@
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.lbl_Continuar = new System.Windows.Forms.Label();
             this.txtBuscar = new MetroFramework.Controls.MetroTextBox();
-            this.btnCon_Eliminar = new FontAwesome.Sharp.IconButton();
+            this.btn_anular_cuota = new FontAwesome.Sharp.IconButton();
             this.btnCargos = new FontAwesome.Sharp.IconButton();
             this.btnGenerar = new FontAwesome.Sharp.IconButton();
             this.lblInfo = new System.Windows.Forms.Label();
@@ -165,26 +165,26 @@
             this.txtBuscar.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtBuscar.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
-            // btnCon_Eliminar
+            // btn_anular_cuota
             // 
-            this.btnCon_Eliminar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCon_Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCon_Eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCon_Eliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnCon_Eliminar.IconChar = FontAwesome.Sharp.IconChar.Times;
-            this.btnCon_Eliminar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnCon_Eliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCon_Eliminar.IconSize = 85;
-            this.btnCon_Eliminar.Location = new System.Drawing.Point(1049, 538);
-            this.btnCon_Eliminar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnCon_Eliminar.Name = "btnCon_Eliminar";
-            this.btnCon_Eliminar.Size = new System.Drawing.Size(220, 109);
-            this.btnCon_Eliminar.TabIndex = 67;
-            this.btnCon_Eliminar.Text = "ANULAR CUOTA";
-            this.btnCon_Eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCon_Eliminar.UseVisualStyleBackColor = true;
-            this.btnCon_Eliminar.Visible = false;
-            this.btnCon_Eliminar.Click += new System.EventHandler(this.btnCon_Eliminar_Click);
+            this.btn_anular_cuota.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_anular_cuota.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_anular_cuota.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_anular_cuota.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_anular_cuota.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.btn_anular_cuota.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_anular_cuota.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_anular_cuota.IconSize = 85;
+            this.btn_anular_cuota.Location = new System.Drawing.Point(1049, 538);
+            this.btn_anular_cuota.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_anular_cuota.Name = "btn_anular_cuota";
+            this.btn_anular_cuota.Size = new System.Drawing.Size(220, 109);
+            this.btn_anular_cuota.TabIndex = 67;
+            this.btn_anular_cuota.Text = "ANULAR CUOTA";
+            this.btn_anular_cuota.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_anular_cuota.UseVisualStyleBackColor = true;
+            this.btn_anular_cuota.Visible = false;
+            this.btn_anular_cuota.Click += new System.EventHandler(this.btn_anular_cuota_Click);
             // 
             // btnCargos
             // 
@@ -286,7 +286,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(1317, 631);
-            this.Controls.Add(this.btnCon_Eliminar);
+            this.Controls.Add(this.btn_anular_cuota);
             this.Controls.Add(this.btnCargos);
             this.Controls.Add(this.btnGenerar);
             this.Controls.Add(this.lblInfo);
@@ -314,7 +314,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private System.Windows.Forms.Label lbl_Continuar;
         private MetroFramework.Controls.MetroTextBox txtBuscar;
-        private FontAwesome.Sharp.IconButton btnCon_Eliminar;
+        private FontAwesome.Sharp.IconButton btn_anular_cuota;
         private FontAwesome.Sharp.IconButton btnCargos;
         private FontAwesome.Sharp.IconButton btnGenerar;
         private System.Windows.Forms.Label lblInfo;

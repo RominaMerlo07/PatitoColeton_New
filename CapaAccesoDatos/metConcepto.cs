@@ -419,7 +419,7 @@ namespace CaAD//GestionJardin
                                                              //"CON_FECHA_HASTA = CAST ('" + p_fecha_hasta + "'AS DATE)" +
                                                              "WHERE CON_ID = " + conceptoM.CON_ID + "; ", con);
 
-                cmd.ExecuteNonQuery();
+                
 
 
                 

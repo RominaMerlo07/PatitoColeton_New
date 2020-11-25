@@ -105,6 +105,23 @@ namespace CaLog
         {
             return objMetCuota.ExtraerId_concepto_Cuotas(idSala);
         }
+
+        public decimal Monto_Cargos(int ID_CARGOS)
+        {
+            return objMetCuota.Monto_Cargos(ID_CARGOS);
+        }
+
+
+        public int Id_Cargo_MatDid()
+        {
+            return objMetCuota.Id_Cargo_MatDid();
+        }
+
+
+        public int Id_Cargo_HS_Extras()
+        {
+            return objMetCuota.Id_Cargo_HS_Extras();
+        }
     }
         
 }

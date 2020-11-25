@@ -30,7 +30,7 @@ namespace GestionJardin
                 txtBuscar.Visible = true;
                 btnGenerar.Visible = true;
                 btnCargos.Visible = true; // se deben iniciar en gray
-                btnCon_Eliminar.Visible = true; // se deben iniciar en gray
+                btn_anular_cuota.Visible = true; // se deben iniciar en gray
 
                 string turno = cbTurno.SelectedItem.ToString();
 
@@ -51,17 +51,35 @@ namespace GestionJardin
 
         private void btnCargos_Click(object sender, EventArgs e)
         {
-            frmCuotasGestionar_Agregar frmCuotasGestionar_Agregar = new frmCuotasGestionar_Agregar();
+            if (dgvAlumnos.SelectedRows.Count > 0)
+            {
+                btnCargos.IconColor = Color.FromArgb(255, 128, 0);
+                
+                btnCargos.ForeColor = Color.FromArgb(255, 128, 0);
+
+                string idAlumnoSelect = dgvAlumnos.SelectedRows[0].Cells[0].Value.ToString();
+                string nombreAlumnoSelect = dgvAlumnos.SelectedRows[0].Cells[1].Value.ToString();
+                string docAlumnoSelect = dgvAlumnos.SelectedRows[0].Cells[2].Value.ToString();
+                string nCuotaSelect = dgvAlumnos.SelectedRows[0].Cells[3].Value.ToString();
+                string importeCuotaSelect = dgvAlumnos.SelectedRows[0].Cells[4].Value.ToString();
+                string fechaVenciSelect = dgvAlumnos.SelectedRows[0].Cells[6].Value.ToString();
+
+                frmCuotasGestionar_Agregar frmCuotasGestionar_Agregar = new frmCuotasGestionar_Agregar(idAlumnoSelect, nombreAlumnoSelect, docAlumnoSelect, nCuotaSelect, importeCuotaSelect, fechaVenciSelect);
+                
             frmCuotasGestionar_Agregar.Text = "GESTIÓN COBROS / CUOTAS / GESTIONAR / APLICAR CARGOS";
             frmCuotasGestionar_Agregar.ShowDialog();
+            }
+
+            else 
+            {
+                btn_anular_cuota.IconColor = Color.Gray;
+                btn_anular_cuota.ForeColor = Color.Gray;
+
+            }
+                
         }
 
-        private void btnCon_Eliminar_Click(object sender, EventArgs e)
-        {
-            frmCuotasGestionar_Anular frmCuotasGestionar_Anular = new frmCuotasGestionar_Anular();
-            frmCuotasGestionar_Anular.Text = "GESTIÓN COBROS / CUOTAS / GESTIONAR / ANULAR";
-            frmCuotasGestionar_Anular.ShowDialog();
-        }
+       
 
         private void cargar_cbSala()
         {
@@ -112,14 +130,13 @@ namespace GestionJardin
 
             }
 
-
-
-
-
         }
 
-        
-
-
+        private void btn_anular_cuota_Click(object sender, EventArgs e)
+        {
+            frmCuotasGestionar_Anular frmCuotasGestionar_Anular = new frmCuotasGestionar_Anular();
+            frmCuotasGestionar_Anular.Text = "GESTIÓN COBROS / CUOTAS / GESTIONAR / ANULAR";
+            frmCuotasGestionar_Anular.ShowDialog();
+        }
     }
 }
