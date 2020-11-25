@@ -36,7 +36,6 @@
             this.btn_Cerrar = new FontAwesome.Sharp.IconPictureBox();
             this.lbl_Titulo = new System.Windows.Forms.Label();
             this.panel_Contenedor = new System.Windows.Forms.Panel();
-            this.btnInformes = new FontAwesome.Sharp.IconButton();
             this.btnCobros = new FontAwesome.Sharp.IconButton();
             this.btnSalas = new FontAwesome.Sharp.IconButton();
             this.btnDocentes = new FontAwesome.Sharp.IconButton();
@@ -160,7 +159,6 @@
             // 
             this.panel_Contenedor.AutoSize = true;
             this.panel_Contenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.panel_Contenedor.Controls.Add(this.btnInformes);
             this.panel_Contenedor.Controls.Add(this.btnCobros);
             this.panel_Contenedor.Controls.Add(this.btnSalas);
             this.panel_Contenedor.Controls.Add(this.btnDocentes);
@@ -172,28 +170,6 @@
             this.panel_Contenedor.Name = "panel_Contenedor";
             this.panel_Contenedor.Size = new System.Drawing.Size(1387, 640);
             this.panel_Contenedor.TabIndex = 6;
-            // 
-            // btnInformes
-            // 
-            this.btnInformes.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnInformes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.btnInformes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInformes.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInformes.ForeColor = System.Drawing.Color.Aqua;
-            this.btnInformes.IconChar = FontAwesome.Sharp.IconChar.ClipboardCheck;
-            this.btnInformes.IconColor = System.Drawing.Color.Aqua;
-            this.btnInformes.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnInformes.IconSize = 160;
-            this.btnInformes.Location = new System.Drawing.Point(985, 354);
-            this.btnInformes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnInformes.Name = "btnInformes";
-            this.btnInformes.Size = new System.Drawing.Size(353, 379);
-            this.btnInformes.TabIndex = 11;
-            this.btnInformes.Text = "INFORMES";
-            this.btnInformes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnInformes.UseVisualStyleBackColor = false;
-            this.btnInformes.MouseLeave += new System.EventHandler(this.btnInformes_MouseLeave);
-            this.btnInformes.MouseHover += new System.EventHandler(this.btnInformes_MouseHover);
             // 
             // btnCobros
             // 
@@ -229,7 +205,7 @@
             this.btnSalas.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnSalas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSalas.IconSize = 180;
-            this.btnSalas.Location = new System.Drawing.Point(521, 354);
+            this.btnSalas.Location = new System.Drawing.Point(749, 357);
             this.btnSalas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSalas.Name = "btnSalas";
             this.btnSalas.Size = new System.Drawing.Size(353, 379);
@@ -298,7 +274,7 @@
             this.btnUsuarios.IconColor = System.Drawing.Color.Lime;
             this.btnUsuarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnUsuarios.IconSize = 176;
-            this.btnUsuarios.Location = new System.Drawing.Point(63, 354);
+            this.btnUsuarios.Location = new System.Drawing.Point(291, 357);
             this.btnUsuarios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUsuarios.Name = "btnUsuarios";
             this.btnUsuarios.Size = new System.Drawing.Size(353, 379);
@@ -364,7 +340,6 @@
         public FontAwesome.Sharp.IconButton btnDocentes;
         public FontAwesome.Sharp.IconButton btnSalas;
         public FontAwesome.Sharp.IconButton btnCobros;
-        public FontAwesome.Sharp.IconButton btnInformes;
         private System.Windows.Forms.PictureBox btnGestiones;
     }
 }

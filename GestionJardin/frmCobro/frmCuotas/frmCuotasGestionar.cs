@@ -14,7 +14,7 @@ namespace GestionJardin
 {
     public partial class frmCuotasGestionar : Form
     {
-        
+        int sala;
         public frmCuotasGestionar()
         {
             InitializeComponent();
@@ -39,7 +39,7 @@ namespace GestionJardin
                     turno = "MANANA";
                 }
 
-                int sala = Convert.ToInt32(cbSala.SelectedValue.ToString());
+                sala = Convert.ToInt32(cbSala.SelectedValue.ToString());
                 DataTable alu = new DataTable();
                 logCuota objLogCuota = new logCuota();
                 alu = objLogCuota.traerAlumnosSala(sala);
@@ -89,24 +89,36 @@ namespace GestionJardin
             cargar_cbSala();
         }
 
-        //public void Carga_grilla_AlumnosCuotas()
-        //{
-        //    string turno=cbTurno.SelectedItem.ToString();
-
-        //    if (cbTurno.SelectedItem.ToString() == "MAÑANA")
-        //    {
-        //        turno = "MANANA";
-        //    }
-
-        //    string sala = cbSala.SelectedItem.ToString();
-        //    DataTable alu = new DataTable();
-        //    logCuota objLogCuota = new logCuota();
-        //    alu = objLogCuota.VisualizarAlumnosporSalaTurno("TARDE", "ROSA"/*turno, sala*/);
-        //    dgvAlumnos.DataSource = alu;
+        private void btnGenerar_Click(object sender, EventArgs e)
+        {
+            int sala = Convert.ToInt32(cbSala.SelectedValue.ToString());
+            logCuota objLogCuota = new logCuota();
+            decimal monto_cuota = objLogCuota.Monto_Cuota(sala);
+            int id_alumno;
 
 
+            
+            for (int i = 0; i < dgvAlumnos.Rows.Count; i++)
+            {
+                
+                id_alumno = Convert.ToInt32( dgvAlumnos.Rows[i].Cells[0].Value);
+                int cuo_id = Convert.ToInt32( objLogCuota.GeneraraCuota(monto_cuota, id_alumno));
+                int idConcepto = objLogCuota.ExtraerId_concepto_Cuotas(sala);
+                objLogCuota.InsertarCuotaDetalle(cuo_id, idConcepto, monto_cuota);
+               
+                DataTable alu = new DataTable();
+                alu = objLogCuota.traerAlumnosSala(sala);
+                dgvAlumnos.DataSource = alu;
 
-        //}
+            }
+
+
+
+
+
+        }
+
+        
 
 
     }

@@ -354,7 +354,23 @@ namespace GestionJardin
                     if (resultado == "OK")
                     {
                         MessageBox.Show("Se ha ingresado el registro con éxito.", "Ingresado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
+
+                        logCuota logCuota = new logCuota();
+                        decimal monto = logCuota.Monto_Matricula();
+
+                        string resultadoGenerarMat = logCuota.GeneraraMatricula(monto, id_persona);
+                        if (resultadoGenerarMat == "OK")
+                        {
+                            int cuo_id= logCuota.cuoId(id_persona);
+
+                            string resultadoMat = logCuota.InsertarCuotaDetalle(cuo_id, 1, monto);
+                            if (resultadoMat == "OK")
+                            {
+                                MessageBox.Show("Se genero la solicitud de cobro de 'MATRICULA' para efectuar el mismo ingresar a GESTIÓN COBROS > GESTIONAR.", "Ingresado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                reciboMatricula reciboMatricula = new reciboMatricula(id_persona);
+                                this.Close();
+                            }
+                        }
                         //limpiarCampos();
 
                     }

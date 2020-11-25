@@ -141,5 +141,10 @@ namespace CaLog
             return objMetConcepto.TablaPorConceptos(con_id, desde, hasta);
         }
 
+        public string fechaHasta(string idConcepto)
+        {
+            return objMetConcepto.fechaHasta(idConcepto);
+        }
+
     }
 }

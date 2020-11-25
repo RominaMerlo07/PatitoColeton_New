@@ -676,5 +676,46 @@ namespace CaAD//GestionJardin
         }
 
 
+        public string fechaHasta(string idConcepto)
+        {
+            con = generarConexion();
+            con.Open();
+
+            string result = "";
+            try
+            {
+
+                cmd = new SqlCommand("SELECT MAX(HIS_HASTA) FECHA FROM T_HISTORIAL WHERE HIS_CON_ID = '"+ idConcepto + "';", con);
+
+
+                dt = new DataTable();
+                dta = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+
+                dta.Fill(ds);
+                dt = ds.Tables[0];
+                con.Close();
+
+                if (dt != null)
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+
+                        if (dr["FECHA"] != DBNull.Value)
+                            result = Convert.ToString(dr["FECHA"]);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+               
+                //MessageBox.Show("Hubo un problema. Contáctese con su administrador.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+
+            return result;
+        }
+
     }
 }

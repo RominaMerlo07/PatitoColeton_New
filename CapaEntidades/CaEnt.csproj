@@ -87,11 +87,13 @@
     <Compile Include="fichaAlumnoFamiliar.cs" />
     <Compile Include="historialConceptos.cs" />
     <Compile Include="InformeAsistencia.cs" />
+    <Compile Include="InformeProgreso.cs" />
     <Compile Include="InformeTotalAsistencia.cs" />
     <Compile Include="ListaAlumnos.cs" />
     <Compile Include="listaConcepto.cs" />
     <Compile Include="ListaDocentes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="reciboMatricula.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
