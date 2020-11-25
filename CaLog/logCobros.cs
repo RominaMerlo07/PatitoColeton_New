@@ -15,6 +15,7 @@ namespace CaLog
 
         metCobros objMetCobros = new metCobros();
 
+
         public DataTable AutocompletarenCobros()
         {
 
@@ -104,5 +105,24 @@ namespace CaLog
             
             return objMetCobros.InsertarenTCobros(cuoId);
         }
+
+        public double ObtenerInteresActual()
+        {
+            double interes = double.Parse(objMetCobros.buscarInteresActual());
+            return interes;
+        }
+        public bool insertarNuevoCobro(int idCuota, double importe, DateTime fecha, string formaPago)
+        {
+            bool resultado = objMetCobros.insertarNuevoCobro(idCuota, importe, fecha, formaPago);
+            if (resultado)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+       
     }
 }

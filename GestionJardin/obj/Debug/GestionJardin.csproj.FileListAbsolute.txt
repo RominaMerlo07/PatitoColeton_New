@@ -1309,6 +1309,7 @@ C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.HistorialConcep
 C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.HistConceptos.resources
 C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.frmInformeProgreso_Consultar.resources
 C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.InformeProgreso.resources
+<<<<<<< HEAD
 C:\Users\Federico\Desktop\NO MOVER\GestionJardin\bin\Debug\GestionJardin.exe.config
 C:\Users\Federico\Desktop\NO MOVER\GestionJardin\bin\Debug\GestionJardin.exe.manifest
 C:\Users\Federico\Desktop\NO MOVER\GestionJardin\bin\Debug\GestionJardin.application
@@ -1455,3 +1456,6 @@ C:\Users\Federico\Desktop\NO MOVER\GestionJardin\obj\Debug\GestionJardin.applica
 C:\Users\Federico\Desktop\NO MOVER\GestionJardin\obj\Debug\GestionJardin.csproj.CopyComplete
 C:\Users\Federico\Desktop\NO MOVER\GestionJardin\obj\Debug\GestionJardin.exe
 C:\Users\Federico\Desktop\NO MOVER\GestionJardin\obj\Debug\GestionJardin.pdb
+=======
+C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.reciboMatricula.resources
+>>>>>>> 0a3d58e37017ccdc759da9fd72a829f3c2f6d392

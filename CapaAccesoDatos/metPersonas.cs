@@ -1231,5 +1231,53 @@ namespace CaAD//GestionJardin
             return dset;
 
         }
+        public int obtenerIdAlumno(int nroDoc)
+        {
+            int idAdlumno = 0;
+
+            try
+            {
+                con = generarConexion();
+                con.Open();
+
+
+                string consulta = "SELECT PER_ID FROM T_PERSONAS WHERE PER_DOCUMENTO = '" + nroDoc + "' AND PER_TPE_ID = '" + 2 + "';";
+
+
+                cmd = new SqlCommand(consulta, con);
+                dta = new SqlDataAdapter(cmd);
+                dt = new DataTable();
+                dta.Fill(dt);
+
+                con.Close();
+
+
+                if (dt != null)
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        //result = Convert.ToString(dr["PER_ID"]);
+
+
+                        if (dr["PER_ID"] != DBNull.Value)
+                            idAdlumno = Convert.ToInt32(dr["PER_ID"]);
+
+                    }
+                }
+
+
+
+            }
+            catch
+            {
+                //result = "ERROR";
+                //MessageBox.Show("Hubo un problema. Contáctese con su administrador.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
+            }
+
+            return idAdlumno;
+
+        }
     }
 }

@@ -34,11 +34,11 @@ namespace CaLog
             return objMetCuota.insertaCuotaFinal(legajo, periodoCuota, anoCuota, estadoCuota);
         }
 
-        //public string InsertarCuotaDetalle(string legajo, int periodoCuota, int anoCuota, int idConcepto, int importeConcepto)
-        //{
+        public string InsertarCuotaDetalle(string legajo, int periodoCuota, int anoCuota, int idConcepto, int importeConcepto)
+        {
 
-        //    return objMetCuota.InsertarCuotaDetalle(legajo, periodoCuota, anoCuota, idConcepto, importeConcepto);
-        //}
+            return objMetCuota.InsertarCuotaDetalle(legajo, periodoCuota, anoCuota, idConcepto, importeConcepto);
+        }
 
         public string ActualizaMontoCuotaFinal(string legajo, int periodoCuota, int anoCuota, int importeConcepto)
         {
@@ -83,27 +83,21 @@ namespace CaLog
         {
             return objMetCuota.traerAlumnosSala(idSala);
         }
-
-        public decimal Monto_Cuota(int idSala)
-
+        public int obtenerIdCuota(int idAlumno, int nroCuota)
         {
-            return objMetCuota.Monto_Cuota(idSala);
-        
+            return objMetCuota.obtenerIdCuota(idAlumno, nroCuota);
         }
-
-        public string GeneraraCuota(decimal monto_cuota, int id_alumno)
+        public bool setEstadoCuota(int idCuota)
         {
-            return objMetCuota.GeneraraCuota(monto_cuota, id_alumno);
-        }
-
-        public string InsertarCuotaDetalle(int cuo_id, int idConcepto, decimal importeConcepto)
-        {
-            return objMetCuota.InsertarCuotaDetalle(cuo_id, idConcepto, importeConcepto);
-        }
-
-        public int ExtraerId_concepto_Cuotas(int idSala)
-        {
-            return objMetCuota.ExtraerId_concepto_Cuotas(idSala);
+            bool resultado = objMetCuota.setearEstadoCuota(idCuota);
+            if (resultado)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public decimal Monto_Cargos(int ID_CARGOS)

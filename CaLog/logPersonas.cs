@@ -346,6 +346,11 @@ namespace CaLog
         {
             return objMetPersonas.listaTotalDocentes();
         }
+
+        public int idAlumno(int nroDoc)
+        {
+            return objMetPersonas.obtenerIdAlumno(nroDoc);
+        }
     }
 }
 

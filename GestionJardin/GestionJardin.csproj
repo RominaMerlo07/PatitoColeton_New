@@ -118,6 +118,12 @@
     <Compile Include="frmAlumnos\Informe_Progreso\frmInformeProgreso_Consultar.Designer.cs">
       <DependentUpon>frmInformeProgreso_Consultar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reporte\Alumnos\reciboMatricula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\Alumnos\reciboMatricula.Designer.cs">
+      <DependentUpon>reciboMatricula.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reporte\Alumnos\InformeProgreso.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -493,6 +499,10 @@
     <EmbeddedResource Include="frmAlumnos\Informe_Progreso\frmInformeProgreso_Consultar.resx">
       <DependentUpon>frmInformeProgreso_Consultar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\Alumnos\reciboMatricula.rdlc" />
+    <EmbeddedResource Include="Reporte\Alumnos\reciboMatricula.resx">
+      <DependentUpon>reciboMatricula.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reporte\Alumnos\InformeProgreso.rdlc" />
     <EmbeddedResource Include="Reporte\Alumnos\InformeProgreso.resx">
       <DependentUpon>InformeProgreso.cs</DependentUpon>
@@ -734,6 +744,7 @@
     <None Include="Properties\DataSources\CaEnt.ListaAlumnos.datasource" />
     <None Include="Properties\DataSources\CaEnt.listaConcepto.datasource" />
     <None Include="Properties\DataSources\CaEnt.ListaDocentes.datasource" />
+    <None Include="Properties\DataSources\CaEnt.reciboMatricula.datasource" />
     <None Include="Properties\DataSources\CaLog.logAsistencia.datasource" />
     <None Include="Properties\DataSources\CapaAccesoDatos.metAsistencia.datasource" />
     <None Include="Properties\DataSources\CapaEntidades.InformeAsistencia+InformeAsistenciaColeccion.datasource" />

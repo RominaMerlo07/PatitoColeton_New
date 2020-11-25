@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CaLog;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +13,13 @@ namespace GestionJardin
 {
     public partial class frmCobros_Consultar : Form
     {
+        logCobros objCobros = new logCobros();
+
         public frmCobros_Consultar()
         {
             InitializeComponent();
         }
-
+        
         private void txtCob_Buscar_ButtonClick(object sender, EventArgs e)
         {
             lblBuscar.Visible = false;
@@ -27,6 +30,16 @@ namespace GestionJardin
             btnFiltro.Visible = true;
             lblFiltro.Visible = true;
             lblInfo.Visible = true;
+            if (txtCob_Buscar.Text.Equals(""))
+            {
+                MessageBox.Show("Ingrese alumno");
+            }
+            else
+            {
+                lblBuscar.Visible = false;
+                string alumno = txtCob_Buscar.Text;
+                dgvCobros.DataSource = objCobros.InsetarDatosCobrosenformBuscar(alumno);
+            }
         }
 
         private void txtCob_Buscar_TextChanged(object sender, EventArgs e)
@@ -50,7 +63,12 @@ namespace GestionJardin
         {
             lblBuscar.Visible = true;
             dgvCobros.DataSource = null;
-            dgvCobros.Refresh();           
+            dgvCobros.Refresh();
+            DataTable dt = objCobros.AutocompletarenCobros();
+            foreach (DataRow row in dt.Rows)
+            {
+                txtCob_Buscar.AutoCompleteCustomSource.Add(row[0].ToString());
+            }
         }
 
         
