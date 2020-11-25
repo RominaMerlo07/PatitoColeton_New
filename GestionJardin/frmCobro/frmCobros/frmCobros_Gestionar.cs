@@ -14,7 +14,7 @@ namespace GestionJardin
     public partial class frmCobros_Gestionar : Form
     {
         logCobros objCobros = new logCobros();
-
+        bool grillallena;
 
         public frmCobros_Gestionar()
         {
@@ -41,51 +41,96 @@ namespace GestionJardin
         /******  buscar datos Grilla ******/
         private void txtCob_Buscar_ButtonClick(object sender, EventArgs e)
         {
-            lblBuscar.Visible = false;
-            string alumno= txt_Buscar.Text;
-            dgvCobros.DataSource = objCobros.InsetarDatosCobrosenformBuscar(alumno);
+            if (txt_Buscar.Text.Equals(""))
+            {
+                MessageBox.Show("Ingrese alumno");
+            }
+            else
+            {
+                lblBuscar.Visible = false;
+                string alumno = txt_Buscar.Text;
+                dgvCobros.DataSource = objCobros.InsetarDatosCobrosenformBuscar(alumno);
+            }
+
         }
         private void txt_Buscar_Enter(object sender, EventArgs e)
+        {
+            if(txt_Buscar.Text== "")
+            {
+
+            }
+            else { 
+            lblBuscar.Visible = false;
+            string alumno = txt_Buscar.Text;
+            dgvCobros.DataSource = objCobros.InsetarDatosCobrosenformBuscar(alumno);
+            }
+        }
+        private void txt_Buscar_Click(object sender, EventArgs e)
         {
             //lblBuscar.Visible = false;
             //string alumno = txt_Buscar.Text;
             //dgvCobros.DataSource = objCobros.InsetarDatosCobrosenformBuscar(alumno);
+
         }
 
         /****** Condicional Semaforo Grilla ******/
 
         private void dgvCobros_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if(this.dgvCobros.Columns[e.ColumnIndex].Name == "ESTADO")
-            {   
-                if ( e.Value !=null)
+           grillallena= true;
+                if (this.dgvCobros.Columns[e.ColumnIndex].Name == "ESTADO")
                 {
-                    if(e.Value.GetType() != typeof(System.DBNull))
+
+                    if (e.Value != null)
                     {
-                        if (e.Value.ToString() == "ADEUDADA")
+                        if (e.Value.GetType() != typeof(System.DBNull))
                         {
-                            e.CellStyle.ForeColor = Color.Red;
-                            
+                            if (e.Value.ToString() == "ADEUDADA")
+                            {
+                                e.CellStyle.ForeColor = Color.Red;
+
+                            }
+
+                            if (e.Value.ToString() == "PAGADA")
+                            {
+                                e.CellStyle.ForeColor = Color.Green;
+
+                            }
+
                         }
-
-                        if (e.Value.ToString() == "PAGADA")
-                        {
-                            e.CellStyle.ForeColor = Color.Green;
-
-                        }
-
-
                     }
                 }
-            }
+            
         }
+
 
 
         private void btnCob_Agregar_Click(object sender, EventArgs e)
         {
-            frmCobros_Cobrar frmCobros_Cobrar = new frmCobros_Cobrar();
-            frmCobros_Cobrar.Text = "GESTIÓN COBROS / COBROS / GESTIONAR / COBRAR";
-            frmCobros_Cobrar.ShowDialog();
+            string fecha = "";
+            string importe = "";
+            string nroCuota = "";
+            string nroDocumento = "";
+            if (dgvCobros.Rows.Count == 0)
+            {
+                MessageBox.Show("No se ha ingresado alumno");
+            }
+            else
+            {
+                //Extraigo los datos de la cuota del alumno encontrado
+
+                for (int i = 0; i < dgvCobros.Rows.Count; i++)
+                {
+                    fecha = dgvCobros.Rows[0].Cells[4].Value.ToString();
+                    importe = dgvCobros.Rows[0].Cells[3].Value.ToString();
+                    nroCuota = dgvCobros.Rows[0].Cells[2].Value.ToString();
+                    nroDocumento = dgvCobros.Rows[0].Cells[1].Value.ToString();
+                }
+                frmCobros_Cobrar frmCobros_Cobrar = new frmCobros_Cobrar(nroCuota, fecha, importe, nroDocumento);
+                frmCobros_Cobrar.Text = "GESTIÓN COBROS / COBROS / GESTIONAR / COBRAR";
+                frmCobros_Cobrar.ShowDialog();
+            }
+
         }
 
         private void btnCob_Eliminar_Click(object sender, EventArgs e)
@@ -108,7 +153,7 @@ namespace GestionJardin
                 dgvCobros.Refresh();
             }
         }
-
+       
         
     }
 }

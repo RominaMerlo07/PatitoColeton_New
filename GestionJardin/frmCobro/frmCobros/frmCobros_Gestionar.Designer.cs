@@ -52,7 +52,7 @@
             this.txt_Buscar.CustomButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Buscar.CustomButton.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
             this.txt_Buscar.CustomButton.Location = new System.Drawing.Point(278, 1);
-            this.txt_Buscar.CustomButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_Buscar.CustomButton.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Buscar.CustomButton.Name = "";
             this.txt_Buscar.CustomButton.Size = new System.Drawing.Size(39, 39);
             this.txt_Buscar.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -65,7 +65,7 @@
             this.txt_Buscar.FontWeight = MetroFramework.MetroTextBoxWeight.Bold;
             this.txt_Buscar.Lines = new string[0];
             this.txt_Buscar.Location = new System.Drawing.Point(34, 238);
-            this.txt_Buscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_Buscar.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Buscar.MaxLength = 32767;
             this.txt_Buscar.Name = "txt_Buscar";
             this.txt_Buscar.PasswordChar = '\0';
@@ -85,6 +85,7 @@
             this.txt_Buscar.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Buscar.ButtonClick += new MetroFramework.Controls.MetroTextBox.ButClick(this.txtCob_Buscar_ButtonClick);
             this.txt_Buscar.TextChanged += new System.EventHandler(this.txt_Buscar_TextChanged);
+            this.txt_Buscar.Click += new System.EventHandler(this.txt_Buscar_Click);
             this.txt_Buscar.Enter += new System.EventHandler(this.txt_Buscar_Enter);
             // 
             // dgvCobros
@@ -104,7 +105,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvCobros.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCobros.Location = new System.Drawing.Point(34, 319);
-            this.dgvCobros.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvCobros.Margin = new System.Windows.Forms.Padding(2);
             this.dgvCobros.MultiSelect = false;
             this.dgvCobros.Name = "dgvCobros";
             this.dgvCobros.ReadOnly = true;
@@ -147,7 +148,7 @@
             this.btnCob_Eliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCob_Eliminar.IconSize = 90;
             this.btnCob_Eliminar.Location = new System.Drawing.Point(998, 543);
-            this.btnCob_Eliminar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCob_Eliminar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCob_Eliminar.Name = "btnCob_Eliminar";
             this.btnCob_Eliminar.Size = new System.Drawing.Size(220, 106);
             this.btnCob_Eliminar.TabIndex = 48;
@@ -167,7 +168,7 @@
             this.btnCob_Agregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCob_Agregar.IconSize = 90;
             this.btnCob_Agregar.Location = new System.Drawing.Point(998, 376);
-            this.btnCob_Agregar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCob_Agregar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCob_Agregar.Name = "btnCob_Agregar";
             this.btnCob_Agregar.Size = new System.Drawing.Size(220, 109);
             this.btnCob_Agregar.TabIndex = 46;
@@ -203,7 +204,7 @@
             this.Controls.Add(this.btnCob_Eliminar);
             this.Controls.Add(this.btnCob_Agregar);
             this.Location = new System.Drawing.Point(45, 293);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmCobros_Gestionar";
             this.Text = "COBROS / GESTIONAR";
             this.Load += new System.EventHandler(this.frmCobros_Gestionar_Load);

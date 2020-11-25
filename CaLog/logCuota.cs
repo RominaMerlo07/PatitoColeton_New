@@ -83,6 +83,22 @@ namespace CaLog
         {
             return objMetCuota.traerAlumnosSala(idSala);
         }
+        public int obtenerIdCuota(int idAlumno, int nroCuota)
+        {
+            return objMetCuota.obtenerIdCuota(idAlumno, nroCuota);
+        }
+        public bool setEstadoCuota(int idCuota)
+        {
+            bool resultado = objMetCuota.setearEstadoCuota(idCuota);
+            if (resultado)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
         
 }

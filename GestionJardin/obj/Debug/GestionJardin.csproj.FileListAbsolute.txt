@@ -1307,3 +1307,6 @@ C:\Users\nanig\Desktop\patocoleton2\GestionJardin\obj\Debug\GestionJardin.ListaD
 C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.ListaConceptos.resources
 C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.HistorialConceptos.resources
 C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.HistConceptos.resources
+C:\Users\nanig\Desktop\patocoleton2\GestionJardin\obj\Debug\GestionJardin.HistConceptos.resources
+C:\Users\nanig\Desktop\patocoleton2\GestionJardin\obj\Debug\GestionJardin.HistorialConceptos.resources
+C:\Users\nanig\Desktop\patocoleton2\GestionJardin\obj\Debug\GestionJardin.ListaConceptos.resources

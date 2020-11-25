@@ -10,7 +10,8 @@ using System.ComponentModel;
 using System.Runtime.InteropServices.ComTypes;
 using System.Security.Cryptography.X509Certificates;
 using CaEnt;
-
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Windows.Forms;
 namespace CaAD//GestionJardin
 {
     public class metCobros : Conexion
@@ -81,17 +82,6 @@ namespace CaAD//GestionJardin
             //ObjmetCobro.ExtraerDni(pbarrabuscao);
 
             string dniencontrado = pbarrabuscao;
-
-            
-
-            //string consulta= "SELECT p.PER_NOMBRE + ',' + p.PER_APELLIDO ALUMNO,"+
-            //                    "p.PER_DOCUMENTO DOCUMENTO,"+
-            //                    "c.CUO_FECHA_VENC 'VENCIMIENTO', "+
-            //                    "c.CUO_IMPORTE IMPORTE,"+
-            //                    "c.CUO_ESTADO ESTADO FROM T_PERSONAS p,"+
-            //                    "T_CUOTA_FINAL c, T_COBRO co WHERE p.PER_LEGAJO = c.CUO_PER_LEGAJO AND co.COB_CUO_ID = c.CUO_ID "+
-            //                    "AND p.PER_DOCUMENTO = '" + dniencontrado + "' ";
-
             string consulta= "SELECT(PER_NOMBRE + ' ' + PER_APELLIDO) ALUMNO,"+
                                "PER_DOCUMENTO DOCUMENTO,"+
                                "CUO_NUMERO 'NUMERO DE CUOTA',"+
@@ -451,7 +441,71 @@ namespace CaAD//GestionJardin
             }
             return result;
         }
-    
+        public string buscarInteresActual() // Obtengo el el interes actual 
+        {
+            con = generarConexion();
 
+            con.Open();
+
+            metCobros ObjMetCobros = new metCobros();
+
+
+            string consulta = "SELECT CON_VALOR_ACTUAL from T_CONCEPTOS WHERE CON_ID = 7";
+            cmd = new SqlCommand(consulta, con);
+
+
+            dta = new SqlDataAdapter(cmd);
+            dt = new DataTable();
+            dta.Fill(dt);
+
+            string resultado = "0";
+            if (dt != null)
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        if (dr["CON_VALOR_ACTUAL"] != DBNull.Value)
+                            resultado = Convert.ToString(dr["CON_VALOR_ACTUAL"]);
+                    }
+                }
+            }
+            con.Close();
+
+            return resultado;
+        }
+
+        public bool insertarNuevoCobro(int idCuota, double importe, DateTime fecha, string formaPago)
+        {
+
+
+            try
+            {
+                SqlConnection con1;
+                con1 = generarConexion();
+                con1.Open();
+
+
+                //string cuoId = ExtraercoutaId(pcuotas, plegajo);
+
+                string consulta = "INSERT INTO T_COBRO ( COB_CUO_ID, COB_IMPORTE, COB_FECHA, COB_FORMA_PAGO) " +
+                                              "VALUES ( " + idCuota + "," + importe + "," + fecha + ",'" + formaPago + "');";
+
+                cmd = new SqlCommand(consulta, con1);
+                cmd.ExecuteNonQuery();
+                con1.Close();
+
+                return true;
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message + e.StackTrace);
+                return false;
+            }
+
+
+
+        }
     }
 }

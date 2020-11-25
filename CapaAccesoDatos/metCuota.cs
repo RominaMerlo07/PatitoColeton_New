@@ -461,6 +461,76 @@ namespace CaAD//GestionJardin
             return dt;
 
         }
+        public int obtenerIdCuota(int idAlumno, int nroCuota)
+        {
+            int idCuota = 0;
 
+            try
+            {
+                con = generarConexion();
+                con.Open();
+
+
+                string consulta = "SELECT CUO_ID FROM T_CUOTA_FINAL WHERE CUO_PER_ID = '" + idAlumno + "' AND CUO_NUMERO = '" + nroCuota + "';";
+
+
+                cmd = new SqlCommand(consulta, con);
+                dta = new SqlDataAdapter(cmd);
+                dt = new DataTable();
+                dta.Fill(dt);
+
+                con.Close();
+
+
+                if (dt != null)
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        //result = Convert.ToString(dr["PER_ID"]);
+
+
+                        if (dr["CUO_ID"] != DBNull.Value)
+                            idCuota = Convert.ToInt32(dr["CUO_ID"]);
+
+                    }
+                }
+
+
+
+            }
+            catch
+            {
+                //result = "ERROR";
+                //MessageBox.Show("Hubo un problema. Contáctese con su administrador.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
+            }
+
+            return idCuota;
+        }
+        public bool setearEstadoCuota(int idCuota)
+        {
+            try
+            {
+                con = generarConexion();
+                con.Open();
+                string consulta = "UPDATE T_CUOTA_FINAL SET CUO_ESTADO = 'PAGADA' WHERE CUO_ID = '" + idCuota + "';";
+
+
+                cmd = new SqlCommand(consulta, con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                return true;
+
+            }
+            catch
+            {
+                return false;
+                //MessageBox.Show("Hubo un problema. Contáctese con su administrador.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
     }
 }
