@@ -366,7 +366,8 @@ namespace GestionJardin
                             string resultadoMat = logCuota.InsertarCuotaDetalle(cuo_id, 1, monto);
                             if (resultadoMat == "OK")
                             {
-                                MessageBox.Show("Se genero la solicitud de cobro de 'MATRICULA' para generar el recibo ingresar a GESTIÓN COBROS > GESTIONAR.", "Ingresado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Se genero la solicitud de cobro de 'MATRICULA' para efectuar el mismo ingresar a GESTIÓN COBROS > GESTIONAR.", "Ingresado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                reciboMatricula reciboMatricula = new reciboMatricula(id_persona);
                                 this.Close();
                             }
                         }

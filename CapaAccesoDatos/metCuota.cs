@@ -681,5 +681,48 @@ namespace CaAD//GestionJardin
 
             return result;
         }
+
+        public DataSet reciboMatricula(int per_id)
+        {
+
+            DataSet dset = new DataSet();
+
+            con = generarConexion();
+            con.Open();
+
+            try
+            {
+                string consulta = "SELECT PER_NOMBRE + ' ' + PER_APELLIDO ALUMNO, " +
+                                         "PER_DOCUMENTO DOCUMENTO, " +
+                                         "CON_CONCEPTO CONCEPTO, " +
+                                         "CONCAT('$',' ', CUO_IMPORTE) IMPORTE, " +
+                                         "CUO_FECHA_VENC FECHA_VENCIMIENTO, " +
+                                         "CUO_FECHA_EMISION FECHA_EMISION, " +
+                                         "CUO_ESTADO ESTADO, " +
+                                         "CUO_NUMERO NUMERO, " +
+                                         "GETDATE() FECHA " +
+                                    "FROM T_CUOTA_FINAL, T_CUOTA_DETALLE, T_CONCEPTOS, T_PERSONAS " +
+                                   "WHERE CUO_ID = DET_CUO_ID " +
+                                     "AND DET_CON_ID = CON_ID " +
+                                     "AND CUO_PER_ID = PER_ID " +
+                                     "AND CUO_PER_ID = "+ per_id + "; ";
+
+                cmd = new SqlCommand(consulta, con);
+                dta = new SqlDataAdapter(cmd);
+                dta.Fill(dset);
+
+                con.Close();
+
+
+                return dset;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return dset;
+
+        }
+
     }
 }

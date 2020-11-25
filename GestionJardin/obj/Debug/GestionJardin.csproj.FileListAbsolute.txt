@@ -1309,3 +1309,4 @@ C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.HistorialConcep
 C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.HistConceptos.resources
 C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.frmInformeProgreso_Consultar.resources
 C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.InformeProgreso.resources
+C:\Users\Laura\Desktop\TPI\GestionJardin\obj\Debug\GestionJardin.reciboMatricula.resources

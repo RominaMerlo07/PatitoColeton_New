@@ -121,6 +121,12 @@ namespace CaLog
         {
             return objMetCuota.cuoId(perId);
         }
+
+        public DataSet reciboMatricula(int per_id)
+        {
+            return objMetCuota.reciboMatricula(per_id);
+        }
+
     }
         
 }
