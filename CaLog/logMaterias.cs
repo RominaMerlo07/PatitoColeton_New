@@ -68,5 +68,10 @@ namespace CaLog
             return estado;
         }
 
+        public DataSet InformeProgreso(int idPersona, int etapa)
+        {
+            return objMetMaterias.InformeProgreso(idPersona, etapa);
+        }
+
     }
 }

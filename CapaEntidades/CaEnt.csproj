@@ -87,6 +87,7 @@
     <Compile Include="fichaAlumnoFamiliar.cs" />
     <Compile Include="historialConceptos.cs" />
     <Compile Include="InformeAsistencia.cs" />
+    <Compile Include="InformeProgreso.cs" />
     <Compile Include="InformeTotalAsistencia.cs" />
     <Compile Include="ListaAlumnos.cs" />
     <Compile Include="listaConcepto.cs" />

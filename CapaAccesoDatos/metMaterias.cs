@@ -34,7 +34,7 @@ namespace CaAD
                                 "from T_SALA S, T_GRUPO_SALA GS, T_PERSONAS P " +
                                 "WHERE S.SAL_ID = GS.GRS_SAL_ID " +
                                 "AND P.PER_ID = GS.GRS_PER_ID " +
-                                "AND S.SAL_ID = "+ sala + " " +
+                                "AND S.SAL_ID = '"+ sala + "' " +
                                 "AND P.PER_TPE_ID = 2 " +
                                 "AND P.PER_FECHA_BAJA IS NULL " +
                                 ";";
@@ -310,6 +310,120 @@ namespace CaAD
 
             return result;
         }
+
+
+        public DataSet InformeProgreso(int idPersona, int etapa)
+        {
+
+            DataSet dset = new DataSet();
+
+            con = generarConexion();
+            con.Open();
+
+            try
+            {
+                string consulta = "SELECT (PER_NOMBRE +' ' + PER_APELLIDO) ALUMNO, " +
+                                         "PER_DOCUMENTO DOCUMENTO, " +
+                                         "MT_MATERIA_EDAD EDAD, " +
+                                         "MT_MATERIA_ANO ANIO, " +
+                                         "MT_NOMBRE IDENTIDAD_Y_CONVIVENCIA, " +
+                                         "MT_DESCRIPCION DESCRIPCION, " +
+                                         "CAL_PROGRESO PROGRESO, " +
+                                         "CAL_SEMESTRE SEMESTRE, " +
+                                         "b.APRENDIZAJE LENGUAJE_Y_LITERATURA, " +
+                                         "b.DESCRIPCION DESCRIPCION_LYL, " +
+                                         "b.PROGRESO PROGRESO_LYL, " +
+                                         "c.APRENDIZAJE MATEMATICA, " +
+                                         "c.DESCRIPCION DESCRIPCION_MATEMATICA, " +
+                                         "c.PROGRESO PROGRESO_MATEMATICA, " +
+                                         "d.APRENDIZAJE CIENCIAS, " +
+                                         "d.DESCRIPCION DESCRIPCION_CIENCIAS, " +
+                                         "d.PROGRESO PROGRESO_CIENCIAS, " +
+                                         "e.APRENDIZAJE ARTISTICA, " +
+                                         "e.DESCRIPCION DESCRIPCION_ARTISTICA, " +
+                                         "e.PROGRESO PROGRESO_ARTISTICA, " +
+                                         "f.APRENDIZAJE EDFISICA, " +
+                                         "f.DESCRIPCION DESCRIPCION_EDFISICA, " +
+                                         "f.PROGRESO PROGRESO_EDFISICA, " +
+                                         "GETDATE() FECHA " +
+                                    "FROM T_CALIFICACIONES, " +
+                                         "T_MATERIAS, " +
+                                         "T_PERSONAS, " +
+                                         "T_MATERIA_TIPO, " +
+                                         "(SELECT MT_NOMBRE APRENDIZAJE, " +
+                                                 "MT_DESCRIPCION DESCRIPCION, " +
+                                                 "CAL_PROGRESO PROGRESO " +
+                                           "FROM T_CALIFICACIONES, T_MATERIAS, T_PERSONAS, T_MATERIA_TIPO " +
+                                          "WHERE PER_ID = CAL_PER_ID " +
+                                          "AND CAL_MAT_ID = MAT_ID " +
+                                          "AND MT_ID = MAT_ID " +
+                                          "AND CAL_PER_ID = " + idPersona + " "+
+                                          "AND CAL_SEMESTRE = " + etapa + " " +
+                                          "AND MT_NOMBRE = 'LENGUAJE Y LITERATURA') b, " +
+                                          "(SELECT MT_NOMBRE APRENDIZAJE, " +
+                                                  "MT_DESCRIPCION DESCRIPCION, " +
+                                                  "CAL_PROGRESO PROGRESO " +
+                                            "FROM T_CALIFICACIONES, T_MATERIAS, T_PERSONAS, T_MATERIA_TIPO " +
+                                           "WHERE PER_ID = CAL_PER_ID " +
+                                             "AND CAL_MAT_ID = MAT_ID " +
+                                             "AND MT_ID = MAT_ID " +
+                                             "AND CAL_PER_ID = " + idPersona + " " +
+                                             "AND CAL_SEMESTRE = " + etapa + " " +
+                                             "AND MT_NOMBRE = 'MATEMÁTICA') c, " +
+                                          "(SELECT MT_NOMBRE APRENDIZAJE, " +
+                                                  "MT_DESCRIPCION DESCRIPCION, " +
+                                                  "CAL_PROGRESO PROGRESO " +
+                                            "FROM T_CALIFICACIONES, T_MATERIAS, T_PERSONAS, T_MATERIA_TIPO " +
+                                           "WHERE PER_ID = CAL_PER_ID " +
+                                             "AND CAL_MAT_ID = MAT_ID " +
+                                             "AND MT_ID = MAT_ID " +
+                                             "AND CAL_PER_ID = " + idPersona + " " +
+                                             "AND CAL_SEMESTRE = " + etapa + " " +
+                                             "AND MT_NOMBRE = 'CIENCIAS SOCIALES, CIENCIAS NATURALES Y TECNOLOGÍA') d, " +
+                                         "(SELECT MT_NOMBRE APRENDIZAJE, " +
+                                                 "MT_DESCRIPCION DESCRIPCION, " +
+                                                 "CAL_PROGRESO PROGRESO " +
+                                            "FROM T_CALIFICACIONES, T_MATERIAS, T_PERSONAS, T_MATERIA_TIPO " +
+                                          "WHERE PER_ID = CAL_PER_ID " +
+                                            "AND CAL_MAT_ID = MAT_ID " +
+                                            "AND MT_ID = MAT_ID " +
+                                            "AND CAL_PER_ID = " + idPersona + " " +
+                                            "AND CAL_SEMESTRE = " + etapa + " " +
+                                            "AND MT_NOMBRE = 'EDUCACIÓN ARTÍSTICA') e, " +
+                                        "(SELECT MT_NOMBRE APRENDIZAJE, " +
+                                                "MT_DESCRIPCION DESCRIPCION, " +
+                                                "CAL_PROGRESO PROGRESO " +
+                                          "FROM T_CALIFICACIONES, T_MATERIAS, T_PERSONAS, T_MATERIA_TIPO " +
+                                         "WHERE PER_ID = CAL_PER_ID " +
+                                           "AND CAL_MAT_ID = MAT_ID " +
+                                           "AND MT_ID = MAT_ID " +
+                                           "AND CAL_PER_ID = " + idPersona + " " +
+                                           "AND CAL_SEMESTRE = " + etapa + " " +
+                                           "AND MT_NOMBRE = 'EDUCACIÓN FÍSICA') f " +
+                                     "WHERE PER_ID = CAL_PER_ID " +
+                                       "AND CAL_MAT_ID = MAT_ID " +
+                                       "AND MT_ID = MAT_ID " +
+                                       "AND CAL_PER_ID = " + idPersona + " " +
+                                       "AND CAL_SEMESTRE = " + etapa + " " +
+                                       "AND MT_NOMBRE = 'IDENTIDAD Y CONVIVENCIA';";
+
+                cmd = new SqlCommand(consulta, con);
+                dta = new SqlDataAdapter(cmd);
+                dta.Fill(dset);
+
+                con.Close();
+
+
+                return dset;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return dset;
+
+        }
+
 
     }
 }

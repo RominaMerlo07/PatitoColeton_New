@@ -171,6 +171,11 @@ namespace GestionJardin
                 dgv_Informe.Columns["SAL_ID"].Visible = false;
                 dgv_Informe.Columns["GRS_ID"].Visible = false;
 
+                this.dgv_Informe.Columns["NOMBRE"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                this.dgv_Informe.Columns["APELLIDO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                this.dgv_Informe.Columns["DOCUMENTO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                this.dgv_Informe.Columns["LEGAJO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
                 //--
             } else
             {
