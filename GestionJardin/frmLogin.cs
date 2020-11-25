@@ -49,7 +49,7 @@ namespace GestionJardin
                 
                 frmPrincipal.btnCobros.Visible = false;
                 frmPrincipal.btnDocentes.Visible = false;
-                frmPrincipal.btnInformes.Visible = false;
+               // frmPrincipal.btnInformes.Visible = false;
                 frmPrincipal.btnUsuarios.Visible = false;
                 frmPrincipal.btnSalas.Visible = false;
 

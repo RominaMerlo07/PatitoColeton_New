@@ -105,6 +105,22 @@ namespace CaLog
         {
             return objMetCuota.ExtraerId_concepto_Cuotas(idSala);
         }
+
+        public string GeneraraMatricula(decimal monto_cuota, int id_alumno)
+        {
+            return objMetCuota.GeneraraMatricula(monto_cuota, id_alumno);
+        }
+
+        public decimal Monto_Matricula()
+        {
+            return objMetCuota.Monto_Matricula();
+        }
+
+
+        public int cuoId(int perId)
+        {
+            return objMetCuota.cuoId(perId);
+        }
     }
         
 }

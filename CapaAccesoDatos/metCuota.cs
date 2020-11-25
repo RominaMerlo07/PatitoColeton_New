@@ -515,6 +515,8 @@ namespace CaAD//GestionJardin
             con.Close();
             return id_concepto_cuota;
             }
+
+
         public string GeneraraCuota(decimal monto_cuota, int id_alumno )
         {
             string id_cuota;
@@ -551,7 +553,7 @@ namespace CaAD//GestionJardin
 
 
                 cmd = new SqlCommand(consulta, con);
-                cmd.ExecuteNonQuery();
+               // cmd.ExecuteNonQuery();
                 id_cuota =cmd.ExecuteScalar().ToString();
                 con.Close();
 
@@ -568,5 +570,116 @@ namespace CaAD//GestionJardin
             return RESULTADO; 
         }
 
+
+        public string GeneraraMatricula(decimal monto_cuota, int id_alumno)
+        {
+            string id_cuota;
+            string RESULTADO;           
+            string fecha_emision = DateTime.Today.ToString("yyyy-MM-dd");
+            int numero_cuota = 0;
+           
+
+            try
+            {
+                con = generarConexion();
+                con.Open();
+                string consulta = "INSERT INTO T_CUOTA_FINAL " +
+                                                         "(CUO_NUMERO, " +
+                                                         "CUO_ANO_CUOTA, " +
+                                                         "CUO_ESTADO, " +
+                                                         "CUO_IMPORTE, " +
+                                                         "CUO_FECHA_VENC, " +
+                                                         "CUO_FECHA_EMISION, " +
+                                                         "CUO_PER_ID) " +
+                                               "VALUES " +
+                                                         "(" + numero_cuota + "," +
+                                                            "2020, " +
+                                                            "'ADEUDADA', " +
+                                                            "" + monto_cuota.ToString().Replace(",", ".") + ", " +
+                                                            "CAST('" + fecha_emision + "' AS DATE), " +
+                                                            "CAST ('" + fecha_emision + "' AS DATE), " +
+                                                            "" + id_alumno + ");";
+
+
+                cmd = new SqlCommand(consulta, con);
+                cmd.ExecuteNonQuery();
+               // id_cuota = cmd.ExecuteScalar().ToString();
+                con.Close();
+
+                RESULTADO = "OK";
+            }
+
+            catch (Exception ex)
+            {
+
+                RESULTADO = "MATRICULA NO GENERADA" + ex.ToString();
+                con.Close();
+            }
+
+            return RESULTADO;
+        }
+
+
+        public decimal Monto_Matricula()
+        {
+            con = generarConexion();
+            con.Open();
+
+            string consulta = "SELECT CON_VALOR_ACTUAL FROM T_CONCEPTOS WHERE CON_ID = 1";
+            cmd = new SqlCommand(consulta, con);                     
+
+            decimal monto_matricula = Convert.ToDecimal(cmd.ExecuteScalar());
+            con.Close();
+
+            return monto_matricula;
+
+        }
+
+        public int cuoId(int perId)
+        {
+            con = generarConexion();
+            con.Open();
+
+            int result = 2;
+            try
+            {
+
+                cmd = new SqlCommand("SELECT CUO_ID " +
+                                       "FROM T_CUOTA_FINAL " +
+                                      "WHERE CUO_NUMERO = (SELECT TOP 1 CUO_NUMERO FROM T_CUOTA_FINAL WHERE CUO_PER_ID = "+ perId + " " +
+                                                           "ORDER BY CUO_FECHA_EMISION ASC) " +
+                                        "AND CUO_PER_ID = " + perId + ";", con);
+
+
+                dt = new DataTable();
+                dta = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+
+                dta.Fill(ds);
+                dt = ds.Tables[0];
+                con.Close();
+
+                if (dt != null)
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+
+                        if (dr["CUO_ID"] != DBNull.Value)
+                            result = Convert.ToInt32(dr["CUO_ID"]);
+
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                result = 2;
+                //MessageBox.Show("Hubo un problema. Contáctese con su administrador. Error " + ex.ToString());
+
+            }
+
+
+            return result;
+        }
     }
 }
