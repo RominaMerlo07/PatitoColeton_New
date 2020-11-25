@@ -21,7 +21,7 @@ namespace CaAD//GestionJardin
         public entSala.entSalaColeccion buscarSalas()
         {
             entSala.entSalaColeccion SalaCol = new entSala.entSalaColeccion();
-   
+
             try
             {
 
@@ -44,7 +44,7 @@ namespace CaAD//GestionJardin
                 con.Close();
 
                 if (dt != null)
-                { 
+                {
                     foreach (DataRow dr in dt.Rows)
                     {
                         entSala ent = new entSala();
@@ -67,7 +67,7 @@ namespace CaAD//GestionJardin
                             {
                                 ent.SALA_TURNO = "TARDE";
                             }
-                           
+
                         if (dr["SAL_ACTIVO"] != DBNull.Value)
                             ent.SALA_ACTIVO = Convert.ToString(dr["SAL_ACTIVO"]);
 
@@ -143,7 +143,7 @@ namespace CaAD//GestionJardin
                 {
                     string mes = Convert.ToString(periodoCuota + 2);
                     mes.PadLeft(2, '0');
-                    fechaVenc = Convert.ToDateTime("10/"+mes+"/2020");
+                    fechaVenc = Convert.ToDateTime("10/" + mes + "/2020");
 
                     consulta = "INSERT INTO T_CUOTA_FINAL" +
                                         "(CUO_PER_LEGAJO" +
@@ -182,12 +182,14 @@ namespace CaAD//GestionJardin
             return result;
         }
 
-        public string InsertarCuotaDetalle(string legajo, int periodoCuota, int anoCuota, int idConcepto, int importeConcepto)
+        public string InsertarCuotaDetalle(int cuo_id, int idConcepto, decimal importeConcepto)
         {
             string result;
 
             try
             {
+
+
                 con = generarConexion();
                 con.Open();
                 string consulta = "INSERT INTO T_CUOTA_DETALLE" +
@@ -197,9 +199,9 @@ namespace CaAD//GestionJardin
                                         ", DET_CANTIDAD" +
                                         ", DET_ACTIVO)" +
                                     "VALUES " +
-                                        "( (SELECT CF.CUO_ID FROM T_CUOTA_FINAL CF WHERE CF.CUO_ANO_CUOTA = " + anoCuota + " AND CF.CUO_PER_LEGAJO = '" + legajo + "' AND CF.CUO_NUMERO = " + periodoCuota + " AND CUO_ESTADO = 'ADEUDADA' ) " +
-                                        ", '" + idConcepto + "'" +
-                                        ", '" + importeConcepto + "'" +
+                                        "("+cuo_id+" " +
+                                        ", "+idConcepto+" " +
+                                        ", "+ importeConcepto.ToString().Replace(",", ".")+ " "+
                                         ", 1" +
                                         ", 'S'" +
                                         ");";
@@ -230,7 +232,7 @@ namespace CaAD//GestionJardin
             {
                 con = generarConexion();
                 con.Open();
-                string consulta = "UPDATE T_CUOTA_FINAL SET CUO_IMPORTE = " + importeConcepto + " WHERE CUO_PER_LEGAJO = '" + legajo  + "' AND CUO_ANO_CUOTA = " + anoCuota + " AND CUO_NUMERO = " + periodoCuota + " AND CUO_ESTADO = 'ADEUDADA';";
+                string consulta = "UPDATE T_CUOTA_FINAL SET CUO_IMPORTE = " + importeConcepto + " WHERE CUO_PER_LEGAJO = '" + legajo + "' AND CUO_ANO_CUOTA = " + anoCuota + " AND CUO_NUMERO = " + periodoCuota + " AND CUO_ESTADO = 'ADEUDADA';";
 
 
                 cmd = new SqlCommand(consulta, con);
@@ -276,7 +278,7 @@ namespace CaAD//GestionJardin
                 {
                     foreach (DataRow dr in dt.Rows)
                     {
- 
+
                         if (dr["CUENTA"] != DBNull.Value)
                             result = Convert.ToInt32(dr["CUENTA"]);
 
@@ -362,7 +364,7 @@ namespace CaAD//GestionJardin
                                     "and cf.CUO_ESTADO <> 'BAJA' " +
                                     "order by cf.CUO_NUMERO, cf.CUO_ANO_CUOTA desc; ";
 
-                
+
                 SqlDataAdapter da = new SqlDataAdapter(com);
                 DataSet ds = new DataSet();
 
@@ -370,7 +372,7 @@ namespace CaAD//GestionJardin
                 dt = ds.Tables[0];
                 con.Close();
 
-                
+
             }
             catch
             {
@@ -378,7 +380,7 @@ namespace CaAD//GestionJardin
 
             }
             return dt;
-        
+
         }
 
         public string bajaCuotaFinal(int idCuotaFinal)
@@ -409,19 +411,19 @@ namespace CaAD//GestionJardin
 
         public DataTable VisualizarAlumnosporSalaTurno(string nombre_sala, string turno_sala)
         {
-            
-            
-                con = generarConexion();
-                con.Open();
 
-                cmd = new SqlCommand ("SELECT distinct p.PER_ID AS 'PER_ID'," +
-                                         "CONCAT(p.PER_APELLIDO , p.PER_NOMBRE) AS 'ALUMNO', " +
-                                         "p.PER_DOCUMENTO AS 'DOCUMENTO'" +
-                                          "from T_PERSONAS p, T_SALA s," +
-                                         " T_GRUPO_SALA g WHERE g.GRS_PER_ID = p.PER_ID and" +
-                                         " g.GRS_SAL_ID = s.SAL_ID AND s.SAL_NOMBRE= '" + nombre_sala + "' and " +
-                                         "s.SAL_TURNO ='" + turno_sala + "' AND p.PER_TPE_ID = 2" +
-                                         " AND p.PER_ESTADO = 'S';", con);
+
+            con = generarConexion();
+            con.Open();
+
+            cmd = new SqlCommand("SELECT distinct p.PER_ID AS 'PER_ID'," +
+                                     "CONCAT(p.PER_APELLIDO , p.PER_NOMBRE) AS 'ALUMNO', " +
+                                     "p.PER_DOCUMENTO AS 'DOCUMENTO'" +
+                                      "from T_PERSONAS p, T_SALA s," +
+                                     " T_GRUPO_SALA g WHERE g.GRS_PER_ID = p.PER_ID and" +
+                                     " g.GRS_SAL_ID = s.SAL_ID AND s.SAL_NOMBRE= '" + nombre_sala + "' and " +
+                                     "s.SAL_TURNO ='" + turno_sala + "' AND p.PER_TPE_ID = 2" +
+                                     " AND p.PER_ESTADO = 'S';", con);
 
             dta = new SqlDataAdapter(cmd);
             dt = new DataTable();
@@ -431,23 +433,41 @@ namespace CaAD//GestionJardin
             return dt;
         }
 
-        public DataTable traerAlumnosSala(  int idSala)
+        public DataTable traerAlumnosSala(int idSala)
         {
             con = generarConexion();
 
             DataTable dt = new DataTable();
             con.Open();
 
-            string consulta = "SELECT PER_ID, CONCAT(PER_APELLIDO, ', ', PER_NOMBRE) ALUMNO, " +
-                 "PER_DOCUMENTO AS 'DOCUMENTO' " +
-                
-                 "FROM T_GRUPO_SALA , T_PERSONAS " +
-                 "WHERE PER_ID = GRS_PER_ID " +
-
-                  "AND GRS_SAL_ID = @salaID " +
-
-                  "AND PER_TPE_ID = 2 " +
-                  "AND PER_ESTADO = 'S';";
+            string consulta = "SELECT DISTINCT PER_ID, " +
+                                     "CONCAT(PER_APELLIDO, ', ', PER_NOMBRE) ALUMNO, " +
+                                     "PER_DOCUMENTO 'DOCUMENTO' , " +
+                                     "CUO_NUMERO 'CUOTA N°', CONCAT('$', CUO_IMPORTE)'IMPORTE CUOTA', " +
+                                     "CUO_FECHA_EMISION 'FECHA EMISION', " +
+                                     "CUO_FECHA_VENC 'FECHA VENCIMIENTO'," +
+                                     "CUO_ESTADO 'ESTADO' " +
+                                "FROM T_GRUPO_SALA, T_PERSONAS, T_CUOTA_FINAL " +
+                               "WHERE PER_ID = GRS_PER_ID " +
+                                 "AND CUO_PER_ID = PER_ID " +
+                                 "AND GRS_SAL_ID = @salaID " +
+                                 "AND PER_TPE_ID = 2 " +
+                                 "AND PER_ESTADO = 'S' " +
+                                 "AND MONTH(CUO_FECHA_EMISION) = MONTH(GETDATE()) " +
+                               "UNION " +
+                              "SELECT DISTINCT PER_ID, CONCAT(PER_APELLIDO, ', ', PER_NOMBRE) ALUMNO, " +
+                                     "PER_DOCUMENTO 'DOCUMENTO', " +
+                                     "NULL 'CUOTA N°', " +
+                                     "NULL 'IMPORTE CUOTA', " +
+                                     "NULL 'FECHA EMISION', " +
+                                     "NULL 'FECHA VENCIMIENTO'," +
+                                     "NULL 'ESTADO' " +
+                               "FROM T_GRUPO_SALA, T_PERSONAS " +
+                              "WHERE PER_ID = GRS_PER_ID " +
+                                "AND GRS_SAL_ID = @salaID " +
+                                "AND PER_TPE_ID = 2 " +
+                                "AND PER_ESTADO = 'S' " +
+                                "AND PER_ID NOT IN(SELECT CUO_PER_ID FROM T_CUOTA_FINAL);";
 
             cmd = new SqlCommand(consulta, con);
 
@@ -460,6 +480,92 @@ namespace CaAD//GestionJardin
             con.Close();
             return dt;
 
+        }
+
+
+        public decimal Monto_Cuota(int idSala)
+
+        {
+            con = generarConexion();
+            con.Open();
+
+            string consulta = "SELECT CON_VALOR_ACTUAL FROM T_CONCEPTOS, T_SALA WHERE CON_ID = @salaID +1";
+            cmd = new SqlCommand(consulta, con);
+
+            cmd.Parameters.Add(new SqlParameter("@salaID", idSala));
+
+            decimal monto_cuota = Convert.ToDecimal(cmd.ExecuteScalar());
+            con.Close();
+
+            return monto_cuota;
+
+        }
+
+
+        public int ExtraerId_concepto_Cuotas (int idSala)
+            {
+            con = generarConexion();
+            con.Open();
+
+             string consulta = "SELECT CON_ID FROM T_CONCEPTOS, T_SALA WHERE CON_ID = @salaID +1";
+             cmd = new SqlCommand(consulta, con);
+             cmd.Parameters.Add(new SqlParameter("@salaID", idSala));
+          
+            int id_concepto_cuota = Convert.ToInt32(cmd.ExecuteScalar());
+            con.Close();
+            return id_concepto_cuota;
+            }
+        public string GeneraraCuota(decimal monto_cuota, int id_alumno )
+        {
+            string id_cuota;
+            string RESULTADO;
+            DateTime fecha = DateTime.Today;
+            string fecha_emision = DateTime.Today.ToString("yyyy-MM-dd");
+            int numero_cuota = Convert.ToInt32(fecha.Month.ToString())- 2;
+
+
+            int dia = 10;
+
+            string fecha_vencimiento = fecha.AddDays(-fecha.Day).AddDays(dia).ToString("yyyy-MM-dd");
+
+            try
+            {
+                con = generarConexion();
+                con.Open();
+                string consulta = "INSERT INTO T_CUOTA_FINAL " +
+                                                         "(CUO_NUMERO, " +
+                                                         "CUO_ANO_CUOTA, " +
+                                                         "CUO_ESTADO, " +
+                                                         "CUO_IMPORTE, " +
+                                                         "CUO_FECHA_VENC, " +
+                                                         "CUO_FECHA_EMISION, " +
+                                                         "CUO_PER_ID) " +
+                                               "VALUES " +
+                                                         "(" + numero_cuota + "," +
+                                                            "2020, " +
+                                                            "'ADEUDADA', " +
+                                                            "" + monto_cuota.ToString().Replace(",", ".") + ", " +
+                                                            "CAST('" + fecha_vencimiento + "' AS DATE), " +
+                                                            "CAST ('" + fecha_emision + "' AS DATE), " +
+                                                            "" + id_alumno + "); SELECT SCOPE_IDENTITY();"; 
+
+
+                cmd = new SqlCommand(consulta, con);
+                cmd.ExecuteNonQuery();
+                id_cuota =cmd.ExecuteScalar().ToString();
+                con.Close();
+
+                RESULTADO = id_cuota;
+            }
+
+            catch (Exception ex)
+            {
+                                
+                RESULTADO = "CUOTA NO GENERADA" + ex.ToString(); 
+                con.Close();
+            }
+
+            return RESULTADO; 
         }
 
     }

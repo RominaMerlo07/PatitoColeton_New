@@ -113,7 +113,7 @@ namespace GestionJardin
             {
                 if (cbSalas.SelectedValue.ToString() == "GestionJardin.entSala")
                 {
-                    
+
                 }
                 else
                 {
@@ -122,7 +122,7 @@ namespace GestionJardin
                     logSalas objMetSala = new logSalas();
 
                     //entPersona.entPersonaColeccion colPersona = new entPersona.entPersonaColeccion();
-                    
+
                     colPersona = objMetSala.traerPersonasXSala(idSala);
 
                     dgvMatriculados.DataSource = colPersona;
@@ -179,9 +179,11 @@ namespace GestionJardin
             //FOR inserta una cuota_final por cada persona
             //      FOR por cada cuota_final inserta un detalle por cada concepto seleccionado
             //      UPDATE la cuota con el monto suma de los detalles agregados.
-            if (via == 0) { 
+            if (via == 0)
+            {
 
-                if (conceptos.Rows.Count > 0) { 
+                if (conceptos.Rows.Count > 0)
+                {
 
                     foreach (DataRow persona in colPersona.Rows)
                     {
@@ -196,11 +198,12 @@ namespace GestionJardin
 
                         int cuentaValida = objMetCuota.CuentaCuotasValidacion(legajoM, periodoCuotaM, anoCuotaM);
 
-                        if (cuentaValida == 0) { 
+                        if (cuentaValida == 0)
+                        {
                             string resultado = objMetCuota.insertaCuotaFinal(legajoM, periodoCuotaM, anoCuotaM, estadoCuotaM);
 
                             if (resultado == "OK")
-                            { 
+                            {
                                 ListView.SelectedListViewItemCollection conceptosSelected = listConceptos.SelectedItems;
                                 foreach (ListViewItem item in conceptosSelected)
                                 {
@@ -217,7 +220,7 @@ namespace GestionJardin
                                             idConcepto = Convert.ToInt32(drConcepto.ItemArray[0]);
                                             importeConcepto = Convert.ToInt32(drConcepto.ItemArray[2]);
 
-                                            string resultado2 = objMetCuota.InsertarCuotaDetalle(legajoM, periodoCuotaM, anoCuotaM, idConcepto, importeConcepto);
+                                            //string resultado2 = objMetCuota.InsertarCuotaDetalle(legajoM, periodoCuotaM, anoCuotaM, idConcepto, importeConcepto);
 
                                             montoTotalM += importeConcepto;
 
@@ -228,7 +231,7 @@ namespace GestionJardin
 
                                 }
 
-                        
+
                             }
                     
                         } else
@@ -296,7 +299,7 @@ namespace GestionJardin
                                         idConcepto = Convert.ToInt32(drConcepto.ItemArray[0]);
                                         importeConcepto = Convert.ToInt32(drConcepto.ItemArray[2]);
 
-                                        string resultado2 = objMetCuota.InsertarCuotaDetalle(legajo, periodoCuota, anoCuota, idConcepto, importeConcepto);
+                                        //string resultado2 = objMetCuota.InsertarCuotaDetalle(legajo, periodoCuota, anoCuota, idConcepto, importeConcepto);
 
                                         montoTotal += importeConcepto;
 
