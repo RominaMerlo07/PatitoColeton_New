@@ -43,5 +43,35 @@ namespace CaLog
             return estado;
         }
 
+        public DataTable buscaMateriaXEdad(string edad)
+        {
+            DataTable dt = objMetMaterias.buscaMateriaXEdad(edad);
+            return dt;
+        }
+
+        public string editarMateria(string id, string Nom, string Descr)
+        {
+
+            string estado = objMetMaterias.editarMateria(id, Nom, Descr);
+            return estado;
+        }
+
+        public string EliminarMateria(string mat_id)
+        {
+            string estado = objMetMaterias.EliminarMateria(mat_id);
+            return estado;
+        }
+
+        public string agregarMateria(string nombre, string descripcion, string edad)
+        {
+            string estado = objMetMaterias.AgregarMateria(nombre, descripcion, edad);
+            return estado;
+        }
+
+        public DataSet InformeProgreso(int idPersona, int etapa)
+        {
+            return objMetMaterias.InformeProgreso(idPersona, etapa);
+        }
+
     }
 }

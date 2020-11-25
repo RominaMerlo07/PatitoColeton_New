@@ -112,6 +112,36 @@
     <Compile Include="frmDocentes\ImprimirListaSala.Designer.cs">
       <DependentUpon>ImprimirListaSala.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAlumnos\Informe_Progreso\frmInformeProgreso_Consultar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAlumnos\Informe_Progreso\frmInformeProgreso_Consultar.Designer.cs">
+      <DependentUpon>frmInformeProgreso_Consultar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\Alumnos\InformeProgreso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\Alumnos\InformeProgreso.Designer.cs">
+      <DependentUpon>InformeProgreso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\Conceptos\HistConceptos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\Conceptos\HistConceptos.Designer.cs">
+      <DependentUpon>HistConceptos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\Conceptos\HistorialConceptos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\Conceptos\HistorialConceptos.Designer.cs">
+      <DependentUpon>HistorialConceptos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\Conceptos\ListaConceptos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\Conceptos\ListaConceptos.Designer.cs">
+      <DependentUpon>ListaConceptos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reporte\GrupoFlia\ListaGrupoFlia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -460,6 +490,24 @@
     <EmbeddedResource Include="frmDocentes\ImprimirListaSala.resx">
       <DependentUpon>ImprimirListaSala.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAlumnos\Informe_Progreso\frmInformeProgreso_Consultar.resx">
+      <DependentUpon>frmInformeProgreso_Consultar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\Alumnos\InformeProgreso.rdlc" />
+    <EmbeddedResource Include="Reporte\Alumnos\InformeProgreso.resx">
+      <DependentUpon>InformeProgreso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\Conceptos\HistConceptos.resx">
+      <DependentUpon>HistConceptos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\Conceptos\HistorialConceptos.rdlc" />
+    <EmbeddedResource Include="Reporte\Conceptos\HistorialConceptos.resx">
+      <DependentUpon>HistorialConceptos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\Conceptos\ListaConceptos.rdlc" />
+    <EmbeddedResource Include="Reporte\Conceptos\ListaConceptos.resx">
+      <DependentUpon>ListaConceptos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reporte\GrupoFlia\ListaGrupoFlia.rdlc" />
     <EmbeddedResource Include="Reporte\GrupoFlia\ListaGrupoFlia.resx">
       <DependentUpon>ListaGrupoFlia.cs</DependentUpon>
@@ -678,10 +726,13 @@
     <None Include="Properties\DataSources\CaEnt.fichaAlumno+fichaAlumnoColeccion.datasource" />
     <None Include="Properties\DataSources\CaEnt.fichaAlumno.datasource" />
     <None Include="Properties\DataSources\CaEnt.fichaAlumnoFamiliar.datasource" />
+    <None Include="Properties\DataSources\CaEnt.historialConceptos.datasource" />
     <None Include="Properties\DataSources\CaEnt.InformeAsistencia+InformeAsistenciaColeccion.datasource" />
     <None Include="Properties\DataSources\CaEnt.InformeAsistencia.datasource" />
+    <None Include="Properties\DataSources\CaEnt.InformeProgreso.datasource" />
     <None Include="Properties\DataSources\CaEnt.InformeTotalAsistencia.datasource" />
     <None Include="Properties\DataSources\CaEnt.ListaAlumnos.datasource" />
+    <None Include="Properties\DataSources\CaEnt.listaConcepto.datasource" />
     <None Include="Properties\DataSources\CaEnt.ListaDocentes.datasource" />
     <None Include="Properties\DataSources\CaLog.logAsistencia.datasource" />
     <None Include="Properties\DataSources\CapaAccesoDatos.metAsistencia.datasource" />

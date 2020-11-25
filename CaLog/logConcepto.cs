@@ -121,5 +121,30 @@ namespace CaLog
 
         }
 
+        public DataSet listaConceptos()
+        {
+            return objMetConcepto.listaConceptos();
+        }
+
+        public DataSet listaPorConceptos(int con_id, DateTime desde, DateTime hasta)
+        {
+            return objMetConcepto.listaPorConceptos(con_id, desde, hasta);
+        }
+
+        public int idConcepto(string concepto)
+        {
+            return objMetConcepto.idConcepto(concepto);
+        }
+
+        public DataTable TablaPorConceptos(int con_id, DateTime desde, DateTime hasta)
+        {
+            return objMetConcepto.TablaPorConceptos(con_id, desde, hasta);
+        }
+
+        public string fechaHasta(string idConcepto)
+        {
+            return objMetConcepto.fechaHasta(idConcepto);
+        }
+
     }
 }

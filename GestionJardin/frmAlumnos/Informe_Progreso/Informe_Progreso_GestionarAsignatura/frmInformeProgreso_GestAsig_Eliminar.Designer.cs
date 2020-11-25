@@ -43,40 +43,40 @@
             this.btn_CancelarUsuNuevo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_CancelarUsuNuevo.BackColor = System.Drawing.Color.Transparent;
             this.btn_CancelarUsuNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_CancelarUsuNuevo.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btn_CancelarUsuNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_CancelarUsuNuevo.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.btn_CancelarUsuNuevo.IconChar = FontAwesome.Sharp.IconChar.TimesCircle;
             this.btn_CancelarUsuNuevo.IconColor = System.Drawing.Color.DarkGray;
+            this.btn_CancelarUsuNuevo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_CancelarUsuNuevo.IconSize = 36;
             this.btn_CancelarUsuNuevo.Location = new System.Drawing.Point(572, 374);
             this.btn_CancelarUsuNuevo.Name = "btn_CancelarUsuNuevo";
-            this.btn_CancelarUsuNuevo.Rotation = 0D;
             this.btn_CancelarUsuNuevo.Size = new System.Drawing.Size(125, 52);
             this.btn_CancelarUsuNuevo.TabIndex = 21;
             this.btn_CancelarUsuNuevo.Text = "NO";
             this.btn_CancelarUsuNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_CancelarUsuNuevo.UseVisualStyleBackColor = false;
+            this.btn_CancelarUsuNuevo.Click += new System.EventHandler(this.btn_CancelarUsuNuevo_Click);
             // 
             // btn_GuardarUsuNuevo
             // 
             this.btn_GuardarUsuNuevo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_GuardarUsuNuevo.BackColor = System.Drawing.Color.Transparent;
             this.btn_GuardarUsuNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_GuardarUsuNuevo.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btn_GuardarUsuNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_GuardarUsuNuevo.ForeColor = System.Drawing.Color.Red;
             this.btn_GuardarUsuNuevo.IconChar = FontAwesome.Sharp.IconChar.CheckCircle;
             this.btn_GuardarUsuNuevo.IconColor = System.Drawing.Color.Red;
+            this.btn_GuardarUsuNuevo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_GuardarUsuNuevo.IconSize = 36;
             this.btn_GuardarUsuNuevo.Location = new System.Drawing.Point(381, 374);
             this.btn_GuardarUsuNuevo.Name = "btn_GuardarUsuNuevo";
-            this.btn_GuardarUsuNuevo.Rotation = 0D;
             this.btn_GuardarUsuNuevo.Size = new System.Drawing.Size(125, 52);
             this.btn_GuardarUsuNuevo.TabIndex = 20;
             this.btn_GuardarUsuNuevo.Text = "SI";
             this.btn_GuardarUsuNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_GuardarUsuNuevo.UseVisualStyleBackColor = false;
+            this.btn_GuardarUsuNuevo.Click += new System.EventHandler(this.btn_GuardarUsuNuevo_Click);
             // 
             // label4
             // 
@@ -133,6 +133,7 @@
             this.iconPictureBox1.ForeColor = System.Drawing.Color.Red;
             this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.ExclamationCircle;
             this.iconPictureBox1.IconColor = System.Drawing.Color.Red;
+            this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox1.IconSize = 170;
             this.iconPictureBox1.Location = new System.Drawing.Point(95, 199);
             this.iconPictureBox1.Name = "iconPictureBox1";

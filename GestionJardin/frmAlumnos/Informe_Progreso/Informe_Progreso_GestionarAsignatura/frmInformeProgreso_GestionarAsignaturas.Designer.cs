@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvAsignatura = new System.Windows.Forms.DataGridView();
-            this.txtGA_Buscar = new MetroFramework.Controls.MetroTextBox();
             this.lblInfoAsignatura = new System.Windows.Forms.Label();
             this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
             this.lblSala = new System.Windows.Forms.Label();
@@ -52,20 +52,6 @@
             this.dgvAsignatura.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dgvAsignatura.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvAsignatura.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvAsignatura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAsignatura.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvAsignatura.Location = new System.Drawing.Point(36, 379);
-            this.dgvAsignatura.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgvAsignatura.MultiSelect = false;
-            this.dgvAsignatura.Name = "dgvAsignatura";
-            this.dgvAsignatura.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -73,49 +59,33 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAsignatura.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvAsignatura.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvAsignatura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAsignatura.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvAsignatura.Location = new System.Drawing.Point(36, 379);
+            this.dgvAsignatura.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvAsignatura.MultiSelect = false;
+            this.dgvAsignatura.Name = "dgvAsignatura";
+            this.dgvAsignatura.ReadOnly = true;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAsignatura.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvAsignatura.RowTemplate.Height = 24;
             this.dgvAsignatura.Size = new System.Drawing.Size(1252, 495);
             this.dgvAsignatura.TabIndex = 49;
-            // 
-            // txtGA_Buscar
-            // 
-            this.txtGA_Buscar.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtGA_Buscar.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.txtGA_Buscar.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtGA_Buscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            // 
-            // 
-            // 
-            this.txtGA_Buscar.CustomButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGA_Buscar.CustomButton.Image = null;
-            this.txtGA_Buscar.CustomButton.Location = new System.Drawing.Point(492, 2);
-            this.txtGA_Buscar.CustomButton.Name = "";
-            this.txtGA_Buscar.CustomButton.Size = new System.Drawing.Size(45, 45);
-            this.txtGA_Buscar.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtGA_Buscar.CustomButton.TabIndex = 1;
-            this.txtGA_Buscar.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtGA_Buscar.CustomButton.UseSelectable = true;
-            this.txtGA_Buscar.CustomButton.Visible = false;
-            this.txtGA_Buscar.FontSize = MetroFramework.MetroTextBoxSize.Tall;
-            this.txtGA_Buscar.FontWeight = MetroFramework.MetroTextBoxWeight.Bold;
-            this.txtGA_Buscar.Lines = new string[0];
-            this.txtGA_Buscar.Location = new System.Drawing.Point(728, 276);
-            this.txtGA_Buscar.MaxLength = 32767;
-            this.txtGA_Buscar.Name = "txtGA_Buscar";
-            this.txtGA_Buscar.PasswordChar = '\0';
-            this.txtGA_Buscar.PromptText = "BUSCAR CRITERIO DE APRENDIZAJE";
-            this.txtGA_Buscar.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtGA_Buscar.SelectedText = "";
-            this.txtGA_Buscar.SelectionLength = 0;
-            this.txtGA_Buscar.SelectionStart = 0;
-            this.txtGA_Buscar.ShortcutsEnabled = true;
-            this.txtGA_Buscar.Size = new System.Drawing.Size(540, 50);
-            this.txtGA_Buscar.TabIndex = 48;
-            this.txtGA_Buscar.UseSelectable = true;
-            this.txtGA_Buscar.WaterMark = "BUSCAR CRITERIO DE APRENDIZAJE";
-            this.txtGA_Buscar.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtGA_Buscar.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvAsignatura.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAsignatura_CellClick);
             // 
             // lblInfoAsignatura
             // 
@@ -215,15 +185,14 @@
             // 
             this.btn_Eliminar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Eliminar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btn_Eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Eliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btn_Eliminar.IconChar = FontAwesome.Sharp.IconChar.FolderMinus;
             this.btn_Eliminar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_Eliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_Eliminar.IconSize = 100;
             this.btn_Eliminar.Location = new System.Drawing.Point(1311, 707);
             this.btn_Eliminar.Name = "btn_Eliminar";
-            this.btn_Eliminar.Rotation = 0D;
             this.btn_Eliminar.Size = new System.Drawing.Size(293, 134);
             this.btn_Eliminar.TabIndex = 46;
             this.btn_Eliminar.Text = "ELIMINAR";
@@ -235,15 +204,14 @@
             // 
             this.btn_Editar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Editar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btn_Editar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Editar.ForeColor = System.Drawing.Color.Cyan;
             this.btn_Editar.IconChar = FontAwesome.Sharp.IconChar.FolderOpen;
             this.btn_Editar.IconColor = System.Drawing.Color.Cyan;
+            this.btn_Editar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_Editar.IconSize = 100;
             this.btn_Editar.Location = new System.Drawing.Point(1311, 551);
             this.btn_Editar.Name = "btn_Editar";
-            this.btn_Editar.Rotation = 0D;
             this.btn_Editar.Size = new System.Drawing.Size(293, 134);
             this.btn_Editar.TabIndex = 45;
             this.btn_Editar.Text = "EDITAR";
@@ -255,15 +223,14 @@
             // 
             this.btn_Agregar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Agregar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btn_Agregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Agregar.ForeColor = System.Drawing.Color.Lime;
             this.btn_Agregar.IconChar = FontAwesome.Sharp.IconChar.FolderPlus;
             this.btn_Agregar.IconColor = System.Drawing.Color.Lime;
+            this.btn_Agregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_Agregar.IconSize = 100;
             this.btn_Agregar.Location = new System.Drawing.Point(1311, 393);
             this.btn_Agregar.Name = "btn_Agregar";
-            this.btn_Agregar.Rotation = 0D;
             this.btn_Agregar.Size = new System.Drawing.Size(293, 134);
             this.btn_Agregar.TabIndex = 44;
             this.btn_Agregar.Text = "AGREGAR";
@@ -280,7 +247,6 @@
             this.Controls.Add(this.lbl_panelInforme);
             this.Controls.Add(this.metroPanel3);
             this.Controls.Add(this.dgvAsignatura);
-            this.Controls.Add(this.txtGA_Buscar);
             this.Controls.Add(this.lblInfoAsignatura);
             this.Controls.Add(this.btn_Eliminar);
             this.Controls.Add(this.btn_Editar);
@@ -299,7 +265,6 @@
         #endregion
 
         public System.Windows.Forms.DataGridView dgvAsignatura;
-        private MetroFramework.Controls.MetroTextBox txtGA_Buscar;
         private System.Windows.Forms.Label lblInfoAsignatura;
         private FontAwesome.Sharp.IconButton btn_Eliminar;
         private FontAwesome.Sharp.IconButton btn_Editar;

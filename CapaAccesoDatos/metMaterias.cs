@@ -34,7 +34,7 @@ namespace CaAD
                                 "from T_SALA S, T_GRUPO_SALA GS, T_PERSONAS P " +
                                 "WHERE S.SAL_ID = GS.GRS_SAL_ID " +
                                 "AND P.PER_ID = GS.GRS_PER_ID " +
-                                "AND S.SAL_ID = "+ sala + " " +
+                                "AND S.SAL_ID = '"+ sala + "' " +
                                 "AND P.PER_TPE_ID = 2 " +
                                 "AND P.PER_FECHA_BAJA IS NULL " +
                                 ";";
@@ -148,6 +148,282 @@ namespace CaAD
 
             return estado;
         }
+
+        public DataTable buscaMateriaXEdad(string edad)
+        {
+            con = generarConexion();
+            con.Open();
+
+            //string consulta = "SELECT * " +
+            //    "FROM T_MATERIA_TIPO MT " +
+            //    "WHERE MT.MT_MATERIA_ANO = YEAR(GETDATE()) " +
+            //    "AND MT.MT_MATERIA_EDAD = " + edad + " " +
+            //    ";";
+
+
+            string consulta = "SELECT MT_ID ID, " +
+                                     "MT_NOMBRE APRENDIZAJE, " +
+                                     "MT_DESCRIPCION DESCRIPCIÓN, " +
+                                     "MT_MATERIA_ANO ANIO, " +
+                                     "MT_MATERIA_EDAD EDAD " +
+                                "FROM T_MATERIA_TIPO MT " +
+                               "WHERE MT.MT_MATERIA_ANO = YEAR(GETDATE()) " +
+                                 "AND MT.MT_MATERIA_EDAD = " + edad + ";";
+
+
+            cmd = new SqlCommand(consulta, con);
+            dta = new SqlDataAdapter(cmd);
+            dt = new DataTable();
+            dta.Fill(dt);
+
+            con.Close();
+
+            return dt;
+        }
+
+        public string editarMateria(string id, string Nom, string Descr)
+        {
+            string estado = "ERROR";
+
+            try
+            {
+                con = generarConexion();
+                con.Open();
+
+                string consulta = "update T_MATERIA_TIPO " +
+                                    "set MT_NOMBRE = '" + Nom + "' " +
+                                    ", MT_DESCRIPCION = '" + Descr + "' " +
+                                    "where mt_id = " + id + " " +
+                                   ";";
+
+
+
+                cmd = new SqlCommand(consulta, con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                estado = "OK";
+
+            }
+            catch
+            {
+                estado = "ERROR";
+
+            }
+
+            return estado;
+        }
+
+        public string EliminarMateria(string mat_id)
+        {
+            string estado = "ERROR";
+
+            try
+            {
+                con = generarConexion();
+                con.Open();
+
+                string consulta = "delete from T_MATERIA_TIPO " +
+                                    "where mt_id = " + mat_id + " " +
+                                   ";";
+
+
+
+                cmd = new SqlCommand(consulta, con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                estado = "OK";
+
+            }
+            catch
+            {
+                estado = "ERROR";
+
+            }
+
+            return estado;
+        }
+
+        public string AgregarMateria(string nombre, string descripcion, string edad)
+        {
+            string result = "";
+            con = generarConexion();
+            con.Open();
+
+            con = generarConexion();
+            con.Open();
+
+            string consulta = "INSERT INTO T_MATERIA_TIPO output INSERTED.MT_ID VALUES( " +
+                                "'" + nombre + "', " +
+                                "'" + descripcion + "', " +
+                                "YEAR(GETDATE()), " +
+                                "" + edad + ") ";
+
+
+            cmd = new SqlCommand(consulta , con);
+
+            Int32 devolver = Convert.ToInt32(cmd.ExecuteScalar());
+            con.Close();
+            
+            con.Open();
+            string consulta2 = "SELECT S.SAL_ID " +
+                                "FROM T_SALA S " +
+                                "WHERE " + edad + " BETWEEN S.SAL_EDAD_MIN AND S.SAL_EDAD_MAX;";
+
+
+            cmd = new SqlCommand(consulta2, con);
+            dta = new SqlDataAdapter(cmd);
+            dt = new DataTable();
+            dta.Fill(dt);
+
+
+            con.Close();
+
+            if (dt != null)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    string sala_id = "";
+                    if (dr["SAL_ID"] != DBNull.Value)
+                        sala_id = Convert.ToString(dr["SAL_ID"]);
+
+                    con.Open();
+
+                    string consulta3 = "INSERT INTO T_MATERIAS VALUES ( " +
+                                        "" + devolver + ", " +
+                                        "" + sala_id + ", " +
+                                        "NULL, " +
+                                        "NULL, " +
+                                        "YEAR(GETDATE()) " +
+                                        "); ";
+
+
+                    cmd = new SqlCommand(consulta3, con);
+
+                    Int32 devolver2 = Convert.ToInt32(cmd.ExecuteScalar());
+                    con.Close();
+
+                }
+            }
+
+
+            return result;
+        }
+
+
+        public DataSet InformeProgreso(int idPersona, int etapa)
+        {
+
+            DataSet dset = new DataSet();
+
+            con = generarConexion();
+            con.Open();
+
+            try
+            {
+                string consulta = "SELECT (PER_NOMBRE +' ' + PER_APELLIDO) ALUMNO, " +
+                                         "PER_DOCUMENTO DOCUMENTO, " +
+                                         "MT_MATERIA_EDAD EDAD, " +
+                                         "MT_MATERIA_ANO ANIO, " +
+                                         "MT_NOMBRE IDENTIDAD_Y_CONVIVENCIA, " +
+                                         "MT_DESCRIPCION DESCRIPCION, " +
+                                         "CAL_PROGRESO PROGRESO, " +
+                                         "CAL_SEMESTRE SEMESTRE, " +
+                                         "b.APRENDIZAJE LENGUAJE_Y_LITERATURA, " +
+                                         "b.DESCRIPCION DESCRIPCION_LYL, " +
+                                         "b.PROGRESO PROGRESO_LYL, " +
+                                         "c.APRENDIZAJE MATEMATICA, " +
+                                         "c.DESCRIPCION DESCRIPCION_MATEMATICA, " +
+                                         "c.PROGRESO PROGRESO_MATEMATICA, " +
+                                         "d.APRENDIZAJE CIENCIAS, " +
+                                         "d.DESCRIPCION DESCRIPCION_CIENCIAS, " +
+                                         "d.PROGRESO PROGRESO_CIENCIAS, " +
+                                         "e.APRENDIZAJE ARTISTICA, " +
+                                         "e.DESCRIPCION DESCRIPCION_ARTISTICA, " +
+                                         "e.PROGRESO PROGRESO_ARTISTICA, " +
+                                         "f.APRENDIZAJE EDFISICA, " +
+                                         "f.DESCRIPCION DESCRIPCION_EDFISICA, " +
+                                         "f.PROGRESO PROGRESO_EDFISICA, " +
+                                         "GETDATE() FECHA " +
+                                    "FROM T_CALIFICACIONES, " +
+                                         "T_MATERIAS, " +
+                                         "T_PERSONAS, " +
+                                         "T_MATERIA_TIPO, " +
+                                         "(SELECT MT_NOMBRE APRENDIZAJE, " +
+                                                 "MT_DESCRIPCION DESCRIPCION, " +
+                                                 "CAL_PROGRESO PROGRESO " +
+                                           "FROM T_CALIFICACIONES, T_MATERIAS, T_PERSONAS, T_MATERIA_TIPO " +
+                                          "WHERE PER_ID = CAL_PER_ID " +
+                                          "AND CAL_MAT_ID = MAT_ID " +
+                                          "AND MT_ID = MAT_ID " +
+                                          "AND CAL_PER_ID = " + idPersona + " "+
+                                          "AND CAL_SEMESTRE = " + etapa + " " +
+                                          "AND MT_NOMBRE = 'LENGUAJE Y LITERATURA') b, " +
+                                          "(SELECT MT_NOMBRE APRENDIZAJE, " +
+                                                  "MT_DESCRIPCION DESCRIPCION, " +
+                                                  "CAL_PROGRESO PROGRESO " +
+                                            "FROM T_CALIFICACIONES, T_MATERIAS, T_PERSONAS, T_MATERIA_TIPO " +
+                                           "WHERE PER_ID = CAL_PER_ID " +
+                                             "AND CAL_MAT_ID = MAT_ID " +
+                                             "AND MT_ID = MAT_ID " +
+                                             "AND CAL_PER_ID = " + idPersona + " " +
+                                             "AND CAL_SEMESTRE = " + etapa + " " +
+                                             "AND MT_NOMBRE = 'MATEMÁTICA') c, " +
+                                          "(SELECT MT_NOMBRE APRENDIZAJE, " +
+                                                  "MT_DESCRIPCION DESCRIPCION, " +
+                                                  "CAL_PROGRESO PROGRESO " +
+                                            "FROM T_CALIFICACIONES, T_MATERIAS, T_PERSONAS, T_MATERIA_TIPO " +
+                                           "WHERE PER_ID = CAL_PER_ID " +
+                                             "AND CAL_MAT_ID = MAT_ID " +
+                                             "AND MT_ID = MAT_ID " +
+                                             "AND CAL_PER_ID = " + idPersona + " " +
+                                             "AND CAL_SEMESTRE = " + etapa + " " +
+                                             "AND MT_NOMBRE = 'CIENCIAS SOCIALES, CIENCIAS NATURALES Y TECNOLOGÍA') d, " +
+                                         "(SELECT MT_NOMBRE APRENDIZAJE, " +
+                                                 "MT_DESCRIPCION DESCRIPCION, " +
+                                                 "CAL_PROGRESO PROGRESO " +
+                                            "FROM T_CALIFICACIONES, T_MATERIAS, T_PERSONAS, T_MATERIA_TIPO " +
+                                          "WHERE PER_ID = CAL_PER_ID " +
+                                            "AND CAL_MAT_ID = MAT_ID " +
+                                            "AND MT_ID = MAT_ID " +
+                                            "AND CAL_PER_ID = " + idPersona + " " +
+                                            "AND CAL_SEMESTRE = " + etapa + " " +
+                                            "AND MT_NOMBRE = 'EDUCACIÓN ARTÍSTICA') e, " +
+                                        "(SELECT MT_NOMBRE APRENDIZAJE, " +
+                                                "MT_DESCRIPCION DESCRIPCION, " +
+                                                "CAL_PROGRESO PROGRESO " +
+                                          "FROM T_CALIFICACIONES, T_MATERIAS, T_PERSONAS, T_MATERIA_TIPO " +
+                                         "WHERE PER_ID = CAL_PER_ID " +
+                                           "AND CAL_MAT_ID = MAT_ID " +
+                                           "AND MT_ID = MAT_ID " +
+                                           "AND CAL_PER_ID = " + idPersona + " " +
+                                           "AND CAL_SEMESTRE = " + etapa + " " +
+                                           "AND MT_NOMBRE = 'EDUCACIÓN FÍSICA') f " +
+                                     "WHERE PER_ID = CAL_PER_ID " +
+                                       "AND CAL_MAT_ID = MAT_ID " +
+                                       "AND MT_ID = MAT_ID " +
+                                       "AND CAL_PER_ID = " + idPersona + " " +
+                                       "AND CAL_SEMESTRE = " + etapa + " " +
+                                       "AND MT_NOMBRE = 'IDENTIDAD Y CONVIVENCIA';";
+
+                cmd = new SqlCommand(consulta, con);
+                dta = new SqlDataAdapter(cmd);
+                dta.Fill(dset);
+
+                con.Close();
+
+
+                return dset;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return dset;
+
+        }
+
 
     }
 }

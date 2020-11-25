@@ -48,10 +48,10 @@
             this.btn_canc_deshab_con.IconColor = System.Drawing.Color.DarkGray;
             this.btn_canc_deshab_con.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_canc_deshab_con.IconSize = 36;
-            this.btn_canc_deshab_con.Location = new System.Drawing.Point(352, 270);
-            this.btn_canc_deshab_con.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_canc_deshab_con.Location = new System.Drawing.Point(640, 353);
+            this.btn_canc_deshab_con.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_canc_deshab_con.Name = "btn_canc_deshab_con";
-            this.btn_canc_deshab_con.Size = new System.Drawing.Size(94, 42);
+            this.btn_canc_deshab_con.Size = new System.Drawing.Size(125, 52);
             this.btn_canc_deshab_con.TabIndex = 20;
             this.btn_canc_deshab_con.Text = "NO";
             this.btn_canc_deshab_con.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -69,10 +69,10 @@
             this.btn_deshabilitar_concepto.IconColor = System.Drawing.Color.Red;
             this.btn_deshabilitar_concepto.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_deshabilitar_concepto.IconSize = 36;
-            this.btn_deshabilitar_concepto.Location = new System.Drawing.Point(96, 270);
-            this.btn_deshabilitar_concepto.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_deshabilitar_concepto.Location = new System.Drawing.Point(457, 353);
+            this.btn_deshabilitar_concepto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_deshabilitar_concepto.Name = "btn_deshabilitar_concepto";
-            this.btn_deshabilitar_concepto.Size = new System.Drawing.Size(94, 42);
+            this.btn_deshabilitar_concepto.Size = new System.Drawing.Size(125, 52);
             this.btn_deshabilitar_concepto.TabIndex = 19;
             this.btn_deshabilitar_concepto.Text = "SI";
             this.btn_deshabilitar_concepto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -85,10 +85,9 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(273, 168);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(401, 207);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 18);
+            this.label3.Size = new System.Drawing.Size(0, 24);
             this.label3.TabIndex = 17;
             // 
             // lbl_nombre_concepto
@@ -97,10 +96,9 @@
             this.lbl_nombre_concepto.AutoSize = true;
             this.lbl_nombre_concepto.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_nombre_concepto.ForeColor = System.Drawing.Color.Yellow;
-            this.lbl_nombre_concepto.Location = new System.Drawing.Point(214, 69);
-            this.lbl_nombre_concepto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_nombre_concepto.Location = new System.Drawing.Point(283, 154);
             this.lbl_nombre_concepto.Name = "lbl_nombre_concepto";
-            this.lbl_nombre_concepto.Size = new System.Drawing.Size(154, 26);
+            this.lbl_nombre_concepto.Size = new System.Drawing.Size(197, 32);
             this.lbl_nombre_concepto.TabIndex = 16;
             this.lbl_nombre_concepto.Text = "CONCEPTO ?";
             // 
@@ -110,10 +108,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(92, 31);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(39, 52);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(457, 24);
+            this.label1.Size = new System.Drawing.Size(580, 29);
             this.label1.TabIndex = 15;
             this.label1.Text = "¿Esta seguro que desea DESHABILITAR el concepto";
             // 
@@ -125,28 +122,28 @@
             this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.ExclamationCircle;
             this.iconPictureBox1.IconColor = System.Drawing.Color.Red;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox1.IconSize = 138;
-            this.iconPictureBox1.Location = new System.Drawing.Point(219, 106);
-            this.iconPictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.iconPictureBox1.IconSize = 170;
+            this.iconPictureBox1.Location = new System.Drawing.Point(44, 117);
+            this.iconPictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.iconPictureBox1.Name = "iconPictureBox1";
-            this.iconPictureBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.iconPictureBox1.Size = new System.Drawing.Size(142, 138);
+            this.iconPictureBox1.Padding = new System.Windows.Forms.Padding(5);
+            this.iconPictureBox1.Size = new System.Drawing.Size(189, 170);
             this.iconPictureBox1.TabIndex = 14;
             this.iconPictureBox1.TabStop = false;
             // 
             // frmConcepto_Eliminar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(875, 450);
             this.Controls.Add(this.btn_canc_deshab_con);
             this.Controls.Add(this.btn_deshabilitar_concepto);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lbl_nombre_concepto);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.iconPictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmConcepto_Eliminar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();

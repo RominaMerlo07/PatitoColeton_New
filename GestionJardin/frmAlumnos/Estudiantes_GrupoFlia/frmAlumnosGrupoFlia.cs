@@ -264,9 +264,6 @@ namespace GestionJardin
 
 
                 dgvGrupoFlia.ClearSelection();
-
-
-
                
 
                 int c = dgvGrupoFlia.Rows.Count;

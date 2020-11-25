@@ -34,9 +34,6 @@ namespace GestionJardin
             btnGA_Editar.ForeColor = Color.Gray;
 
             Settooltip();
-
-
-
         }
 
         private void Settooltip()

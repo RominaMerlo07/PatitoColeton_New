@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCobros_Gestionar));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txt_Buscar = new MetroFramework.Controls.MetroTextBox();
             this.dgvCobros = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
@@ -64,7 +65,7 @@
             this.txt_Buscar.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.txt_Buscar.FontWeight = MetroFramework.MetroTextBoxWeight.Bold;
             this.txt_Buscar.Lines = new string[0];
-            this.txt_Buscar.Location = new System.Drawing.Point(45, 293);
+            this.txt_Buscar.Location = new System.Drawing.Point(30, 350);
             this.txt_Buscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_Buscar.MaxLength = 32767;
             this.txt_Buscar.Name = "txt_Buscar";
@@ -85,6 +86,7 @@
             this.txt_Buscar.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Buscar.ButtonClick += new MetroFramework.Controls.MetroTextBox.ButClick(this.txtCob_Buscar_ButtonClick);
             this.txt_Buscar.TextChanged += new System.EventHandler(this.txt_Buscar_TextChanged);
+            this.txt_Buscar.Enter += new System.EventHandler(this.txt_Buscar_Enter);
             // 
             // dgvCobros
             // 
@@ -93,31 +95,40 @@
             this.dgvCobros.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dgvCobros.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvCobros.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvCobros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCobros.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvCobros.Location = new System.Drawing.Point(45, 393);
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCobros.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvCobros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCobros.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvCobros.Location = new System.Drawing.Point(30, 450);
             this.dgvCobros.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvCobros.MultiSelect = false;
             this.dgvCobros.Name = "dgvCobros";
             this.dgvCobros.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCobros.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCobros.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvCobros.RowTemplate.Height = 24;
             this.dgvCobros.Size = new System.Drawing.Size(1236, 495);
             this.dgvCobros.TabIndex = 50;
+
             // 
             // label1
             // 
@@ -126,7 +137,7 @@
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(41, 909);
+            this.label1.Location = new System.Drawing.Point(41, 1062);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(695, 20);
             this.label1.TabIndex = 49;
@@ -137,17 +148,16 @@
             // 
             this.btnCob_Eliminar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCob_Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCob_Eliminar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnCob_Eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCob_Eliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnCob_Eliminar.IconChar = FontAwesome.Sharp.IconChar.Times;
             this.btnCob_Eliminar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnCob_Eliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCob_Eliminar.IconSize = 90;
-            this.btnCob_Eliminar.Location = new System.Drawing.Point(1330, 668);
+            this.btnCob_Eliminar.Location = new System.Drawing.Point(1340, 721);
+            this.btnCob_Eliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCob_Eliminar.Name = "btnCob_Eliminar";
-            this.btnCob_Eliminar.Rotation = 0D;
-            this.btnCob_Eliminar.Size = new System.Drawing.Size(293, 131);
+            this.btnCob_Eliminar.Size = new System.Drawing.Size(293, 130);
             this.btnCob_Eliminar.TabIndex = 48;
             this.btnCob_Eliminar.Text = "ANULAR";
             this.btnCob_Eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -158,16 +168,15 @@
             // 
             this.btnCob_Agregar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCob_Agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCob_Agregar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnCob_Agregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCob_Agregar.ForeColor = System.Drawing.Color.Lime;
             this.btnCob_Agregar.IconChar = FontAwesome.Sharp.IconChar.CashRegister;
             this.btnCob_Agregar.IconColor = System.Drawing.Color.Lime;
             this.btnCob_Agregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCob_Agregar.IconSize = 90;
-            this.btnCob_Agregar.Location = new System.Drawing.Point(1330, 463);
+            this.btnCob_Agregar.Location = new System.Drawing.Point(1340, 535);
+            this.btnCob_Agregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCob_Agregar.Name = "btnCob_Agregar";
-            this.btnCob_Agregar.Rotation = 0D;
             this.btnCob_Agregar.Size = new System.Drawing.Size(293, 134);
             this.btnCob_Agregar.TabIndex = 46;
             this.btnCob_Agregar.Text = "COBRAR";
@@ -182,7 +191,7 @@
             this.lblBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBuscar.ForeColor = System.Drawing.Color.Yellow;
-            this.lblBuscar.Location = new System.Drawing.Point(510, 310);
+            this.lblBuscar.Location = new System.Drawing.Point(494, 367);
             this.lblBuscar.Name = "lblBuscar";
             this.lblBuscar.Size = new System.Drawing.Size(575, 20);
             this.lblBuscar.TabIndex = 56;
@@ -193,7 +202,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.ClientSize = new System.Drawing.Size(1660, 947);
+            this.ClientSize = new System.Drawing.Size(1660, 1055);
             this.Controls.Add(this.lblBuscar);
             this.Controls.Add(this.txt_Buscar);
             this.Controls.Add(this.dgvCobros);
@@ -201,6 +210,7 @@
             this.Controls.Add(this.btnCob_Eliminar);
             this.Controls.Add(this.btnCob_Agregar);
             this.Location = new System.Drawing.Point(45, 293);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmCobros_Gestionar";
             this.Text = "COBROS / GESTIONAR";
             this.Load += new System.EventHandler(this.frmCobros_Gestionar_Load);

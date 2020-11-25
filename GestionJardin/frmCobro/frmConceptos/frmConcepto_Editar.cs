@@ -26,6 +26,17 @@ namespace GestionJardin
         public frmConcepto_Editar(string idConceptoSelect, string NombreConceptoSelect, string ValorActualConceptoSelect, DateTime Fecha_InicioSelect, string Valor_anteriorSelect, string EstadoConceptosSelect)
         {
             InitializeComponent();
+
+            if (NombreConceptoSelect == "INTERES POR MORA")
+            {
+                txtSigno.Text = "%";
+            }
+            else
+            {
+                txtSigno.Text = "$";
+            }
+        
+
             lbl_titulo_conceptos.Text = "ACTUALIZAR CONCEPTO : " + NombreConceptoSelect + "";
             id_concepto = idConceptoSelect;
             nombre_concepto = NombreConceptoSelect;
@@ -36,7 +47,7 @@ namespace GestionJardin
 
             if (estado_concepto == "INACTIVO")
             {
-                DialogResult dialogResult = MessageBox.Show("¿DESEA HABILITAR EL CONCEPTO?", "HABILITACIÓN CONCEPTO", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("¿DESEA HABILITAR EL CONCEPTO?", "HABILITACIÓN CONCEPTO", MessageBoxButtons.YesNo,MessageBoxIcon.Exclamation);
                 if (dialogResult == DialogResult.Yes)
                 {
                     logConcepto objLogConcepto = new logConcepto();
@@ -44,16 +55,16 @@ namespace GestionJardin
                     ObjEntConcepto.CON_ID = Convert.ToInt32(id_concepto);
 
                     string rtdo_habilitacion = objLogConcepto.ActualizarEstadoS(ObjEntConcepto);
-                    MessageBox.Show(rtdo_habilitacion);
+                    MessageBox.Show(rtdo_habilitacion,"INFORMACIÓN",MessageBoxButtons.OK, MessageBoxIcon.Information);
                     //this.Close();
                 }
                 else 
                 {
                     this.Close();
-                                    }
+                }
 
             }
-            }
+         }
 
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -61,7 +72,7 @@ namespace GestionJardin
 
                     if (txt_valor_actualizar.Text == "")
                     {
-                        MessageBox.Show("Debe colocar un nuevo importe");
+                        MessageBox.Show("Debe colocar un nuevo importe","Advertencia",MessageBoxButtons.OK,MessageBoxIcon.Error);
                         txt_valor_actualizar.Focus();
 
                     }
@@ -113,18 +124,97 @@ namespace GestionJardin
                         resultado = objlogConcepto.ActualizarMonto(objentConcepto, fecha_hasta, fecha_ult_actualizacion);
                         string resultado_historial = objlogHistorial.InsertarHistorialConceptos(objentHistorial, his_hasta, his_desde);
 
-
-
-                        MessageBox.Show(resultado);
-                        MessageBox.Show(resultado_historial);
-
+                        MessageBox.Show(resultado,"INFORMACIÓN",MessageBoxButtons.OK,MessageBoxIcon.Information);                      
 
                         this.Close();
                     }
-                }
+        }
 
-            
-        
-       
+        private void btnBloqueo_Click(object sender, EventArgs e)
+        {
+            if (this.btnBloqueo.IconChar == FontAwesome.Sharp.IconChar.Lock)
+            {
+                this.btnBloqueo.IconChar = FontAwesome.Sharp.IconChar.Unlock;
+                onOffCampos(true);                
+            }
+            else
+            {
+                this.btnBloqueo.IconChar = FontAwesome.Sharp.IconChar.Lock;
+                onOffCampos(false);
+            }
+        }
+
+
+        private void onOffCampos(bool onOff)
+        {
+            txt_valor_actualizar.Enabled = onOff;
+        }
+
+
+        //VALIDA EL INGRESO DE NUMEROS Y DECIMALES
+        private void UnPunto(KeyPressEventArgs e, string cadena)
+        {
+            int contador = 0;
+            string caracter = "";
+            bool bandera;
+
+            for (int n = 0; n < cadena.Length; n++)
+            {
+                caracter = cadena.Substring(n, 1);
+                if (caracter == ".")
+                {
+                    contador++;
+                }
+            }
+
+            if (contador == 0)
+            {
+                bandera = true;
+                if (e.KeyChar == ',' && bandera)
+                {
+                    bandera = false; // ya no acepta otro punto
+                    e.Handled = false;
+                }
+                else if (Char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else if (Char.IsControl(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+            else
+            {
+                bandera = false;
+                e.Handled = true;
+                if (Char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else if (Char.IsControl(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void txt_valor_actualizar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            UnPunto(e, txt_valor_actualizar.Text);
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

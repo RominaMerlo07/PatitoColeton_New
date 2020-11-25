@@ -27,7 +27,7 @@ namespace GestionJardin
         {
             InitializeComponent();
 
-            metroLabel4.Text = "Informe de progreso del ALUMNO: " + nomape + " - DNI: " + documento + " - EDAD: " + edad + " AÑOS";
+            metroLabel4.Text = "Informe de progreso del ALUMNO: " + nomape + " - DNI: " + documento + " - EDAD: " + edad + "";
 
             switch (edad)
             {
@@ -96,13 +96,12 @@ namespace GestionJardin
             if (string.IsNullOrWhiteSpace(cbAsignatura.Text.Trim()) == false)
             {
                 lblEstado.Visible = true;
-                panelDescripcion.Visible = true;
+                lblDescripcion.Visible = true;
                 
                 txtObservacion.Visible = true;
                 btnguardar.Visible = true;
                 btncancelar.Visible = true;
-                btnBloqueo.Visible = false;
-
+               
                 mat_id = Convert.ToInt32(cbAsignatura.SelectedValue.ToString());
 
                 DataRow[] dr = materia.Select("mt_id = " + mat_id);
@@ -127,10 +126,9 @@ namespace GestionJardin
                     lblEstado.Text = "CARGADO";
                 } else
                 {
-                    txtObservacion.Text = "TEXTO A INGRESAR POR PROFESOR";
+                    txtObservacion.Text = null;
                     lblEstado.Text = "PENDIENTE";
                 }
-
                 
             }
 
@@ -139,11 +137,11 @@ namespace GestionJardin
         private void Inicializar()
         {
             lblEstado.Visible = false;
-            panelDescripcion.Visible = false;
+            lblDescripcion.Visible = false;
             txtObservacion.Visible = false;
             btnguardar.Visible = false;
             btncancelar.Visible = false;
-            btnBloqueo.Visible = false;
+            
         }
 
         private void btncancelar_Click(object sender, EventArgs e)
